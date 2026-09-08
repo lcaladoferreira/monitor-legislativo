@@ -1,0 +1,11 @@
+# Python
+__pycache__/
+*.pyc
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# O site gerado é versionado de propósito (deploy via /docs no GitHub Pages),
+# mas builds locais temporários não devem poluir o repositório.
+docs/_tmp/
