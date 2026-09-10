@@ -9,8 +9,19 @@ atualiza o dataset (fonte única da verdade). Depois disso,
 `python3 scripts/build_site.py` regenera o site.
 
 Uso:
-    python3 scripts/update_legislation.py            # execução completa
-    python3 scripts/update_legislation.py --dry-run  # consulta e relata, sem gravar
+    python3 scripts/update_legislation.py                    # execução completa
+    python3 scripts/update_legislation.py --dry-run          # consulta e relata, sem gravar
+    python3 scripts/update_legislation.py --budget-min 25    # teto de tempo da coleta
+    python3 scripts/update_legislation.py --max-novas 25     # teto de fichas novas por execução
+    python3 scripts/update_legislation.py --limite 60        # verificar apenas as 60 prioritárias
+
+Orçamento de tempo (obrigatório para a automação): a coleta tem um teto de
+duração (padrão 25 min, configurável por `--budget-min` ou pela variável
+`MONITOR_BUDGET_SEGUNDOS`). Ao se aproximar do teto, o coletor para de iniciar
+novas consultas, **persiste o que já foi verificado** e registra a execução com
+status `parcial` — o site é reconstruído e publicado de qualquer forma. Sem esse
+teto, o crescimento do dataset (mais proposições = mais chamadas HTTP) fazia a
+GitHub Action estourar o timeout de 45 min e nada era publicado.
 
 Sem dependências externas (apenas stdlib). É terminantemente proibido inventar
 dados: tudo que este script grava vem de resposta oficial das APIs abaixo.
@@ -35,6 +46,7 @@ Outras fontes oficiais (Planalto, DOU, TSE, CNJ, ANPD, MCTI) não oferecem APIs
 públicas equivalentes em JSON; sua verificação permanece manual/curada e é
 documentada na página /metodologia/.
 """
+import argparse
 import json
 import os
 import re
@@ -62,6 +74,68 @@ UA = {"User-Agent": "monitor-legislativo-ia/1.0 (+https://monitor-legislativo-fi
       "Accept": "application/json"}
 
 OLD_DOMAIN = "lcaladoferreira.github.io/monitor-legislativo"
+
+# ---------------------------------------------------------------- orçamento
+# Por que isto existe: o dataset cresce a cada execução (mais proposições =
+# mais fichas para consultar). Sem teto de tempo, a coleta passava dos 45 min
+# do job e era cancelada pelo GitHub Actions ANTES do rebuild/commit — o site
+# ficava congelado na execução anterior. O orçamento garante que a execução
+# sempre termine a tempo de publicar (mesmo que parcialmente).
+def _env_int(nome, padrao):
+    try:
+        return int(os.environ.get(nome, "") or padrao)
+    except ValueError:
+        return padrao
+
+
+BUDGET_S = _env_int("MONITOR_BUDGET_SEGUNDOS", 25 * 60)   # teto da coleta
+MARGEM_FINAL_S = 90          # reserva para persistir e imprimir o resumo
+MAX_NOVAS = _env_int("MONITOR_MAX_NOVAS", 25)             # fichas novas por execução
+MAX_PROPS = _env_int("MONITOR_MAX_PROPS", 0)              # 0 = sem limite
+WORKERS = max(1, _env_int("MONITOR_WORKERS", 5))          # threads de coleta
+HTTP_CONCORRENCIA = max(1, _env_int("MONITOR_HTTP_CONCORRENCIA", 4))
+HTTP_TIMEOUT = _env_int("MONITOR_HTTP_TIMEOUT", 20)
+HTTP_RETRIES = max(1, _env_int("MONITOR_HTTP_RETRIES", 2))
+
+
+class BudgetExceeded(RuntimeError):
+    """Levantada quando o orçamento de tempo da coleta se esgota."""
+
+
+class Budget:
+    """Relógio monotônico compartilhado pelas threads.
+
+    `margem` é a reserva final: quando o tempo restante cai abaixo dela, o
+    coletor para de iniciar consultas e fecha a execução graciosamente.
+    """
+
+    def __init__(self, segundos, margem=None):
+        self.limite = max(5, int(segundos))  # piso baixo: usado nos testes offline
+        self.margem = MARGEM_FINAL_S if margem is None else max(0, int(margem))
+        self.t0 = time.monotonic()
+        self._lock = threading.Lock()
+
+    def decorrido(self):
+        return time.monotonic() - self.t0
+
+    def restante(self):
+        return max(0.0, self.limite - self.decorrido())
+
+    def expirado(self, folga=0):
+        return self.restante() <= (self.margem + max(0, folga))
+
+    def checar(self, folga=0):
+        if self.expirado(folga):
+            raise BudgetExceeded(
+                f"orçamento de {self.limite}s esgotado "
+                f"(decorrido: {int(self.decorrido())}s)")
+
+    def pausa(self, segundos):
+        """Pausa educada, encurtada se o orçamento estiver no fim."""
+        time.sleep(max(0.0, min(segundos, self.restante() - self.margem)))
+
+
+BUDGET = Budget(BUDGET_S)
 
 # Tipos de proposição aceitos na descoberta automática (Câmara e Senado).
 TIPOS_INCLUIR = {"PL", "PLP", "PEC", "PDL", "PDN", "PLN", "MPV", "PDC", "PRC",
@@ -120,7 +194,47 @@ def norm(t):
 
 
 _CURL_BIN = shutil.which("curl")
-_HTTP_SEM = threading.BoundedSemaphore(2)  # concorrência máxima de HTTP
+_HTTP_SEM = threading.BoundedSemaphore(HTTP_CONCORRENCIA)  # concorrência máxima de HTTP
+_HTTP_LOCK = threading.Lock()
+_HTTP_CACHE = {}          # url -> payload (evita consultar a mesma ficha 2x na execução)
+_HTTP_STATS = {"chamadas": 0, "cache": 0, "falhas": 0, "tempo_total": 0.0,
+               "por_endpoint": {}}
+
+
+def endpoint_label(url):
+    """Rótulo estável do endpoint (sem ids), usado nas métricas de custo."""
+    try:
+        partes = urllib.parse.urlparse(url)
+    except ValueError:
+        return "desconhecido"
+    casa = "camara" if "camara" in partes.netloc else (
+        "senado" if "senado" in partes.netloc else "outro")
+    seg = [p for p in partes.path.split("/") if p][2:] if casa != "outro" else []
+    limpos = []
+    for p in seg:
+        limpos.append("{id}" if p.isdigit() else p.removesuffix(".json"))
+    return f"{casa}:" + "/".join(limpos[:3]) if limpos else casa
+
+
+def _stat_endpoint(url, campo, valor=1):
+    with _HTTP_LOCK:
+        ep = _HTTP_STATS["por_endpoint"].setdefault(
+            endpoint_label(url), {"chamadas": 0, "falhas": 0, "tempo_total": 0.0})
+        ep[campo] = ep.get(campo, 0) + valor
+
+
+def http_stats():
+    """Métricas de rede da execução (para o painel de monitoramento)."""
+    with _HTTP_LOCK:
+        return {
+            "chamadas": _HTTP_STATS["chamadas"],
+            "cache": _HTTP_STATS["cache"],
+            "falhas": _HTTP_STATS["falhas"],
+            "tempo_total": round(_HTTP_STATS["tempo_total"], 2),
+            "por_endpoint": {k: {"chamadas": v["chamadas"], "falhas": v["falhas"],
+                                 "tempo_total": round(v["tempo_total"], 2)}
+                             for k, v in sorted(_HTTP_STATS["por_endpoint"].items())},
+        }
 
 
 def _http_urllib(url, timeout):
@@ -140,28 +254,59 @@ def _http_curl(url, timeout):
     return json.loads(out.stdout)
 
 
-def http_get_json(url, timeout=25, retries=2):
-    """GET com retries e backoff. Retorna dict ou None (falha registrada).
+def http_get_json(url, timeout=None, retries=None, cache=True):
+    """GET com orçamento de tempo, cache de execução e retries. Dict ou None.
 
-    Usa curl quando disponível (handshake mais robusto neste ambiente e nos
-    runners do GitHub Actions); caso contrário, urllib da stdlib.
+    Levanta BudgetExceeded quando o orçamento acaba: nenhuma chamada nova é
+    iniciada e a coleta é encerrada de forma limpa (dados parciais preservados).
+    Usa curl quando disponível (handshake mais robusto nos runners do GitHub
+    Actions); caso contrário, urllib da stdlib.
     """
+    timeout = HTTP_TIMEOUT if timeout is None else timeout
+    retries = HTTP_RETRIES if retries is None else retries
+    if cache:
+        with _HTTP_LOCK:
+            if url in _HTTP_CACHE:
+                _HTTP_STATS["cache"] += 1
+                return _HTTP_CACHE[url]
     last_err = None
     for attempt in range(retries):
+        BUDGET.checar()
+        t0 = time.monotonic()
         try:
             with _HTTP_SEM:
+                espera = max(5, min(timeout, BUDGET.restante() - BUDGET.margem))
+                if espera <= 0:
+                    raise BudgetExceeded("orçamento esgotado durante a espera")
+                with _HTTP_LOCK:
+                    _HTTP_STATS["chamadas"] += 1
                 if _CURL_BIN:
-                    return _http_curl(url, timeout)
-                return _http_urllib(url, timeout)
+                    payload = _http_curl(url, int(espera))
+                else:
+                    payload = _http_urllib(url, int(espera))
+            with _HTTP_LOCK:
+                _HTTP_STATS["tempo_total"] += time.monotonic() - t0
+                if cache:
+                    _HTTP_CACHE[url] = payload
+            _stat_endpoint(url, "chamadas")
+            _stat_endpoint(url, "tempo_total", round(time.monotonic() - t0, 2))
+            return payload
+        except BudgetExceeded:
+            raise
         except Exception as e:  # noqa: BLE001 - rede instável; registra e tenta de novo
             last_err = e
-            time.sleep(2 * (attempt + 1))
+            with _HTTP_LOCK:
+                _HTTP_STATS["tempo_total"] += time.monotonic() - t0
+                _HTTP_STATS["falhas"] += 1
+            _stat_endpoint(url, "falhas")
+            if attempt + 1 < retries:
+                BUDGET.pausa(2 * (attempt + 1))
     print(f"  [aviso] falha após {retries} tentativas: {url[:110]} ({last_err})", flush=True)
     return None
 
 
 def polite_pause():
-    time.sleep(0.3)
+    BUDGET.pausa(0.3)
 
 
 def relevance(text):
@@ -431,7 +576,38 @@ class Collector:
         self.updated = 0
         self.new_props = []
         self.fontes_ok = set()
+        self.nao_verificadas = []   # ids não consultados por fim de orçamento
+        self.fases = {}             # fase -> segundos (métricas do painel)
+        self._changes_gravadas = 0  # mudanças já persistidas (checkpoint intermediário)
+        self._fases_ini = {}
         self._lock = threading.Lock()  # contadores e sets compartilhados entre threads
+
+    # ------------------------------------------------------------- telemetria
+    def fase(self, nome):
+        """Context manager para medir a duração de cada fase da coleta."""
+        coletor = self
+
+        class _Fase:
+            def __enter__(self_):
+                self_._t0 = time.monotonic()
+                return self_
+
+            def __exit__(self_, *exc):
+                with coletor._lock:
+                    coletor.fases[nome] = round(
+                        coletor.fases.get(nome, 0.0) + time.monotonic() - self_._t0, 1)
+                return False
+
+        return _Fase()
+
+    def _resumo_execucao(self):
+        return {
+            "duracao_segundos": int(BUDGET.decorrido()),
+            "orcamento_segundos": BUDGET.limite,
+            "orcamento_restante_segundos": int(BUDGET.restante()),
+            "fases_segundos": dict(sorted(self.fases.items())),
+            "http": http_stats(),
+        }
 
     def _bump(self, attr):
         with self._lock:
@@ -867,14 +1043,27 @@ class Collector:
 
     # ------------------------------------------------- descoberta: Câmara
     def discover_camara(self, known_keys, last_run):
+        """Descobre proposições novas na Câmara.
+
+        `last_run` é uma data ISO (YYYY-MM-DD). Antes era passado o timestamp
+        completo da execução anterior (com hora e fuso), que é inválido para o
+        parâmetro `dataApresentacaoInicio` da API — a paginação vinha sem filtro
+        e a descoberta varria o banco inteiro em toda execução (uma das causas
+        do estouro de tempo do job).
+        """
         found = []
-        # 1) Incremental: tudo apresentado desde a última execução, filtrado localmente
+        # 1) Incremental: tudo apresentado desde a última execução (1 dia de
+        #    sobreposição para não perder matérias apresentadas entre execuções).
         if last_run:
+            inicio = (datetime.strptime(last_run, "%Y-%m-%d").date()
+                      - timedelta(days=1)).isoformat()
             for page in range(1, 6):
+                if BUDGET.expirado():
+                    break
                 q = urllib.parse.urlencode({
-                    "dataApresentacaoInicio": last_run, "ordem": "DESC",
+                    "dataApresentacaoInicio": inicio, "ordem": "DESC",
                     "ordenarPor": "id", "itens": 100, "pagina": page})
-                d = http_get_json(f"{CAMARA}/proposicoes?{q}", retries=2)
+                d = http_get_json(f"{CAMARA}/proposicoes?{q}")
                 polite_pause()
                 if not d:
                     break
@@ -898,9 +1087,11 @@ class Collector:
         for kw in ("inteligencia artificial", "deepfake", "reconhecimento facial",
                    "conteudo sintetico", "decisao automatizada"):
             for page in range(1, 4):
+                if BUDGET.expirado():
+                    break
                 q = urllib.parse.urlencode({"keywords": kw, "ordem": "DESC",
                                             "ordenarPor": "id", "itens": 100, "pagina": page})
-                d = http_get_json(f"{CAMARA}/proposicoes?{q}", retries=2)
+                d = http_get_json(f"{CAMARA}/proposicoes?{q}")
                 polite_pause()
                 if not d:
                     break
@@ -1000,6 +1191,8 @@ class Collector:
     def discover_senado(self, known_keys):
         found = []
         for kw in ("inteligencia artificial", "deepfake", "reconhecimento facial"):
+            if BUDGET.expirado():
+                break
             for m in senado_search(palavra_chave=kw):
                 rel = relevance(f"{m.get('Ementa', '')} {m.get('DescricaoIdentificacao', '')}")
                 if not rel:
@@ -1084,9 +1277,11 @@ class Collector:
         fim = (self.now + timedelta(days=60)).date().isoformat()
         found = []
         for page in range(1, 4):
+            if BUDGET.expirado():
+                break
             q = urllib.parse.urlencode({"dataInicio": inicio, "dataFim": fim,
                                         "itens": 100, "pagina": page})
-            d = http_get_json(f"{CAMARA}/eventos?{q}", retries=2)
+            d = http_get_json(f"{CAMARA}/eventos?{q}")
             polite_pause()
             if not d:
                 break
@@ -1140,6 +1335,121 @@ class Collector:
         }
         return added
 
+    # -------------------------------------------------------------- métricas
+    @staticmethod
+    def _ordinal(data_iso):
+        try:
+            return datetime.strptime(data_iso, "%Y-%m-%d").toordinal()
+        except (TypeError, ValueError):
+            return 0
+
+    def _prioridade(self, p):
+        """Ordem de verificação: maior score primeiro; em empate, a mais antiga.
+
+        Garante que, se o orçamento acabar, o que ficou de fora são as matérias
+        de menor impacto — e que elas sejam as primeiras da execução seguinte.
+        """
+        score = (p.get("impacto") or {}).get("score") or 0
+        dias = -1
+        for marca in ((p.get("api_camara") or {}).get("verificado_em"),
+                      (p.get("api_senado") or {}).get("verificado_em")):
+            d = date_only(marca)
+            if d:
+                delta = (self.now.date() - datetime.strptime(d, "%Y-%m-%d").date()).days
+                dias = max(dias, delta)
+        return (-score, -dias)
+
+    @classmethod
+    def _prioridade_candidato(cls, cand):
+        """Relevância temática > tipo de proposição > mais recente."""
+        it, rel, _via = cand
+        ordem_rel = {"forte": 0, "media": 1, "infra": 2}.get(rel, 3)
+        tipo_ok = 0 if it.get("siglaTipo") in TIPOS_INCLUIR else 1
+        return (ordem_rel, tipo_ok, -cls._ordinal(date_only(it.get("dataApresentacao"))))
+
+    def _snapshot_dataset(self, props_all, laws_f, ev_f, up_f):
+        """Fotografia do banco ao fim da execução (série histórica do painel)."""
+        por_situacao = {}
+        for p in props_all:
+            t = norm(p.get("situacao") or "")
+            if any(k in t for k in ("arquivad", "prejudicad", "retirad")):
+                g = "arquivada"
+            elif "sancao" in t or "sanção" in t:
+                g = "a_sancao"
+            elif any(k in t for k in ("transformada em norma", "convertida em norma",
+                                      "promulgada", "sancionada")):
+                g = "norma"
+            else:
+                g = "em_tramitacao"
+            por_situacao[g] = por_situacao.get(g, 0) + 1
+        return {
+            "proposicoes_total": len(props_all),
+            "por_situacao": dict(sorted(por_situacao.items())),
+            "normas_total": len(laws_f.get("normas", [])),
+            "eventos_total": len(ev_f.get("eventos", [])),
+            "mudancas_registradas": len(up_f.get("mudancas", [])) + len(self.changes),
+        }
+
+    def _atualizar_registro(self, rec, n_ev=0):
+        rec.update({
+            "resumo": (f"Verificação automática: {self.verified} fichas consultadas, "
+                       f"{self.updated} proposições atualizadas, {len(self.new_props)} novas, "
+                       f"{len(self.changes)} mudanças detectadas, {n_ev} eventos adicionados."),
+            "proposicoes_verificadas": self.verified,
+            "proposicoes_atualizadas": self.updated,
+            "novas_proposicoes": len(self.new_props),
+            "novas_leis_regulamentos": 0,
+            "mudancas_detectadas": len(self.changes),
+            "eventos_adicionados": n_ev,
+            "fontes_consultadas": sorted(self.fontes_ok),
+            "erros": self.errors[:50],
+            "sugestoes_curadoria": rec.get("sugestoes_curadoria", []),
+            "observacao": ("Nada foi inventado: todos os registros novos ou alterados citam "
+                           "a URL oficial. Registros automáticos aguardam curadoria editorial."
+                           + (f" Coleta encerrada pelo orçamento de tempo: "
+                              f"{len(self.nao_verificadas)} proposição(ões) ficaram para a "
+                              f"próxima execução (prioridade por score)."
+                              if self.nao_verificadas else "")),
+        })
+        rec.update(self._resumo_execucao())
+        return rec
+
+    def _gravar(self, props_f, up_f, ev_f, laws_f, tl_f, pm_f, props, exec_record, status):
+        """Grava o dataset no disco (chamado também no checkpoint intermediário)."""
+        props_all = props + self.new_props
+        exec_record["status"] = status
+        exec_record.setdefault("data_hora", self.run_iso)
+        exec_record["fim"] = today_brt().isoformat(timespec="seconds")
+        exec_record["proposicoes_monitoradas"] = len(props_all)
+        exec_record["proposicoes_pendentes"] = len(self.nao_verificadas)
+        exec_record["cobertura_pct"] = round(100.0 * self.verified / max(1, len(props_all)), 1)
+        exec_record["snapshot_dataset"] = self._snapshot_dataset(props_all, laws_f, ev_f, up_f)
+        exec_record.update(self._resumo_execucao())
+
+        props_f["proposicoes"] = props_all
+        props_f["meta"]["execucao"] = self.today
+        # só as mudanças ainda não gravadas (a execução pode gravar em 2 momentos)
+        up_f["mudancas"] = up_f.get("mudancas", []) + self.changes[self._changes_gravadas:]
+        self._changes_gravadas = len(self.changes)
+        anteriores = up_f.get("execucoes", [])
+        if anteriores and anteriores[0].get("id") == exec_record["id"]:
+            anteriores[0] = exec_record
+        else:
+            anteriores = [exec_record] + anteriores
+        up_f["execucoes"] = anteriores
+        up_f["meta"]["execucao"] = self.today
+        ev_f["meta"]["execucao"] = self.today
+        laws_f["meta"]["execucao"] = self.today
+        tl_f["meta"]["execucao"] = self.today
+        pm_f["meta"]["execucao"] = self.today
+        save("propositions.json", props_f)
+        save("updates.json", up_f)
+        save("events.json", ev_f)
+        save("laws.json", laws_f)
+        save("timeline.json", tl_f)
+        save("parliamentarians.json", pm_f)
+        return exec_record
+
     # ------------------------------------------------------------------- run
     def run(self, dry_run=False):
         props_f = load("propositions.json")
@@ -1153,16 +1463,36 @@ class Collector:
         last_run = None
         if up_f.get("execucoes"):
             last_run = parse_run_date(up_f["execucoes"][0].get("data_hora", ""))
-        print(f"Estado anterior: {len(props)} proposições · última execução: {last_run}", flush=True)
+        print(f"Estado anterior: {len(props)} proposições · última execução: {last_run} · "
+              f"orçamento: {BUDGET.limite // 60} min · novas/execução: {MAX_NOVAS} · "
+              f"workers: {WORKERS} (HTTP ≤ {HTTP_CONCORRENCIA})", flush=True)
 
         known_keys = set()
         for p in props:
             casa = "senado" if p["id"].startswith("senado_") else "camara"
             known_keys.add((casa, p.get("tipo"), p.get("numero"), p.get("ano")))
 
-        # 1) Atualizar proposições monitoradas (paralelo: 3 workers, I/O-bound;
-        #    cada thread toca apenas o seu dict de proposição + estruturas com lock)
-        print("Consultando fichas oficiais das proposições monitoradas...", flush=True)
+        exec_record = {
+            "id": self.run_id,
+            "data_hora": self.run_iso,
+            "tipo": "atualizacao",
+            "status": "em_andamento",
+            "motor": {"orcamento_segundos": BUDGET.limite, "max_novas": MAX_NOVAS,
+                      "workers": WORKERS, "http_concorrencia": HTTP_CONCORRENCIA},
+            "proposicoes_monitoradas": len(props),
+            "sugestoes_curadoria": [],
+        }
+        self._atualizar_registro(exec_record)
+
+        # 1) Atualizar proposições monitoradas (paralelo, I/O-bound; cada thread
+        #    toca apenas o seu dict de proposição + estruturas com lock).
+        #    A fila é ordenada por prioridade: se o orçamento acabar, o que fica
+        #    pendente são as matérias de menor impacto.
+        fila = sorted(props, key=self._prioridade)
+        if MAX_PROPS and len(fila) > MAX_PROPS:
+            self.nao_verificadas = [p["id"] for p in fila[MAX_PROPS:]]
+            fila = fila[:MAX_PROPS]
+        print(f"Consultando fichas oficiais de {len(fila)} proposições monitoradas...", flush=True)
 
         def _update_one(p):
             try:
@@ -1177,171 +1507,237 @@ class Collector:
                     if not cam_ok and not sen_ok:
                         with self._lock:
                             self.errors.append(f"{p['id']}: não localizada nas APIs da Câmara e do Senado")
+            except BudgetExceeded:
+                with self._lock:
+                    self.nao_verificadas.append(p["id"])
             except Exception as e:  # noqa: BLE001 - uma proposição não derruba a execução
                 with self._lock:
                     self.errors.append(f"{p['id']}: erro inesperado ({e})")
             return p["id"]
 
-        with ThreadPoolExecutor(max_workers=3) as pool:
-            futures = {pool.submit(_update_one, p): p for p in props}
-            for i, fut in enumerate(as_completed(futures), 1):
-                print(f"  [{i}/{len(props)}] {fut.result()}", flush=True)
+        with self.fase("atualizacao_proposicoes"):
+            with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+                futures = {pool.submit(_update_one, p): p for p in fila}
+                for i, fut in enumerate(as_completed(futures), 1):
+                    fut.result()
+                    if i % 25 == 0 or i == len(fila):
+                        print(f"  [{i}/{len(fila)}] verificadas · {int(BUDGET.decorrido())}s "
+                              f"decorridos · {int(BUDGET.restante())}s restantes", flush=True)
         # Ordem determinística das mudanças (mais recentes primeiro)
         self.changes.sort(key=lambda c: (c.get("data", ""), c.get("titulo", "")), reverse=True)
+        print(f"Fase 1 concluída em {self.fases.get('atualizacao_proposicoes', 0)}s · "
+              f"{self.verified} verificadas · {int(BUDGET.restante())}s de orçamento restantes", flush=True)
 
-        # 2) Descobrir novas proposições
-        print("Descobrindo novas proposições (Câmara)...", flush=True)
-        try:
-            cands = [(it, rel, via) for it, rel, via in self.discover_camara(known_keys, last_run)
-                     if not (rel == "infra" and it.get("siglaTipo") in TIPOS_REQUERIMENTO)]
-            # dedupe antecipado pela chave lógica (evita builds repetidos)
-            uniq = []
-            seen = set(known_keys)
-            for it, rel, via in cands:
-                key = ("camara", it.get("siglaTipo"), it.get("numero"), it.get("ano"))
-                if key not in seen:
-                    seen.add(key)
-                    uniq.append((it, rel, via))
-                    known_keys.add(key)
-            print(f"  {len(uniq)} candidatas a detalhar...", flush=True)
+        # Checkpoint: grava o resultado da fase 1 antes da descoberta. Se o job
+        # for interrompido por qualquer motivo, a verificação já feita não se perde.
+        if not dry_run:
+            self._atualizar_registro(exec_record)
+            self._gravar(props_f, up_f, ev_f, laws_f, tl_f, pm_f, props, exec_record,
+                         status="em_andamento")
 
-            def _build_cam(args):
-                it, rel, via = args
+        # 2) Descobrir novas proposições (com teto por execução: o excedente fica
+        #    para a próxima, sempre priorizando relevância temática e recência).
+        candidatos_total, adiados = 0, 0
+        if BUDGET.expirado(120):
+            print("Orçamento insuficiente para a descoberta — etapa adiada.", flush=True)
+        else:
+            print("Descobrindo novas proposições (Câmara)...", flush=True)
+            with self.fase("descoberta_camara"):
                 try:
-                    return self.build_new_camara_record(it, rel, via)
+                    cands = [(it, rel, via) for it, rel, via in self.discover_camara(known_keys, last_run)
+                             if not (rel == "infra" and it.get("siglaTipo") in TIPOS_REQUERIMENTO)]
+                    cands.sort(key=self._prioridade_candidato)
+                    candidatos_total = len(cands)
+                    uniq, seen = [], set(known_keys)
+                    for it, rel, via in cands:
+                        key = ("camara", it.get("siglaTipo"), it.get("numero"), it.get("ano"))
+                        if key in seen:
+                            continue
+                        seen.add(key)
+                        uniq.append((it, rel, via))
+                    adiados = max(0, len(uniq) - MAX_NOVAS)
+                    uniq = uniq[:MAX_NOVAS]
+                    known_keys.update(("camara", it.get("siglaTipo"), it.get("numero"), it.get("ano"))
+                                      for it, _rel, _via in uniq)
+                    print(f"  {len(uniq)} candidatas a detalhar"
+                          + (f" (+{adiados} adiadas para a próxima execução)" if adiados else ""),
+                          flush=True)
+
+                    def _build_cam(args):
+                        it, rel, via = args
+                        try:
+                            return self.build_new_camara_record(it, rel, via)
+                        except BudgetExceeded:
+                            return None
+                        except Exception as e:  # noqa: BLE001
+                            with self._lock:
+                                self.errors.append(f"nova camara {it.get('id')}: {e}")
+                            return None
+
+                    with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+                        for i, rec in enumerate(pool.map(_build_cam, uniq), 1):
+                            if rec is None:
+                                continue
+                            if any(x["id"] == rec["id"] for x in self.new_props):
+                                continue
+                            self.new_props.append(rec)
+                            self.add_change(
+                                data_evento=rec.get("data_apresentacao") or self.today,
+                                titulo=f"Nova proposição: {rec['tipo']} {rec['numero']}/{rec['ano']}",
+                                descricao=f"{rec['ementa'][:400]} (Registro automático a partir da API oficial; aguardando curadoria.)",
+                                tipo="nova proposição", proposicao=rec["id"],
+                                fonte="Câmara dos Deputados — API de Dados Abertos",
+                                fonte_url=rec["url_oficial"])
+                            if i % 10 == 0:
+                                print(f"  ...{i}/{len(uniq)} detalhadas", flush=True)
+                except BudgetExceeded:
+                    print("  orçamento esgotado durante a descoberta (Câmara)", flush=True)
                 except Exception as e:  # noqa: BLE001
-                    with self._lock:
-                        self.errors.append(f"nova camara {it.get('id')}: {e}")
-                    return None
+                    self.errors.append(f"descoberta Câmara: {e}")
 
-            with ThreadPoolExecutor(max_workers=3) as pool:
-                for i, rec in enumerate(pool.map(_build_cam, uniq), 1):
-                    if rec is None:
-                        continue
-                    if any(x["id"] == rec["id"] for x in self.new_props):
-                        continue
-                    self.new_props.append(rec)
-                    self.add_change(
-                        data_evento=rec.get("data_apresentacao") or self.today,
-                        titulo=f"Nova proposição: {rec['tipo']} {rec['numero']}/{rec['ano']}",
-                        descricao=f"{rec['ementa'][:400]} (Registro automático a partir da API oficial; aguardando curadoria.)",
-                        tipo="nova proposição", proposicao=rec["id"],
-                        fonte="Câmara dos Deputados — API de Dados Abertos",
-                        fonte_url=rec["url_oficial"])
-                    if i % 10 == 0:
-                        print(f"  ...{i}/{len(uniq)} detalhadas", flush=True)
-        except Exception as e:  # noqa: BLE001
-            self.errors.append(f"descoberta Câmara: {e}")
-        print("Descobrindo novas proposições (Senado)...", flush=True)
-        try:
-            matches = self.discover_senado(known_keys)
-            uniqm = []
-            seenm = set(known_keys)
-            for m in matches:
-                try:
-                    numero = int(str(m.get("Numero")).lstrip("0") or "0")
-                    ano = int(str(m.get("Ano")))
-                except (TypeError, ValueError):
-                    continue
-                key = ("senado", (m.get("Sigla") or "").upper(), numero, ano)
-                if key not in seenm:
-                    seenm.add(key)
-                    uniqm.append(m)
-                    known_keys.add(key)
-            print(f"  {len(uniqm)} candidatas a detalhar...", flush=True)
+            desafio_senado = max(0, MAX_NOVAS - len(self.new_props))
+            if not BUDGET.expirado(120) and desafio_senado:
+                print("Descobrindo novas proposições (Senado)...", flush=True)
+                with self.fase("descoberta_senado"):
+                    try:
+                        matches = self.discover_senado(known_keys)
+                        uniqm, seenm = [], set(known_keys)
+                        for m in matches:
+                            try:
+                                numero = int(str(m.get("Numero")).lstrip("0") or "0")
+                                ano = int(str(m.get("Ano")))
+                            except (TypeError, ValueError):
+                                continue
+                            key = ("senado", (m.get("Sigla") or "").upper(), numero, ano)
+                            if key in seenm:
+                                continue
+                            seenm.add(key)
+                            uniqm.append(m)
+                        candidatos_total += len(uniqm)
+                        adiados += max(0, len(uniqm) - desafio_senado)
+                        uniqm = uniqm[:desafio_senado]
+                        known_keys.update(("senado", (m.get("Sigla") or "").upper(),
+                                           int(str(m.get("Numero")).lstrip("0") or "0"),
+                                           int(str(m.get("Ano")))) for m in uniqm)
+                        print(f"  {len(uniqm)} candidatas a detalhar", flush=True)
 
-            def _build_sen(m):
-                try:
-                    return self.build_new_senado_record(m)
-                except Exception as e:  # noqa: BLE001
-                    with self._lock:
-                        self.errors.append(f"nova senado {m.get('Codigo')}: {e}")
-                    return None
+                        def _build_sen(m):
+                            try:
+                                return self.build_new_senado_record(m)
+                            except BudgetExceeded:
+                                return None
+                            except Exception as e:  # noqa: BLE001
+                                with self._lock:
+                                    self.errors.append(f"nova senado {m.get('Codigo')}: {e}")
+                                return None
 
-            with ThreadPoolExecutor(max_workers=3) as pool:
-                for rec in pool.map(_build_sen, uniqm):
-                    if rec is None:
-                        continue
-                    if any(x["id"] == rec["id"] for x in self.new_props):
-                        continue
-                    self.new_props.append(rec)
-                    self.add_change(
-                        data_evento=rec.get("data_apresentacao") or self.today,
-                        titulo=f"Nova proposição: {rec['tipo']} {rec['numero']}/{rec['ano']} (Senado)",
-                        descricao=f"{rec['ementa'][:400]} (Registro automático a partir da API oficial; aguardando curadoria.)",
-                        tipo="nova proposição", proposicao=rec["id"],
-                        fonte="Senado Federal — API de Dados Abertos",
-                        fonte_url=rec["url_oficial"])
-        except Exception as e:  # noqa: BLE001
-            self.errors.append(f"descoberta Senado: {e}")
+                        with ThreadPoolExecutor(max_workers=WORKERS) as pool:
+                            for rec in pool.map(_build_sen, uniqm):
+                                if rec is None:
+                                    continue
+                                if any(x["id"] == rec["id"] for x in self.new_props):
+                                    continue
+                                self.new_props.append(rec)
+                                self.add_change(
+                                    data_evento=rec.get("data_apresentacao") or self.today,
+                                    titulo=f"Nova proposição: {rec['tipo']} {rec['numero']}/{rec['ano']} (Senado)",
+                                    descricao=f"{rec['ementa'][:400]} (Registro automático a partir da API oficial; aguardando curadoria.)",
+                                    tipo="nova proposição", proposicao=rec["id"],
+                                    fonte="Senado Federal — API de Dados Abertos",
+                                    fonte_url=rec["url_oficial"])
+                    except BudgetExceeded:
+                        print("  orçamento esgotado durante a descoberta (Senado)", flush=True)
+                    except Exception as e:  # noqa: BLE001
+                        self.errors.append(f"descoberta Senado: {e}")
 
         # 3) Agenda futura
-        print("Atualizando agenda de eventos...", flush=True)
-        try:
-            n_ev = self.update_events(ev_f)
-        except Exception as e:  # noqa: BLE001
-            self.errors.append(f"eventos: {e}")
-            n_ev = 0
+        n_ev = 0
+        if BUDGET.expirado(60):
+            print("Orçamento insuficiente para a agenda — etapa adiada.", flush=True)
+        else:
+            print("Atualizando agenda de eventos...", flush=True)
+            with self.fase("agenda_eventos"):
+                try:
+                    n_ev = self.update_events(ev_f)
+                except BudgetExceeded:
+                    print("  orçamento esgotado na agenda de eventos", flush=True)
+                except Exception as e:  # noqa: BLE001
+                    self.errors.append(f"eventos: {e}")
 
         # 4) Checagem de conversão em lei (sugestão, sem auto-criar norma)
         sugestoes_lei = []
-        for p in props:
+        for p in props + self.new_props:
             s = norm(p.get("situacao", ""))
             if ("transformada em norma" in s or "convertida" in s) and "lei" in s:
                 if not any((p["tipo"] == "PL" and str(p["numero"]) in (l.get("relacao_ia", "") + l.get("ementa_sintese", ""))) for l in laws_f.get("normas", [])):
                     sugestoes_lei.append(p["id"])
+        exec_record["sugestoes_curadoria"] = [f"Verificar conversão em lei: {pid}" for pid in sugestoes_lei[:10]]
 
-        # 5) Persistir
-        exec_record = {
-            "id": self.run_id,
-            "data_hora": self.run_iso,
-            "tipo": "atualizacao",
-            "resumo": (f"Verificação automática: {self.verified} fichas consultadas, "
-                       f"{self.updated} proposições atualizadas, {len(self.new_props)} novas, "
-                       f"{len(self.changes)} mudanças detectadas, {n_ev} eventos adicionados."),
-            "proposicoes_verificadas": self.verified,
-            "proposicoes_atualizadas": self.updated,
-            "novas_proposicoes": len(self.new_props),
-            "novas_leis_regulamentos": 0,
-            "mudancas_detectadas": len(self.changes),
-            "eventos_adicionados": n_ev,
-            "fontes_consultadas": sorted(self.fontes_ok),
-            "erros": self.errors[:50],
-            "sugestoes_curadoria": [f"Verificar conversão em lei: {pid}" for pid in sugestoes_lei[:10]],
-            "observacao": ("Nada foi inventado: todos os registros novos ou alterados citam a URL oficial. "
-                           "Registros automáticos aguardam curadoria editorial."),
-        }
+        # 5) Fechamento e persistência
+        exec_record["descoberta_candidatos"] = candidatos_total
+        exec_record["descoberta_adiada"] = adiados
+        self._atualizar_registro(exec_record, n_ev=n_ev)
+        parcial = bool(self.nao_verificadas) or BUDGET.expirado()
+        status = "parcial" if parcial else "concluida"
         print(f"\nMudanças detectadas: {len(self.changes)} · novas: {len(self.new_props)} · "
-              f"atualizadas: {self.updated} · erros: {len(self.errors)}", flush=True)
+              f"atualizadas: {self.updated} · verificadas: {self.verified} · "
+              f"erros: {len(self.errors)} · status: {status} · "
+              f"duração: {int(BUDGET.decorrido())}s", flush=True)
+
         if dry_run:
             print("DRY-RUN: nada foi gravado.", flush=True)
             for c in self.changes[:20]:
                 print(f"  - [{c['data']}] {c['titulo'][:90]}", flush=True)
             return exec_record
 
-        props_f["proposicoes"] = props + self.new_props
-        props_f["meta"]["execucao"] = self.today
-        up_f["mudancas"] = up_f.get("mudancas", []) + self.changes
-        up_f["execucoes"] = [exec_record] + up_f.get("execucoes", [])
-        up_f["meta"]["execucao"] = self.today
-        ev_f["meta"]["execucao"] = self.today
-        laws_f["meta"]["execucao"] = self.today
-        tl_f["meta"]["execucao"] = self.today
-        pm_f["meta"]["execucao"] = self.today
-        save("propositions.json", props_f)
-        save("updates.json", up_f)
-        save("events.json", ev_f)
-        save("laws.json", laws_f)
-        save("timeline.json", tl_f)
-        save("parliamentarians.json", pm_f)
-        print("Dataset atualizado e salvo.", flush=True)
+        self._gravar(props_f, up_f, ev_f, laws_f, tl_f, pm_f, props, exec_record, status=status)
+        print(f"Dataset atualizado e salvo · cobertura {exec_record['cobertura_pct']}% · "
+              f"HTTP: {exec_record['http']['chamadas']} chamadas "
+              f"({exec_record['http']['cache']} do cache, {exec_record['http']['falhas']} falhas) · "
+              f"{exec_record['http']['tempo_total']}s em rede", flush=True)
         return exec_record
 
 
-def main():
-    dry = "--dry-run" in sys.argv
-    Collector().run(dry_run=dry)
+
+def parse_args(argv=None):
+    ap = argparse.ArgumentParser(
+        description="Coletor legislativo do Monitor Legislativo de IA (Câmara/Senado).")
+    ap.add_argument("--dry-run", action="store_true",
+                    help="consulta e relata sem gravar o dataset")
+    ap.add_argument("--budget-min", type=float, default=None,
+                    help=f"teto de duração da coleta em minutos (padrão: {BUDGET_S / 60:.0f})")
+    ap.add_argument("--max-novas", type=int, default=None,
+                    help=f"máximo de fichas novas detalhadas por execução (padrão: {MAX_NOVAS})")
+    ap.add_argument("--limite", type=int, default=None,
+                    help="verificar apenas as N proposições mais prioritárias (padrão: todas)")
+    ap.add_argument("--workers", type=int, default=None,
+                    help=f"threads de coleta (padrão: {WORKERS})")
+    return ap.parse_args(argv)
+
+
+def main(argv=None):
+    global BUDGET, MAX_NOVAS, MAX_PROPS, WORKERS
+    args = parse_args(argv)
+    if args.budget_min:
+        BUDGET = Budget(int(args.budget_min * 60))
+    if args.max_novas is not None:
+        MAX_NOVAS = max(0, args.max_novas)
+    if args.limite is not None:
+        MAX_PROPS = max(0, args.limite)
+    if args.workers:
+        WORKERS = max(1, args.workers)
+    if MAX_NOVAS == 0:
+        print("Descoberta de novas proposições desativada nesta execução (--max-novas 0).", flush=True)
+    try:
+        rec = Collector().run(dry_run=args.dry_run)
+    except BudgetExceeded as e:  # rede lenta: sai sem falhar o job (dados já gravados)
+        print(f"[aviso] encerrado pelo orçamento de tempo: {e}", flush=True)
+        return 0
+    if rec and rec.get("status") == "parcial":
+        print("[aviso] execução parcial: o excedente entra na próxima execução.",
+              flush=True)
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

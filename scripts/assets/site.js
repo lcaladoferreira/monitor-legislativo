@@ -66,3 +66,52 @@
   });
   apply('7');
 })();
+
+// Selo de frescor do monitoramento (presente em todas as páginas) e alertas do painel.
+// Recalcula no navegador a idade da última execução: se o cron parar, o próprio
+// site avisa o visitante mesmo sem rebuild.
+(function () {
+  function estadoHoras(h) {
+    if (h === null) return 'atencao';
+    if (h <= 30) return 'ok';
+    if (h <= 54) return 'atencao';
+    return 'critico';
+  }
+  function rel(h) {
+    if (h === null) return 'idade desconhecida';
+    if (h < 1) return 'há ' + Math.round(h * 60) + ' min';
+    if (h < 48) return 'há ' + h.toFixed(h < 10 ? 1 : 0) + ' h';
+    return 'há ' + Math.round(h / 24) + ' dias';
+  }
+  var badges = Array.prototype.slice.call(document.querySelectorAll('[data-freshness]'));
+  badges.forEach(function (b) {
+    var ts = Date.parse(b.getAttribute('data-freshness'));
+    if (isNaN(ts)) return;
+    var h = (Date.now() - ts) / 3600000;
+    var estado = estadoHoras(h);
+    b.setAttribute('data-estado', estado);
+    var lbl = b.querySelector('[data-fresh-label]');
+    if (lbl) {
+      var base = lbl.textContent.replace(/^Última verificação:\s*/, '').split('·')[0].trim();
+      lbl.textContent = 'Última verificação: ' + rel(h) +
+        (estado === 'critico' ? ' · verifique o cron' : '');
+      b.title = 'Última verificação registrada: ' + base + ' (' + rel(h) + ')';
+    }
+  });
+  // Faixa de aviso no painel quando a execução está velha
+  var painel = document.querySelector('[data-freshness-panel]');
+  if (painel) {
+    var ts2 = Date.parse(painel.getAttribute('data-freshness-panel'));
+    if (!isNaN(ts2)) {
+      var h2 = (Date.now() - ts2) / 3600000;
+      if (h2 > 30) {
+        var aviso = document.createElement('div');
+        aviso.className = 'alert ' + (h2 > 54 ? 'critico' : 'atencao');
+        aviso.innerHTML = '<b>Painel visto ' + rel(h2) + ' depois da última execução registrada.</b>' +
+          '<span>O cron diário deve rodar às 07:17 (BRT). Verifique a aba Actions do repositório ' +
+          'para saber se a coleta automática está falhando.</span>';
+        painel.parentNode.insertBefore(aviso, painel);
+      }
+    }
+  }
+})();

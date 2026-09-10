@@ -13,7 +13,9 @@ import json
 import os
 import re
 import shutil
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
+
+import dataviz as dv
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data", "legislation")
@@ -39,6 +41,24 @@ CTA_SUB = "Inteligência regulatória, alertas legislativos e briefings para Pub
 
 EXECUTION_DATE = "2026-09-08"  # atualizado dinamicamente a partir de updates.json
 EXECUTION_RUN = {}
+EXECUTION_TS = None  # fim (ou início) da última execução, em ISO — usado no selo de frescor
+
+
+def _freshness_badge():
+    """Selo no topo de todas as páginas: idade real da última execução.
+
+    O valor absoluto é renderizado no build; o texto relativo (e o semáforo) é
+    recalculado no navegador a cada visita — assim uma parada do cron aparece
+    para o visitante, mesmo sem rebuild.
+    """
+    if not EXECUTION_TS:
+        return ""
+    rotulo = fmt_date(EXECUTION_TS) + " " + (re.search(r"T(\d{2}:\d{2})", EXECUTION_TS).group(1)
+                                            if re.search(r"T(\d{2}:\d{2})", EXECUTION_TS) else "")
+    return (f'<a class="fresh" href="{SITE_URL}/monitoramento/" data-freshness="{esc(EXECUTION_TS)}" '
+            f'data-estado="ok" title="Idade da última execução do monitoramento (recalculada agora)">'
+            f'<span class="dot"></span><span data-fresh-label>Última verificação: {esc(rotulo.strip())}</span>'
+            f'</a>')
 
 
 def load(name):
@@ -277,6 +297,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
         ("timeline/", "Timeline"),
         ("parlamentares/", "Parlamentares"),
         ("agenda/", "Agenda"),
+        ("monitoramento/", "Monitoramento"),
         ("metodologia/", "Metodologia"),
         ("relatorio/", "Relatório"),
     ]
@@ -316,6 +337,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <small>Inteligência Artificial · Brasil</small>
     </div>
     <nav class="links" aria-label="Principal">{nav}</nav>
+    {_freshness_badge()}
   </div>
 </header>
 <main>
@@ -337,7 +359,9 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <a href="{SITE_URL}/data/updates.json">updates.json</a><br>
       <a href="{SITE_URL}/data/events.json">events.json</a><br>
       <a href="{SITE_URL}/data/parliamentarians.json">parliamentarians.json</a><br>
-      <a href="{SITE_URL}/data/categories.json">categories.json</a></p>
+      <a href="{SITE_URL}/data/categories.json">categories.json</a><br>
+      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>
+      <span style="color:var(--muted)">(métricas do cron)</span></p>
     </div>
     <div>
       <h4>Metodologia</h4>
@@ -489,6 +513,34 @@ def build_home(props, laws, events, updates, timeline, cats):
         for c in list(cats.values())[:12]
     )
 
+    # faixa de saúde do monitoramento (alimentada pelo log de execuções)
+    agora = datetime.now(timezone.utc)
+    ts_ult = _parse_ts((EXECUTION_RUN or {}).get("fim") or (EXECUTION_RUN or {}).get("data_hora")) \
+        if EXECUTION_RUN else None
+    idade_h = round((agora - ts_ult).total_seconds() / 3600, 1) if ts_ult else None
+    estado_h = ("ok" if (idade_h is not None and idade_h <= 30) else
+                "atencao" if (idade_h is not None and idade_h <= 54) else
+                "critico" if idade_h is not None else "atencao")
+    idade_txt = ("—" if idade_h is None else
+                 f"{idade_h:.1f} h" if idade_h < 48 else f"{idade_h / 24:.1f} dias")
+    cob = (EXECUTION_RUN or {}).get("cobertura_pct")
+    pend = (EXECUTION_RUN or {}).get("proposicoes_pendentes")
+    status_run = (EXECUTION_RUN or {}).get("status", "—")
+    health_strip = f"""
+<section class="block" id="saude"><div class="wrap">
+  <h2 class="section-title">Saúde do monitoramento</h2>
+  <p class="section-sub">Como está a automação do monitoramento: frescor, cobertura e volume.
+  <a href="{SITE_URL}/monitoramento/">Ver o painel completo de métricas →</a></p>
+  <div class="grid cols-4">
+    <div class="metric {'green' if estado_h == 'ok' else 'yellow' if estado_h == 'atencao' else 'red'}"><div class="num">{idade_txt}</div><div class="lbl">Desde a última execução</div></div>
+    <div class="metric blue"><div class="num">{f"{cob}%" if cob is not None else "—"}</div><div class="lbl">Cobertura da verificação</div></div>
+    <div class="metric"><div class="num">{pend if pend is not None else "—"}</div><div class="lbl">Proposições pendentes</div></div>
+    <div class="metric"><div class="num">{status_run.capitalize() if status_run else "—"}</div><div class="lbl">Status da última execução</div></div>
+  </div>
+  <p class="disclaimer" style="margin-top:10px">Métricas geradas a partir do log auditável do cron
+  (<code>updates.json</code>) — reconstruídas a cada execução do site.</p>
+</div></section>"""
+
     fontes_lista = "".join(f"<li>{esc(f)}</li>" for f in rs["fontes"][:8])
     verify_block = f"""
 <section class="block" id="verificacao"><div class="wrap">
@@ -516,6 +568,8 @@ def build_home(props, laws, events, updates, timeline, cats):
 </div></div>
 
 {verify_block}
+
+{health_strip}
 
 <section class="block" id="o-que-mudou"><div class="wrap">
   <h2 class="section-title">O que mudou na regulação de IA</h2>
@@ -953,6 +1007,22 @@ def build_metodologia(props, laws, updates):
   </ul>
   <h2 class="section-title" style="margin-top:26px">Política de correção</h2>
   <p>Erros são corrigidos no dataset com registro da correção em <code>updates.json</code> (nunca sobrescrita silenciosa). O histórico versionado no Git permite auditar qualquer alteração. <b>{DISCLAIMER}</b></p>
+  <h2 class="section-title" style="margin-top:26px">Automação, orçamento de tempo e auditoria</h2>
+  <p>A coleta roda <b>diariamente</b> (cron às 07:17 BRT) com <b>orçamento de tempo</b> declarado:
+  ao se aproximar do teto, o coletor para de iniciar novas consultas, grava o que já verificou e
+  registra a execução como <b>parcial</b> — a cobertura de cada execução fica visível no
+  <a href="{SITE_URL}/monitoramento/">painel de monitoramento</a>. A verificação segue ordem de
+  prioridade (maior AI Legislative Impact Score primeiro; em empate, a matéria há mais tempo sem
+  verificação), de modo que o excedente de uma execução é sempre o de menor prioridade e entra
+  primeiro na seguinte. Fichas novas descobertas nas APIs entram com teto por execução, priorizando
+  relevância temática, tipo de proposição e recência.</p>
+  <p style="margin-top:10px">Cada execução registra no <code>updates.json</code>: início e fim,
+  duração, orçamento, cobertura, proposições pendentes, mudanças detectadas, novas proposições,
+  chamadas HTTP (total, cache, falhas, tempo por endpoint e por fase), erros e a fotografia do banco
+  ao final. O painel <a href="{SITE_URL}/monitoramento/">/monitoramento/</a> publica essas métricas
+  a cada rebuild e recalcula no navegador a idade da última execução: <b>se o cron parar, o site
+  avisa</b>. As mesmas métricas ficam em <code>data/monitoramento.json</code> para uso externo.</p>
+
   <h2 class="section-title" style="margin-top:26px">Cobertura atual</h2>
   <p>{len(props)} proposições monitoradas · {len(laws)} normas mapeadas · {len(updates.get("mudancas", []))} mudanças registradas · última execução em {rs["data"]}.</p>
 </div></section>"""
@@ -1215,6 +1285,475 @@ def build_report(props, laws, updates, events):
         "relatorio/", body, jsonld=jsonld))
 
 
+# ============================================================ DataViz painel
+def _date_only(s):
+    m = re.match(r"(\d{4}-\d{2}-\d{2})", str(s or ""))
+    return m.group(1) if m else None
+
+
+def _parse_ts(s):
+    """Interpreta timestamps do dataset (ISO com/sem fuso; datas puras)."""
+    if not s:
+        return None
+    s = str(s)
+    for fmt, corte in (("%Y-%m-%dT%H:%M:%S%z", 25), ("%Y-%m-%dT%H:%M:%S", 19),
+                       ("%Y-%m-%d", 10)):
+        try:
+            dt = datetime.strptime(s[:corte], fmt)
+        except ValueError:
+            continue
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone(timedelta(hours=-3)))  # BRT
+        return dt.astimezone(timezone.utc)
+    return None
+
+
+def _status_run(ex, agora):
+    s = ex.get("status")
+    ts = _parse_ts(ex.get("fim") or ex.get("data_hora"))
+    if s == "em_andamento":
+        # checkpoint de uma execução que não fechou: interrompida pelo job
+        if ts and (agora - ts).total_seconds() > 3 * 3600:
+            return "interrompida"
+        return "em_andamento"
+    if s in ("concluida", "parcial", "falhou", "interrompida"):
+        return s
+    return "concluida" if ex.get("tipo") == "bootstrap" else "concluida"
+
+
+def _status_run_label(st):
+    return {
+        "concluida": ("Concluída", "ok"),
+        "parcial": ("Parcial (orçamento de tempo)", "parcial"),
+        "interrompida": ("Interrompida", "falha"),
+        "em_andamento": ("Em andamento", "parcial"),
+        "falhou": ("Falhou", "falha"),
+    }.get(st, (st, "ok"))
+
+
+def _latencia_media(latencias, limite=30):
+    """Média de latência de detecção, ignorando incorporações históricas em lote."""
+    vals = [l for l in latencias if l <= limite]
+    return round(sum(vals) / len(vals), 1) if vals else None
+
+
+def metricas_monitoramento(props, laws, events, updates):
+    """Métricas do painel de monitoramento (também exportadas em JSON)."""
+    agora = datetime.now(timezone.utc)
+    execs = []
+    for ex in updates.get("execucoes", []):
+        ts = _parse_ts(ex.get("data_hora") or ex.get("fim"))
+        fim = _parse_ts(ex.get("fim"))
+        http = ex.get("http") or {}
+        execs.append({
+            "id": ex.get("id"),
+            "data_hora": ex.get("data_hora"),
+            "fim": ex.get("fim"),
+            "ts": ts.isoformat() if ts else None,
+            "ts_fim": fim.isoformat() if fim else None,
+            "idade_horas": round((agora - (fim or ts)).total_seconds() / 3600, 1)
+            if (fim or ts) else None,
+            "tipo": ex.get("tipo"),
+            "status": _status_run(ex, agora),
+            "duracao_segundos": ex.get("duracao_segundos"),
+            "orcamento_segundos": ex.get("orcamento_segundos"),
+            "verificadas": ex.get("proposicoes_verificadas"),
+            "monitoradas": ex.get("proposicoes_monitoradas"),
+            "pendentes": ex.get("proposicoes_pendentes"),
+            "atualizadas": ex.get("proposicoes_atualizadas"),
+            "novas": ex.get("novas_proposicoes"),
+            "mudancas": ex.get("mudancas_detectadas"),
+            "eventos": ex.get("eventos_adicionados"),
+            "cobertura_pct": ex.get("cobertura_pct"),
+            "erros": len(ex.get("erros") or []),
+            "chamadas_http": http.get("chamadas"),
+            "cache_http": http.get("cache"),
+            "falhas_http": http.get("falhas"),
+            "tempo_rede_s": http.get("tempo_total"),
+            "por_endpoint": http.get("por_endpoint") or {},
+            "fases_segundos": ex.get("fases_segundos") or {},
+            "snapshot": ex.get("snapshot_dataset") or {},
+            "fontes": len(ex.get("fontes_consultadas") or []),
+            "engine": ex.get("motor") or {},
+        })
+    execs.sort(key=lambda e: (e["ts"] or ""), reverse=True)
+    ultima = execs[0] if execs else {}
+    com_metricas = [e for e in execs if e.get("cobertura_pct") is not None]
+    concluidas = [e for e in execs if e["status"] in ("concluida", "parcial")]
+
+    # dataset
+    revisao = [p for p in props if p.get("revisao_pendente")]
+    por_status, por_casa, por_ano, por_faixa = {}, {}, {}, {}
+    for p in props:
+        sg = status_group(p)
+        por_status[sg] = por_status.get(sg, 0) + 1
+        casa = "Câmara" if p["id"].startswith("camara_") else "Senado"
+        por_casa[casa] = por_casa.get(casa, 0) + 1
+        por_ano[str(p.get("ano"))] = por_ano.get(str(p.get("ano")), 0) + 1
+        sc = (p.get("impacto") or {}).get("score", 0) or 0
+        faixa = ("90–100" if sc >= 90 else "75–89" if sc >= 75 else "60–74" if sc >= 60
+                 else "40–59" if sc >= 40 else "0–39")
+        por_faixa[faixa] = por_faixa.get(faixa, 0) + 1
+    cats = cat_map()
+    por_categoria = {}
+    for p in props:
+        for c in p.get("categorias", []) or []:
+            nome = (cats.get(c) or {}).get("nome")
+            if nome:
+                por_categoria[nome] = por_categoria.get(nome, 0) + 1
+
+    # mudanças
+    mud = updates.get("mudancas", [])
+    por_tipo, por_mes, por_dia, latencias, incorporados = {}, {}, {}, [], 0
+    for m in mud:
+        t = m.get("tipo") or "não classificado"
+        por_tipo[t] = por_tipo.get(t, 0) + 1
+        d = _date_only(m.get("data"))
+        if d:
+            por_mes[d[:7]] = por_mes.get(d[:7], 0) + 1
+            por_dia[d] = por_dia.get(d, 0) + 1
+        det = _date_only(m.get("data_deteccao"))
+        if d and det:
+            delta = (datetime.strptime(det, "%Y-%m-%d")
+                     - datetime.strptime(d, "%Y-%m-%d")).days
+            latencias.append(delta)
+            if delta > 30:
+                incorporados += 1
+    meses = sorted(por_mes)[-12:]
+
+    def _serie(campo):
+        """Série por execução — ignora execuções sem o campo (dado ausente ≠ zero)."""
+        return [e.get(campo) for e in reversed(execs) if e.get(campo) is not None]
+
+    serie_cob = _serie("cobertura_pct")
+    serie_mud = _serie("mudancas")
+    serie_novas = _serie("novas")
+    serie_http = _serie("chamadas_http")
+    serie_dur = _serie("duracao_segundos")
+    serie_mon = _serie("monitoradas")
+    serie_cache = _serie("cache_http")
+    com_metricas_ts = [e for e in reversed(execs) if e.get("cobertura_pct") is not None]
+    base_rot = com_metricas_ts or list(reversed(execs))
+    rotulos = [(e["data_hora"] or "")[5:10].replace("-", "/") for e in base_rot]
+
+    frescor_h = ultima.get("idade_horas")
+    if frescor_h is None:
+        estado_frescor = "sem_dados"
+    elif frescor_h <= 30:
+        estado_frescor = "ok"
+    elif frescor_h <= 54:
+        estado_frescor = "atencao"
+    else:
+        estado_frescor = "critico"
+
+    alertas = []
+
+    def alerta(nivel, titulo, detalhe):
+        alertas.append({"nivel": nivel, "titulo": titulo, "detalhe": detalhe})
+
+    if estado_frescor == "critico":
+        alerta("critico", "Monitoramento desatualizado",
+               f"Última execução há {frescor_h:.0f} horas (limite esperado: 24h). "
+               "Verifique a aba Actions do repositório.")
+    elif estado_frescor == "atencao":
+        alerta("atencao", "Execução atrasada",
+               f"Última execução há {frescor_h:.0f} horas. O cron é diário (07:17 BRT).")
+    else:
+        alerta("ok", "Monitoramento em dia",
+               f"Última execução há {frescor_h:.0f}h." if frescor_h is not None else "—")
+    if ultima.get("status") == "interrompida":
+        alerta("critico", "Última execução interrompida",
+               "A coleta começou mas não fechou (provável estouro de tempo do job). "
+               "O site mostra o último estado verificado.")
+    elif ultima.get("status") == "parcial":
+        alerta("atencao", "Última execução foi parcial",
+               f"{ultima.get('pendentes', 0)} proposição(ões) ficaram para a próxima "
+               f"execução (cobertura {ultima.get('cobertura_pct')}%).")
+    if ultima.get("erros"):
+        alerta("atencao", f"{ultima['erros']} erro(s) na última execução",
+               "Cada erro guarda a proposição e a URL oficial; ver updates.json.")
+    if revisao:
+        alerta("atencao", f"{len(revisao)} proposições aguardam curadoria",
+               "Registros automáticos têm score preliminar e categorias incompletas.")
+
+    por_endpoint = ultima.get("por_endpoint") or {}
+    return {
+        "gerado_em": EXECUTION_DATE,
+        "execucoes": execs,
+        "ultima": ultima,
+        "frescor": {"horas": frescor_h, "estado": estado_frescor,
+                    "cron_utc": "10:17", "cron_brt": "07:17"},
+        "kpis": {
+            "execucoes_registradas": len(execs),
+            "execucoes_com_metricas": len(com_metricas),
+            "execucoes_ok": len(concluidas),
+            "cobertura_media": round(sum(e["cobertura_pct"] for e in com_metricas)
+                                     / len(com_metricas), 1) if com_metricas else None,
+            "mudancas_total": len(mud),
+            "mudancas_30d": len([m for m in mud
+                                 if (days_ago(m.get("data")) or 9999) <= 30]),
+            # latência em regime diário (≤30 dias); incorporações históricas contadas à parte
+            "latencia_media_dias": _latencia_media(latencias),
+            "incorporacoes_historicas": incorporados,
+            "proposicoes": len(props),
+            "curadoria_pendente": len(revisao),
+            "normas": len(laws),
+            "eventos_futuros": len([e for e in events.get("eventos", [])
+                                    if e.get("janela") in ("proximos_7_dias", "proximos_30_dias")]),
+        },
+        "series": {
+            "rotulos": rotulos,
+            "cobertura_pct": serie_cob,
+            "mudancas": serie_mud,
+            "novas": serie_novas,
+            "chamadas_http": serie_http,
+            "cache_http": serie_cache,
+            "duracao_s": serie_dur,
+            "monitoradas": serie_mon,
+        },
+        "dataset": {
+            "por_status": por_status, "por_casa": por_casa, "por_ano": por_ano,
+            "por_faixa_score": por_faixa, "por_categoria": por_categoria,
+            "revisao_pendente": len(revisao),
+        },
+        "mudancas": {
+            "total": len(mud), "por_tipo": por_tipo, "por_mes": por_mes,
+            "por_dia": por_dia, "latencia_media_dias": _latencia_media(latencias),
+            "incorporacoes_historicas": incorporados,
+        },
+        "http_por_endpoint": por_endpoint,
+        "alertas": alertas,
+    }
+
+
+def build_monitoramento(props, laws, events, updates, met):
+    exs = met["execucoes"]
+    ultima = met["ultima"] or {}
+    kpis = met["kpis"]
+    ser = met["series"]
+
+    def kpi(num, lbl, cor=""):
+        cls = f"metric {cor}".strip()
+        return f'<div class="{cls}"><div class="num">{num}</div><div class="lbl">{lbl}</div></div>'
+
+    frescor = met["frescor"]
+    cor_frescor = {"ok": "green", "atencao": "yellow", "critico": "red"}.get(frescor["estado"], "")
+    idade = frescor["horas"]
+    idade_txt = "—" if idade is None else (f"{idade:.1f} h" if idade < 48 else f"{idade / 24:.1f} dias")
+
+    alertas_html = "".join(
+        f'<div class="alert {a["nivel"]}"><b>{esc(a["titulo"])}</b><span>{esc(a["detalhe"])}</span></div>'
+        for a in met["alertas"])
+
+    # --- séries temporais
+    tem_series = len([v for v in ser["cobertura_pct"] if v is not None]) >= 2
+    linha_cob = ""
+    if tem_series:
+        linha_cob = dv.line_chart(
+            ser["rotulos"],
+            [{"nome": "Cobertura da verificação (%)", "valores": ser["cobertura_pct"],
+              "cor": "accent", "area": True}],
+            y_max=100, unidade="%")
+    grafico_dur = dv.line_chart(
+        ser["rotulos"],
+        [{"nome": "Duração da coleta (s)", "valores": ser["duracao_s"], "cor": "azul", "area": True},
+         {"nome": "Orçamento (s)", "valores": [(ultima.get("orcamento_segundos") or 1500)] * len(ser["rotulos"]),
+          "cor": "amarelo"}],
+        unidade="s") if tem_series else ""
+    grafico_mon = dv.line_chart(
+        ser["rotulos"], [{"nome": "Proposições monitoradas", "valores": ser["monitoradas"],
+                          "cor": "roxo", "area": True}]) if tem_series else ""
+    grafico_mud = dv.bar_chart(list(zip(ser["rotulos"], ser["mudancas"])), color="accent",
+                               unidade="mudanças") if tem_series else ""
+    grafico_http = dv.bar_chart(list(zip(ser["rotulos"], ser["chamadas_http"])), color="azul",
+                                unidade="chamadas") if tem_series else ""
+    grafico_novas = dv.bar_chart(list(zip(ser["rotulos"], ser["novas"])), color="roxo",
+                                 unidade="novas") if tem_series else ""
+    aviso_series = "" if tem_series else (
+        '<div class="note warn"><b>Série histórica em construção.</b> As métricas por execução '
+        '(cobertura, duração, volume de consultas) passaram a ser registradas em '
+        '10/09/2026. Os gráficos aparecem a partir da segunda execução com métricas.</div>')
+
+    # --- composição do dataset
+    faixas = ["90–100", "75–89", "60–74", "40–59", "0–39"]
+    barras_faixa = dv.bar_chart_h([(f"{f} pontos", met["dataset"]["por_faixa_score"].get(f, 0))
+                                   for f in faixas], color="azul")
+    anos = sorted(met["dataset"]["por_ano"])[-10:]
+    barras_ano = dv.bar_chart([(a, met["dataset"]["por_ano"].get(a, 0)) for a in anos],
+                              color="roxo", unidade="proposições")
+    barras_cat = dv.bar_chart_h(
+        sorted(met["dataset"]["por_categoria"].items(), key=lambda kv: -kv[1])[:10])
+    status_lbl = {"em_tramitacao": ("Em tramitação", "accent"), "arquivada": ("Arquivada", "cinza"),
+                  "a_sancao": ("À sanção", "amarelo"), "aprovada_lei": ("Convertida em lei", "roxo")}
+    itens_status = [(status_lbl.get(k, (k, "cinza"))[0], v, status_lbl.get(k, ("", "cinza"))[1])
+                    for k, v in sorted(met["dataset"]["por_status"].items(), key=lambda kv: -kv[1])]
+    composicao = dv.stacked_bar(itens_status) + dv.stacked_legenda(itens_status)
+    itens_curadoria = [("Curadoria concluída", kpis["proposicoes"] - kpis["curadoria_pendente"], "accent"),
+                       ("Aguardando curadoria", kpis["curadoria_pendente"], "amarelo")]
+    curadoria = dv.stacked_bar(itens_curadoria) + dv.stacked_legenda(itens_curadoria)
+
+    # --- mudanças
+    tipos = sorted(met["mudancas"]["por_tipo"].items(), key=lambda kv: -kv[1])[:10]
+    barras_tipo = dv.bar_chart_h([(t.capitalize(), v) for t, v in tipos], color="amarelo")
+    meses = sorted(met["mudancas"]["por_mes"])[-12:]
+    barras_mes = dv.bar_chart([(m[5:] + "/" + m[2:4], met["mudancas"]["por_mes"][m]) for m in meses],
+                              color="accent", unidade="mudanças", rotulo_max=6)
+    calendario = dv.heatmap(met["mudancas"]["por_dia"], semanas=26,
+                            fim=datetime.now(timezone(timedelta(hours=-3))).date())
+
+    # --- tabela de execuções
+    linhas = []
+    for e in exs[:15]:
+        lbl, cls = _status_run_label(e["status"])
+        dur = f'{e["duracao_segundos"]}s' if e.get("duracao_segundos") else "—"
+        cob = f'{e["cobertura_pct"]}%' if e.get("cobertura_pct") is not None else "—"
+        http_txt = (f'{e["chamadas_http"]}' if e.get("chamadas_http") is not None else "—")
+        linhas.append(
+            f'<tr><td>{esc((e["data_hora"] or "")[:16].replace("T", " "))}</td>'
+            f'<td><span class="run-status {cls}">{esc(lbl)}</span></td>'
+            f'<td>{dur}</td><td>{e.get("verificadas") if e.get("verificadas") is not None else "—"}</td>'
+            f'<td>{cob}</td><td>{e.get("novas") if e.get("novas") is not None else "—"}</td>'
+            f'<td>{e.get("mudancas") if e.get("mudancas") is not None else "—"}</td>'
+            f'<td>{http_txt}</td><td>{e["erros"]}</td></tr>')
+
+    # --- custo por endpoint (última execução)
+    eps = sorted(met["http_por_endpoint"].items(), key=lambda kv: -kv[1].get("chamadas", 0))[:8]
+    barras_ep = dv.bar_chart_h([(k, v.get("chamadas", 0)) for k, v in eps], color="azul") if eps else \
+        '<p class="sub">Sem telemetria de rede nesta execução.</p>'
+
+    body = f"""
+<div class="page-head"><div class="wrap">
+  <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Monitoramento</div>
+  <h1>Painel de monitoramento</h1>
+  <p class="sub">Métricas operacionais do monitoramento legislativo — atualizadas automaticamente
+  a cada rebuild do site (cron diário às {frescor['cron_brt']} BRT / {frescor['cron_utc']} UTC).
+  Serve para auditar se a coleta está rodando, quanto do banco foi verificado, o que mudou e
+  quanto custou em consultas às APIs oficiais.</p>
+</div></div>
+
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Saúde do monitoramento</h2>
+  <p class="section-sub">Sinais automáticos calculados a partir do histórico de execuções
+  (<code>data/legislation/updates.json</code>).</p>
+  <div data-freshness-panel="{esc((ultima.get('fim') or ultima.get('data_hora')) or '')}">
+  {alertas_html}
+  </div>
+  <div class="grid cols-4" style="margin-top:16px">
+    {kpi(idade_txt, "Desde a última execução", cor_frescor)}
+    {kpi(f'{ultima.get("cobertura_pct")}%' if ultima.get("cobertura_pct") is not None else "—",
+         "Cobertura da última execução", "")}
+    {kpi(ultima.get("pendentes", "—"), "Proposições pendentes", "")}
+    {kpi(kpis["cobertura_media"] if kpis["cobertura_media"] is not None else "—",
+         "Cobertura média (histórico)", "")}
+    {kpi(kpis["execucoes_registradas"], "Execuções registradas")}
+    {kpi(ultima.get("status", "—").capitalize() if ultima else "—", "Status da última execução")}
+    {kpi(kpis["mudancas_30d"], "Mudanças (30 dias)")}
+    {kpi(kpis["curadoria_pendente"], "Aguardando curadoria")}
+  </div>
+  <p class="disclaimer" style="margin-top:12px">A idade desde a última execução é recalculada no
+  seu navegador a cada visita — se o painel ficar vermelho, o cron parou.</p>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Evolução por execução</h2>
+  <p class="section-sub">Cada barra/ponto é uma execução do coletor. O site é reconstruído após
+  cada execução, então este painel acompanha o cron.</p>
+  {aviso_series}
+  <div class="grid cols-2">
+    <div class="chart-card"><h3>Cobertura da verificação</h3>
+      <p class="sub">Percentual das proposições monitoradas efetivamente consultadas na execução.</p>
+      {linha_cob or '<p class="sub">—</p>'}</div>
+    <div class="chart-card"><h3>Duração da coleta × orçamento</h3>
+      <p class="sub">Tempo gasto na coleta e teto configurado (evita estourar o job).</p>
+      {grafico_dur or '<p class="sub">—</p>'}
+      {dv.legenda([{"nome": "Duração da coleta", "cor": "azul"}, {"nome": "Orçamento", "cor": "amarelo"}]) if grafico_dur else ""}</div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Volume de trabalho</h2>
+  <p class="section-sub">Quanto o monitoramento verifica, descobre e registra em cada execução.</p>
+  <div class="grid cols-2">
+    <div class="chart-card"><h3>Proposições monitoradas</h3>
+      <p class="sub">Tamanho do banco de proposições ao fim de cada execução.</p>{grafico_mon or '<p class="sub">—</p>'}</div>
+    <div class="chart-card"><h3>Chamadas às APIs oficiais</h3>
+      <p class="sub">Consultas HTTP feitas à Câmara e ao Senado por execução.</p>{grafico_http or '<p class="sub">—</p>'}</div>
+    <div class="chart-card"><h3>Mudanças detectadas</h3>
+      <p class="sub">Alterações registradas com fonte oficial (relator, situação, pauta, votação, apensação…).</p>{grafico_mud or '<p class="sub">—</p>'}</div>
+    <div class="chart-card"><h3>Novas proposições</h3>
+      <p class="sub">Fichas novas incorporadas ao banco em cada execução.</p>{grafico_novas or '<p class="sub">—</p>'}</div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Composição do banco legislativo</h2>
+  <p class="section-sub">Fotografia do dataset publicado nesta execução.</p>
+  <div class="chart-card"><h3>Situação das proposições ({kpis['proposicoes']} monitoradas)</h3>{composicao}</div>
+  <div class="grid cols-2" style="margin-top:16px">
+    <div class="chart-card"><h3>Faixas do AI Legislative Impact Score</h3>
+      <p class="sub">Distribuição das proposições por prioridade de acompanhamento.</p>{barras_faixa}</div>
+    <div class="chart-card"><h3>Por ano de apresentação</h3>
+      <p class="sub">Últimos anos representados no banco.</p>{barras_ano}</div>
+    <div class="chart-card"><h3>Temas mais frequentes</h3>
+      <p class="sub">Categorias temáticas atribuídas às proposições monitoradas.</p>{barras_cat}</div>
+    <div class="chart-card"><h3>Curadoria</h3>
+      <p class="sub">Registros automáticos aguardando revisão editorial (score preliminar).</p>{curadoria}</div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Atividade legislativa detectada</h2>
+  <p class="section-sub">O que o monitoramento registrou desde a primeira execução
+  ({kpis['mudancas_total']} mudanças; {kpis['latencia_media_dias'] or '—'} dias em média entre o
+  evento e a detecção, considerando apenas eventos captados pela rotina diária —
+  {kpis['incorporacoes_historicas']} registros históricos foram incorporados em lote).</p>
+  <div class="chart-card"><h3>Mudanças por dia</h3>
+    <p class="sub">Calendário dos últimos 6 meses — quanto mais escuro, mais mudanças no dia.</p>
+    {calendario}</div>
+  <div class="grid cols-2" style="margin-top:16px">
+    <div class="chart-card"><h3>Mudanças por mês</h3>{barras_mes}</div>
+    <div class="chart-card"><h3>Tipo de mudança</h3>
+      <p class="sub">Classificação automática a partir do despacho oficial.</p>{barras_tipo}</div>
+  </div>
+</div></section>
+
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Histórico de execuções</h2>
+  <p class="section-sub">Log auditável do cron. Cada linha é uma execução registrada pelo coletor.</p>
+  <div style="overflow-x:auto"><table class="tbl">
+    <thead><tr><th>Início (UTC−3)</th><th>Status</th><th>Duração</th><th>Verificadas</th>
+    <th>Cobertura</th><th>Novas</th><th>Mudanças</th><th>HTTP</th><th>Erros</th></tr></thead>
+    <tbody>{''.join(linhas)}</tbody></table></div>
+  <div class="grid cols-2" style="margin-top:18px">
+    <div class="chart-card"><h3>Custo por endpoint (última execução)</h3>
+      <p class="sub">Chamadas HTTP por endpoint da Câmara/Senado — base para otimizar a coleta.</p>
+      {barras_ep}</div>
+    <div class="chart-card"><h3>Tempos por fase</h3>
+      <p class="sub">Distribuição do tempo da coleta entre atualização, descoberta e agenda.</p>
+      {dv.bar_chart_h([(k.replace('_', ' ').capitalize(), round(v)) for k, v in
+                       sorted((ultima.get('fases_segundos') or {}).items(), key=lambda kv: -kv[1])],
+                      color='roxo') or '<p class="sub">Sem telemetria de fases nesta execução.</p>'}
+    </div>
+  </div>
+  <p class="disclaimer" style="margin-top:14px">Métricas derivadas de <code>updates.json</code>
+  (histórico auditável). Números de execuções anteriores a 10/09/2026 aparecem como “—” quando o
+  campo não era coletado. {DISCLAIMER}</p>
+</div></section>
+"""
+    jsonld = combine_ld(
+        ld_collection("Painel de monitoramento do Monitor Legislativo de IA",
+                      "Métricas operacionais do monitoramento legislativo de IA: frescor, cobertura, "
+                      "mudanças detectadas, custo em consultas e histórico de execuções do cron.",
+                      "monitoramento/"),
+        ld_breadcrumbs([("Início", ""), ("Monitoramento", None)]))
+    write("monitoramento/index.html", page(
+        "Painel de monitoramento — métricas do cron e da coleta de IA",
+        "Métricas do monitoramento legislativo de IA no Brasil: frescor da última execução, cobertura "
+        "da verificação, mudanças detectadas, chamadas às APIs oficiais da Câmara e do Senado e "
+        "histórico auditável do cron diário.",
+        "monitoramento/", body, jsonld=jsonld))
+    return met
+
 def build_sitemap(paths):
     today = EXECUTION_DATE
     urls = "".join(
@@ -1225,7 +1764,7 @@ def build_sitemap(paths):
 
 
 def main():
-    global EXECUTION_DATE, EXECUTION_RUN
+    global EXECUTION_DATE, EXECUTION_RUN, EXECUTION_TS
     props = load("propositions.json")["proposicoes"]
     laws = load("laws.json")["normas"]
     events = load("events.json")
@@ -1236,6 +1775,7 @@ def main():
     EXECUTION_DATE = updates.get("meta", {}).get("execucao", EXECUTION_DATE) or EXECUTION_DATE
     if updates.get("execucoes"):
         EXECUTION_RUN = updates["execucoes"][0]
+    EXECUTION_TS = EXECUTION_RUN.get("fim") or EXECUTION_RUN.get("data_hora")
 
     build_slugs(props)
 
@@ -1256,12 +1796,17 @@ def main():
     build_metodologia(props, laws, updates)
     build_report(props, laws, updates, events)
 
+    # Painel de monitoramento (DataViz) — alimentado pelo log de execuções do cron
+    met = metricas_monitoramento(props, laws, events, updates)
+    build_monitoramento(props, laws, events, updates, met)
+    write("data/monitoramento.json", json.dumps(met, ensure_ascii=False, indent=2) + "\n")
+
     paths = ["", "proposicoes/", "atualizacoes/", "leis/", "timeline/", "parlamentares/",
-             "agenda/", "metodologia/", "relatorio/"]
+             "agenda/", "monitoramento/", "metodologia/", "relatorio/"]
     paths += [prop_fs_path(p["id"]).replace("index.html", "") for p in props]
     build_sitemap(paths)
 
-    n_pages = 9 + len(props)
+    n_pages = 10 + len(props)
     print(f"OK: site gerado em docs/ — {n_pages} páginas, {len(paths)} URLs no sitemap.")
 
 

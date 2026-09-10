@@ -4,11 +4,23 @@ name: Atualizar monitoramento legislativo
 # estático e validação. Commita somente quando há alteração real no dataset
 # ou nas páginas geradas. O deploy na Vercel é acionado pelo push (a Vercel
 # executa `python3 scripts/build_site.py` e publica `docs/`).
+#
+# Regra de ouro desta automação: **sempre publicar**. A coleta tem orçamento de
+# tempo (MONITOR_BUDGET_SEGUNDOS) e grava o dataset antes de terminar; o rebuild,
+# a validação e o commit rodam mesmo se a coleta falhar ou for parcial. Assim o
+# site nunca mais fica congelado numa execução antiga sem que isso apareça no
+# painel /monitoramento/.
 on:
   schedule:
-    # Diário às 10:00 UTC (07:00 BRT). Custo: apenas Actions gratuitos + APIs públicas.
-    - cron: "0 10 * * *"
-  workflow_dispatch: {}
+    # Diário às 10:17 UTC (07:17 BRT). Evita o minuto 0, quando o GitHub atrasa
+    # os agendamentos por excesso de jobs na fila.
+    - cron: "17 10 * * *"
+  workflow_dispatch:
+    inputs:
+      orcamento_minutos:
+        description: "Teto de duração da coleta, em minutos (padrão: 25)"
+        required: false
+        default: ""
 
 permissions:
   contents: write
@@ -17,30 +29,85 @@ concurrency:
   group: update-legislation
   cancel-in-progress: false
 
+env:
+  PYTHONUNBUFFERED: "1"
+  # Orçamento da coleta: mantém coleta + build + validação + commit dentro do
+  # timeout do job. Ao estourar, o coletor grava o que verificou, marca a
+  # execução como "parcial" e o site é publicado do mesmo jeito.
+  MONITOR_BUDGET_SEGUNDOS: "1500"   # 25 min
+  MONITOR_MAX_NOVAS: "25"           # fichas novas detalhadas por execução
+
 jobs:
   update:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 55
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Setup Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v6
         with:
           python-version: "3.13"
 
       - name: Coletar dados oficiais
-        run: python3 scripts/update_legislation.py
+        id: coleta
+        # A coleta pode ser parcial (orçamento) ou falhar: o objetivo é publicar
+        # o dataset verificado e sinalizar o problema no fim do job.
+        continue-on-error: true
+        timeout-minutes: 40
+        env:
+          ORCAMENTO_MINUTOS: ${{ inputs.orcamento_minutos }}
+        run: |
+          ARGS=()
+          if [ -n "${ORCAMENTO_MINUTOS}" ]; then
+            ARGS=(--budget-min "${ORCAMENTO_MINUTOS}")
+          fi
+          python3 scripts/update_legislation.py "${ARGS[@]}"
 
       - name: Rebuild do site
+        if: always()
         run: python3 scripts/build_site.py
 
       - name: Validar dataset e páginas
+        if: always()
         run: python3 scripts/validate_site.py
+
+      - name: Resumo da execução
+        if: always()
+        run: |
+          python3 - <<'PY' >> "$GITHUB_STEP_SUMMARY"
+          import json, pathlib
+          p = pathlib.Path("data/legislation/updates.json")
+          if not p.exists():
+              print("Sem updates.json"); raise SystemExit(0)
+          ups = json.loads(p.read_text(encoding="utf-8"))
+          ex = (ups.get("execucoes") or [{}])[0]
+          http = ex.get("http") or {}
+          linhas = [
+              "## Monitoramento legislativo — execução do dia",
+              "",
+              f"- **Status:** `{ex.get('status', '—')}`",
+              f"- **Início/fim:** {ex.get('data_hora', '—')} → {ex.get('fim', '—')}",
+              f"- **Duração:** {ex.get('duracao_segundos', '—')}s de {ex.get('orcamento_segundos', '—')}s de orçamento",
+              f"- **Proposições:** {ex.get('proposicoes_verificadas', '—')} verificadas de "
+              f"{ex.get('proposicoes_monitoradas', '—')} monitoradas "
+              f"({ex.get('cobertura_pct', '—')}% de cobertura; "
+              f"{ex.get('proposicoes_pendentes', 0)} pendentes)",
+              f"- **Mudanças:** {ex.get('mudancas_detectadas', '—')} · "
+              f"**novas proposições:** {ex.get('novas_proposicoes', '—')} · "
+              f"**eventos:** {ex.get('eventos_adicionados', '—')}",
+              f"- **HTTP:** {http.get('chamadas', '—')} chamadas · "
+              f"{http.get('cache', 0)} do cache · {http.get('falhas', 0)} falhas · "
+              f"{http.get('tempo_total', '—')}s em rede",
+              f"- **Erros:** {len(ex.get('erros') or [])}",
+          ]
+          print("\n".join(linhas))
+          PY
 
       - name: Detectar mudanças reais
         id: diff
+        if: always()
         run: |
           if git status --porcelain | grep .; then
             echo "changed=true" >> "$GITHUB_OUTPUT"
@@ -49,7 +116,7 @@ jobs:
           fi
 
       - name: Commit e push (somente se houver alteração)
-        if: steps.diff.outputs.changed == 'true'
+        if: always() && steps.diff.outputs.changed == 'true'
         run: |
           git config user.name "monitor-legislativo-bot"
           git config user.email "monitor-legislativo-bot@users.noreply.github.com"
@@ -59,6 +126,13 @@ jobs:
             echo "Nenhuma alteração real. Nada a commitar."
           else
             DATA=$(date -u +%Y-%m-%d)
-            git commit -m "chore: atualização automática do monitoramento ($DATA)" -m "Execução do coletor (update_legislation.py) + rebuild (build_site.py). Mudanças registradas em data/legislation/updates.json."
+            STATUS=$(python3 -c "import json;print((json.load(open('data/legislation/updates.json')).get('execucoes') or [{}])[0].get('status','?'))")
+            git commit -m "chore: atualização automática do monitoramento ($DATA) [$STATUS]" -m "Execução do coletor (update_legislation.py) + rebuild (build_site.py). Mudanças e métricas em data/legislation/updates.json — painel em /monitoramento/."
             git push
           fi
+
+      - name: Sinalizar coleta incompleta (após publicar)
+        if: steps.coleta.outcome == 'failure'
+        run: |
+          echo "::error::A coleta não terminou com sucesso. O site foi publicado com o último estado disponível — verifique o painel /monitoramento/ e os logs da etapa 'Coletar dados oficiais'."
+          exit 1
