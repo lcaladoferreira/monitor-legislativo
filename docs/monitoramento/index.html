@@ -48,9 +48,9 @@
   </div>
   <div class="grid cols-4" style="margin-top:16px">
     <div class="metric green"><div class="num">0.0 h</div><div class="lbl">Desde a última execução</div></div>
-    <div class="metric"><div class="num">101.5%</div><div class="lbl">Cobertura da última execução</div></div>
+    <div class="metric"><div class="num">100.0%</div><div class="lbl">Cobertura da última execução</div></div>
     <div class="metric"><div class="num">0</div><div class="lbl">Proposições pendentes</div></div>
-    <div class="metric"><div class="num">101.5</div><div class="lbl">Cobertura média (histórico)</div></div>
+    <div class="metric"><div class="num">100.0</div><div class="lbl">Cobertura média (histórico)</div></div>
     <div class="metric"><div class="num">3</div><div class="lbl">Execuções registradas</div></div>
     <div class="metric"><div class="num">Concluida</div><div class="lbl">Status da última execução</div></div>
     <div class="metric"><div class="num">18</div><div class="lbl">Mudanças (30 dias)</div></div>
@@ -64,15 +64,15 @@
   <h2 class="section-title">Evolução por execução</h2>
   <p class="section-sub">Cada barra/ponto é uma execução do coletor. O site é reconstruído após
   cada execução, então este painel acompanha o cron.</p>
-  <div class="note warn"><b>Série histórica em construção.</b> As métricas por execução (cobertura, duração, volume de consultas) passaram a ser registradas em 10/09/2026. Os gráficos aparecem a partir da segunda execução com métricas.</div>
+  <div class="note"><b>Primeira execução com métricas completas.</b> A partir da próxima execução do cron as séries ganham comparação histórica (cobertura, duração e volume de consultas por dia).</div>
   <div class="grid cols-2">
     <div class="chart-card"><h3>Cobertura da verificação</h3>
       <p class="sub">Percentual das proposições monitoradas efetivamente consultadas na execução.</p>
-      <p class="sub">—</p></div>
+      <svg class="dv" viewBox="0 0 720 210" role="img" preserveAspectRatio="xMidYMid meet"><line x1="42" y1="26.0" x2="708" y2="26.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="30.0" text-anchor="end" font-size="10" fill="var(--muted)">100</text><line x1="42" y1="101.0" x2="708" y2="101.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="105.0" text-anchor="end" font-size="10" fill="var(--muted)">50</text><line x1="42" y1="176.0" x2="708" y2="176.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="180.0" text-anchor="end" font-size="10" fill="var(--muted)">0</text><path d="M375.0,26.0" fill="none" stroke="var(--accent)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="375.0" cy="26.0" r="3" fill="var(--accent)"><title>Cobertura da verificação (%) — 09/10: 100</title></circle><text x="375.0" y="190.0" text-anchor="middle" font-size="10" fill="var(--muted)">09/10</text><text x="36" y="16" text-anchor="end" font-size="10" fill="var(--muted)">%</text></svg></div>
     <div class="chart-card"><h3>Duração da coleta × orçamento</h3>
       <p class="sub">Tempo gasto na coleta e teto configurado (evita estourar o job).</p>
-      <p class="sub">—</p>
-      </div>
+      <svg class="dv" viewBox="0 0 720 210" role="img" preserveAspectRatio="xMidYMid meet"><line x1="42" y1="26.0" x2="708" y2="26.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="30.0" text-anchor="end" font-size="10" fill="var(--muted)">1 680.0</text><line x1="42" y1="101.0" x2="708" y2="101.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="105.0" text-anchor="end" font-size="10" fill="var(--muted)">840.0</text><line x1="42" y1="176.0" x2="708" y2="176.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="180.0" text-anchor="end" font-size="10" fill="var(--muted)">0</text><path d="M375.0,151.0" fill="none" stroke="var(--accent-2)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="375.0" cy="151.0" r="3" fill="var(--accent-2)"><title>Duração da coleta (s) — 09/10: 280</title></circle><path d="M375.0,42.1" fill="none" stroke="var(--warn)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="375.0" cy="42.1" r="3" fill="var(--warn)"><title>Orçamento (s) — 09/10: 1 500</title></circle><text x="375.0" y="190.0" text-anchor="middle" font-size="10" fill="var(--muted)">09/10</text><text x="36" y="16" text-anchor="end" font-size="10" fill="var(--muted)">s</text></svg>
+      <div class="dv-legenda"><span class="dv-leg-item"><i style="background:var(--accent-2)"></i>Duração da coleta</span><span class="dv-leg-item"><i style="background:var(--warn)"></i>Orçamento</span></div></div>
   </div>
 </div></section>
 
@@ -81,13 +81,13 @@
   <p class="section-sub">Quanto o monitoramento verifica, descobre e registra em cada execução.</p>
   <div class="grid cols-2">
     <div class="chart-card"><h3>Proposições monitoradas</h3>
-      <p class="sub">Tamanho do banco de proposições ao fim de cada execução.</p><p class="sub">—</p></div>
+      <p class="sub">Tamanho do banco de proposições ao fim de cada execução.</p><svg class="dv" viewBox="0 0 720 210" role="img" preserveAspectRatio="xMidYMid meet"><line x1="42" y1="26.0" x2="708" y2="26.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="30.0" text-anchor="end" font-size="10" fill="var(--muted)">149.0</text><line x1="42" y1="101.0" x2="708" y2="101.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="105.0" text-anchor="end" font-size="10" fill="var(--muted)">74.5</text><line x1="42" y1="176.0" x2="708" y2="176.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="36" y="180.0" text-anchor="end" font-size="10" fill="var(--muted)">0</text><path d="M375.0,42.1" fill="none" stroke="#a371f7" stroke-width="2.2" stroke-linejoin="round"/><circle cx="375.0" cy="42.1" r="3" fill="#a371f7"><title>Proposições monitoradas — 09/10: 133</title></circle><text x="375.0" y="190.0" text-anchor="middle" font-size="10" fill="var(--muted)">09/10</text></svg></div>
     <div class="chart-card"><h3>Chamadas às APIs oficiais</h3>
-      <p class="sub">Consultas HTTP feitas à Câmara e ao Senado por execução.</p><p class="sub">—</p></div>
+      <p class="sub">Consultas HTTP feitas à Câmara e ao Senado por execução.</p><svg class="dv" viewBox="0 0 720 190" role="img" preserveAspectRatio="xMidYMid meet"><line x1="38" y1="22.0" x2="712" y2="22.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="26.0" text-anchor="end" font-size="10" fill="var(--muted)">455</text><line x1="38" y1="89.0" x2="712" y2="89.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="93.0" text-anchor="end" font-size="10" fill="var(--muted)">227.5</text><line x1="38" y1="156.0" x2="712" y2="156.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="160.0" text-anchor="end" font-size="10" fill="var(--muted)">0</text><rect x="166.1" y="22.0" width="417.9" height="134.0" rx="2" fill="var(--accent-2)"><title>09/10: 455</title></rect><text x="375.0" y="18.0" text-anchor="middle" font-size="10" fill="var(--muted)">455</text><text x="375.0" y="169.0" text-anchor="middle" font-size="10" fill="var(--muted)">09/10</text><text x="32" y="14" text-anchor="end" font-size="10" fill="var(--muted)">chamadas</text></svg></div>
     <div class="chart-card"><h3>Mudanças detectadas</h3>
-      <p class="sub">Alterações registradas com fonte oficial (relator, situação, pauta, votação, apensação…).</p><p class="sub">—</p></div>
+      <p class="sub">Alterações registradas com fonte oficial (relator, situação, pauta, votação, apensação…).</p><svg class="dv" viewBox="0 0 720 190" role="img" preserveAspectRatio="xMidYMid meet"><line x1="38" y1="22.0" x2="712" y2="22.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="26.0" text-anchor="end" font-size="10" fill="var(--muted)">129</text><line x1="38" y1="89.0" x2="712" y2="89.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="93.0" text-anchor="end" font-size="10" fill="var(--muted)">64.5</text><line x1="38" y1="156.0" x2="712" y2="156.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="160.0" text-anchor="end" font-size="10" fill="var(--muted)">0</text><rect x="166.1" y="22.0" width="417.9" height="134.0" rx="2" fill="var(--accent)"><title>09/10: 129</title></rect><text x="375.0" y="18.0" text-anchor="middle" font-size="10" fill="var(--muted)">129</text><text x="375.0" y="169.0" text-anchor="middle" font-size="10" fill="var(--muted)">09/10</text><text x="32" y="14" text-anchor="end" font-size="10" fill="var(--muted)">mudanças</text></svg></div>
     <div class="chart-card"><h3>Novas proposições</h3>
-      <p class="sub">Fichas novas incorporadas ao banco em cada execução.</p><p class="sub">—</p></div>
+      <p class="sub">Fichas novas incorporadas ao banco em cada execução.</p><svg class="dv" viewBox="0 0 720 190" role="img" preserveAspectRatio="xMidYMid meet"><line x1="38" y1="22.0" x2="712" y2="22.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="26.0" text-anchor="end" font-size="10" fill="var(--muted)">55</text><line x1="38" y1="89.0" x2="712" y2="89.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="93.0" text-anchor="end" font-size="10" fill="var(--muted)">27.5</text><line x1="38" y1="156.0" x2="712" y2="156.0" stroke="var(--border)" stroke-dasharray="3 3"/><text x="32" y="160.0" text-anchor="end" font-size="10" fill="var(--muted)">0</text><rect x="166.1" y="22.0" width="417.9" height="134.0" rx="2" fill="#a371f7"><title>09/10: 55</title></rect><text x="375.0" y="18.0" text-anchor="middle" font-size="10" fill="var(--muted)">55</text><text x="375.0" y="169.0" text-anchor="middle" font-size="10" fill="var(--muted)">09/10</text><text x="32" y="14" text-anchor="end" font-size="10" fill="var(--muted)">novas</text></svg></div>
   </div>
 </div></section>
 
@@ -129,7 +129,7 @@
   <div style="overflow-x:auto"><table class="tbl">
     <thead><tr><th>Início (UTC−3)</th><th>Status</th><th>Duração</th><th>Verificadas</th>
     <th>Cobertura</th><th>Novas</th><th>Mudanças</th><th>HTTP</th><th>Erros</th></tr></thead>
-    <tbody><tr><td>2026-09-10 13:35</td><td><span class="run-status ok">Concluída</span></td><td>280s</td><td>135</td><td>101.5%</td><td>0</td><td>4</td><td>455</td><td>0</td></tr><tr><td>2026-09-09 23:58</td><td><span class="run-status ok">Concluída</span></td><td>—</td><td>34</td><td>—</td><td>101</td><td>129</td><td>—</td><td>0</td></tr><tr><td>2026-09-08</td><td><span class="run-status ok">Concluída</span></td><td>—</td><td>55</td><td>—</td><td>55</td><td>—</td><td>—</td><td>0</td></tr></tbody></table></div>
+    <tbody><tr><td>2026-09-10 13:35</td><td><span class="run-status ok">Concluída</span></td><td>280s</td><td>135</td><td>100.0%</td><td>0</td><td>4</td><td>455</td><td>0</td></tr><tr><td>2026-09-09 23:58</td><td><span class="run-status ok">Concluída</span></td><td>—</td><td>34</td><td>—</td><td>101</td><td>129</td><td>—</td><td>0</td></tr><tr><td>2026-09-08</td><td><span class="run-status ok">Concluída</span></td><td>—</td><td>55</td><td>—</td><td>55</td><td>—</td><td>—</td><td>0</td></tr></tbody></table></div>
   <div class="grid cols-2" style="margin-top:18px">
     <div class="chart-card"><h3>Custo por endpoint (última execução)</h3>
       <p class="sub">Chamadas HTTP por endpoint da Câmara/Senado — base para otimizar a coleta.</p>

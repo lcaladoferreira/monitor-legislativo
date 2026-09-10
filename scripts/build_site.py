@@ -1546,7 +1546,7 @@ def build_monitoramento(props, laws, events, updates, met):
         for a in met["alertas"])
 
     # --- séries temporais
-    tem_series = len([v for v in ser["cobertura_pct"] if v is not None]) >= 2
+    tem_series = len([v for v in ser["cobertura_pct"] if v is not None]) >= 1
     linha_cob = ""
     if tem_series:
         linha_cob = dv.line_chart(
@@ -1569,10 +1569,17 @@ def build_monitoramento(props, laws, events, updates, met):
                                 unidade="chamadas") if tem_series else ""
     grafico_novas = dv.bar_chart(list(zip(ser["rotulos"], ser["novas"])), color="roxo",
                                  unidade="novas") if tem_series else ""
-    aviso_series = "" if tem_series else (
-        '<div class="note warn"><b>Série histórica em construção.</b> As métricas por execução '
-        '(cobertura, duração, volume de consultas) passaram a ser registradas em '
-        '10/09/2026. Os gráficos aparecem a partir da segunda execução com métricas.</div>')
+    n_exec_met = len([v for v in ser["cobertura_pct"] if v is not None])
+    if not tem_series:
+        aviso_series = ('<div class="note warn"><b>Sem métricas por execução ainda.</b> As métricas '
+                        'de cobertura, duração e volume de consultas passaram a ser registradas em '
+                        '10/09/2026; os gráficos aparecem na próxima execução do cron.</div>')
+    elif n_exec_met == 1:
+        aviso_series = ('<div class="note"><b>Primeira execução com métricas completas.</b> '
+                        'A partir da próxima execução do cron as séries ganham comparação '
+                        'histórica (cobertura, duração e volume de consultas por dia).</div>')
+    else:
+        aviso_series = ""
 
     # --- composição do dataset
     faixas = ["90–100", "75–89", "60–74", "40–59", "0–39"]

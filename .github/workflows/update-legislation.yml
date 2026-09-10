@@ -15,11 +15,6 @@ on:
     # Diário às 10:17 UTC (07:17 BRT). Evita o minuto 0, quando o GitHub atrasa
     # os agendamentos por excesso de jobs na fila.
     - cron: "17 10 * * *"
-  # TEMPORÁRIO (validação desta correção): dispara a coleta ao empurrar para a
-  # branch de trabalho. Removido em seguida para não gerar execução duplicada
-  # nos pushes automáticos da branch principal.
-  push:
-    branches: ["arena/01a08c20-monitor-legislativo"]
   workflow_dispatch:
     inputs:
       orcamento_minutos:

@@ -577,6 +577,7 @@ class Collector:
         self.new_props = []
         self.fontes_ok = set()
         self.nao_verificadas = []   # ids não consultados por fim de orçamento
+        self.verificadas_ids = set()  # proposições distintas consultadas (cobertura)
         self.fases = {}             # fase -> segundos (métricas do painel)
         self._changes_gravadas = 0  # mudanças já persistidas (checkpoint intermediário)
         self._fases_ini = {}
@@ -612,6 +613,12 @@ class Collector:
     def _bump(self, attr):
         with self._lock:
             setattr(self, attr, getattr(self, attr) + 1)
+
+    def _marca_verificada(self, prop_id):
+        """Conta a ficha consultada e a proposição distinta (cobertura ≤ 100%)."""
+        with self._lock:
+            self.verified += 1
+            self.verificadas_ids.add(prop_id)
 
     def _add_fonte(self, fonte):
         with self._lock:
@@ -657,7 +664,7 @@ class Collector:
             self.errors.append(f"{p['id']}: detalhe indisponível na API da Câmara")
             return False
         self._add_fontes(FONTES_CAMARA[:2])
-        self._bump("verified")
+        self._marca_verificada(p["id"])
         changed = False
         st = detail.get("statusProposicao") or {}
         ficha_url = f"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao={pid}"
@@ -961,7 +968,7 @@ class Collector:
             if not det and not mov:
                 continue
             self._add_fontes(FONTES_SENADO[:2])
-            self._bump("verified")
+            self._marca_verificada(p["id"])
             api = p.setdefault("api_senado", {})
             ficha = f"https://www25.senado.leg.br/web/atividade/materias/-/materia/{code}"
             if det:
@@ -1377,8 +1384,8 @@ class Collector:
             elif "sancao" in t or "sanção" in t:
                 g = "a_sancao"
             elif any(k in t for k in ("transformada em norma", "convertida em norma",
-                                      "promulgada", "sancionada")):
-                g = "norma"
+                                      "convertida em lei", "promulgada", "sancionada")):
+                g = "aprovada_lei"
             else:
                 g = "em_tramitacao"
             por_situacao[g] = por_situacao.get(g, 0) + 1
@@ -1422,7 +1429,11 @@ class Collector:
         exec_record["fim"] = today_brt().isoformat(timespec="seconds")
         exec_record["proposicoes_monitoradas"] = len(props_all)
         exec_record["proposicoes_pendentes"] = len(self.nao_verificadas)
-        exec_record["cobertura_pct"] = round(100.0 * self.verified / max(1, len(props_all)), 1)
+        exec_record["proposicoes_distintas_verificadas"] = len(self.verificadas_ids)
+        # cobertura = proposições distintas verificadas / monitoradas (as refs do
+        # Senado podem somar mais de uma consulta por proposição)
+        exec_record["cobertura_pct"] = min(
+            100.0, round(100.0 * len(self.verificadas_ids) / max(1, len(props_all)), 1))
         exec_record["snapshot_dataset"] = self._snapshot_dataset(props_all, laws_f, ev_f, up_f)
         exec_record.update(self._resumo_execucao())
 
