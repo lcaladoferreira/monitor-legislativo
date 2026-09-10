@@ -1394,7 +1394,8 @@ class Collector:
             "por_situacao": dict(sorted(por_situacao.items())),
             "normas_total": len(laws_f.get("normas", [])),
             "eventos_total": len(ev_f.get("eventos", [])),
-            "mudancas_registradas": len(up_f.get("mudancas", [])) + len(self.changes),
+            "mudancas_registradas": len(up_f.get("mudancas", []))
+        + len(self.changes[self._changes_gravadas:]),
         }
 
     def _atualizar_registro(self, rec, n_ev=0):
