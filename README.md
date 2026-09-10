@@ -35,7 +35,9 @@ scripts/
   update_legislation.py    # Coletor automático: APIs da Câmara/Senado → compara estado → atualiza dataset
   scoring.py               # Rúbrica pública do AI Legislative Impact Score (reproduzível)
   build_site.py            # Gera o site estático a partir do dataset → /docs
+  dataviz.py               # Gráficos SVG (stdlib, sem JS) do painel de monitoramento
   validate_site.py         # Validações: JSON, duplicadas, links, SEO, domínio
+  selftest_offline.py      # Testes offline: orçamento de tempo, persistência e métricas do coletor
   assets/                  # CSS e JS do site
 
 .github/workflows/
@@ -50,6 +52,7 @@ docs/                        # SITE GERADO (não editar manualmente)
   parlamentares/             # Mapa de parlamentares
   agenda/                    # Agenda legislativa de IA
   metodologia/               # Fontes, critérios, score, limitações e correções
+  monitoramento/             # Painel de métricas do cron (frescor, cobertura, mudanças, custo HTTP)
   relatorio/                 # Relatório da execução + síntese editorial
   data/                      # Cópia pública do dataset (JSON)
   sitemap.xml · robots.txt   # SEO
@@ -61,6 +64,14 @@ docs/                        # SITE GERADO (não editar manualmente)
 python3 scripts/update_legislation.py   # coleta das fontes oficiais → atualiza /data
 python3 scripts/build_site.py           # regenera /docs a partir de /data
 python3 scripts/validate_site.py        # valida dataset, páginas, links e domínio
+python3 scripts/selftest_offline.py     # testes offline do coletor (orçamento, persistência, métricas)
+```
+
+O coletor aceita limites explícitos (todos com equivalente em variável de ambiente
+`MONITOR_*`), usados pela automação para nunca estourar o tempo do job:
+
+```bash
+python3 scripts/update_legislation.py --budget-min 25 --max-novas 25 --workers 5
 ```
 
 Publicação: a Vercel executa `python3 scripts/build_site.py` e publica a pasta `/docs`.
@@ -95,14 +106,44 @@ Se nada relevante mudou, apenas registra-se a verificação — **nada de conte�
 - **15 parlamentares** com atuação documentada
 - Situação-síntese: marco legal (PL 2338/2023) parado há 16 meses na comissão especial da Câmara, com votação adiada para depois das eleições de outubro/2026; Redata (PL 278/2026) aprovado pelo Congresso e à sanção; Lei 15.487/2026 (deepfakes) em vigor desde 07/08/2026.
 
-Detalhes completos: página [Relatório](docs/relatorio/index.html).
+Detalhes completos: página [Relatório](docs/relatorio/index.html) ·
+saúde da automação: [Painel de monitoramento](docs/monitoramento/index.html).
 
 ## Automação
 
-O workflow `.github/workflows/update-legislation.yml` executa diariamente (07:00 BRT):
+O workflow `.github/workflows/update-legislation.yml` executa diariamente (07:17 BRT):
 coleta → rebuild → validação → commit somente se houver alteração real no dataset
 ou nas páginas. Sem commits vazios. O histórico de cada execução fica em
 `data/legislation/updates.json` (bloco `execucoes`) e as mudanças em `mudancas`.
+
+**Orçamento de tempo (por que existe).** O dataset cresce a cada dia e cada
+proposição monitorada custa consultas às APIs oficiais. Em 10/09/2026 o job foi
+cancelado pelo timeout de 45 min **durante a coleta** — rebuild, validação e
+commit não rodaram e o site ficou congelado na execução anterior. Correções
+aplicadas:
+
+- a coleta tem **teto de duração** (`MONITOR_BUDGET_SEGUNDOS`, padrão 25 min);
+  ao se aproximar do teto ela para de iniciar consultas, grava o que verificou e
+  registra a execução como `parcial` (nunca mais perde o trabalho feito);
+- verificação em **ordem de prioridade** (maior impacto primeiro; empate → mais
+  tempo sem verificação), de modo que o que fica pendente são as matérias de
+  menor score — e elas são as primeiras da execução seguinte;
+- **teto de fichas novas por execução** (`MONITOR_MAX_NOVAS`, padrão 25), com
+  prioridade por relevância temática, tipo de proposição e recência;
+- **cache de execução** por URL + telemetria de rede (chamadas, cache, falhas,
+  tempo por endpoint), evitando consultas repetidas;
+- rebuild, validação e commit rodam **mesmo se a coleta falhar** (`if: always()`),
+  e a execução é sinalizada no resumo do job e no painel.
+
+### Painel de monitoramento (DataViz)
+
+A página [`/monitoramento/`](docs/monitoramento/index.html) é reconstruída a cada
+execução do site e mostra, a partir do log auditável do cron: frescor da última
+execução (recalculado no navegador — se o cron parar, o painel fica vermelho),
+cobertura da verificação, proposições pendentes, mudanças por dia/mês/tipo,
+latência de detecção, evolução do banco, curadoria pendente, custo em chamadas
+HTTP por endpoint e o histórico completo de execuções. As mesmas métricas são
+publicadas em `docs/data/monitoramento.json` para uso externo (BI, planilhas).
 
 ## Autoria
 
