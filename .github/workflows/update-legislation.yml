@@ -1,0 +1,64 @@
+name: Atualizar monitoramento legislativo
+
+# Coleta automática das fontes oficiais (Câmara/Senado), rebuild do site
+# estático e validação. Commita somente quando há alteração real no dataset
+# ou nas páginas geradas. O deploy na Vercel é acionado pelo push (a Vercel
+# executa `python3 scripts/build_site.py` e publica `docs/`).
+on:
+  schedule:
+    # Diário às 10:00 UTC (07:00 BRT). Custo: apenas Actions gratuitos + APIs públicas.
+    - cron: "0 10 * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-legislation
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+
+      - name: Coletar dados oficiais
+        run: python3 scripts/update_legislation.py
+
+      - name: Rebuild do site
+        run: python3 scripts/build_site.py
+
+      - name: Validar dataset e páginas
+        run: python3 scripts/validate_site.py
+
+      - name: Detectar mudanças reais
+        id: diff
+        run: |
+          if git status --porcelain | grep .; then
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Commit e push (somente se houver alteração)
+        if: steps.diff.outputs.changed == 'true'
+        run: |
+          git config user.name "monitor-legislativo-bot"
+          git config user.email "monitor-legislativo-bot@users.noreply.github.com"
+          git add -A data docs
+          # Evita commit vazio em caso de corrida: só commita se houver staged diff
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração real. Nada a commitar."
+          else
+            DATA=$(date -u +%Y-%m-%d)
+            git commit -m "chore: atualização automática do monitoramento ($DATA)" -m "Execução do coletor (update_legislation.py) + rebuild (build_site.py). Mudanças registradas em data/legislation/updates.json."
+            git push
+          fi

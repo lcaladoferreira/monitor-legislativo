@@ -40,3 +40,29 @@
   });
   apply();
 })();
+
+// Filtro por período da página de atualizações (preserva o filtro de proposições acima)
+(function () {
+  var items = Array.prototype.slice.call(document.querySelectorAll('[data-update]'));
+  var btns = Array.prototype.slice.call(document.querySelectorAll('[data-ufilter]'));
+  if (!items.length || !btns.length) return;
+  var count = document.getElementById('u-count');
+  function apply(limit) {
+    var visible = 0;
+    items.forEach(function (el) {
+      var d = parseInt(el.getAttribute('data-days'), 10);
+      var ok = (limit === 'all') || (!isNaN(d) && d <= parseInt(limit, 10));
+      el.style.display = ok ? '' : 'none';
+      if (ok) visible++;
+    });
+    if (count) count.textContent = visible + ' de ' + items.length + ' atualizações';
+    btns.forEach(function (b) {
+      if (b.getAttribute('data-ufilter') === String(limit)) b.classList.add('active');
+      else b.classList.remove('active');
+    });
+  }
+  btns.forEach(function (b) {
+    b.addEventListener('click', function () { apply(b.getAttribute('data-ufilter')); });
+  });
+  apply('7');
+})();
