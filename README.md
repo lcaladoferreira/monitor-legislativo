@@ -32,17 +32,25 @@ data/legislation/            # DATASET (fonte única da verdade)
   categories.json            # 30 categorias temáticas
 
 scripts/
-  build_site.py              # Gera o site estático a partir do dataset → /docs
-  assets/                    # CSS e JS do site
+  update_legislation.py    # Coletor automático: APIs da Câmara/Senado → compara estado → atualiza dataset
+  scoring.py               # Rúbrica pública do AI Legislative Impact Score (reproduzível)
+  build_site.py            # Gera o site estático a partir do dataset → /docs
+  validate_site.py         # Validações: JSON, duplicadas, links, SEO, domínio
+  assets/                  # CSS e JS do site
+
+.github/workflows/
+  update-legislation.yml   # Action diária: coleta → build → valida → commit se houver mudança
 
 docs/                        # SITE GERADO (não editar manualmente)
-  index.html                 # Página principal (dashboard, o que mudou, top matérias)
+  index.html                 # Página principal (verificação, o que mudou, dashboard, top matérias)
   proposicoes/               # Lista filtrável + ficha individual de cada proposição
+  atualizacoes/              # Histórico cronológico das mudanças detectadas
   leis/                      # Leis e normas vigentes
   timeline/                  # Linha do tempo da regulação de IA
   parlamentares/             # Mapa de parlamentares
   agenda/                    # Agenda legislativa de IA
-  relatorio/                 # Relatório da execução + metodologia
+  metodologia/               # Fontes, critérios, score, limitações e correções
+  relatorio/                 # Relatório da execução + síntese editorial
   data/                      # Cópia pública do dataset (JSON)
   sitemap.xml · robots.txt   # SEO
 ```
@@ -50,11 +58,14 @@ docs/                        # SITE GERADO (não editar manualmente)
 ## Como executar
 
 ```bash
-python3 scripts/build_site.py   # regenera /docs a partir de /data
+python3 scripts/update_legislation.py   # coleta das fontes oficiais → atualiza /data
+python3 scripts/build_site.py           # regenera /docs a partir de /data
+python3 scripts/validate_site.py        # valida dataset, páginas, links e domínio
 ```
 
-Publicação: ativar o GitHub Pages do repositório apontando para `main` / `/docs`.
-Se o domínio for outro, ajustar `SITE_URL` em `scripts/build_site.py`.
+Publicação: a Vercel executa `python3 scripts/build_site.py` e publica a pasta `/docs`.
+O domínio oficial (`SITE_URL` em `scripts/build_site.py`) é
+`https://monitor-legislativo-five.vercel.app`.
 
 ## Ciclo de execução do monitoramento (execuções futuras)
 
@@ -85,3 +96,15 @@ Se nada relevante mudou, apenas registra-se a verificação — **nada de conte�
 - Situação-síntese: marco legal (PL 2338/2023) parado há 16 meses na comissão especial da Câmara, com votação adiada para depois das eleições de outubro/2026; Redata (PL 278/2026) aprovado pelo Congresso e à sanção; Lei 15.487/2026 (deepfakes) em vigor desde 07/08/2026.
 
 Detalhes completos: página [Relatório](docs/relatorio/index.html).
+
+## Automação
+
+O workflow `.github/workflows/update-legislation.yml` executa diariamente (07:00 BRT):
+coleta → rebuild → validação → commit somente se houver alteração real no dataset
+ou nas páginas. Sem commits vazios. O histórico de cada execução fica em
+`data/legislation/updates.json` (bloco `execucoes`) e as mudanças em `mudancas`.
+
+## Autoria
+
+Projeto desenvolvido por [Leandro Calado](https://leandrocaladoferreira.com/) /
+[LCF Consulting](https://lcfconsulting.com.br/).
