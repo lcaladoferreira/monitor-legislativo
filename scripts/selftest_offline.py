@@ -101,8 +101,10 @@ def rodar_coletor(tmp, budget_s, max_novas):
     ul.BUDGET = ul.Budget(budget_s, margem=1)
     ul.MAX_NOVAS = max_novas
     ul.MAX_PROPS = 0
+    antes = len(json.load(open(os.path.join(tmp, "updates.json"), encoding="utf-8"))["execucoes"])
     rec = ul.Collector().run(dry_run=False)
-    return (rec, os.path.join(tmp, "updates.json"), os.path.join(tmp, "propositions.json"))
+    return (rec, os.path.join(tmp, "updates.json"),
+            os.path.join(tmp, "propositions.json"), antes)
 
 
 def testar_camada_http():
@@ -134,7 +136,7 @@ def main():
     print("\n== 1) Execução com orçamento curto (deve encerrar como 'parcial')")
     tmp = copiar_dataset(tempfile.mkdtemp(prefix="monitor-selftest-"))
     t0 = time.monotonic()
-    rec, up_path, props_path = rodar_coletor(tmp, budget_s=12, max_novas=2)
+    rec, up_path, props_path, n_exec_antes = rodar_coletor(tmp, budget_s=12, max_novas=2)
     wall = time.monotonic() - t0
     up = json.load(open(up_path, encoding="utf-8"))
     props = json.load(open(props_path, encoding="utf-8"))
@@ -152,7 +154,8 @@ def main():
            "snapshot do dataset coerente com propositions.json")
     checar(up["execucoes"][0]["id"] == rec["id"],
            "execução mais recente está no topo de updates.json")
-    checar(len(up["execucoes"]) == 3, f"histórico de execuções preservado ({len(up['execucoes'])})")
+    checar(len(up["execucoes"]) == n_exec_antes + 1,
+           f"histórico de execuções preservado e ampliado ({n_exec_antes} → {len(up['execucoes'])})")
     ids = [m.get("id_execucao") for m in up["mudancas"]]
     checar(ids.count(rec["id"]) == sum(1 for m in up["mudancas"]
                                        if m.get("id_execucao") == rec["id"]),
@@ -160,7 +163,7 @@ def main():
 
     print("\n== 2) Execução com orçamento folgado (deve encerrar como 'concluida')")
     tmp2 = copiar_dataset(tempfile.mkdtemp(prefix="monitor-selftest-"))
-    rec2, up2_path, _ = rodar_coletor(tmp2, budget_s=900, max_novas=3)
+    rec2, up2_path, _, _ = rodar_coletor(tmp2, budget_s=900, max_novas=3)
     up2 = json.load(open(up2_path, encoding="utf-8"))
     checar(rec2["status"] == "concluida", f"status da execução é 'concluida' ({rec2['status']})")
     checar(rec2["proposicoes_pendentes"] == 0, "nenhuma proposição pendente")
