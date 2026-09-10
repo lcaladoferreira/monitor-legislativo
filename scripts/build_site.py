@@ -1,13 +1,11 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Entry point do build com o domínio oficial da LCF Consulting.
-
-O gerador completo permanece em build_site_core.py. Este wrapper força o domínio
-canônico usado em canonical, Open Graph, navegação, robots.txt e sitemap.xml.
-"""
+"""Entry point do build com domínio oficial e camada de visibilidade SEO/AEO/agentic."""
 import build_site_core as _core
+import ai_visibility as _ai_visibility
 
 _core.SITE_URL = "https://monitor.lcfconsulting.com.br"
+_ai_visibility.install(_core)
 
 # Preserva compatibilidade para qualquer código/teste que importe build_site.
 for _name, _value in vars(_core).items():
