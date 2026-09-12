@@ -13,6 +13,10 @@ Detecta:
   - canonical/sitemap/robots apontando para domínio errado
   - links internos quebrados (hrefs do SITE_URL sem arquivo correspondente)
   - referências remanescentes ao domínio antigo do GitHub Pages
+  - camada comercial B2B: CTA no cabeçalho, páginas /solucoes, /diagnostico,
+    /briefing-executivo e /para-empresas, eventos de analytics, pricing sem
+    vazar faixa interna, lead scoring, prova social desativada, separação
+    fato oficial × análise e linguagem sem promessa de aconselhamento jurídico
 
 Uso: python3 scripts/validate_site.py
 Saída: exit 0 se OK (avisos permitidos), exit 1 se houver erros.
@@ -232,6 +236,135 @@ def check_docs(rep, site):
         rep.err(f"sitemap.xml: XML inválido — {e}")
 
 
+PAGINAS_COMERCIAIS = ["solucoes/", "diagnostico/", "briefing-executivo/", "para-empresas/"]
+
+EVENTOS_ANALYTICS_OBRIGATORIOS = [
+    "commercial_cta_click", "diagnostic_started", "diagnostic_submitted", "briefing_sample_view",
+    "pricing_view", "sector_page_view", "high_impact_view", "alert_signup", "demo_request",
+    "whatsapp_click",
+]
+
+# Guard-rail editorial (item 18): linguagem de aconselhamento jurídico só é
+# aceita em contexto de negação/aviso ("não presta...", "não constitui...").
+TERMOS_JURIDICOS = ["parecer jurídico", "aconselhamento jurídico", "garantia de conformidade",
+                    "consultoria jurídica", "garantimos conformidade", "interpretamos a lei"]
+NEGACOES = ("não", "nao ", "sem ", "nunca", "nem ", "nenhum", "nenhuma", "nada", "jamais",
+            "não constitui", "não presta", "não emite", "não garante")
+
+
+def _contexto_negado(html, idx, termo):
+    """Aceita o termo apenas em aviso/negação ou em pergunta explícita (FAQ)."""
+    janela = html[max(0, idx - 90):idx].lower()
+    if any(n in janela for n in NEGACOES):
+        return True
+    # uso interrogativo: "Isso é aconselhamento jurídico?" (pergunta de FAQ)
+    apos = html[idx + len(termo):idx + len(termo) + 4]
+    return "?" in apos
+
+
+def check_commercial(rep, site):
+    """Valida a camada comercial B2B (P0) sem afrouxar nenhuma regra existente."""
+    html_files = []
+    for root, _, files in os.walk(OUT):
+        for fn in files:
+            if fn.endswith(".html"):
+                html_files.append(os.path.join(root, fn))
+
+    # 1) CTA de alta visibilidade + disclaimer em TODAS as páginas
+    for path in sorted(html_files):
+        rel = os.path.relpath(path, OUT)
+        with open(path, encoding="utf-8", errors="replace") as f:
+            html = f.read()
+        if "nav-cta" not in html:
+            rep.err(f"docs/{rel}: CTA comercial do cabeçalho ausente")
+        if 'id="monitor-commercial-config"' not in html:
+            rep.err(f"docs/{rel}: config comercial/analytics ausente no <head>")
+        # 2) termos jurídicos apenas em contexto negado
+        low = html.lower()
+        for termo in TERMOS_JURIDICOS:
+            for m in re.finditer(re.escape(termo), low):
+                if not _contexto_negado(low, m.start(), termo):
+                    rep.err(f"docs/{rel}: uso de '{termo}' fora de contexto de aviso/negação")
+
+    # 3) Páginas comerciais
+    geradas = 0
+    for p in PAGINAS_COMERCIAIS:
+        fp = os.path.join(OUT, p, "index.html")
+        if not os.path.isfile(fp):
+            rep.warn(f"docs/{p}: página comercial não gerada (build sem commercial.install?)")
+            continue
+        geradas += 1
+        with open(fp, encoding="utf-8", errors="replace") as f:
+            html = f.read()
+        for obrig in ("commercial.css", "commercial.js", "Solicitar diagnóstico",
+                      "aconselhamento jurídico"):
+            if obrig not in html:
+                rep.err(f"docs/{p}: elemento comercial obrigatório ausente ({obrig})")
+        if "cta-btn" not in html:
+            rep.err(f"docs/{p}: sem CTA primário")
+
+    if not geradas:
+        return
+
+    # 4) Analytics: catálogo de eventos presente no JS publicado
+    js = os.path.join(OUT, "assets", "commercial.js")
+    if not os.path.isfile(js):
+        rep.err("docs/assets/commercial.js: ausente")
+    else:
+        with open(js, encoding="utf-8") as f:
+            js_txt = f.read()
+        for ev in EVENTOS_ANALYTICS_OBRIGATORIOS:
+            if ev not in js_txt:
+                rep.err(f"commercial.js: evento de analytics não instrumentado ({ev})")
+        for obrig in ("dataLayer", "utm_source", "leadScoring", "sendBeacon"):
+            if obrig not in js_txt:
+                rep.err(f"commercial.js: recurso obrigatório ausente ({obrig})")
+
+    # 5) Config pública de pricing — sem vazar faixa interna nem segredo
+    cfg_path = os.path.join(OUT, "data", "commercial.json")
+    cfg = load_json(cfg_path, rep, "data/commercial.json")
+    if cfg:
+        for s in cfg.get("solucoes", []):
+            if not s.get("preco_publico") and (s.get("preco_min") or s.get("preco_max")):
+                rep.err(f"commercial.json: faixa interna de '{s.get('nome')}' exposta publicamente")
+        if not cfg.get("lead_scoring", {}).get("regras"):
+            rep.err("commercial.json: regras de lead scoring ausentes")
+        regras = cfg.get("lead_scoring", {}).get("regras", [])
+        if len(regras) != 7:
+            rep.err(f"commercial.json: esperado 7 critérios de lead scoring, encontrado {len(regras)}")
+        raw = json.dumps(cfg, ensure_ascii=False).lower()
+        for segredo in ("access_key", "apikey", "api_key", "secret", "password", "token"):
+            if segredo in raw:
+                rep.err(f"commercial.json: possível segredo exposto ({segredo})")
+    solucoes_html = os.path.join(OUT, "solucoes", "index.html")
+    with open(solucoes_html, encoding="utf-8") as f:
+        sh = f.read()
+    if "R$ 10.000" in sh or "R$ 20.000" in sh:
+        rep.err("docs/solucoes/: faixa interna de Inteligência Institucional publicada (deve ser 'Sob consulta')")
+    if "Sob consulta" not in sh:
+        rep.err("docs/solucoes/: Inteligência Institucional sem rótulo 'Sob consulta'")
+
+    # 6) Prova social inventada (item 13): nenhuma estrutura de logos/depoimentos
+    #     pode aparecer enquanto não houver case real autorizado.
+    for path in sorted(html_files):
+        rel = os.path.relpath(path, OUT)
+        with open(path, encoding="utf-8", errors="replace") as f:
+            html = f.read()
+        if 'class="logos"' in html or "Quem já usa" in html:
+            rep.err(f"docs/{rel}: prova social renderizada sem evidência real autorizada")
+
+    # 7) Amostra de briefing precisa separar fato oficial de análise
+    brief = os.path.join(OUT, "briefing-executivo", "index.html")
+    with open(brief, encoding="utf-8") as f:
+        bh = f.read()
+    for obrig in ("tag-fato", "tag-analise", "Fato oficial", "Análise / interpretação",
+                  "Ação recomendada", "Fonte oficial", "Por que esta matéria recebeu score"):
+        if obrig not in bh:
+            rep.err(f"docs/briefing-executivo/: elemento obrigatório ausente ({obrig})")
+    if bh.count("brief-item") < 3:
+        rep.err("docs/briefing-executivo/: amostra com menos de 3 matérias reais")
+
+
 def main():
     site = site_url()
     rep = Report()
@@ -240,6 +373,7 @@ def main():
         rep.err("SITE_URL ainda aponta para o GitHub Pages")
     check_data(rep)
     check_docs(rep, site)
+    check_commercial(rep, site)
     # varredura geral do domínio antigo em arquivos-fonte (exceto histórico git).
     # Ignora a linha de definição da constante OLD_DOMAIN (usada por esta checagem);
     # qualquer outro uso (ex.: SITE_URL regressivo) é erro.

@@ -26,5 +26,14 @@ Public, structured monitoring of Brazilian federal legislation and regulation re
 - https://monitor.lcfconsulting.com.br/data/categories.json
 - https://monitor.lcfconsulting.com.br/data/monitoramento.json
 
+## Commercial layer
+- Solutions and reference price ranges: https://monitor.lcfconsulting.com.br/solucoes/
+- Regulatory exposure diagnostic (lead form): https://monitor.lcfconsulting.com.br/diagnostico/
+- Real sample of the paid executive briefing: https://monitor.lcfconsulting.com.br/briefing-executivo/
+- Corporate buyer page: https://monitor.lcfconsulting.com.br/para-empresas/
+- Machine-readable commercial config: https://monitor.lcfconsulting.com.br/data/commercial.json
+
+The public monitor remains fully accessible without authentication; the commercial layer adds prioritisation, business-impact analysis, alerts and the executive briefing. Content is regulatory intelligence and impact analysis — never legal advice or a compliance guarantee.
+
 ## Usage
 Public reading and citation are allowed. Legislative facts should be verified against the linked primary official source before high-stakes use. For commercial monitoring or briefings, use https://lcfconsulting.com.br/.

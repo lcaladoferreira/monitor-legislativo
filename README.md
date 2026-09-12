@@ -34,14 +34,22 @@ data/legislation/            # DATASET (fonte única da verdade)
 scripts/
   update_legislation.py    # Coletor automático: APIs da Câmara/Senado → compara estado → atualiza dataset
   scoring.py               # Rúbrica pública do AI Legislative Impact Score (reproduzível)
-  build_site.py            # Gera o site estático a partir do dataset → /docs
+  build_site.py            # Entry point do build (domínio oficial + camadas comercial e de visibilidade IA)
+  build_site_core.py       # Gera o site estático a partir do dataset → /docs
+  commercial.py            # CONFIGURAÇÃO CENTRAL da camada comercial B2B + páginas comerciais
+  brief.py                 # Motor do Executive Regulatory Brief (fato oficial × análise)
+  build_alert_email.py     # Alertas por e-mail/webhook + relatório executivo (HTML, TXT, JSON)
   dataviz.py               # Gráficos SVG (stdlib, sem JS) do painel de monitoramento
-  validate_site.py         # Validações: JSON, duplicadas, links, SEO, domínio
+  ai_visibility.py         # SEO/AEO/agentic: llms.txt, ai-content.md, robots, mcp-actions
+  validate_site.py         # Validações: JSON, duplicadas, links, SEO, domínio + regras comerciais
   selftest_offline.py      # Testes offline: orçamento de tempo, persistência e métricas do coletor
-  assets/                  # CSS e JS do site
+  selftest_comercial.py    # Testes offline da camada comercial (config, scoring, brief, HTML, alertas)
+  assets/                  # CSS e JS do site (style.css/site.js) + comerciais (commercial.css/js)
+  tests/                   # Teste de front-end em jsdom (dev; opcional)
 
 .github/workflows/
   update-legislation.yml   # Action diária: coleta → build → valida → commit se houver mudança
+  briefing-comercial.yml   # Action semanal/manual: gera o Executive Regulatory Brief (e envia se houver SMTP)
 
 docs/                        # SITE GERADO (não editar manualmente)
   index.html                 # Página principal (verificação, o que mudou, dashboard, top matérias)
@@ -54,7 +62,11 @@ docs/                        # SITE GERADO (não editar manualmente)
   metodologia/               # Fontes, critérios, score, limitações e correções
   monitoramento/             # Painel de métricas do cron (frescor, cobertura, mudanças, custo HTTP)
   relatorio/                 # Relatório da execução + síntese editorial
-  data/                      # Cópia pública do dataset (JSON)
+  solucoes/                  # COMERCIAL: 4 formas de contratação + comparativo + FAQ
+  diagnostico/               # COMERCIAL: landing de captura de lead + lead scoring
+  briefing-executivo/        # COMERCIAL: amostra real do briefing pago (imprimível)
+  para-empresas/             # COMERCIAL: página do comprador corporativo
+  data/                      # Cópia pública do dataset (JSON) + commercial.json (config comercial)
   sitemap.xml · robots.txt   # SEO
 ```
 
@@ -65,6 +77,8 @@ python3 scripts/update_legislation.py   # coleta das fontes oficiais → atualiz
 python3 scripts/build_site.py           # regenera /docs a partir de /data
 python3 scripts/validate_site.py        # valida dataset, páginas, links e domínio
 python3 scripts/selftest_offline.py     # testes offline do coletor (orçamento, persistência, métricas)
+python3 scripts/selftest_comercial.py   # testes offline da camada comercial (build + validação inclusos)
+python3 scripts/build_alert_email.py    # gera o Executive Regulatory Brief em build/alertas/
 ```
 
 O coletor aceita limites explícitos (todos com equivalente em variável de ambiente
@@ -144,6 +158,70 @@ cobertura da verificação, proposições pendentes, mudanças por dia/mês/tipo
 latência de detecção, evolução do banco, curadoria pendente, custo em chamadas
 HTTP por endpoint e o histórico completo de execuções. As mesmas métricas são
 publicadas em `docs/data/monitoramento.json` para uso externo (BI, planilhas).
+
+## Camada comercial B2B
+
+O monitor público continua **público, indexável e sem login** — ele é a
+demonstração da capacidade técnica. Sobre o mesmo dataset existe agora uma camada
+comercial integrada ao site (não é um site separado):
+
+| URL | Função no funil |
+|---|---|
+| [`/solucoes/`](docs/solucoes/index.html) | 4 formas de contratação com faixas de referência, comparativo, diferenciação e FAQ |
+| [`/diagnostico/`](docs/diagnostico/index.html) | landing + captura de lead + qualificação por lead scoring |
+| [`/briefing-executivo/`](docs/briefing-executivo/index.html) | amostra real do produto pago (Executive Regulatory Brief) gerada do dataset |
+| [`/para-empresas/`](docs/para-empresas/index.html) | página do comprador corporativo + pedido de demonstração |
+
+CTA principal em **todas** as páginas: *Solicitar diagnóstico regulatório*.
+CTA secundário: *Ver exemplo de briefing executivo*.
+
+Soluções: **Monitor IA** (R$ 1.500–3.000/mês) · **Radar Executivo de Regulação de
+IA** (R$ 4.000–8.000/mês, oferta principal) · **Inteligência Institucional** (sob
+consulta; faixa interna não publicada) · **Diagnóstico de Exposição
+Regulatória** (R$ 5.000–15.000 por projeto).
+
+Tudo é configuração centralizada em `scripts/commercial.py` (preço, CTAs,
+endpoint de captura, WhatsApp, analytics, regras de lead scoring, prova social —
+esta última desativada até existirem cases reais). O que é configurado volta
+público em `docs/data/commercial.json`, consumido pelo front-end.
+
+```bash
+# captura de lead por provider de formulário (Formspree, Web3Forms, função própria...)
+MONITOR_LEAD_ENDPOINT=https://formspree.io/f/xxxxxxxx python3 scripts/build_site.py
+
+# sem provider: o formulário degrada para mailto com o payload completo (não perde lead)
+python3 scripts/build_site.py
+
+# preço, canal e analytics sem tocar em código
+MONITOR_PRICE_RADAR_EXECUTIVO_MIN=5000 MONITOR_WHATSAPP=5511999999999 \
+MONITOR_GA4_ID=G-XXXXXXXXXX python3 scripts/build_site.py
+```
+
+Alertas e relatório executivo (mesmo motor da amostra pública):
+
+```bash
+python3 scripts/build_alert_email.py                                  # brief semanal (HTML + TXT + JSON)
+python3 scripts/build_alert_email.py --modelo alerta --frequencia imediato --score-minimo 80
+python3 scripts/build_alert_email.py --destinatarios cliente@empresa.com.br --send   # SMTP via env
+```
+
+Testes da camada comercial (121 verificações + teste de front-end em jsdom quando
+disponível):
+
+```bash
+python3 scripts/selftest_comercial.py
+python3 scripts/validate_site.py     # inclui as regras comerciais (CTA, analytics,
+                                     # faixa interna, prova social, fato × análise,
+                                     # linguagem sem promessa jurídica)
+```
+
+Detalhes de arquitetura, plano público × privado dos dados, catálogo de eventos
+de analytics e backlog P1/P2: [`ARQUITETURA-DADOS-COMERCIAL.md`](ARQUITETURA-DADOS-COMERCIAL.md).
+Registro da entrega P0: [`RELATORIO-ENTREGA-P0.md`](RELATORIO-ENTREGA-P0.md).
+
+**Escopo do serviço (obrigatório em qualquer peça comercial):** inteligência
+regulatória, acompanhamento legislativo, análise de impacto e priorização com
+fonte oficial. Não é parecer, aconselhamento jurídico ou garantia de conformidade.
 
 ## Autoria
 

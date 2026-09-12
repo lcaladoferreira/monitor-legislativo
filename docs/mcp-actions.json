@@ -12,6 +12,28 @@
       "endpoint": "https://lcfconsulting.com.br/"
     },
     {
+      "id": "request-regulatory-diagnostic",
+      "name": "Request AI regulatory exposure diagnostic",
+      "description": "Open the diagnostic form to request a regulatory exposure diagnostic for an organisation using AI.",
+      "method": "declarative",
+      "element": "a[data-mcp-action='request-regulatory-diagnostic']",
+      "endpoint": "https://monitor.lcfconsulting.com.br/diagnostico/"
+    },
+    {
+      "id": "read-executive-briefing-sample",
+      "name": "Read executive briefing sample",
+      "description": "Retrieve the public sample of the paid executive regulatory brief, generated from the same dataset.",
+      "method": "GET",
+      "endpoint": "https://monitor.lcfconsulting.com.br/briefing-executivo/"
+    },
+    {
+      "id": "read-commercial-config",
+      "name": "Read commercial configuration",
+      "description": "Retrieve published solutions, reference price ranges and lead qualification rules.",
+      "method": "GET",
+      "endpoint": "https://monitor.lcfconsulting.com.br/data/commercial.json"
+    },
+    {
       "id": "read-legislative-updates",
       "name": "Read legislative updates feed",
       "description": "Retrieve the public structured feed of detected legislative changes.",

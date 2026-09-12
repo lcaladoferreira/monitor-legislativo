@@ -1,0 +1,99 @@
+name: Briefing comercial (Executive Regulatory Brief)
+
+# Gera o Executive Regulatory Brief / alerta a partir do dataset versionado e
+# publica o artefato. O envio por e-mail só acontece se os segredos SMTP
+# existirem — sem segredo, o workflow apenas gera os arquivos (HTML, TXT e JSON),
+# então nada quebra no repositório público.
+#
+# Este workflow é ADITIVO: não altera o cron diário de coleta
+# (update-legislation.yml), que continua sendo a fonte da verdade do dataset.
+on:
+  schedule:
+    # Segunda-feira 11:30 UTC (08:30 BRT), depois da coleta diária das 10:17 UTC.
+    - cron: "30 11 * * 1"
+  workflow_dispatch:
+    inputs:
+      modelo:
+        description: "Modelo de saída"
+        required: false
+        default: "brief"
+        type: choice
+        options: ["brief", "alerta"]
+      frequencia:
+        description: "Frequência / janela"
+        required: false
+        default: "semanal"
+        type: choice
+        options: ["imediato", "diario", "semanal"]
+      score_minimo:
+        description: "Score mínimo (0 = todas)"
+        required: false
+        default: "0"
+      temas:
+        description: "Categorias (slugs separados por vírgula; vazio = todas)"
+        required: false
+        default: ""
+      destinatarios:
+        description: "E-mails separados por vírgula (opcional; só envia com segredos SMTP)"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+concurrency:
+  group: briefing-comercial
+  cancel-in-progress: true
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  briefing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Gerar briefing / alerta
+        run: |
+          python3 scripts/build_alert_email.py \
+            --modelo "${{ inputs.modelo || 'brief' }}" \
+            --frequencia "${{ inputs.frequencia || 'semanal' }}" \
+            --score-minimo "${{ inputs.score_minimo || '0' }}" \
+            --temas "${{ inputs.temas || '' }}" \
+            --destinatarios "${{ inputs.destinatarios || '' }}" \
+            --out-dir build/alertas
+
+      - name: Enviar por e-mail (somente com segredos SMTP)
+        if: ${{ inputs.destinatarios != '' }}
+        env:
+          MONITOR_SMTP_HOST: ${{ secrets.MONITOR_SMTP_HOST }}
+          MONITOR_SMTP_PORT: ${{ secrets.MONITOR_SMTP_PORT }}
+          MONITOR_SMTP_USER: ${{ secrets.MONITOR_SMTP_USER }}
+          MONITOR_SMTP_PASS: ${{ secrets.MONITOR_SMTP_PASS }}
+          MONITOR_SMTP_FROM: ${{ secrets.MONITOR_SMTP_FROM }}
+        run: |
+          if [ -z "$MONITOR_SMTP_HOST" ]; then
+            echo "MONITOR_SMTP_HOST ausente — envio pulado (artefato gerado)."
+            exit 0
+          fi
+          python3 scripts/build_alert_email.py \
+            --modelo "${{ inputs.modelo || 'brief' }}" \
+            --frequencia "${{ inputs.frequencia || 'semanal' }}" \
+            --score-minimo "${{ inputs.score_minimo || '0' }}" \
+            --temas "${{ inputs.temas || '' }}" \
+            --destinatarios "${{ inputs.destinatarios }}" \
+            --out-dir build/alertas --send
+
+      - name: Publicar artefato
+        uses: actions/upload-artifact@v4
+        with:
+          name: briefing-comercial
+          path: build/alertas/
+          retention-days: 30

@@ -2,6 +2,9 @@
 __pycache__/
 *.pyc
 
+# Node (apenas para o teste de front-end em scripts/tests/)
+node_modules/
+
 # Sistema
 .DS_Store
 Thumbs.db
@@ -9,3 +12,6 @@ Thumbs.db
 # O site gerado é versionado de propósito (deploy via /docs no GitHub Pages),
 # mas builds locais temporários não devem poluir o repositório.
 docs/_tmp/
+
+# Artefatos de alerta/relatório gerados sob demanda (não fazem parte do site publicado)
+build/
