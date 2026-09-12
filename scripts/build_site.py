@@ -3,8 +3,9 @@
 """Entry point do build com domínio oficial e camada de visibilidade SEO/AEO/agentic."""
 import os
 
-import build_site_core as _core
 import ai_visibility as _ai_visibility
+import build_site_core as _core
+import commercial as _commercial
 
 SITE_URL = "https://monitor.lcfconsulting.com.br"
 OLD_SITE_URL = "https://monitor-legislativo-five.vercel.app"
@@ -12,6 +13,11 @@ OLD_SITE_URL = "https://monitor-legislativo-five.vercel.app"
 # Força o domínio oficial em toda a geração: canonical, OG, navegação,
 # sitemap.xml, robots.txt, JSON-LD e arquivos de descoberta para agentes.
 _core.SITE_URL = SITE_URL
+
+# Camada comercial B2B (config centralizada em scripts/commercial.py). Instalada
+# ANTES da camada de visibilidade de IA para que as páginas comerciais também
+# recebam llms.txt/mcp-actions/Organization no <head>.
+_commercial.install(_core)
 _ai_visibility.install(_core)
 
 # Preserva compatibilidade para qualquer código/teste que importe build_site.

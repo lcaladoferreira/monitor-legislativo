@@ -1,0 +1,315 @@
+{
+  "meta": {
+    "descricao": "Configuração pública da camada comercial do Monitor Legislativo de IA",
+    "gerado_em": "2026-09-12",
+    "fonte": "scripts/commercial.py (configuração centralizada)",
+    "aviso": "O Monitor Legislativo de IA fornece inteligência regulatória, acompanhamento legislativo, análise de impacto e priorização com base em fontes oficiais. Não presta aconselhamento jurídico, não emite parecer e não garante conformidade nem interpretação legal. Decisões jurídicas devem ser tomadas com assessoria habilitada."
+  },
+  "contato": {
+    "email": "contato@lcfconsulting.com.br",
+    "site": "https://lcfconsulting.com.br/",
+    "whatsapp_disponivel": false
+  },
+  "ctas": {
+    "principal": "Solicitar diagnóstico regulatório",
+    "principal_sub": "Descubra quais projetos, normas e mudanças regulatórias relacionadas à IA podem afetar sua organização.",
+    "secundario": "Ver exemplo de briefing executivo",
+    "demo": "Solicitar demonstração contextualizada",
+    "alerta": "Receber briefing regulatório por e-mail",
+    "url_principal": "https://monitor.lcfconsulting.com.br/diagnostico/"
+  },
+  "solucoes": [
+    {
+      "id": "monitor-ia",
+      "nome": "Monitor IA",
+      "resumo": "A base proprietária do monitoramento, com score de impacto, histórico e fontes oficiais.",
+      "para_quem": [
+        "Startups e pequenas empresas",
+        "Consultores",
+        "Escritórios menores",
+        "Profissionais de regulação, compliance e RIG"
+      ],
+      "entregas": [
+        "Monitor legislativo de IA, dados e infraestrutura digital (acesso ao produto público + camadas de priorização)",
+        "AI Legislative Impact Score por matéria, com fatores que sustentam a pontuação",
+        "Histórico completo de movimentações e registro auditável de mudanças",
+        "Fontes oficiais linkadas em cada afirmação",
+        "Agenda legislativa de IA (audiências, votações, marcos normativos)",
+        "Alertas por e-mail (imediato, diário ou semanal) por tema e score mínimo",
+        "Relatório periódico do que mudou no seu recorte"
+      ],
+      "preco_publico": true,
+      "preco_rotulo": "R$ 1.500 – R$ 3.000",
+      "preco_min": 1500,
+      "preco_max": 3000,
+      "unidade": "mês",
+      "usuarios": "Até 3 usuários",
+      "destaque": false,
+      "url": "https://monitor.lcfconsulting.com.br/solucoes/#monitor-ia"
+    },
+    {
+      "id": "radar-executivo",
+      "nome": "Radar Executivo de Regulação de IA",
+      "resumo": "A oferta principal: tudo do Monitor IA traduzido para decisão executiva, toda semana.",
+      "para_quem": [
+        "Fintech e bancos",
+        "Seguradoras",
+        "Empresas de tecnologia",
+        "Healthtech e saúde",
+        "Data centers e cloud providers",
+        "Empresas que usam IA de forma relevante",
+        "Escritórios jurídicos"
+      ],
+      "entregas": [
+        "Tudo o que está incluído no Monitor IA",
+        "Briefing executivo semanal (o modelo que você vê em /briefing-executivo/)",
+        "Análise de impacto: o que a mudança significa para a operação",
+        "Agenda prioritária dos próximos 7 e 30 dias",
+        "Alertas críticos fora de ciclo quando algo muda de estágio ou de score",
+        "Reunião executiva mensal de leitura do cenário",
+        "Identificação do impacto da alteração legislativa no negócio, por área"
+      ],
+      "preco_publico": true,
+      "preco_rotulo": "R$ 4.000 – R$ 8.000",
+      "preco_min": 4000,
+      "preco_max": 8000,
+      "unidade": "mês",
+      "usuarios": "Até 10 usuários",
+      "destaque": true,
+      "url": "https://monitor.lcfconsulting.com.br/solucoes/#radar-executivo"
+    },
+    {
+      "id": "inteligencia-institucional",
+      "nome": "Inteligência Institucional",
+      "resumo": "Monitoramento customizado, integração e SLA para estruturas reguladas e multiárea.",
+      "para_quem": [
+        "Grandes empresas",
+        "Associações setoriais",
+        "Consultorias",
+        "Grandes escritórios",
+        "Empresas altamente reguladas"
+      ],
+      "entregas": [
+        "Monitoramento customizado por temas, órgãos e jurisdições definidos com você",
+        "Múltiplos usuários e perfis de acesso por área",
+        "Temas personalizados além do recorte padrão de IA e dados",
+        "Alertas prioritários com regra própria de severidade",
+        "API e webhook para integrar ao seu GRC, jurídico ou BI",
+        "SLA contratual de atualização e resposta",
+        "Reunião recorrente com curadoria especializada",
+        "Relatórios customizados (comitê, conselho, regulador, associados)",
+        "Possibilidade de white-label para consultorias e associações"
+      ],
+      "preco_publico": false,
+      "preco_rotulo": "Sob consulta",
+      "preco_min": null,
+      "preco_max": null,
+      "unidade": "mês",
+      "usuarios": "Usuários e temas ilimitados conforme escopo",
+      "destaque": false,
+      "url": "https://monitor.lcfconsulting.com.br/solucoes/#inteligencia-institucional"
+    },
+    {
+      "id": "diagnostico-exposicao",
+      "nome": "Diagnóstico de Exposição Regulatória",
+      "resumo": "Produto avulso, sem assinatura: onde sua operação está exposta à regulação de IA hoje.",
+      "para_quem": [
+        "Quem ainda não quer assumir uma assinatura",
+        "Times que precisam de um retrato objetivo para decidir",
+        "Comitês que vão definir orçamento de compliance em IA"
+      ],
+      "entregas": [
+        "Workshop de leitura do cenário regulatório com o seu time",
+        "Levantamento de exposição por área, produto e processo",
+        "Definição dos temas prioritários para a sua operação",
+        "Mapeamento das proposições e normas relacionadas a cada tema",
+        "Riscos identificados com a evidência oficial correspondente",
+        "Relatório executivo com hierarquia de prioridade",
+        "Recomendações de monitoramento (o que acompanhar, com que frequência e quem acionar)"
+      ],
+      "preco_publico": true,
+      "preco_rotulo": "R$ 5.000 – R$ 15.000",
+      "preco_min": 5000,
+      "preco_max": 15000,
+      "unidade": "projeto",
+      "usuarios": "Time participante do workshop",
+      "destaque": false,
+      "url": "https://monitor.lcfconsulting.com.br/solucoes/#diagnostico-exposicao"
+    }
+  ],
+  "lead_scoring": {
+    "regras": [
+      {
+        "id": "grande_empresa",
+        "pontos": 20,
+        "descricao": "Organização de grande porte (501+ funcionários)"
+      },
+      {
+        "id": "setor_prioritario",
+        "pontos": 20,
+        "descricao": "Setor de alta consequência regulatória (banco, fintech, seguros, tecnologia, cloud, data center)"
+      },
+      {
+        "id": "cargo_decisor",
+        "pontos": 15,
+        "descricao": "Cargo de decisão (C-level, diretoria, head ou sócio)"
+      },
+      {
+        "id": "area_estruturada",
+        "pontos": 15,
+        "descricao": "Possui área de compliance, jurídico ou relações governamentais"
+      },
+      {
+        "id": "preocupacao_imediata",
+        "pontos": 15,
+        "descricao": "Declara preocupação regulatória imediata (próximos 3 meses)"
+      },
+      {
+        "id": "ia_critica",
+        "pontos": 10,
+        "descricao": "Usa IA em processo crítico da operação"
+      },
+      {
+        "id": "mais_de_100",
+        "pontos": 5,
+        "descricao": "Mais de 100 funcionários"
+      }
+    ],
+    "faixas": [
+      {
+        "min": 70,
+        "classe": "prioridade_comercial",
+        "rotulo": "Prioridade comercial"
+      },
+      {
+        "min": 50,
+        "classe": "alto",
+        "rotulo": "Alto"
+      },
+      {
+        "min": 30,
+        "classe": "medio",
+        "rotulo": "Médio"
+      },
+      {
+        "min": 0,
+        "classe": "baixo",
+        "rotulo": "Baixo"
+      }
+    ],
+    "maximo": 100,
+    "entradas": {
+      "tamanho_grande": [
+        "501 a 1.000",
+        "Mais de 1.000"
+      ],
+      "tamanho_acima_100": [
+        "101 a 500",
+        "501 a 1.000",
+        "Mais de 1.000"
+      ],
+      "setores_prioritarios": [
+        "Bancos",
+        "Cloud",
+        "Data Center",
+        "Fintech",
+        "Seguros",
+        "Tecnologia"
+      ],
+      "cargos_senior": [
+        "C-level (CEO, CTO, CCO, CRO, CFO)",
+        "Diretor(a)",
+        "Head / Gerente executivo(a)",
+        "Sócio(a)"
+      ],
+      "areas_que_pontuam": [
+        "Sim — Compliance",
+        "Sim — Jurídico",
+        "Sim — Relações governamentais (RIG)",
+        "Sim — mais de uma dessas áreas"
+      ],
+      "horizonte_imediato": "Imediata — próximos 3 meses",
+      "uso_ia_critico": "IA em processo crítico da operação"
+    }
+  },
+  "captura": {
+    "endpoint_configurado": false,
+    "provider": "fallback-email",
+    "campos": [
+      "nome",
+      "empresa",
+      "cargo",
+      "email",
+      "telefone",
+      "setor",
+      "tamanho",
+      "uso_ia",
+      "area",
+      "horizonte",
+      "preocupacao",
+      "interesse",
+      "solucao",
+      "mensagem",
+      "consentimento"
+    ]
+  },
+  "setores": [
+    "Tecnologia",
+    "Bancos",
+    "Fintech",
+    "Seguros",
+    "Saúde",
+    "Telecom",
+    "Cloud",
+    "Data Center",
+    "Infraestrutura",
+    "Jurídico",
+    "Consultoria",
+    "Associação",
+    "Governo",
+    "Outro"
+  ],
+  "analytics": {
+    "eventos": [
+      "commercial_cta_click",
+      "diagnostic_started",
+      "diagnostic_submitted",
+      "briefing_sample_view",
+      "pricing_view",
+      "sector_page_view",
+      "high_impact_view",
+      "alert_signup",
+      "demo_request",
+      "whatsapp_click"
+    ],
+    "ga4_configurado": false,
+    "plausible_configurado": false,
+    "beacon_configurado": false
+  },
+  "prova_social": {
+    "habilitada": false,
+    "nota": "Estrutura pronta; desativada até existirem cases, logos e depoimentos reais autorizados."
+  },
+  "paginas": [
+    {
+      "path": "solucoes/",
+      "nome": "Soluções e planos",
+      "evento": "pricing_view"
+    },
+    {
+      "path": "diagnostico/",
+      "nome": "Diagnóstico regulatório",
+      "evento": "diagnostic_page_view"
+    },
+    {
+      "path": "briefing-executivo/",
+      "nome": "Exemplo de briefing executivo",
+      "evento": "briefing_sample_view"
+    },
+    {
+      "path": "para-empresas/",
+      "nome": "Para empresas",
+      "evento": "para_empresas_view"
+    }
+  ]
+}

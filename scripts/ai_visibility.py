@@ -41,6 +41,15 @@ def install(core):
                'data-mcp-action="contact-lcf-consulting" '
                'data-mcp-description="Open LCF Consulting to request legislative and regulatory intelligence services">')
         html = html.replace(old, new)
+
+        # Commercial layer: the diagnostic request is the highest-value task now.
+        if core.commercial.is_installed():
+            diag_url = core.SITE_URL + "/diagnostico/"
+            html = html.replace(
+                f'<a class="nav-cta" href="{diag_url}"',
+                f'<a class="nav-cta" href="{diag_url}" '
+                'data-mcp-action="request-regulatory-diagnostic" '
+                'data-mcp-description="Request an AI regulatory exposure diagnostic from LCF Consulting"', 1)
         return html
 
     def write_ai_files():
@@ -61,6 +70,13 @@ def install(core):
 - [Metodologia]({core.SITE_URL}/metodologia/): fontes, critérios, score e política de correção
 - [Relatório]({core.SITE_URL}/relatorio/): síntese executiva do estado regulatório
 
+## Commercial layer (B2B)
+- [Soluções e planos]({core.SITE_URL}/solucoes/): quatro formas de contratação e faixas de referência
+- [Diagnóstico de exposição regulatória]({core.SITE_URL}/diagnostico/): formulário de diagnóstico e qualificação do lead
+- [Exemplo de briefing executivo]({core.SITE_URL}/briefing-executivo/): amostra real do produto pago, gerada a partir deste dataset
+- [Para empresas]({core.SITE_URL}/para-empresas/): proposta de valor para o comprador corporativo
+- [Configuração comercial]({core.SITE_URL}/data/commercial.json): soluções, faixas e regras públicas de qualificação
+
 ## Structured Data
 - [Propositions JSON]({core.SITE_URL}/data/propositions.json)
 - [Updates JSON]({core.SITE_URL}/data/updates.json)
@@ -76,6 +92,9 @@ def install(core):
 
 ## Commercial
 - [LCF Consulting](https://lcfconsulting.com.br/): regulatory intelligence, legislative monitoring and briefings.
+- Positioning: specialised regulatory intelligence for AI, data and digital infrastructure — not a general-purpose legislative tracker.
+- Offers: Monitor IA, Radar Executivo de Regulação de IA (flagship), Inteligência Institucional, Diagnóstico de Exposição Regulatória.
+- Scope limit: regulatory intelligence, impact analysis and prioritisation. No legal advice, no compliance guarantee.
 """
         core.write("llms.txt", llms)
 
@@ -124,6 +143,15 @@ Public, structured monitoring of Brazilian federal legislation and regulation re
 - {core.SITE_URL}/data/categories.json
 - {core.SITE_URL}/data/monitoramento.json
 
+## Commercial layer
+- Solutions and reference price ranges: {core.SITE_URL}/solucoes/
+- Regulatory exposure diagnostic (lead form): {core.SITE_URL}/diagnostico/
+- Real sample of the paid executive briefing: {core.SITE_URL}/briefing-executivo/
+- Corporate buyer page: {core.SITE_URL}/para-empresas/
+- Machine-readable commercial config: {core.SITE_URL}/data/commercial.json
+
+The public monitor remains fully accessible without authentication; the commercial layer adds prioritisation, business-impact analysis, alerts and the executive briefing. Content is regulatory intelligence and impact analysis — never legal advice or a compliance guarantee.
+
 ## Usage
 Public reading and citation are allowed. Legislative facts should be verified against the linked primary official source before high-stakes use. For commercial monitoring or briefings, use https://lcfconsulting.com.br/.
 """
@@ -160,6 +188,31 @@ Public reading and citation are allowed. Legislative facts should be verified ag
                     "endpoint": core.CONSULTING_URL,
                 },
                 {
+                    "id": "request-regulatory-diagnostic",
+                    "name": "Request AI regulatory exposure diagnostic",
+                    "description": "Open the diagnostic form to request a regulatory exposure diagnostic "
+                                   "for an organisation using AI.",
+                    "method": "declarative",
+                    "element": "a[data-mcp-action='request-regulatory-diagnostic']",
+                    "endpoint": f"{core.SITE_URL}/diagnostico/",
+                },
+                {
+                    "id": "read-executive-briefing-sample",
+                    "name": "Read executive briefing sample",
+                    "description": "Retrieve the public sample of the paid executive regulatory brief, "
+                                   "generated from the same dataset.",
+                    "method": "GET",
+                    "endpoint": f"{core.SITE_URL}/briefing-executivo/",
+                },
+                {
+                    "id": "read-commercial-config",
+                    "name": "Read commercial configuration",
+                    "description": "Retrieve published solutions, reference price ranges and lead "
+                                   "qualification rules.",
+                    "method": "GET",
+                    "endpoint": f"{core.SITE_URL}/data/commercial.json",
+                },
+                {
                     "id": "read-legislative-updates",
                     "name": "Read legislative updates feed",
                     "description": "Retrieve the public structured feed of detected legislative changes.",
@@ -191,12 +244,19 @@ Provide public, traceable intelligence about Brazilian AI legislation and regula
 4. {core.SITE_URL}/data/propositions.json
 5. Official-source links contained in each record
 
+## Commercial layer
+- Solutions and reference price ranges: {core.SITE_URL}/solucoes/
+- Diagnostic request (lead capture): {core.SITE_URL}/diagnostico/
+- Sample of the paid executive briefing: {core.SITE_URL}/briefing-executivo/
+- Corporate page: {core.SITE_URL}/para-empresas/
+
 ## Rules
 - Treat official-source URLs as the final authority for legislative facts.
 - Do not infer a vote, sanction, veto, rapporteur or legal effect that is not present in the data/source.
 - Records marked as awaiting curation are preliminary.
-- Public content is readable without authentication.
-- Commercial requests go to https://lcfconsulting.com.br/.
+- Public content is readable without authentication; the monitor is not behind a paywall.
+- Content is regulatory intelligence and impact analysis: never present it as legal advice or a compliance guarantee.
+- Commercial requests go to {core.SITE_URL}/diagnostico/ or https://lcfconsulting.com.br/.
 """
         core.write("AGENTS.md", agents_md)
 

@@ -13,8 +13,10 @@ import json
 import os
 import re
 import shutil
+import sys
 from datetime import datetime, timedelta, timezone
 
+import commercial
 import dataviz as dv
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -305,7 +307,21 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
     for u, l in nav_items:
         cls = ' class="active"' if path == u else ""
         nav_parts.append(f'<a href="{SITE_URL}/{u}"{cls}>{l}</a>')
+    # Camada comercial: links de Soluções/Para empresas + CTA principal no header.
+    # Só entra se commercial.install() tiver sido chamado (build_site.py).
+    if commercial.is_installed():
+        for u, l in commercial.NAV_COMERCIAL:
+            cls = ' class="active"' if path == u else ""
+            nav_parts.append(f'<a href="{SITE_URL}/{u}"{cls}>{l}</a>')
     nav = "".join(nav_parts)
+    nav_cta = commercial.header_cta() if commercial.is_installed() else ""
+    head_commercial = (commercial.head_extras(path, commercial.page_kind(path))
+                       if commercial.is_installed() else "")
+    footer_commercial = commercial.footer_column() if commercial.is_installed() else ""
+    footer_cta_diag = (
+        f'<p class="cta-mini"><a href="{SITE_URL}/diagnostico/" data-track="commercial_cta_click" '
+        f'data-cta="footer-aviso">Solicitar diagnóstico regulatório →</a></p>'
+        if commercial.is_installed() else "")
     ld = ""
     if jsonld:
         ld = '<script type="application/ld+json">' + json.dumps(jsonld, ensure_ascii=False) + "</script>"
@@ -326,6 +342,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
 <meta property="og:url" content="{canon}">
 <meta name="twitter:card" content="summary">
 <link rel="stylesheet" href="{SITE_URL}/assets/style.css">
+{head_commercial}
 {extra_head}
 {ld}
 </head>
@@ -337,6 +354,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <small>Inteligência Artificial · Brasil</small>
     </div>
     <nav class="links" aria-label="Principal">{nav}</nav>
+    {nav_cta}
     {_freshness_badge()}
   </div>
 </header>
@@ -370,10 +388,12 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <a href="{SITE_URL}/metodologia/">Metodologia completa</a> ·
       <a href="{SITE_URL}/relatorio/">Relatório da execução</a></p>
     </div>
+    {footer_commercial}
     <div>
       <h4>Aviso</h4>
       <p>Conteúdo informativo baseado em fontes oficiais. Não substitui os textos legais e as fichas de tramitação das Casas do Congresso Nacional.</p>
-      <p class="cta-mini">{CTA_TEXT} <a href="{CONSULTING_URL}">Fale com a {AUTHOR_ORG} →</a></p>
+      <p class="cta-mini">{CTA_TEXT} <a class="cta-btn" href="{CONSULTING_URL}">Fale com a {AUTHOR_ORG} →</a></p>
+      {footer_cta_diag}
     </div>
   </div>
 </footer>
@@ -541,6 +561,13 @@ def build_home(props, laws, events, updates, timeline, cats):
   (<code>updates.json</code>) — reconstruídas a cada execução do site.</p>
 </div></section>"""
 
+    # Faixa comercial (item 3 do posicionamento): visível na home, logo depois da
+    # prova de atualização. Não substitui nenhum bloco existente do monitor.
+    commercial_band = (commercial.faixa_comercial_home(props, laws, updates)
+                       if commercial.is_installed() else "")
+    cta_home = ((commercial.cta_principal() + commercial.cta_secundario())
+                if commercial.is_installed() else "")
+
     fontes_lista = "".join(f"<li>{esc(f)}</li>" for f in rs["fontes"][:8])
     verify_block = f"""
 <section class="block" id="verificacao"><div class="wrap">
@@ -577,6 +604,8 @@ def build_home(props, laws, events, updates, timeline, cats):
   {changes_24}
   <div style="margin-top:22px">{changes_7}</div>
 </div></section>
+
+{commercial_band}
 
 <section class="block"><div class="wrap">
   <h2 class="section-title">Dashboard</h2>
@@ -638,7 +667,7 @@ def build_home(props, laws, events, updates, timeline, cats):
 <section class="block"><div class="wrap">
   <div class="cta-box">
     <div><h3>{CTA_TEXT}</h3><p>{CTA_SUB}</p></div>
-    <a class="cta-btn" href="{CONSULTING_URL}">Falar com a {AUTHOR_ORG}</a>
+    <div class="cta-actions">{cta_home}<a class="cta-btn" href="{CONSULTING_URL}">Falar com a {AUTHOR_ORG}</a></div>
   </div>
 </div></section>
 """
@@ -1808,13 +1837,24 @@ def main():
     build_monitoramento(props, laws, events, updates, met)
     write("data/monitoramento.json", json.dumps(met, ensure_ascii=False, indent=2) + "\n")
 
+    # Camada comercial B2B (P0): /solucoes/, /diagnostico/, /briefing-executivo/,
+    # /para-empresas/ + docs/data/commercial.json. Nenhuma página existente é
+    # alterada ou removida; o monitor público continua 100% acessível sem login.
+    commercial_paths = []
+    if commercial.is_installed():
+        commercial_paths = commercial.build_all(
+            sys.modules[__name__], props, laws, events, updates, timeline, cats)
+
     paths = ["", "proposicoes/", "atualizacoes/", "leis/", "timeline/", "parlamentares/",
              "agenda/", "monitoramento/", "metodologia/", "relatorio/"]
     paths += [prop_fs_path(p["id"]).replace("index.html", "") for p in props]
+    paths += commercial_paths
     build_sitemap(paths)
 
-    n_pages = 10 + len(props)
+    n_pages = 10 + len(props) + len(commercial_paths)
     print(f"OK: site gerado em docs/ — {n_pages} páginas, {len(paths)} URLs no sitemap.")
+    if commercial_paths:
+        print("OK: camada comercial gerada — " + ", ".join("/" + p for p in commercial_paths))
 
 
 if __name__ == "__main__":
