@@ -75,7 +75,9 @@ def install(core):
 - [MCP actions]({core.SITE_URL}/mcp-actions.json)
 
 ## Commercial
-- [LCF Consulting](https://lcfconsulting.com.br/): regulatory intelligence, legislative monitoring and briefings.
+- [Diagnóstico regulatório]({core.SITE_URL}/diagnostico/): solicite uma conversa sobre exposição regulatória.
+- [Soluções]({core.SITE_URL}/solucoes/): escopos de contratação.
+- [Briefing executivo]({core.SITE_URL}/briefing-executivo/): amostra com fonte oficial e interpretação separadas.
 """
         core.write("llms.txt", llms)
 
@@ -196,7 +198,7 @@ Provide public, traceable intelligence about Brazilian AI legislation and regula
 - Do not infer a vote, sanction, veto, rapporteur or legal effect that is not present in the data/source.
 - Records marked as awaiting curation are preliminary.
 - Public content is readable without authentication.
-- Commercial requests go to https://lcfconsulting.com.br/.
+- Commercial requests go to {core.SITE_URL}/diagnostico/.
 """
         core.write("AGENTS.md", agents_md)
 
@@ -239,3 +241,4 @@ Sitemap: {core.SITE_URL}/sitemap.xml
 
     core.page = enhanced_page
     core.main = enhanced_main
+

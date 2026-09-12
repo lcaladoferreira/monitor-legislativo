@@ -18,7 +18,8 @@
     var ano = controls.ano ? controls.ano.value : '';
     var status = controls.status ? controls.status.value : '';
     var cat = controls.cat ? controls.cat.value : '';
-    var score = controls.score ? parseInt(controls.score.value, 10) : 0;
+    var scoreValue = controls.score ? controls.score.value : '0';
+    var score = parseInt(scoreValue, 10) || 0;
     var visible = 0;
     rows.forEach(function (r) {
       var d = r.dataset;
@@ -29,6 +30,8 @@
       if (status && d.statusgroup !== status) ok = false;
       if (cat && d.cats.indexOf(',' + cat + ',') === -1) ok = false;
       if (score && parseInt(d.score, 10) < score) ok = false;
+      if (scoreValue === '60-79' && parseInt(d.score, 10) > 79) ok = false;
+      if (scoreValue === 'low' && parseInt(d.score, 10) >= 60) ok = false;
       r.style.display = ok ? '' : 'none';
       if (ok) visible++;
     });
@@ -115,3 +118,4 @@
     }
   }
 })();
+

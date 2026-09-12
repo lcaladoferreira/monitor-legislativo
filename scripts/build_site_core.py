@@ -16,6 +16,7 @@ import shutil
 from datetime import datetime, timedelta, timezone
 
 import dataviz as dv
+from commercial_pages import business_html
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(BASE, "data", "legislation")
@@ -707,7 +708,7 @@ def build_propositions(props, cats):
     <select id="f-ano">{opts_ano}</select>
     <select id="f-status"><option value="">Toda situação</option><option value="em_tramitacao">Em tramitação</option><option value="a_sancao">À sanção</option><option value="aprovada_lei">Convertida em lei</option><option value="arquivada">Arquivada</option></select>
     <select id="f-cat">{opts_cat}</select>
-    <select id="f-score"><option value="0">Qualquer score</option><option value="60">Score ≥ 60</option><option value="75">Score ≥ 75</option><option value="90">Score ≥ 90 (crítico)</option></select>
+    <select id="f-score"><option value="0">Qualquer score</option><option value="80">Score 80+</option><option value="60-79">Score 60–79</option><option value="low">Score &lt;60</option><option value="60">Score ≥ 60</option><option value="75">Score ≥ 75</option><option value="90">Score ≥ 90 (crítico)</option></select>
   </div>
   <p id="count" style="color:var(--muted);font-size:13px;margin-bottom:14px"></p>
   {"".join(rows)}
@@ -859,18 +860,21 @@ def build_prop_pages(props, cats, updates):
   {recent_html}
 </div></section>
 <section class="block"><div class="wrap">
+  <span class="eyebrow">FATO OFICIAL · REGISTRO DO MONITOR</span>
   <h2 class="section-title">Identificação e tramitação</h2>
   <p class="section-sub">Dados confirmados em fonte oficial nesta execução. Campos não confirmados não são exibidos.</p>
   <div class="dl-grid">{kv_html}</div>
   <p style="margin-top:12px;font-size:13.5px"><a href="{esc(p["url_oficial"])}" target="_blank" rel="noopener">Abrir ficha oficial de tramitação ↗</a></p>
 </div></section>
 <section class="block"><div class="wrap">
+  <span class="eyebrow">SÍNTESE EDITORIAL / INTERPRETAÇÃO</span>
   <h2 class="section-title">Resumo objetivo</h2>
   <p style="max-width:860px">{esc(p.get("resumo", p["ementa"]))}</p>
   {extra_sections}
   <div class="note" style="margin-top:16px"><b>Chance de impacto regulatório:</b> {esc(p.get("chance_impacto_regulatorio", "—"))}</div>
   {score_note}
 </div></section>
+{business_html(p)}
 <section class="block"><div class="wrap">
   <h2 class="section-title">Documentos e textos</h2>
   <ul class="plain">{docs_html or '<li>—</li>'}</ul>
@@ -1819,3 +1823,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
