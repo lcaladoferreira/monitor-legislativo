@@ -1,15 +1,24 @@
 const {chromium}=require(process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES ? process.env.CODEX_PRIMARY_RUNTIME_NODE_MODULES+'/playwright' : 'playwright');
 const fs=require('fs');
+const pathUtil=require('path');
+fs.mkdirSync('reports/screenshots',{recursive:true});
 (async()=>{
  const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
  const results=[],errors=[];
  const ctx=await browser.newContext({viewport:{width:1440,height:1000}});
  await ctx.route('https://monitor.lcfconsulting.com.br/**',async route=>{
-   const u=new URL(route.request().url());const response=await route.fetch({url:'http://127.0.0.1:8765'+u.pathname+u.search});await route.fulfill({response});
+   const u=new URL(route.request().url());
+   const root=pathUtil.resolve('docs');
+   let file=pathUtil.resolve(root,'.'+decodeURIComponent(u.pathname));
+   if(!file.startsWith(root+pathUtil.sep)&&file!==root)throw Error('Invalid local asset path');
+   if(fs.existsSync(file)&&fs.statSync(file).isDirectory())file=pathUtil.join(file,'index.html');
+   if(!fs.existsSync(file))throw Error('Missing canonical asset '+u.pathname);
+   const types={'.css':'text/css','.js':'application/javascript','.json':'application/json','.html':'text/html','.svg':'image/svg+xml'};
+   await route.fulfill({status:200,contentType:types[pathUtil.extname(file)]||'application/octet-stream',body:fs.readFileSync(file)});
  });
  const page=await ctx.newPage();page.on('pageerror',e=>errors.push(e.message));
  for(const path of ['/','/solucoes/','/diagnostico/','/briefing-executivo/','/alto-impacto/','/setores/fintech/','/casos-de-uso/compliance/','/alertas/','/login/']){
-   const response=await page.goto('http://127.0.0.1:8765'+path);await page.waitForLoadState('networkidle');
+   const response=await page.goto('http://127.0.0.1:8765'+path);await page.locator('h1').waitFor({state:'visible'});await page.evaluate(()=>document.fonts.ready);
    if(response.status()!==200)throw Error(path+' HTTP '+response.status());
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
    if(overflow)throw Error(path+' desktop overflow');
@@ -39,7 +48,7 @@ const fs=require('fs');
  await page.unroute('**/api/leads');
  await page.setViewportSize({width:390,height:844});
  for(const path of ['/','/solucoes/','/diagnostico/','/briefing-executivo/','/alto-impacto/','/setores/fintech/','/alertas/']){
-   await page.goto('http://127.0.0.1:8765'+path);await page.waitForLoadState('networkidle');
+   await page.goto('http://127.0.0.1:8765'+path);await page.locator('h1').waitFor({state:'visible'});await page.evaluate(()=>document.fonts.ready);
    if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error(path+' mobile overflow');
    results.push({path,viewport:'390x844',overflow:false});
    if(path==='/diagnostico/')await page.screenshot({path:'reports/screenshots/diagnostico-mobile.png',fullPage:true});

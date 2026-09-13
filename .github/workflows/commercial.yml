@@ -60,6 +60,7 @@ jobs:
           path: |
             reports/screenshots/*.png
             reports/browser-results.json
+            /tmp/monitor-preview.log
   deliver:
     if: github.ref == 'refs/heads/main' && vars.COMMERCIAL_ENABLED == 'true' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
