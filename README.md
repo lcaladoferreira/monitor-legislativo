@@ -76,7 +76,7 @@ python3 scripts/update_legislation.py --budget-min 25 --max-novas 25 --workers 5
 
 Publicação: a Vercel executa `python3 scripts/build_site.py` e publica a pasta `/docs`.
 O domínio oficial (`SITE_URL` em `scripts/build_site.py`) é
-`https://monitor-legislativo-five.vercel.app`.
+`https://monitor.lcfconsulting.com.br`.
 
 ## Ciclo de execução do monitoramento (execuções futuras)
 
@@ -149,3 +149,15 @@ publicadas em `docs/data/monitoramento.json` para uso externo (BI, planilhas).
 
 Projeto desenvolvido por [Leandro Calado](https://leandrocaladoferreira.com/) /
 [LCF Consulting](https://lcfconsulting.com.br/).
+
+
+## Camada comercial B2B
+
+As páginas públicas permanecem como demonstração. Ofertas em `config/commercial.json`; geração em `scripts/commercial_pages.py`; API em `api/index.py`; dados comerciais privados via PostgreSQL.
+
+Veja [a entrega e o guia de ativação](reports/ENTREGA-B2B.md) e [a auditoria inicial](reports/AUDITORIA-INICIAL.md). A captura e o envio real dependem da configuração de banco/SMTP; o build estático não configura serviços externos.
+
+```bash
+python3 -m unittest discover -s tests -v
+MONITOR_DEV=1 python3 scripts/serve_commercial.py
+```

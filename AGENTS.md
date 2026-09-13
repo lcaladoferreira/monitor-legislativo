@@ -17,4 +17,5 @@ Provide public, traceable intelligence about Brazilian AI legislation and regula
 - Do not infer a vote, sanction, veto, rapporteur or legal effect that is not present in the data/source.
 - Records marked as awaiting curation are preliminary.
 - Public content is readable without authentication.
-- Commercial requests go to https://lcfconsulting.com.br/.
+- Commercial requests go to https://monitor.lcfconsulting.com.br/diagnostico/.
+

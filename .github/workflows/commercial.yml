@@ -1,0 +1,83 @@
+name: Commercial validation and delivery
+on:
+  pull_request:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  schedule:
+    - cron: '37 * * * *'
+permissions:
+  contents: read
+concurrency:
+  group: commercial-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  validate:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: python3 scripts/build_site.py
+      - run: python3 scripts/validate_site.py
+      - run: python3 -m unittest discover -s tests -v
+  browser:
+    if: github.event_name != 'schedule'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: npm install --prefix /tmp/monitor-browser-tools playwright@1.62.1
+      - run: /tmp/monitor-browser-tools/node_modules/.bin/playwright install --with-deps chromium
+      - run: python3 scripts/build_site.py
+      - name: Browser conversion and mobile checks
+        env:
+          CODEX_PRIMARY_RUNTIME_NODE_MODULES: /tmp/monitor-browser-tools/node_modules
+          MONITOR_DEV: '1'
+        run: |
+          python3 scripts/serve_commercial.py > /tmp/monitor-preview.log 2>&1 &
+          python3 - <<'PY'
+          import time,urllib.request
+          for attempt in range(30):
+              try:
+                  urllib.request.urlopen('http://127.0.0.1:8765/api/health',timeout=1);break
+              except Exception:time.sleep(1)
+          else:raise SystemExit('Preview did not start')
+          PY
+          node tests/browser_smoke.cjs
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: commercial-browser-evidence
+          path: |
+            reports/screenshots/*.png
+            reports/browser-results.json
+            /tmp/monitor-preview.log
+  deliver:
+    if: github.ref == 'refs/heads/main' && vars.COMMERCIAL_ENABLED == 'true' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DATABASE_URL: ${{ secrets.COMMERCIAL_DATABASE_URL }}
+      SMTP_HOST: ${{ secrets.COMMERCIAL_SMTP_HOST }}
+      SMTP_PORT: ${{ vars.COMMERCIAL_SMTP_PORT || '587' }}
+      SMTP_USER: ${{ secrets.COMMERCIAL_SMTP_USER }}
+      SMTP_PASSWORD: ${{ secrets.COMMERCIAL_SMTP_PASSWORD }}
+      SMTP_FROM: ${{ secrets.COMMERCIAL_SMTP_FROM }}
+      SITE_URL: https://monitor.lcfconsulting.com.br
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.13'
+      - run: pip install -r requirements.txt
+      - run: python3 scripts/send_alerts.py --capture --send
+      - run: python3 scripts/commercial_admin.py purge
