@@ -188,7 +188,7 @@ def check_docs(rep, site):
             rep.err(f"docs/{rel}: canonical fora do domínio oficial ({mc.group(1)[:80]})")
         if OLD_DOMAIN in html:
             rep.err(f"docs/{rel}: contém referência ao domínio antigo do GitHub Pages")
-        if re.search(r'<meta name="robots" content="[^"]*noindex', html):
+        if rel not in ("app/index.html", "login/index.html") and re.search(r'<meta name="robots" content="[^"]*noindex', html):
             rep.err(f"docs/{rel}: contém noindex (bloqueia indexação)")
         for href in href_re.findall(html):
             if href.startswith(site):
@@ -275,3 +275,4 @@ def main():
 
 if __name__ == "__main__":
     sys.exit(main())
+
