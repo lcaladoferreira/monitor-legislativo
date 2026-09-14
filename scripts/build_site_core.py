@@ -1012,7 +1012,7 @@ def build_metodologia(props, laws, updates):
   <h2 class="section-title" style="margin-top:26px">Política de correção</h2>
   <p>Erros são corrigidos no dataset com registro da correção em <code>updates.json</code> (nunca sobrescrita silenciosa). O histórico versionado no Git permite auditar qualquer alteração. <b>{DISCLAIMER}</b></p>
   <h2 class="section-title" style="margin-top:26px">Automação, orçamento de tempo e auditoria</h2>
-  <p>A coleta roda <b>diariamente</b> (cron às 07:17 BRT) com <b>orçamento de tempo</b> declarado:
+  <p>A coleta roda <b>diariamente</b> (agendamentos às 07:17, 10:43, 14:43 e 18:43 BRT; sujeitos a atraso do GitHub) com <b>orçamento de tempo</b> declarado:
   ao se aproximar do teto, o coletor para de iniciar novas consultas, grava o que já verificou e
   registra a execução como <b>parcial</b> — a cobertura de cada execução fica visível no
   <a href="{SITE_URL}/monitoramento/">painel de monitoramento</a>. A verificação segue ordem de
@@ -1461,7 +1461,7 @@ def metricas_monitoramento(props, laws, events, updates):
                "Verifique a aba Actions do repositório.")
     elif estado_frescor == "atencao":
         alerta("atencao", "Execução atrasada",
-               f"Última execução há {frescor_h:.0f} horas. O cron é diário (07:17 BRT).")
+               f"Última execução há {frescor_h:.0f} horas. Há quatro agendamentos diários; confira o histórico de execuções.")
     else:
         alerta("ok", "Monitoramento em dia",
                f"Última execução há {frescor_h:.0f}h." if frescor_h is not None else "—")
@@ -1486,7 +1486,7 @@ def metricas_monitoramento(props, laws, events, updates):
         "execucoes": execs,
         "ultima": ultima,
         "frescor": {"horas": frescor_h, "estado": estado_frescor,
-                    "cron_utc": "10:17", "cron_brt": "07:17"},
+                    "cron_utc": "10:17, 13:43, 17:43, 21:43", "cron_brt": "07:17, 10:43, 14:43, 18:43"},
         "kpis": {
             "execucoes_registradas": len(execs),
             "execucoes_com_metricas": len(com_metricas),
