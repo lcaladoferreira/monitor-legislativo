@@ -5,6 +5,7 @@ import os
 
 import build_site_core as _core
 import ai_visibility as _ai_visibility
+import commercial_pages as _commercial
 
 SITE_URL = "https://monitor.lcfconsulting.com.br"
 OLD_SITE_URL = "https://monitor-legislativo-five.vercel.app"
@@ -13,6 +14,7 @@ OLD_SITE_URL = "https://monitor-legislativo-five.vercel.app"
 # sitemap.xml, robots.txt, JSON-LD e arquivos de descoberta para agentes.
 _core.SITE_URL = SITE_URL
 _ai_visibility.install(_core)
+_commercial.install(_core)
 
 # Preserva compatibilidade para qualquer código/teste que importe build_site.
 for _name, _value in vars(_core).items():
@@ -59,3 +61,4 @@ if __name__ == "__main__":
     _core.main()
     _assert_domain_migration()
     print(f"OK: sitemap e arquivos críticos validados em {SITE_URL}")
+

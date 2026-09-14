@@ -5,16 +5,17 @@ name: Atualizar monitoramento legislativo
 # ou nas páginas geradas. O deploy na Vercel é acionado pelo push (a Vercel
 # executa `python3 scripts/build_site.py` e publica `docs/`).
 #
-# Regra de ouro desta automação: **sempre publicar**. A coleta tem orçamento de
-# tempo (MONITOR_BUDGET_SEGUNDOS) e grava o dataset antes de terminar; o rebuild,
-# a validação e o commit rodam mesmo se a coleta falhar ou for parcial. Assim o
-# site nunca mais fica congelado numa execução antiga sem que isso apareça no
-# painel /monitoramento/.
+# A coleta publica resultados parciais quando build e validação passam.
+# Falhas de build nunca publicam páginas quebradas; o dataset fica em artifact.
+# A coleta pública não depende de banco, SMTP ou credenciais comerciais.
 on:
   schedule:
     # Diário às 10:17 UTC (07:17 BRT). Evita o minuto 0, quando o GitHub atrasa
     # os agendamentos por excesso de jobs na fila.
     - cron: "17 10 * * *"
+    # Repetições diárias às 10:43, 14:43 e 18:43 BRT. O GitHub pode atrasar
+    # ou descartar um disparo; não dependemos de uma única oportunidade diária.
+    - cron: "43 13,17,21 * * *"
   workflow_dispatch:
     inputs:
       orcamento_minutos:
@@ -26,7 +27,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: update-legislation
+  group: update-legislation-${{ github.ref }}
   cancel-in-progress: false
 
 env:
@@ -44,6 +45,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+        with:
+          ref: ${{ github.ref_name }}
 
       - name: Setup Python
         uses: actions/setup-python@v6
@@ -66,10 +69,12 @@ jobs:
           python3 scripts/update_legislation.py "${ARGS[@]}"
 
       - name: Rebuild do site
+        id: build
         if: always()
         run: python3 scripts/build_site.py
 
       - name: Validar dataset e páginas
+        id: validate
         if: always()
         run: python3 scripts/validate_site.py
 
@@ -116,7 +121,7 @@ jobs:
           fi
 
       - name: Commit e push (somente se houver alteração)
-        if: always() && steps.diff.outputs.changed == 'true'
+        if: always() && steps.diff.outputs.changed == 'true' && steps.build.outcome == 'success' && steps.validate.outcome == 'success'
         run: |
           git config user.name "monitor-legislativo-bot"
           git config user.email "monitor-legislativo-bot@users.noreply.github.com"
@@ -131,8 +136,21 @@ jobs:
             git push
           fi
 
-      - name: Sinalizar coleta incompleta (após publicar)
+      - name: Conferir saúde da coleta publicada
+        if: always() && steps.build.outcome == 'success' && steps.validate.outcome == 'success'
+        run: python3 scripts/check_collection.py
+
+      - name: Preservar dados coletados em caso de falha
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: coleta-${{ github.run_id }}-${{ github.run_attempt }}
+          path: data/legislation/*.json
+          retention-days: 14
+
+      - name: Sinalizar coleta incompleta (após tentativa de publicação)
         if: steps.coleta.outcome == 'failure'
         run: |
-          echo "::error::A coleta não terminou com sucesso. O site foi publicado com o último estado disponível — verifique o painel /monitoramento/ e os logs da etapa 'Coletar dados oficiais'."
+          echo "::error::A coleta não terminou com sucesso. Consulte as etapas de build e commit para confirmar a publicação — verifique o painel /monitoramento/ e os logs da etapa 'Coletar dados oficiais'."
           exit 1
+
