@@ -6,6 +6,7 @@ import os
 import build_site_core as _core
 import ai_visibility as _ai_visibility
 import commercial_pages as _commercial
+import google_ai_citation as _google_ai_citation
 
 SITE_URL = "https://monitor.lcfconsulting.com.br"
 OLD_SITE_URL = "https://monitor-legislativo-five.vercel.app"
@@ -15,6 +16,7 @@ OLD_SITE_URL = "https://monitor-legislativo-five.vercel.app"
 _core.SITE_URL = SITE_URL
 _ai_visibility.install(_core)
 _commercial.install(_core)
+_google_ai_citation.install(_core)
 
 # Preserva compatibilidade para qualquer código/teste que importe build_site.
 for _name, _value in vars(_core).items():
