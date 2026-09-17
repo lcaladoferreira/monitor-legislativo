@@ -11,6 +11,10 @@ de competência presidencial:
   · "Atos do Poder Legislativo" (leis sancionadas, decretos legislativos, vetos)
   · "Presidência da República"  (decretos, medidas provisórias, mensagens)
 
+A janela de busca é de 90 dias (atos presidenciais sobre os temas monitorados são
+raros: em 30 dias a consulta "Presidência da República" volta vazia com
+frequência; com 90 dias o mesmo canal encontra os atos do trimestre).
+
 A coluna `hierarchyStr` devolvida pela própria Imprensa Nacional é usada como
 filtro — não há heurística sobre texto livre nem criação de ato sem URL
 oficial. Também é consultado o portal do Planalto (gov.br/planalto) quando
@@ -67,7 +71,7 @@ def _canal(rotulo, org_prin, filtro, topicos, tipo_padrao):
     org = urllib.parse.quote(org_prin, safe="")
     return Canal(
         rotulo, BUSCA, formato="html", parser="dou_embutido", tipo_padrao=tipo_padrao,
-        topicos=topicos, dias=30, filtro_tema=filtro, padrao_href=r"/web/dou/-/",
+        topicos=topicos, dias=90, filtro_tema=filtro, padrao_href=r"/web/dou/-/",
         url_template=(BUSCA + "?q=%22{topico}%22&s=todos&exactDate=personalizado"
                               "&sortType=0&delta=50&currentPage=1"
                               "&publishFrom={from}&publishTo={to}&orgPrin=" + org),

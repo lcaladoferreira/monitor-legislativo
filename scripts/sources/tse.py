@@ -3,33 +3,47 @@
 """
 sources/tse.py — Coletor do TSE (Tribunal Superior Eleitoral).
 
-Fontes oficiais:
-  · Publicação oficial dos atos do TSE: Diário Oficial da União (Imprensa
-    Nacional) — resoluções e atos normativos do TSE são publicados na Seção 1
-    sob "Poder Judiciário/Tribunal Superior Eleitoral". A busca oficial do DOU
-    é usada com filtro de órgão e conferência da hierarquia item a item.
-  · Portal do TSE (https://www.tse.jus.br) — notícias e páginas de legislação.
-    O portal aplica bloqueio de robôs (HTTP 403) para clientes sem navegador;
-    quando isso ocorre, o canal é registrado como falho e o painel mostra a
-    falha — o monitoramento continua pelos atos publicados no DOU, que é a
-    fonte primária oficial de vigência.
+Fontes oficiais (as duas provadas em execução real na CI):
 
-Canais:
-  · resoluções/atos do TSE por tema (DOU, filtrado para o TSE)
-  · resoluções do TSE (DOU, órgão/subórgão — pega a resolução pelo título)
-  · notícias oficiais do TSE (portal)  · legislação (portal)  · CKAN
+1. API de conteúdo do próprio portal do TSE (plone.restapi) — a mesma API que o
+   site usa para renderizar as páginas. Devolve itens estruturados (`@id` = URL
+   oficial, `title`, `description`, `effective`):
+     · notícias  — portal_type=Noticia  (18.650 itens no acervo)
+     · atos      — path=/legislacao     (21.226 atos, type_title "Ato":
+       resoluções, portarias, instruções publicadas pelo Tribunal)
 
-Evidência da sonda (CI, 17/09/2026): a busca do DOU com `s=titulo` devolveu
-zero resultados para `orgPrin=Poder Judiciário` (o modo de busca por título não
-combina com o filtro de órgão); com `s=todos` + `orgSub=Tribunal Superior
-Eleitoral` a mesma consulta devolve os atos do TSE. Por isso o canal usa
-`s=todos` com o subórgão explícito e confere o tipo do ato item a item.
+2. Busca oficial do Diário Oficial da União (Imprensa Nacional) — resoluções e
+   atos do TSE também são publicados na Seção 1 sob "Poder Judiciário/Tribunal
+   Superior Eleitoral"; a hierarquia devolvida pelo próprio DOU é conferida item
+   a item antes de entrar no dataset.
+
+Evidência da sonda (CI, 17/09/2026):
+  · `++api++/@search` responde 200 JSON com os cabeçalhos do coletor — as
+    páginas HTML equivalentes (`/comunicacao/noticias`, `/legislacao/compilada`)
+    alternam entre 200 e 403 (WAF por reputação de IP do runner), por isso o
+    canal estruturado é o principal e o HTML não é usado.
+  · a busca do DOU com `s=titulo` devolveu zero para `orgPrin=Poder Judiciário`;
+    com `s=todos` + `orgSub=Tribunal Superior Eleitoral` devolve os atos do TSE.
+
+Nada é inventado: canal que não responde entra como falho no painel; item sem
+sinal temático claro é descartado e item duvidoso entra marcado como "revisar".
 """
 from .base import (Canal, Fonte, TOPICOS_BUSCA, normalizar, registrar)
 
+API = "https://www.tse.jus.br/++api++/@search"
 BUSCA = "https://www.in.gov.br/consulta/-/buscar/dou"
 ORGAO_JUDICIARIO = "Poder Judiciário"
 TSE_CHAVES = ("tribunal superior eleitoral", "justica eleitoral")
+
+# Listagem ordenada por data (mais recentes primeiro), como o coletor da ANPD.
+ATOS_NO_PORTAL = {
+    "b_size": 50, "sort_on": "effective", "sort_order": "descending",
+    "path": "/legislacao",
+}
+NOTICIAS_NO_PORTAL = {
+    "b_size": 50, "sort_on": "effective", "sort_order": "descending",
+    "portal_type": "Noticia",
+}
 
 
 def _filtro_tse(item):
@@ -54,9 +68,28 @@ class TSE(Fonte):
     nome = "TSE — Tribunal Superior Eleitoral"
     obrigatoria = True
     canais = [
+        # ------------------------------------------------- API do portal (JSON)
+        Canal(
+            "atos normativos (portal oficial)", API, formato="json",
+            parser="plone_search", tipo_padrao="ato_normativo",
+            opcoes={"params": dict(ATOS_NO_PORTAL)},
+        ),
+        Canal(
+            "notícias oficiais (portal oficial)", API, formato="json",
+            parser="plone_search", tipo_padrao="noticia",
+            opcoes={"params": dict(NOTICIAS_NO_PORTAL)},
+        ),
+        Canal(
+            "atos e notícias por tema (portal oficial)", API, formato="json",
+            parser="plone_search", tipo_padrao="ato_normativo",
+            obrigatorio=False, topicos=TOPICOS_BUSCA,
+            url_template=(API + "?SearchableText={topico}&b_size=20"
+                                "&sort_on=effective&sort_order=descending"),
+        ),
+        # ----------------------------------------------------------- DOU (HTML)
         Canal(
             "atos do TSE por tema (DOU)", BUSCA, formato="html", parser="dou_embutido",
-            tipo_padrao="ato_normativo", topicos=TOPICOS_BUSCA, dias=30,
+            tipo_padrao="ato_normativo", topicos=TOPICOS_BUSCA, dias=90,
             filtro_tema=_filtro_tse, padrao_href=r"/web/dou/-/",
             url_template=(BUSCA + "?q=%22{topico}%22&s=todos&exactDate=personalizado"
                                   "&sortType=0&delta=50&currentPage=1"
@@ -65,30 +98,12 @@ class TSE(Fonte):
         ),
         Canal(
             "resoluções do TSE (DOU, órgão/subórgão)", BUSCA, formato="html",
-            parser="dou_embutido", tipo_padrao="resolucao", dias=30,
+            parser="dou_embutido", tipo_padrao="resolucao", dias=90,
             filtro_tema=_filtro_resolucao_tse, padrao_href=r"/web/dou/-/",
             url_template=(BUSCA + "?q=RESOLU%C3%87%C3%83O&s=todos"
                                   "&exactDate=personalizado&sortType=0&delta=50"
                                   "&currentPage=1&publishFrom={from}&publishTo={to}"
                                   "&orgPrin=Poder%20Judici%C3%A1rio"
                                   "&orgSub=Tribunal%20Superior%20Eleitoral"),
-        ),
-        Canal(
-            "notícias oficiais", "https://www.tse.jus.br/comunicacao/noticias",
-            formato="html", parser="plone_html", obrigatorio=False,
-            tipo_padrao="noticia", paginas=2, passo=20,
-            padrao_href=r"tse\.jus\.br/comunicacao/noticias/\d{4}/[A-Za-z]+/[a-z0-9-]{8,}",
-        ),
-        Canal(
-            "legislação (portal TSE)", "https://www.tse.jus.br/legislacao/compilada",
-            formato="html", parser="plone_html", obrigatorio=False,
-            tipo_padrao="ato_normativo",
-            padrao_href=r"tse\.jus\.br/legislacao/[a-z0-9/-]{4,}",
-        ),
-        Canal(
-            "dados abertos (CKAN)", "https://dadosabertos.tse.jus.br/api/3/action/package_search",
-            formato="json", parser="ckan", obrigatorio=False,
-            tipo_padrao="dados_abertos",
-            opcoes={"params": {"q": "inteligência artificial", "rows": 20}},
         ),
     ]
