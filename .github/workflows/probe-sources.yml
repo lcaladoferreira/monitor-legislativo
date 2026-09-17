@@ -69,6 +69,25 @@ jobs:
                         f"· {it['tipo']} · {it['relevancia']}")
               print("\n</details>")
           PYEOF
+      - name: Execução completa em --dry-run (mesmo caminho do workflow diário)
+        run: |
+          # Prova de ponta a ponta: roda update_legislation.py inteiro (Câmara e
+          # Senado + fase 3.5 multiórgão) em modo --dry-run — consulta tudo,
+          # monta o resumo por órgão e não grava o dataset.
+          MONITOR_MAX_NOVAS=5 python3 scripts/update_legislation.py --dry-run \
+            --budget-min 12 > out/execucao_dry_run.log 2>&1 || true
+          tail -c 4000 out/execucao_dry_run.log
+          python3 - <<'PYEOF' >> "$GITHUB_STEP_SUMMARY" || true
+          import re
+          texto = open("out/execucao_dry_run.log", encoding="utf-8", errors="replace").read()
+          print("\n## Execução completa (dry-run)\n")
+          linhas = [l for l in texto.splitlines() if any(
+              chave in l for chave in ("multiórgão", "status_global", "mudança",
+                                       "PARCIAL", "FALHA", "Coleta"))]
+          print("```")
+          print("\n".join(linhas[-40:]) or "(sem saída reconhecida)")
+          print("```")
+          PYEOF
       - name: Sondar endpoints (após o ensaio)
         run: |
           mkdir -p out
@@ -95,6 +114,8 @@ jobs:
             out/fontes_reais.log
             out/probe.log
             out/probe_rodada4.log
+            out/probe_canais.log
+            out/execucao_dry_run.log
           retention-days: 7
       - name: Publicar o diagnóstico no branch (mesmo padrão do workflow de produção)
         if: always()
@@ -103,6 +124,7 @@ jobs:
           git config user.email "monitor-legislativo-bot@users.noreply.github.com"
           git add -A out/probe out/probe.log out/probe_rodada4.log \
             out/probe_canais.log out/fontes_reais.json out/fontes_reais.log
+            out/execucao_dry_run.log
           if git diff --cached --quiet; then
             echo "Diagnóstico sem alterações a publicar."
           else
