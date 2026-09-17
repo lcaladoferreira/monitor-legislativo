@@ -252,7 +252,8 @@ class Cliente:
         }
 
     # ------------------------------------------------------------------ fetch
-    def get(self, url, accept=None, timeout=None, cache=True, headers=None):
+    def get(self, url, accept=None, timeout=None, cache=True, headers=None,
+            retry_403=False):
         chave = (url, accept or "")
         if cache:
             with self._lock:
@@ -338,10 +339,15 @@ class Cliente:
             with self._lock:
                 self.stats["falhas"] += 1
             self._stat(url, "falhas")
-            if resp.status in (400, 401, 403, 404, 410):
+            if resp.status in (400, 401, 404, 410):
                 break  # erro determinístico: não adianta repetir
+            if resp.status == 403 and not retry_403:
+                break  # bloqueio do portal: repetir de imediato não resolve
             if tentativa + 1 < self.retries:
-                time.sleep(1.5 * (tentativa + 1))
+                # 403 de WAF (portal que limita rajadas do mesmo IP) merece uma
+                # espera maior: a mesma URL volta a responder depois de alguns
+                # segundos — evidência das sondas do TSE em 17/09/2026.
+                time.sleep(20 if resp.status == 403 else 1.5 * (tentativa + 1))
         self.log(f"    [aviso] falha ao consultar {url[:120]} ({ultimo_erro})")
         return resp
 
@@ -811,6 +817,10 @@ class Fonte:
     nome = "?"
     obrigatoria = True
     canais = ()
+    # `repetir_403`: portais com WAF que bloqueiam rajadas do mesmo IP (TSE)
+    # voltam a responder depois de alguns segundos — a fonte que liga esta opção
+    # aceita repetir a chamada com espera maior antes de marcar o canal falho.
+    repetir_403 = False
 
     def __init__(self, logger=print):
         self.log = logger
@@ -918,7 +928,7 @@ class Fonte:
         itens = []
         for _topico, url in canal.urls():
             ctx.checar(5)
-            itens += ctx.cliente.get_rss(url)
+            itens += ctx.cliente.get_rss(url, retry_403=self.repetir_403)
         return self._pos_processar(itens, canal)
 
     def _coletar_json(self, ctx, canal):
@@ -927,7 +937,8 @@ class Fonte:
             ctx.checar(5)
             cabecalhos = {"X-Requested-With": "XMLHttpRequest"} if canal.opcoes.get("ajax") else None
             if canal.accept and canal.accept != "application/json":
-                resp = ctx.cliente.get(url, accept=canal.accept, headers=cabecalhos)
+                resp = ctx.cliente.get(url, accept=canal.accept, headers=cabecalhos,
+                                   retry_403=self.repetir_403)
                 dados = resp.json() if resp.ok else None
             else:
                 dados = ctx.cliente.get_json(url, headers=cabecalhos)
@@ -1033,7 +1044,7 @@ class Fonte:
         itens = []
         for _topico, url in canal.urls():
             ctx.checar(5)
-            resp = ctx.cliente.get(url)
+            resp = ctx.cliente.get(url, retry_403=self.repetir_403)
             if not resp.ok:
                 raise FonteIndisponivel(f"HTML indisponível: {url} ({resp.erro or resp.status})")
             html = resp.texto

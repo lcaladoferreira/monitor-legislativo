@@ -18,10 +18,13 @@ Fontes oficiais (as duas provadas em execução real na CI):
    a item antes de entrar no dataset.
 
 Evidência da sonda (CI, 17/09/2026):
-  · `++api++/@search` responde 200 JSON com os cabeçalhos do coletor — as
+  · `++api++/@search` responde 200 JSON com os cabeçalhos do coletor quando é a
+    primeira consulta daquele IP no período; depois do uso seguido (as sondas
+    fazem ~9 chamadas antes do ensaio) o WAF do portal passa a devolver 403 —
+    por isso o coletor repete a chamada 403 com espera de 20s e, se ainda
+    assim falhar, o canal aparece como falho no painel (nada é inventado). As
     páginas HTML equivalentes (`/comunicacao/noticias`, `/legislacao/compilada`)
-    alternam entre 200 e 403 (WAF por reputação de IP do runner), por isso o
-    canal estruturado é o principal e o HTML não é usado.
+    alternam do mesmo modo, então não são usadas.
   · a busca do DOU com `s=titulo` devolveu zero para `orgPrin=Poder Judiciário`;
     com `s=todos` + `orgSub=Tribunal Superior Eleitoral` devolve os atos do TSE.
 
@@ -67,16 +70,17 @@ class TSE(Fonte):
     orgao = "tse"
     nome = "TSE — Tribunal Superior Eleitoral"
     obrigatoria = True
+    repetir_403 = True
     canais = [
         # ------------------------------------------------- API do portal (JSON)
         Canal(
             "atos normativos (portal oficial)", API, formato="json",
-            parser="plone_search", tipo_padrao="ato_normativo",
+            parser="plone_search", tipo_padrao="ato_normativo", obrigatorio=False,
             opcoes={"params": dict(ATOS_NO_PORTAL)},
         ),
         Canal(
             "notícias oficiais (portal oficial)", API, formato="json",
-            parser="plone_search", tipo_padrao="noticia",
+            parser="plone_search", tipo_padrao="noticia", obrigatorio=False,
             opcoes={"params": dict(NOTICIAS_NO_PORTAL)},
         ),
         Canal(

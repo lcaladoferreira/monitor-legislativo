@@ -298,15 +298,43 @@ def descrever(body_bytes):
     return info
 
 
+def canais_do_coletor(limite_por_canal=2):
+    """URLs exatamente como os coletores as montam (diagnóstico de canal).
+
+    Importa o registro de fontes do próprio projeto e devolve as URLs reais que
+    cada canal consulta — é assim que se confere, com execução verdadeira, que
+    a URL do canal responde e que o parser acha itens nela.
+    """
+    sys.path.insert(0, os.path.join(os.path.dirname(os.path.abspath(__file__))))
+    from sources import fontes_disponiveis, instanciar  # noqa: PLC0415
+
+    alvos = []
+    for orgao in sorted(fontes_disponiveis()):
+        fonte = instanciar(orgao, logger=lambda *a, **k: None)
+        for canal in fonte.canais:
+            for i, (topico, url) in enumerate(canal.urls()):
+                if i >= limite_por_canal:
+                    break
+                rotulo = canal.rotulo if not topico else f"{canal.rotulo} :: {topico[:24]}"
+                accept = "application/json" if canal.formato == "json" else (
+                    "application/rss+xml" if canal.formato == "rss" else None)
+                alvos.append((orgao, rotulo, url, accept, "base"))
+    return alvos
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser()
     ap.add_argument("--conjunto", default="detalhe", choices=sorted(CONJUNTOS))
+    ap.add_argument("--canais", action="store_true",
+                    help="sonda as URLs reais de cada canal dos coletores")
     ap.add_argument("--orgao", action="append")
     ap.add_argument("--salvar-dir", default=None)
     ap.add_argument("--limite-exemplo", type=int, default=300)
     args = ap.parse_args(argv)
 
-    alvos = [c for c in CONJUNTOS[args.conjunto] if not args.orgao or c[0] in args.orgao]
+    base_alvos = (canais_do_coletor() if getattr(args, "canais", False)
+                  else CONJUNTOS[args.conjunto])
+    alvos = [c for c in base_alvos if not args.orgao or c[0] in args.orgao]
     os.makedirs(args.salvar_dir, exist_ok=True) if args.salvar_dir else None
     ok = 0
     for org, rotulo, url, accept, modo in alvos:
