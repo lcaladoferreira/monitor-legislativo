@@ -1,5 +1,5 @@
   · fonte 'anpd' (timeout 150s, subprocesso isolado)
-    → status=ok · itens=58 · consultados=281 · canais_ok=6 · canais_falhos=0
+    → status=ok · itens=58 · consultados=294 · canais_ok=8 · canais_falhos=0
   · fonte 'cnj' (timeout 150s, subprocesso isolado)
     → status=ok · itens=16 · consultados=130 · canais_ok=5 · canais_falhos=0
   · fonte 'tse' (timeout 150s, subprocesso isolado)
@@ -11,9 +11,9 @@
   · fonte 'mcti' (timeout 150s, subprocesso isolado)
     → status=ok · itens=34 · consultados=103 · canais_ok=3 · canais_falhos=1
 [anpd] ANPD — Autoridade Nacional de Proteção de Dados
-  status: ok · duração 7.6s
-  itens consultados: 281 · relevantes: 58 · descartados (tema): 142
-  canais ok: notícias recentes, notícias por tema, regulação e normas, consultas públicas, tomada de subsídios, atos normativos (arquivos)
+  status: ok · duração 11.2s
+  itens consultados: 294 · relevantes: 58 · descartados (tema): 154
+  canais ok: notícias recentes, notícias por tema, regulação e normas, consultas públicas, tomada de subsídios, atos normativos (arquivos), fiscalização (pasta oficial), agenda regulatória (pasta oficial)
     - [2026-09-16] (noticia, forte) ECA Digital completa um ano e é marco na proteção de crianças e adolescentes na internet
       https://www.gov.br/anpd/pt-br/assuntos/noticias/eca-digital-completa-um-ano-e-e-marco-na-protecao-de-criancas-e-adolescentes-na-internet
     - [2026-09-16] (noticia, forte) Projeto Sandbox Regulatório de IA da ANPD é finalista de prêmio internacional
@@ -36,7 +36,7 @@
       https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-realiza-encontro-anpd-de-encarregados-na-proxima-quarta
     ... (+48 itens)
 [cnj] CNJ — Conselho Nacional de Justiça
-  status: ok · duração 3.7s
+  status: ok · duração 5.1s
   itens consultados: 130 · relevantes: 16 · descartados (tema): 112
   canais ok: atos normativos recentes, atos normativos recentes (página 2), atos normativos recentes (página 3), notícias oficiais, notícias oficiais (página 2)
     - [2026-09-08] (ato_normativo, revisar) Portaria CNJ nº 420
@@ -61,7 +61,7 @@
       https://www.cnj.jus.br/comunidade-quilombola-do-amapa-ganha-ponto-de-inclusao-digital/
     ... (+6 itens)
 [tse] TSE — Tribunal Superior Eleitoral
-  status: ok · duração 11.3s
+  status: ok · duração 20.1s
   itens consultados: 6 · relevantes: 1 · descartados (tema): 5
   canais ok: atos do TSE por tema (DOU), resoluções do TSE (DOU, órgão/subórgão)
   canais com falha: atos normativos (portal oficial), notícias oficiais (portal oficial), atos e notícias por tema (portal oficial)
@@ -69,7 +69,7 @@
     - [2026-07-14] (ato_normativo, forte) PORTARIA Nº 424, DE 8 DE JULHO DE 2026
       https://www.in.gov.br/web/dou/-/portaria-n-424-de-8-de-julho-de-2026-718977388
 [dou] DOU — Diário Oficial da União (Imprensa Nacional)
-  status: ok · duração 10.0s
+  status: ok · duração 13.9s
   itens consultados: 150 · relevantes: 102 · descartados (tema): 34
   canais ok: busca por tema (7 dias)
     - [2026-09-17] (publicacao, revisar) PORTARIAS PGJ DE 10 DE SETEMBRO DE 2026
@@ -94,7 +94,7 @@
       https://www.in.gov.br/web/dou/-/portaria-n-5.825/ifsp-de-15-de-setembro-de-2026-732046805
     ... (+92 itens)
 [planalto] Planalto — Presidência da República
-  status: ok · duração 19.9s
+  status: ok · duração 43.9s
   itens consultados: 68 · relevantes: 11 · descartados (tema): 24
   canais ok: atos do Poder Legislativo (leis, vetos), atos da Presidência (decretos, MPs), notícias do Planalto (RSS oficial), notícias do Planalto (página oficial)
     - [2026-09-15] (lei, forte) LEI Nº 15.504, DE 15 DE SETEMBRO DE 2026
@@ -119,11 +119,11 @@
       https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/visita-presidencial-ao-parque-tecnologico-de-macaiba-e-anuncios-relativos-aos-supercomputadores-e-soberania-digital
     ... (+1 itens)
 [mcti] MCTI — Ministério da Ciência, Tecnologia e Inovação
-  status: ok · duração 13.1s
+  status: ok · duração 20.6s
   itens consultados: 103 · relevantes: 34 · descartados (tema): 33
   canais ok: atos do MCTI por tema (DOU), notícias institucionais, planos, programas e políticas
   canais com falha: portarias publicadas
-  erro: portarias publicadas: listagem sem itens reconhecíveis (159115 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias
+  erro: portarias publicadas: listagem sem itens reconhecíveis (157956 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias
     - [2026-09-14] (portaria, forte) DESPACHO DE 11 DE SETEMBRO DE 2026
       https://www.in.gov.br/web/dou/-/despacho-de-11-de-setembro-de-2026-731457497
     - [2026-09-14] (portaria, forte) DESPACHO DE 10 DE SETEMBRO DE 2026

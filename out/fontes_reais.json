@@ -1,21 +1,23 @@
 {
-  "gerado_em": "2026-09-17T18:29:09-03:00",
+  "gerado_em": "2026-09-17T19:00:51-03:00",
   "status_global": "OK",
   "fontes": {
     "anpd": {
       "nome": "ANPD — Autoridade Nacional de Proteção de Dados",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T18:28:03-03:00",
+      "ultima_tentativa": "2026-09-17T18:58:55-03:00",
       "ultima_execucao_ok": null,
-      "itens_consultados": 281,
+      "itens_consultados": 294,
       "itens_relevantes": 58,
-      "itens_descartados": 142,
-      "itens_duplicados": 81,
+      "itens_descartados": 154,
+      "itens_duplicados": 82,
       "revisao_pendente": 13,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 7.6,
+      "duracao_segundos": 11.2,
       "endpoints": [
+        "https://www.gov.br/anpd/++api++/@search",
+        "https://www.gov.br/anpd/++api++/@search",
         "https://www.gov.br/anpd/++api++/@search",
         "https://www.gov.br/anpd/++api++/@search",
         "https://www.gov.br/anpd/++api++/@search",
@@ -29,7 +31,9 @@
         "regulação e normas",
         "consultas públicas",
         "tomada de subsídios",
-        "atos normativos (arquivos)"
+        "atos normativos (arquivos)",
+        "fiscalização (pasta oficial)",
+        "agenda regulatória (pasta oficial)"
       ],
       "canais_falhos": [],
       "canais_falhos_obrigatorios": [],
@@ -76,19 +80,33 @@
           "itens_brutos": 50,
           "amostra_hierarquia": [],
           "itens_relevantes": 0
+        },
+        {
+          "canal": "fiscalização (pasta oficial)",
+          "url": "https://www.gov.br/anpd/++api++/@search",
+          "itens_brutos": 13,
+          "amostra_hierarquia": [],
+          "itens_relevantes": 0
+        },
+        {
+          "canal": "agenda regulatória (pasta oficial)",
+          "url": "https://www.gov.br/anpd/++api++/@search",
+          "itens_brutos": 0,
+          "amostra_hierarquia": [],
+          "itens_relevantes": 0
         }
       ],
       "erro_detalhe": null,
       "http": {
-        "chamadas": 15,
+        "chamadas": 17,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 7.57,
+        "tempo_total": 11.16,
         "por_endpoint": {
           "gov.br/anpd/++api++/@search": {
-            "chamadas": 15,
+            "chamadas": 17,
             "falhas": 0,
-            "tempo_total": 7.57
+            "tempo_total": 11.13
           }
         }
       },
@@ -187,7 +205,7 @@
     "cnj": {
       "nome": "CNJ — Conselho Nacional de Justiça",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T18:28:10-03:00",
+      "ultima_tentativa": "2026-09-17T18:59:07-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 130,
       "itens_relevantes": 16,
@@ -196,7 +214,7 @@
       "revisao_pendente": 10,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 3.7,
+      "duracao_segundos": 5.1,
       "endpoints": [
         "https://atos.cnj.jus.br/api/atos",
         "https://atos.cnj.jus.br/api/atos",
@@ -256,17 +274,17 @@
         "chamadas": 5,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 3.64,
+        "tempo_total": 5.05,
         "por_endpoint": {
           "atos.cnj.jus.br/api/atos": {
             "chamadas": 3,
             "falhas": 0,
-            "tempo_total": 1.76
+            "tempo_total": 2.71
           },
           "cnj.jus.br/wp-json/wp/v2/posts": {
             "chamadas": 2,
             "falhas": 0,
-            "tempo_total": 1.87
+            "tempo_total": 2.33
           }
         }
       },
@@ -365,7 +383,7 @@
     "tse": {
       "nome": "TSE — Tribunal Superior Eleitoral",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T18:28:14-03:00",
+      "ultima_tentativa": "2026-09-17T18:59:12-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 6,
       "itens_relevantes": 1,
@@ -374,7 +392,7 @@
       "revisao_pendente": 0,
       "novidades": 0,
       "erros": 3,
-      "duracao_segundos": 11.3,
+      "duracao_segundos": 20.1,
       "endpoints": [
         "https://www.tse.jus.br/++api++/@search",
         "https://www.tse.jus.br/++api++/@search",
@@ -421,17 +439,17 @@
         "chamadas": 14,
         "falhas": 3,
         "cache": 0,
-        "tempo_total": 11.24,
+        "tempo_total": 20.1,
         "por_endpoint": {
           "in.gov.br/consulta/-/buscar/dou": {
             "chamadas": 11,
             "falhas": 0,
-            "tempo_total": 10.97
+            "tempo_total": 19.68
           },
           "tse.jus.br/++api++/@search": {
             "chamadas": 3,
             "falhas": 3,
-            "tempo_total": 0.25
+            "tempo_total": 0.42
           }
         }
       },
@@ -453,7 +471,7 @@
     "dou": {
       "nome": "DOU — Diário Oficial da União (Imprensa Nacional)",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T18:28:25-03:00",
+      "ultima_tentativa": "2026-09-17T18:59:32-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 150,
       "itens_relevantes": 102,
@@ -462,7 +480,7 @@
       "revisao_pendente": 28,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 10.0,
+      "duracao_segundos": 13.9,
       "endpoints": [
         "https://www.in.gov.br/consulta/-/buscar/dou"
       ],
@@ -490,12 +508,12 @@
         "chamadas": 10,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 9.97,
+        "tempo_total": 13.86,
         "por_endpoint": {
           "in.gov.br/consulta/-/buscar/dou": {
             "chamadas": 10,
             "falhas": 0,
-            "tempo_total": 9.97
+            "tempo_total": 13.85
           }
         }
       },
@@ -594,7 +612,7 @@
     "planalto": {
       "nome": "Planalto — Presidência da República",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T18:28:35-03:00",
+      "ultima_tentativa": "2026-09-17T18:59:46-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 68,
       "itens_relevantes": 11,
@@ -603,7 +621,7 @@
       "revisao_pendente": 2,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 19.9,
+      "duracao_segundos": 43.9,
       "endpoints": [
         "https://www.in.gov.br/consulta/-/buscar/dou",
         "https://www.in.gov.br/consulta/-/buscar/dou",
@@ -658,22 +676,22 @@
         "chamadas": 22,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 19.85,
+        "tempo_total": 43.87,
         "por_endpoint": {
           "gov.br/planalto/pt-br/acompanhe-o-planalto/noticias": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.24
+            "tempo_total": 1.79
           },
           "gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.05
+            "tempo_total": 1.19
           },
           "in.gov.br/consulta/-/buscar/dou": {
             "chamadas": 20,
             "falhas": 0,
-            "tempo_total": 17.57
+            "tempo_total": 40.91
           }
         }
       },
@@ -772,7 +790,7 @@
     "mcti": {
       "nome": "MCTI — Ministério da Ciência, Tecnologia e Inovação",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T18:28:55-03:00",
+      "ultima_tentativa": "2026-09-17T19:00:30-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 103,
       "itens_relevantes": 34,
@@ -781,7 +799,7 @@
       "revisao_pendente": 17,
       "novidades": 0,
       "erros": 1,
-      "duracao_segundos": 13.1,
+      "duracao_segundos": 20.6,
       "endpoints": [
         "https://www.in.gov.br/consulta/-/buscar/dou",
         "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias",
@@ -827,32 +845,32 @@
           "itens_relevantes": 11
         }
       ],
-      "erro_detalhe": "portarias publicadas: listagem sem itens reconhecíveis (159115 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+      "erro_detalhe": "portarias publicadas: listagem sem itens reconhecíveis (157956 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
       "http": {
         "chamadas": 14,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 13.07,
+        "tempo_total": 20.58,
         "por_endpoint": {
           "gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.06
+            "tempo_total": 1.18
           },
           "gov.br/mcti/pt-br/acompanhe-o-mcti": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 0.97
+            "tempo_total": 1.38
           },
           "gov.br/mcti/pt-br/acompanhe-o-mcti/noticias": {
             "chamadas": 2,
             "falhas": 0,
-            "tempo_total": 3.37
+            "tempo_total": 4.51
           },
           "in.gov.br/consulta/-/buscar/dou": {
             "chamadas": 10,
             "falhas": 0,
-            "tempo_total": 7.67
+            "tempo_total": 13.5
           }
         }
       },
