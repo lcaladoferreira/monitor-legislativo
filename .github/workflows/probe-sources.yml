@@ -1,0 +1,48 @@
+name: Sonda de fontes oficiais (diagnóstico)
+
+# Diagnóstico manual: consulta candidatos a endpoint oficial de cada órgão
+# (ANPD, CNJ, TSE, DOU, Planalto, MCTI) e publica o resultado nos logs e como
+# artifact. Não grava dataset, não commita nada. Serve para comprovar, com
+# evidência real, qual fonte estruturada cada coletor usa.
+on:
+  workflow_dispatch:
+    inputs:
+      orgao:
+        description: "Órgão a sondar (anpd, cnj, tse, dou, planalto, mcti) — vazio = todos"
+        required: false
+        default: ""
+
+permissions:
+  contents: read
+
+env:
+  PYTHONUNBUFFERED: "1"
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+      - name: Sondar endpoints
+        run: |
+          ARGS=()
+          if [ -n "${{ inputs.orgao }}" ]; then
+            for o in ${{ inputs.orgao }}; do ARGS+=(--orgao "$o"); done
+          fi
+          python3 scripts/probe_sources.py --exemplos --limite-exemplo 600 \
+            --salvar-dir out/probe "${ARGS[@]}" 2>&1 | tee out/probe.log || true
+          echo "## Sonda de fontes oficiais" >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+          grep -E "^\s*(=== |    status=)" out/probe.log >> "$GITHUB_STEP_SUMMARY" || true
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+      - name: Publicar corpos coletados
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: probe-${{ github.run_id }}
+          path: out/probe
+          retention-days: 7
