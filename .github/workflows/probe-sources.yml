@@ -37,7 +37,7 @@ jobs:
           if [ -n "${{ inputs.orgao }}" ]; then
             for o in ${{ inputs.orgao }}; do ARGS+=(--orgao "$o"); done
           fi
-          python3 scripts/probe_sources.py --exemplos --limite-exemplo 600 \
+          python3 scripts/probe_sources.py --conjunto detalhe --limite-exemplo 300 \
             --salvar-dir out/probe "${ARGS[@]}" > out/probe.log 2>&1 || true
           tail -c 4000 out/probe.log
           echo "## Sonda de fontes oficiais" >> "$GITHUB_STEP_SUMMARY"
