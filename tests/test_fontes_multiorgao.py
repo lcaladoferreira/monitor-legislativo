@@ -9,7 +9,10 @@ item é inventado no dataset — as amostras aqui reproduzem apenas o formato do
 payloads reais (título, data, URL oficial, ementa) para provar que o coletor
 extrai exatamente esses campos.
 """
+import os
+import shutil
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -219,6 +222,47 @@ class DedupTests(unittest.TestCase):
         self.assertEqual(resultado.itens_descartados, 1)  # comunicado sem tema
         self.assertEqual(resultado.como_dict()["itens_duplicados"], 4)
         self.assertEqual(resultado.status, "ok")
+
+
+class RodapeAtosTests(unittest.TestCase):
+    """O rodapé do site só anuncia o atos.json quando o dataset existe — e
+    sempre com o domínio vigente na hora do build (build_site.py troca de
+    domínio depois de importar o módulo; um valor congelado no import
+    publicaria o domínio antigo e bloquearia o build)."""
+
+    def setUp(self):
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import build_site_core as core  # noqa: PLC0415
+        self.core = core
+        self._base, self._site = core.BASE, core.SITE_URL
+
+    def tearDown(self):
+        self.core.BASE, self.core.SITE_URL = self._base, self._site
+
+    def _preparar(self, com_atos):
+        tmp = tempfile.mkdtemp(prefix="rodape_")
+        self.addCleanup(shutil.rmtree, tmp, True)
+        os.makedirs(os.path.join(tmp, "data", "legislation"), exist_ok=True)
+        if com_atos:
+            with open(os.path.join(tmp, "data", "legislation", "atos.json"), "w",
+                      encoding="utf-8") as f:
+                f.write("{}")
+        self.core.BASE = tmp
+        self.core.SITE_URL = "https://dominio-oficial.test"
+        return tmp
+
+    def test_sem_dataset_nao_ha_link(self):
+        self._preparar(com_atos=False)
+        self.assertEqual(self.core._atos_footer_link(), "")
+        self.assertNotIn("atos.json", self.core.page("t", "d", "index.html", "corpo"))
+
+    def test_com_dataset_o_link_usa_o_dominio_do_build(self):
+        self._preparar(com_atos=True)
+        link = self.core._atos_footer_link()
+        self.assertIn("https://dominio-oficial.test/data/atos.json", link)
+        html = self.core.page("t", "d", "index.html", "corpo")
+        self.assertIn("https://dominio-oficial.test/data/atos.json", html)
+        self.assertNotIn("monitor-legislativo-five.vercel.app", html)
 
 
 class ContratoDasFontesTests(unittest.TestCase):

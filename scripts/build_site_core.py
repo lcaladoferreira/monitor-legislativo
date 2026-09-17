@@ -299,17 +299,17 @@ def combine_ld(*blocks):
 
 # ---------------------------------------------------------------- layout
 def _atos_footer_link():
-    """Link para o atos.json (multi-órgão) só quando o arquivo já existe.
+    """Link para o atos.json (multi-órgão) só quando o dataset já existe.
 
-    Antes da primeira execução multiórgão o dataset não existe; um link fixo
-    apontaria para 404 (o validador de links internos acusa isso).
+    Antes da primeira execução multiórgão o arquivo não existe; um link fixo
+    apontaria para 404 (o validador de links internos acusa isso). O domínio é
+    lido no momento da renderização (`SITE_URL` do módulo), nunca no import:
+    `build_site.py` troca o domínio para o oficial depois de importar este
+    módulo, e um valor congelado no import publicaria o domínio antigo.
     """
     if os.path.exists(os.path.join(BASE, "data", "legislation", "atos.json")):
         return '<br>\n      <a href="{0}/data/atos.json">atos.json</a>'.format(SITE_URL)
     return ""
-
-
-ATOS_LINK = _atos_footer_link()
 
 
 def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None):
@@ -385,7 +385,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <a href="{SITE_URL}/data/events.json">events.json</a><br>
       <a href="{SITE_URL}/data/parliamentarians.json">parliamentarians.json</a><br>
       <a href="{SITE_URL}/data/categories.json">categories.json</a><br>
-      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>{ATOS_LINK}
+      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>{_atos_footer_link()}
       <span style="color:var(--muted)">(métricas do cron)</span></p>
     </div>
     <div>
