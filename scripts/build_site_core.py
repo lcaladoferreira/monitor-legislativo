@@ -298,6 +298,20 @@ def combine_ld(*blocks):
 
 
 # ---------------------------------------------------------------- layout
+def _atos_footer_link():
+    """Link para o atos.json (multi-órgão) só quando o arquivo já existe.
+
+    Antes da primeira execução multiórgão o dataset não existe; um link fixo
+    apontaria para 404 (o validador de links internos acusa isso).
+    """
+    if os.path.exists(os.path.join(BASE, "data", "legislation", "atos.json")):
+        return '<br>\n      <a href="{0}/data/atos.json">atos.json</a>'.format(SITE_URL)
+    return ""
+
+
+ATOS_LINK = _atos_footer_link()
+
+
 def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None):
     canon = SITE_URL + "/" + path if path else SITE_URL + "/"
     nav_items = [
@@ -371,8 +385,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <a href="{SITE_URL}/data/events.json">events.json</a><br>
       <a href="{SITE_URL}/data/parliamentarians.json">parliamentarians.json</a><br>
       <a href="{SITE_URL}/data/categories.json">categories.json</a><br>
-      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a><br>
-      <a href="{SITE_URL}/data/atos.json">atos.json</a>
+      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>{ATOS_LINK}
       <span style="color:var(--muted)">(métricas do cron)</span></p>
     </div>
     <div>
