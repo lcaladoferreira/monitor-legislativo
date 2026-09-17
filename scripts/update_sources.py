@@ -170,7 +170,8 @@ def _resultado_falha(orgao, motivo, duracao=0.0, erros=None):
         "saude": {
             "nome": fonte_nome, "status": "falha", "ultima_tentativa": ts_iso(),
             "ultima_execucao_ok": None, "itens_consultados": 0, "itens_relevantes": 0,
-            "itens_descartados": 0, "revisao_pendente": 0, "novidades": 0, "erros": 1,
+            "itens_descartados": 0, "itens_duplicados": 0, "revisao_pendente": 0,
+            "novidades": 0, "erros": 1,
             "duracao_segundos": round(duracao, 1), "endpoints": [], "canais_ok": [],
             "canais_falhos": ["(execução)"], "canais_falhos_obrigatorios": ["(execução)"],
             "canais_opcionais_falhos": [], "erro_detalhe": motivo,
@@ -584,6 +585,7 @@ def relatorio_compacto(resultados, limite_amostras=5):
             "itens_consultados": saude.get("itens_consultados"),
             "itens_relevantes": saude.get("itens_relevantes"),
             "itens_descartados": saude.get("itens_descartados"),
+            "itens_duplicados": saude.get("itens_duplicados"),
             "revisao_pendente": saude.get("revisao_pendente"),
             "novidades": saude.get("novidades"),
             "erros": saude.get("erros"),

@@ -15,7 +15,8 @@ quaisquer que sejam os parâmetros de busca testados (`q`, `search`, `busca`,
 `ementa`, `palavra_chave`, `order`, `tipo`, `per_page`) — todos ignorados —,
 sempre ordenados por data de publicação decrescente. Por isso o canal consulta
 a listagem recente e o filtro temático é aplicado item a item pelo núcleo
-comum; não há busca por tema server-side a explorar.
+comum; não há busca por tema nem paginação server-side a explorar (a sonda
+pediu `page=2` e o servidor devolveu exatamente a mesma página).
 
 O filtro temático é conservador: item sem sinal temático claro é descartado e
 item duvidoso entra marcado como "revisar" (curadoria editorial).
@@ -35,11 +36,6 @@ class CNJ(Fonte):
         Canal(
             "atos normativos recentes", ATOS, formato="json", parser="cnj_atos",
             tipo_padrao="ato_normativo",
-        ),
-        Canal(
-            "atos normativos recentes (página 2)", ATOS, formato="json",
-            parser="cnj_atos", tipo_padrao="ato_normativo", obrigatorio=False,
-            opcoes={"params": {"page": 2}},
         ),
         Canal(
             "notícias oficiais", WP, formato="json", parser="wp_json",

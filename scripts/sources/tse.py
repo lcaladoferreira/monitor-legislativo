@@ -16,7 +16,14 @@ Fontes oficiais:
 
 Canais:
   · resoluções/atos do TSE por tema (DOU, filtrado para o TSE)
-  · notícias oficiais do TSE (portal)  · dados abertos do TSE (CKAN)
+  · resoluções do TSE (DOU, órgão/subórgão — pega a resolução pelo título)
+  · notícias oficiais do TSE (portal)  · legislação (portal)  · CKAN
+
+Evidência da sonda (CI, 17/09/2026): a busca do DOU com `s=titulo` devolveu
+zero resultados para `orgPrin=Poder Judiciário` (o modo de busca por título não
+combina com o filtro de órgão); com `s=todos` + `orgSub=Tribunal Superior
+Eleitoral` a mesma consulta devolve os atos do TSE. Por isso o canal usa
+`s=todos` com o subórgão explícito e confere o tipo do ato item a item.
 """
 from .base import (Canal, Fonte, TOPICOS_BUSCA, normalizar, registrar)
 
@@ -29,6 +36,16 @@ def _filtro_tse(item):
     """Mantém apenas atos cuja hierarquia do DOU é do TSE/Justiça Eleitoral."""
     hier = normalizar(item.get("hierarquia") or "")
     return any(c in hier for c in TSE_CHAVES)
+
+
+def _filtro_resolucao_tse(item):
+    """Atos do TSE que são resolução (norma que o monitoramento persegue).
+
+    É `startswith` porque o DOU rotula ora "Resolução", ora "Resolução
+    Conjunta"/"Resolução Administrativa" — todos são atos normativos do TSE.
+    """
+    return _filtro_tse(item) and normalizar(item.get("tipo_ato") or "").startswith(
+        normalizar("Resolução"))
 
 
 @registrar
@@ -47,18 +64,19 @@ class TSE(Fonte):
                                   "Poder%20Judici%C3%A1rio"),
         ),
         Canal(
-            "resoluções do TSE (DOU, título)", BUSCA, formato="html",
+            "resoluções do TSE (DOU, órgão/subórgão)", BUSCA, formato="html",
             parser="dou_embutido", tipo_padrao="resolucao", dias=30,
-            filtro_tema=_filtro_tse, padrao_href=r"/web/dou/-/",
-            url_template=(BUSCA + "?q=RESOLU%C3%87%C3%83O&s=titulo"
+            filtro_tema=_filtro_resolucao_tse, padrao_href=r"/web/dou/-/",
+            url_template=(BUSCA + "?q=RESOLU%C3%87%C3%83O&s=todos"
                                   "&exactDate=personalizado&sortType=0&delta=50"
                                   "&currentPage=1&publishFrom={from}&publishTo={to}"
-                                  "&orgPrin=Poder%20Judici%C3%A1rio"),
+                                  "&orgPrin=Poder%20Judici%C3%A1rio"
+                                  "&orgSub=Tribunal%20Superior%20Eleitoral"),
         ),
         Canal(
             "notícias oficiais", "https://www.tse.jus.br/comunicacao/noticias",
             formato="html", parser="plone_html", obrigatorio=False,
-            tipo_padrao="noticia", paginas=2,
+            tipo_padrao="noticia", paginas=2, passo=20,
             padrao_href=r"tse\.jus\.br/comunicacao/noticias/\d{4}/[A-Za-z]+/[a-z0-9-]{8,}",
         ),
         Canal(

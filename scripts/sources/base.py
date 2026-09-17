@@ -137,6 +137,19 @@ def limpar_texto(valor, limite=600):
     return t[:limite]
 
 
+def url_canonica(url):
+    """Chave de identidade de um item: URL oficial sem esquema/query/fragmento.
+
+    Usada para não contar duas vezes o mesmo item quando ele aparece em canais
+    diferentes (ex.: página 1 e página 2 de uma listagem que ignora paginação).
+    """
+    alvo = (url or "").strip().lower()
+    alvo = re.sub(r"^https?://", "", alvo)
+    alvo = re.sub(r"^www\.", "", alvo)
+    alvo = alvo.split("#")[0].split("?")[0].rstrip("/")
+    return alvo
+
+
 def hash_texto(*partes):
     base = normalizar(" | ".join(str(p or "") for p in partes))
     return "sha1:" + hashlib.sha1(base.encode("utf-8")).hexdigest()[:16]
@@ -271,6 +284,10 @@ class Cliente:
             "Sec-Fetch-Mode": "navigate",
             "Sec-Fetch-Site": "none",
             "Sec-Fetch-User": "?1",
+            "Cache-Control": "max-age=0",
+            "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+            "sec-ch-ua-mobile": "?0",
+            "sec-ch-ua-platform": '"Linux"',
         }
         if headers:
             hdrs.update(headers)
@@ -710,6 +727,7 @@ class ResultadoFonte:
         self.itens_consultados = 0
         self.itens_relevantes = 0
         self.itens_descartados = 0
+        self.itens_duplicados = 0
         self.revisao_pendente = 0
         self.ultima_execucao_ok = None
         self.parcial_por_orcamento = False
@@ -741,6 +759,7 @@ class ResultadoFonte:
             "itens_consultados": self.itens_consultados,
             "itens_relevantes": self.itens_relevantes,
             "itens_descartados": self.itens_descartados,
+            "itens_duplicados": self.itens_duplicados,
             "revisao_pendente": self.revisao_pendente,
             "novidades": novidades,
             "erros": len(self.erros),
@@ -847,10 +866,21 @@ class Fonte:
 
     def _absorver(self, resultado, itens, canal):
         self._itens_antes = len(resultado.itens)
+        if not hasattr(self, "_vistos"):
+            self._vistos = set()
         for item in itens:
             resultado.itens_consultados += 1
             if not item.get("link") or not item.get("titulo"):
                 continue
+            chave = url_canonica(item.get("link"))
+            if chave and chave in self._vistos:
+                # Mesmo item já absorvido por outro canal desta fonte
+                # (paginação ignorada pelo servidor, feeds repetidos etc.):
+                # conta uma vez só — nada é duplicado no dataset nem no painel.
+                resultado.itens_duplicados += 1
+                continue
+            if chave:
+                self._vistos.add(chave)
             rel = classificar_relevancia(item.get("titulo"), item.get("descricao"))
             if not rel:
                 resultado.itens_descartados += 1

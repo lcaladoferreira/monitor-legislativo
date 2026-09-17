@@ -120,7 +120,61 @@ DETALHE = [
     ("mcti", "dou-mcti-portarias", "https://www.in.gov.br/consulta/-/buscar/dou?q=intelig%C3%AAncia%20artificial&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=01-01-2026&publishTo=17-09-2026&orgPrin=Minist%C3%A9rio%20da%20Ci%C3%AAncia%2C%20Tecnologia%20e%20Inova%C3%A7%C3%A3o", None, None),
 ]
 
-CONJUNTOS = {"base": BASE, "detalhe": DETALHE}
+# Rodada 4: confirmar/corrigir os canais que o ensaio de 17/09/2026 mostrou
+# incompletos (TSE só com DOU; MCTI sem notícias/portarias; Planalto sem atos da
+# Presidência; CNJ com paginação ignorada) e testar as APIs Plone (++api++) dos
+# portais gov.br, que são a mesma plataforma do ANPD (que responde bem).
+RODADA4 = [
+    # ---------- TSE: o ensaio tomou 403 onde a sonda (headers de navegador)
+    # ---------- recebeu 200 — aqui os dois conjuntos de cabeçalhos são testados.
+    ("tse", "noticias-headers-coletor", "https://www.tse.jus.br/comunicacao/noticias", None, "base"),
+    ("tse", "noticias-headers-navegador", "https://www.tse.jus.br/comunicacao/noticias", None, None),
+    ("tse", "noticias-pagina2", "https://www.tse.jus.br/comunicacao/noticias?b_start:int=20", None, "base"),
+    ("tse", "noticias-raiz", "https://www.tse.jus.br/noticias", None, "base"),
+    ("tse", "noticias-rss", "https://www.tse.jus.br/comunicacao/noticias/RSS", "application/rss+xml", "base"),
+    ("tse", "restapi-headers-coletor", "https://www.tse.jus.br/++api++/@search?b_size=3&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("tse", "legislacao-resolucao", "https://www.tse.jus.br/legislacao/compilada/resolucao", None, "base"),
+    ("tse", "atos-normativos", "https://www.tse.jus.br/legislacao/atos-normativos", None, "base"),
+    ("tse", "ckan-package-search", "https://dadosabertos.tse.jus.br/api/3/action/package_search?q=inteligencia+artificial&rows=3", "application/json", "base"),
+
+    # ---------- Planalto: atos da Presidência no DOU (Poder Executivo) e APIs
+    ("planalto", "dou-executivo-presidencia", "https://www.in.gov.br/consulta/-/buscar/dou?q=intelig%C3%AAncia%20artificial&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=01-01-2026&publishTo=17-09-2026&orgPrin=Atos%20do%20Poder%20Executivo&orgSub=Presid%C3%AAncia%20da%20Rep%C3%BAblica", None, "base"),
+    ("planalto", "dou-presidencia-arttype-decreto", "https://www.in.gov.br/consulta/-/buscar/dou?q=&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=18-08-2026&publishTo=17-09-2026&orgPrin=Presid%C3%AAncia%20da%20Rep%C3%BAblica&artType=Decreto", None, "base"),
+    ("planalto", "api-noticias", "https://www.gov.br/planalto/++api++/@search?path=/planalto/pt-br/acompanhe-o-planalto/noticias&portal_type=Noticia&b_size=10&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("planalto", "api-noticias-sem-path", "https://www.gov.br/planalto/++api++/@search?portal_type=Noticia&b_size=10&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("planalto", "dou-leiturajornal", "https://www.in.gov.br/leiturajornal?data=17-09-2026&secao=do1", None, "base"),
+    ("planalto", "www4-legislacao", "https://www4.planalto.gov.br/legislacao/", None, "base"),
+    ("planalto", "www4-legislacao-api", "https://www4.planalto.gov.br/legislacao/++api++/@search?b_size=5&sort_on=effective&sort_order=descending", "application/json", "base"),
+
+    # ---------- MCTI: APIs Plone do próprio portal (notícias, portarias, consultas)
+    ("mcti", "api-noticias", "https://www.gov.br/mcti/++api++/@search?path=/mcti/pt-br/acompanhe-o-mcti/noticias&portal_type=Noticia&b_size=10&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("mcti", "api-noticias-sem-path", "https://www.gov.br/mcti/++api++/@search?portal_type=Noticia&b_size=10&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("mcti", "api-portarias", "https://www.gov.br/mcti/++api++/@search?path=/mcti/pt-br/acesso-a-informacao/legislacao/portarias&b_size=10&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("mcti", "api-consultas", "https://www.gov.br/mcti/++api++/@search?path=/mcti/pt-br/acesso-a-informacao/participacao-social&b_size=10&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("mcti", "api-tema-ia", "https://www.gov.br/mcti/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=10&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("mcti", "noticias-folder-mes", "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/noticias-julho-outubro-2026", None, "base"),
+    ("mcti", "portarias-outros-atos", "https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/outros-atos-normativos", None, "base"),
+
+    # ---------- CNJ: paginação da API de atos e do WP (o ensaio repetiu itens)
+    ("cnj", "atos-page2", "https://atos.cnj.jus.br/api/atos?page=2", "application/json", "base"),
+    ("cnj", "atos-offset", "https://atos.cnj.jus.br/api/atos?offset=10", "application/json", "base"),
+    ("cnj", "atos-detalhe", "https://atos.cnj.jus.br/api/atos/7034", "application/json", "base"),
+    ("cnj", "wp-page2", "https://www.cnj.jus.br/wp-json/wp/v2/posts?per_page=3&page=2&_fields=id,date,link,title", "application/json", "base"),
+    ("cnj", "wp-page1", "https://www.cnj.jus.br/wp-json/wp/v2/posts?per_page=3&page=1&_fields=id,date,link,title", "application/json", "base"),
+    ("cnj", "wp-pages-consultas", "https://www.cnj.jus.br/wp-json/wp/v2/pages?search=consulta%20p%C3%BAblica&per_page=5&_fields=id,date,link,title", "application/json", "base"),
+    ("cnj", "wp-categorias", "https://www.cnj.jus.br/wp-json/wp/v2/categories?per_page=30&_fields=id,name,count", "application/json", "base"),
+
+    # ---------- ANPD: RSS e API por pasta (o coletor já usa ++api++)
+    ("anpd", "api-noticias", "https://www.gov.br/anpd/++api++/@search?path=/anpd/pt-br/assuntos/noticias&portal_type=News%20Item&b_size=5&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("anpd", "api-tema-ia", "https://www.gov.br/anpd/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=5&sort_on=effective&sort_order=descending", "application/json", "base"),
+    ("anpd", "noticias-rss", "https://www.gov.br/anpd/pt-br/assuntos/noticias/RSS", "application/rss+xml", "base"),
+
+    # ---------- DOU: alternativas estruturadas à busca HTML
+    ("dou", "busca-formato-json", "https://www.in.gov.br/consulta/-/buscar/dou?q=intelig%C3%AAncia%20artificial&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=01-09-2026&publishTo=17-09-2026&formato=json", "application/json", "base"),
+    ("dou", "api-consulta-publicacao", "https://www.in.gov.br/api/consulta/publicacao?q=inteligencia+artificial", "application/json", "base"),
+]
+
+CONJUNTOS = {"base": BASE, "detalhe": DETALHE, "rodada4": RODADA4}
 
 
 def fetch_curl(url, accept=None, timeout=45):
@@ -152,10 +206,31 @@ def fetch_curl(url, accept=None, timeout=45):
                 "segundos": round(time.monotonic() - t0, 2), "final_url": url}
 
 
+# Cabeçalhos exatamente como o coletor real (scripts/sources/base.py Cliente.get)
+# monta. Serve para reproduzir no diagnóstico o que o ensaio encontra em campo
+# (ex.: um portal que responde 200 para headers "de navegador" mas 403 para o
+# conjunto completo — ou o contrário).
+BASE = {
+    "User-Agent": UA,
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8",
+    "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8",
+    "Accept-Encoding": "gzip, identity",
+    "Upgrade-Insecure-Requests": "1",
+    "Sec-Fetch-Dest": "document", "Sec-Fetch-Mode": "navigate",
+    "Sec-Fetch-Site": "none", "Sec-Fetch-User": "?1",
+    "Cache-Control": "max-age=0",
+    "sec-ch-ua": '"Chromium";v="124", "Google Chrome";v="124", "Not-A.Brand";v="99"',
+    "sec-ch-ua-mobile": "?0", "sec-ch-ua-platform": '"Linux"',
+}
+
+
 def fetch(url, accept=None, timeout=45, modo=None):
     if modo == "curl":
         return fetch_curl(url, accept, timeout)
-    headers = dict(BROWSER)
+    if modo == "base":
+        headers = dict(BASE)
+    else:
+        headers = dict(BROWSER)
     if accept:
         headers["Accept"] = accept
     req = urllib.request.Request(url, headers=headers)
