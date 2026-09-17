@@ -106,7 +106,21 @@ jobs:
               f"{http.get('cache', 0)} do cache · {http.get('falhas', 0)} falhas · "
               f"{http.get('tempo_total', '—')}s em rede",
               f"- **Erros:** {len(ex.get('erros') or [])}",
+              f"- **Status global (multiórgão):** `{ex.get('status_global', '—')}`",
           ]
+          fm = ex.get("fontes_monitoradas") or {}
+          if fm:
+              linhas += ["", "| órgão | status | itens consultados | novidades | erros |",
+                         "|---|---|---|---|---|"]
+              for orgao, f in fm.items():
+                  linhas.append(f"| {orgao} | {f.get('status', '—')} | "
+                                f"{f.get('itens_consultados', '—')} | "
+                                f"{f.get('novidades', '—')} | {f.get('erros', 0)} |")
+          falhas = ex.get("fontes_falha") or []
+          if falhas:
+              linhas.append("")
+              linhas.append("**Fontes com falha nesta execução:** "
+                            + ", ".join(falhas))
           print("\n".join(linhas))
           PY
 

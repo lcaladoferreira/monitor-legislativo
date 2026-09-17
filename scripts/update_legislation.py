@@ -42,9 +42,13 @@ Fontes oficiais consultadas (quando tecnicamente disponíveis):
     /materia/movimentacoes/{codigo} (situação atual + informes legislativos)
     /materia/relatorias/{codigo} (relatoria atual e histórico)
     /materia/votacoes/{codigo} (votações)
-Outras fontes oficiais (Planalto, DOU, TSE, CNJ, ANPD, MCTI) não oferecem APIs
-públicas equivalentes em JSON; sua verificação permanece manual/curada e é
-documentada na página /metodologia/.
+Além das duas casas, a mesma execução roda os conectores multiórgão de
+`scripts/sources` (ANPD, CNJ, TSE, DOU/Imprensa Nacional, Planalto e MCTI) em
+subprocessos isolados com timeout próprio — ver `scripts/update_sources.py`.
+Os itens coletados nesses órgãos ficam em data/legislation/atos.json, as
+mudanças em updates.json e a saúde de cada fonte em `fontes_monitoradas`
+(com `status_global`: OK · PARCIAL · FALHA). Câmara e Senado seguem sendo
+coletados exatamente como antes por este arquivo.
 """
 import argparse
 import json
@@ -578,6 +582,7 @@ class Collector:
         self.fontes_ok = set()
         self.nao_verificadas = []   # ids não consultados por fim de orçamento
         self.verificadas_ids = set()  # proposições distintas consultadas (cobertura)
+        self.verificadas_casa = {"camara": 0, "senado": 0}  # saúde por casa
         self.fases = {}             # fase -> segundos (métricas do painel)
         self._changes_gravadas = 0  # mudanças já persistidas (checkpoint intermediário)
         self._fases_ini = {}
@@ -619,6 +624,8 @@ class Collector:
         with self._lock:
             self.verified += 1
             self.verificadas_ids.add(prop_id)
+            casa = "senado" if str(prop_id).startswith("senado_") else "camara"
+            self.verificadas_casa[casa] = self.verificadas_casa.get(casa, 0) + 1
 
     def _add_fonte(self, fonte):
         with self._lock:
@@ -1398,6 +1405,65 @@ class Collector:
         + len(self.changes[self._changes_gravadas:]),
         }
 
+    @staticmethod
+    def _status_casa(verificadas, falhas):
+        """ok · parcial · falha por casa a partir de evidência de consulta.
+
+        A evidência primária é o nº de fichas efetivamente consultadas na casa
+        (contadas também quando vêm do cache da execução). Sem nenhuma ficha
+        consultada, a casa conta como **falha** — nunca como monitorada.
+        """
+        if not verificadas:
+            return "falha"
+        return "parcial" if falhas else "ok"
+
+    def _saude_casas(self):
+        """Saúde de Câmara e Senado na mesma estrutura das fontes multiórgão."""
+        stats = http_stats()
+        por_ep = stats.get("por_endpoint") or {}
+        saude = {}
+        for casa, base_url, rotulo in (
+                ("camara", CAMARA, "Câmara dos Deputados — API de Dados Abertos v2"),
+                ("senado", SENADO, "Senado Federal — API de Dados Abertos v7")):
+            chamadas = sum(v.get("chamadas", 0) for k, v in por_ep.items()
+                           if k.startswith(casa))
+            falhas = sum(v.get("falhas", 0) for k, v in por_ep.items()
+                         if k.startswith(casa))
+            verificadas = self.verificadas_casa.get(casa, 0)
+            erros_casa = [e for e in self.errors if e.startswith(f"{casa}_")]
+            status_casa = self._status_casa(verificadas, falhas)
+            saude[casa] = {
+                "nome": rotulo,
+                "status": status_casa,
+                "ultima_tentativa": self.run_iso,
+                "ultima_execucao_ok": self.run_iso if status_casa == "ok" else None,
+                "itens_consultados": verificadas,
+                "novidades": len([p for p in self.new_props
+                                  if str(p.get("id", "")).startswith(casa + "_")]),
+                "erros": len(erros_casa),
+                "chamadas_http": chamadas,
+                "falhas_http": falhas,
+                "endpoints": [base_url],
+                "canais_ok": [f"{casa}:{k.split(':', 1)[-1]}" for k, v in por_ep.items()
+                              if k.startswith(casa) and v.get("chamadas")
+                              and not v.get("falhas")][:6],
+                "canais_falhos": [f"{casa}:{k.split(':', 1)[-1]}" for k, v in por_ep.items()
+                                  if k.startswith(casa) and v.get("falhas")][:6],
+                "erro_detalhe": ("; ".join(erros_casa[:3]) or None) if falhas else None,
+            }
+        # última execução bem-sucedida vem do histórico (nunca estimada)
+        anteriores = (load("updates.json").get("execucoes") or [])[1:]
+        for casa, dados in saude.items():
+            if dados["status"] == "ok":
+                continue
+            dados["ultima_execucao_ok"] = next(
+                ((ex.get("fontes_monitoradas") or {}).get(casa, {}).get("ultima_tentativa")
+                 or ex.get("fim") or ex.get("data_hora")
+                 for ex in anteriores
+                 if ((ex.get("fontes_monitoradas") or {}).get(casa) or {}).get("status") == "ok"),
+                None)
+        return saude
+
     def _atualizar_registro(self, rec, n_ev=0):
         rec.update({
             "resumo": (f"Verificação automática: {self.verified} fichas consultadas, "
@@ -1422,7 +1488,8 @@ class Collector:
         rec.update(self._resumo_execucao())
         return rec
 
-    def _gravar(self, props_f, up_f, ev_f, laws_f, tl_f, pm_f, props, exec_record, status):
+    def _gravar(self, props_f, up_f, ev_f, laws_f, tl_f, pm_f, props, exec_record, status,
+                atos_f=None):
         """Grava o dataset no disco (chamado também no checkpoint intermediário)."""
         props_all = props + self.new_props
         exec_record["status"] = status
@@ -1460,6 +1527,8 @@ class Collector:
         save("laws.json", laws_f)
         save("timeline.json", tl_f)
         save("parliamentarians.json", pm_f)
+        if atos_f is not None:
+            save("atos.json", atos_f)
         return exec_record
 
     # ------------------------------------------------------------------- run
@@ -1676,6 +1745,45 @@ class Collector:
                 except Exception as e:  # noqa: BLE001
                     self.errors.append(f"eventos: {e}")
 
+        # 3.5) Fontes multiórgão (ANPD, CNJ, TSE, DOU, Planalto, MCTI).
+        #      Cada uma roda em subprocesso com timeout próprio: uma fonte
+        #      travada/bloqueada não impede as demais nem o build do site.
+        resumo_fontes = None
+        atos_f = load("atos.json") if os.path.exists(os.path.join(DATA, "atos.json")) else None
+        if atos_f is None:
+            import update_sources as _us
+            atos_f = _us._atos_vazios()
+        if os.environ.get("MONITOR_SEM_FONTES"):
+            print("Coleta multiórgão desativada por MONITOR_SEM_FONTES.", flush=True)
+        elif BUDGET.expirado(90):
+            print("Orçamento insuficiente para as fontes multiórgão — etapa adiada.", flush=True)
+            exec_record["fontes_multiorgao_adiadas"] = True
+        else:
+            print("Coletando fontes multiórgão (ANPD, CNJ, TSE, DOU, Planalto, MCTI)...",
+                  flush=True)
+            with self.fase("fontes_multiorgao"):
+                try:
+                    import update_sources as _us
+                    timeout_fonte = int(os.environ.get("MONITOR_FONTES_TIMEOUT_S", "") or 150)
+                    # teto total: nunca consome o orçamento que falta para build/commit
+                    limite_total = max(60, int(BUDGET.restante() - BUDGET.margem - 60))
+                    resultados = _us.executar_todas(timeout_s=timeout_fonte,
+                                                    limite_total_s=limite_total)
+                    exec_info = {"id": self.run_id, "timestamp": self.run_iso,
+                                 "data": self.today}
+                    resumo_fontes = _us.mesclar(atos_f, up_f, resultados, exec_info,
+                                                execucoes_anteriores=up_f.get("execucoes"))
+                    if not dry_run:
+                        n_mud = _us.registrar_mudancas(up_f, resumo_fontes["mudancas"],
+                                                       exec_info)
+                        print(f"  · {n_mud} mudança(s) registradas das fontes multiórgão",
+                              flush=True)
+                except BudgetExceeded:
+                    print("  orçamento esgotado durante as fontes multiórgão", flush=True)
+                except Exception as e:  # noqa: BLE001 — não derruba a execução legislativa
+                    self.errors.append(f"fontes multiórgão: {e}")
+                    print(f"  [erro] fontes multiórgão: {e}", flush=True)
+
         # 4) Checagem de conversão em lei (sugestão, sem auto-criar norma)
         sugestoes_lei = []
         for p in props + self.new_props:
@@ -1689,8 +1797,50 @@ class Collector:
         exec_record["descoberta_candidatos"] = candidatos_total
         exec_record["descoberta_adiada"] = adiados
         self._atualizar_registro(exec_record, n_ev=n_ev)
-        parcial = bool(self.nao_verificadas) or BUDGET.expirado()
+
+        # 5.1) Saúde por fonte: Câmara, Senado e os órgãos multiórgão.
+        #      Fonte obrigatória não consultada nunca é reportada como sucesso.
+        saude_casas = self._saude_casas()
+        fontes_monitoradas = dict(saude_casas)
+        if resumo_fontes:
+            fontes_monitoradas.update(resumo_fontes["fontes_monitoradas"])
+        else:
+            for orgao in ("anpd", "cnj", "tse", "dou", "planalto", "mcti"):
+                fontes_monitoradas.setdefault(orgao, {
+                    "nome": orgao.upper(), "status": "falha",
+                    "ultima_tentativa": self.run_iso, "ultima_execucao_ok": None,
+                    "itens_consultados": 0, "novidades": 0, "erros": 1,
+                    "endpoints": [], "canais_ok": [], "canais_falhos": ["(não executada)"],
+                    "erro_detalhe": "coleta multiórgão não executada nesta execução "
+                                    "(orçamento de tempo ou desativação explícita)",
+                })
+        import update_sources as _us
+        status_global = _us.calcular_status_global(
+            {k: v for k, v in fontes_monitoradas.items()
+             if k not in ("camara", "senado")}, saude_casas)
+        exec_record["fontes_monitoradas"] = dict(sorted(fontes_monitoradas.items()))
+        exec_record["status_global"] = status_global
+        exec_record["fontes_falha"] = sorted(o for o, s in fontes_monitoradas.items()
+                                             if (s or {}).get("status") == "falha")
+        exec_record["fontes_parciais"] = sorted(o for o, s in fontes_monitoradas.items()
+                                                if (s or {}).get("status") == "parcial")
+        if resumo_fontes:
+            exec_record["http_fontes"] = resumo_fontes["http_fontes"]
+            exec_record["novidades_multiorgao"] = resumo_fontes["novidades"]
+            exec_record["mudancas_multiorgao"] = len(resumo_fontes["mudancas"])
+        if status_global != "OK":
+            exec_record["observacao"] = ((exec_record.get("observacao") or "")
+                                         + f" Status global: {status_global}"
+                                         + (f" — fontes com falha: "
+                                            f"{', '.join(exec_record['fontes_falha'])}."
+                                            if exec_record["fontes_falha"] else "."))
+
+        parcial = (bool(self.nao_verificadas) or BUDGET.expirado()
+                   or status_global != "OK")
         status = "parcial" if parcial else "concluida"
+        if status_global == "FALHA":
+            status = "falha"
+        exec_record["status"] = status
         print(f"\nMudanças detectadas: {len(self.changes)} · novas: {len(self.new_props)} · "
               f"atualizadas: {self.updated} · verificadas: {self.verified} · "
               f"erros: {len(self.errors)} · status: {status} · "
@@ -1702,7 +1852,8 @@ class Collector:
                 print(f"  - [{c['data']}] {c['titulo'][:90]}", flush=True)
             return exec_record
 
-        self._gravar(props_f, up_f, ev_f, laws_f, tl_f, pm_f, props, exec_record, status=status)
+        self._gravar(props_f, up_f, ev_f, laws_f, tl_f, pm_f, props, exec_record,
+                     status=status, atos_f=atos_f)
         print(f"Dataset atualizado e salvo · cobertura {exec_record['cobertura_pct']}% · "
               f"HTTP: {exec_record['http']['chamadas']} chamadas "
               f"({exec_record['http']['cache']} do cache, {exec_record['http']['falhas']} falhas) · "

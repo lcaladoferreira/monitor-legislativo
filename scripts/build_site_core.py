@@ -244,10 +244,20 @@ def near_vote(p):
     return any(t in s for t in prox_terms)
 
 
+ROTULO_ORGAO = {
+    "anpd": "ANPD", "cnj": "CNJ", "tse": "TSE", "dou": "DOU",
+    "planalto": "Planalto/Presidência", "mcti": "MCTI",
+    "camara": "Câmara dos Deputados", "senado": "Senado Federal",
+}
+
+
 def change_prop_href(m, by_id):
+    """Link do registro: proposição (Câmara/Senado) ou ato publicado por órgão."""
     pid = m.get("proposicao")
     if pid and pid in by_id:
         return prop_link(by_id[pid]), f'{by_id[pid]["tipo"]} {by_id[pid]["numero"]}/{by_id[pid]["ano"]}'
+    if m.get("orgao") and m.get("url_oficial"):
+        return m["url_oficial"], f'publicação no {ROTULO_ORGAO.get(m["orgao"], m["orgao"])}'
     return f"{SITE_URL}/proposicoes/", "todas as proposições"
 
 
@@ -288,6 +298,20 @@ def combine_ld(*blocks):
 
 
 # ---------------------------------------------------------------- layout
+def _atos_footer_link():
+    """Link para o atos.json (multi-órgão) só quando o arquivo já existe.
+
+    Antes da primeira execução multiórgão o dataset não existe; um link fixo
+    apontaria para 404 (o validador de links internos acusa isso).
+    """
+    if os.path.exists(os.path.join(BASE, "data", "legislation", "atos.json")):
+        return '<br>\n      <a href="{0}/data/atos.json">atos.json</a>'.format(SITE_URL)
+    return ""
+
+
+ATOS_LINK = _atos_footer_link()
+
+
 def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None):
     canon = SITE_URL + "/" + path if path else SITE_URL + "/"
     nav_items = [
@@ -361,7 +385,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <a href="{SITE_URL}/data/events.json">events.json</a><br>
       <a href="{SITE_URL}/data/parliamentarians.json">parliamentarians.json</a><br>
       <a href="{SITE_URL}/data/categories.json">categories.json</a><br>
-      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>
+      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>{ATOS_LINK}
       <span style="color:var(--muted)">(métricas do cron)</span></p>
     </div>
     <div>
@@ -985,7 +1009,13 @@ def build_metodologia(props, laws, updates):
   <ul class="plain facts">
     <li>▸ <b>Câmara dos Deputados</b> — API de Dados Abertos (proposições, tramitações, autores, votações, eventos) e fichas de tramitação.</li>
     <li>▸ <b>Senado Federal</b> — API de Dados Abertos (matérias, movimentações, relatorias, votações).</li>
-    <li>▸ <b>Congresso Nacional, Planalto, DOU, TSE, CNJ, ANPD, MCTI</b> — verificação manual/curada, pois não oferecem APIs públicas equivalentes em JSON.</li>
+    <li>▸ <b>ANPD</b> — API de conteúdo do próprio portal (plone.restapi): notícias, regulação, consultas públicas e atos normativos. <code>/scripts/sources/anpd.py</code></li>
+    <li>▸ <b>CNJ</b> — Sistema de Atos Normativos (atos.cnj.jus.br/api/atos) e API do portal (wp-json): resoluções, provimentos, portarias e notícias oficiais. <code>/scripts/sources/cnj.py</code></li>
+    <li>▸ <b>TSE</b> — atos e resoluções publicados no DOU (Seção 1, "Poder Judiciário/Tribunal Superior Eleitoral", com conferência item a item) e portal/legislação/dados abertos do TSE. <code>/scripts/sources/tse.py</code></li>
+    <li>▸ <b>DOU</b> — busca oficial da Imprensa Nacional (in.gov.br), por tema (IA, algoritmos, dados, biometria, plataformas, data centers, semicondutores, nuvem…). <code>/scripts/sources/dou.py</code></li>
+    <li>▸ <b>Planalto / Presidência da República</b> — atos presidenciais publicados no DOU ("Atos do Poder Legislativo" e "Presidência da República": leis, decretos, medidas provisórias, vetos). <code>/scripts/sources/planalto.py</code></li>
+    <li>▸ <b>MCTI</b> — atos do Ministério publicados no DOU (Seção 1/2) e portal institucional (notícias, portarias, programas). <code>/scripts/sources/mcti.py</code></li>
+    <li>▸ <b>Bloqueio de robôs:</b> quando um portal oficial recusa o acesso automatizado (ex.: WAF devolvendo 403), o canal é registrado como falho no painel de monitoramento — o órgão continua sendo acompanhado pela publicação oficial no DOU, e a falha do portal fica explícita, nunca escondida.</li>
     <li>▸ <b>Imprensa</b> — apenas para descoberta e contexto; fatos legislativos são confirmados em fonte oficial.</li>
   </ul>
   <h2 class="section-title" style="margin-top:26px">Frequência de atualização</h2>
@@ -1006,7 +1036,8 @@ def build_metodologia(props, laws, updates):
   <ul class="plain facts">
     <li>▸ Sanções, vetos e publicações no DOU podem levar horas ou dias para se refletir nas APIs; a confirmação final é sempre o texto oficial.</li>
     <li>▸ Pautas de comissões podem mudar no mesmo dia; a agenda é uma fotografia do momento da verificação.</li>
-    <li>▸ Atos do Executivo (decretos, portarias) e decisões de TSE/CNJ/ANPD são incorporados por curadoria, não por API.</li>
+    <li>▸ Atos do Executivo (decretos, portarias), resoluções e decisões de TSE/CNJ/ANPD são detectados automaticamente nas fontes oficiais e entram marcados como <b>aguardando curadoria</b>; a confirmação jurídica final é sempre o texto oficial.</li>
+    <li>▸ O monitoramento multiórgão é conservador por desenho: item sem sinal temático claro é descartado, item duvidoso entra como <b>revisar</b>, e órgão que não respondeu aparece como <b>falha</b> no painel — nunca como monitorado.</li>
     <li>▸ Registros automáticos (“aguardando curadoria”) podem conter título preliminar e categorias incompletas.</li>
   </ul>
   <h2 class="section-title" style="margin-top:26px">Política de correção</h2>
@@ -1027,8 +1058,26 @@ def build_metodologia(props, laws, updates):
   a cada rebuild e recalcula no navegador a idade da última execução: <b>se o cron parar, o site
   avisa</b>. As mesmas métricas ficam em <code>data/monitoramento.json</code> para uso externo.</p>
 
+  <h2 class="section-title" style="margin-top:26px">Monitoramento multiórgão: status por fonte</h2>
+  <p>Cada execução consulta <b>oito fontes obrigatórias</b> — Câmara, Senado, ANPD, CNJ, TSE, DOU,
+  Planalto e MCTI — e grava, em <code>updates.json</code> (campo <code>fontes_monitoradas</code>),
+  para cada órgão: <b>timestamp da última tentativa</b>, <b>timestamp da última execução
+  bem-sucedida</b>, <b>status</b>, <b>itens consultados</b>, <b>novidades</b>, <b>erros</b> e os
+  <b>endpoints oficiais</b> usados. O campo <code>status_global</code> resume o resultado:</p>
+  <ul class="plain facts">
+    <li>▸ <b>OK</b> — todos os órgãos obrigatórios consultados com sucesso.</li>
+    <li>▸ <b>PARCIAL</b> — pelo menos uma fonte falhou; o dataset preserva o último estado verificado e a falha fica registrada e visível no <a href="{SITE_URL}/monitoramento/">painel</a>.</li>
+    <li>▸ <b>FALHA</b> — execução incapaz de produzir dados confiáveis; nesse caso o workflow <b>não publica</b> (nenhum commit é feito com dados não confiáveis).</li>
+  </ul>
+  <p style="margin-top:10px">Cada fonte roda em um subprocesso com timeout próprio e retentativas: uma fonte lenta ou bloqueada
+  não impede as outras, os resultados já coletados são persistidos e o erro é registrado no painel. Os itens desses
+  órgãos ficam em <code>data/legislation/atos.json</code>, com URL oficial, fonte, data do evento, data de detecção
+  e a execução responsável; alterações de texto ou de status de um item já conhecido geram novo registro em
+  <code>updates.json</code> (histórico por item, sem sobrescrita silenciosa). O arquivo histórico completo de
+  mudanças é rotacionado para <code>data/legislation/updates_arquivo.json</code> em vez de ser descartado.</p>
   <h2 class="section-title" style="margin-top:26px">Cobertura atual</h2>
   <p>{len(props)} proposições monitoradas · {len(laws)} normas mapeadas · {len(updates.get("mudancas", []))} mudanças registradas · última execução em {rs["data"]}.</p>
+  <p style="margin-top:6px">Status global da última execução: <b>{(EXECUTION_RUN or {}).get("status_global") or "—"}</b> · fontes monitoradas: {len((EXECUTION_RUN or {}).get("fontes_monitoradas") or {})}.</p>
 </div></section>"""
     jsonld = combine_ld(
         ld_collection("Metodologia do Monitor Legislativo de IA",
@@ -1379,6 +1428,13 @@ def metricas_monitoramento(props, laws, events, updates):
             "snapshot": ex.get("snapshot_dataset") or {},
             "fontes": len(ex.get("fontes_consultadas") or []),
             "engine": ex.get("motor") or {},
+            # monitoramento multiórgão: saúde por fonte + status global
+            "status_global": ex.get("status_global"),
+            "fontes_monitoradas": ex.get("fontes_monitoradas") or {},
+            "fontes_falha": ex.get("fontes_falha") or [],
+            "fontes_parciais": ex.get("fontes_parciais") or [],
+            "http_fontes": ex.get("http_fontes") or {},
+            "mudancas_multiorgao": ex.get("mudancas_multiorgao"),
         })
     execs.sort(key=lambda e: (e["ts"] or ""), reverse=True)
     ultima = execs[0] if execs else {}
@@ -1476,6 +1532,29 @@ def metricas_monitoramento(props, laws, events, updates):
     if ultima.get("erros"):
         alerta("atencao", f"{ultima['erros']} erro(s) na última execução",
                "Cada erro guarda a proposição e a URL oficial; ver updates.json.")
+    fontes_falha = ultima.get("fontes_falha") or []
+    fontes_parciais = ultima.get("fontes_parciais") or []
+    status_global = ultima.get("status_global")
+    nomes_fontes = {k: (v or {}).get("nome") or k
+                    for k, v in (ultima.get("fontes_monitoradas") or {}).items()}
+    if status_global == "FALHA":
+        alerta("critico", "Coleta multiórgão sem dados confiáveis",
+               "Nenhuma fonte obrigatória respondeu nesta execução"
+               + (f" (falhas: {', '.join(fontes_falha)})." if fontes_falha else ".")
+               + " O último estado verificado do dataset segue publicado.")
+    elif status_global == "PARCIAL":
+        alerta("atencao", "Monitoramento parcial — fonte não consultada",
+               "Fontes com falha nesta execução: "
+               + ", ".join(f"{o} ({nomes_fontes.get(o, o)})" for o in fontes_falha)
+               if fontes_falha else
+               "Fontes fora do esperado nesta execução: " + ", ".join(fontes_parciais))
+    elif status_global == "OK" and ultima:
+        alerta("ok", "Todas as fontes obrigatórias foram consultadas",
+               "Câmara, Senado, ANPD, CNJ, TSE, DOU, Planalto e MCTI.")
+    if fontes_parciais and status_global != "PARCIAL":
+        alerta("atencao", f"{len(fontes_parciais)} fonte(s) com cobertura parcial",
+               ", ".join(f"{o} ({nomes_fontes.get(o, o)})" for o in fontes_parciais)
+               + " — ver o quadro por órgão abaixo.")
     if revisao:
         alerta("atencao", f"{len(revisao)} proposições aguardam curadoria",
                "Registros automáticos têm score preliminar e categorias incompletas.")
@@ -1499,6 +1578,10 @@ def metricas_monitoramento(props, laws, events, updates):
             # latência em regime diário (≤30 dias); incorporações históricas contadas à parte
             "latencia_media_dias": _latencia_media(latencias),
             "incorporacoes_historicas": incorporados,
+            "fontes_monitoradas": len(ultima.get("fontes_monitoradas") or {}),
+            "fontes_falha": len(ultima.get("fontes_falha") or []),
+            "fontes_parciais": len(ultima.get("fontes_parciais") or []),
+            "status_global": ultima.get("status_global"),
             "proposicoes": len(props),
             "curadoria_pendente": len(revisao),
             "normas": len(laws),
@@ -1548,6 +1631,73 @@ def build_monitoramento(props, laws, events, updates, met):
     alertas_html = "".join(
         f'<div class="alert {a["nivel"]}"><b>{esc(a["titulo"])}</b><span>{esc(a["detalhe"])}</span></div>'
         for a in met["alertas"])
+
+    # --- monitoramento por órgão (fonte obrigatória que falhou fica explícita)
+    fontes_ordem = ["camara", "senado", "anpd", "cnj", "tse", "dou", "planalto", "mcti"]
+    fontes_ult = ultima.get("fontes_monitoradas") or {}
+    linhas_fontes, ok_fontes = [], 0
+    for chave in [f for f in fontes_ordem if f in fontes_ult] + \
+            [f for f in sorted(fontes_ult) if f not in fontes_ordem]:
+        f = fontes_ult.get(chave) or {}
+        st = f.get("status") or "—"
+        rotulo_st, classe_st = {"ok": ("OK", "green"), "parcial": ("Parcial", "yellow"),
+                                "falha": ("FALHA", "red")}.get(st, (st, "red"))
+        if st == "ok":
+            ok_fontes += 1
+        endpoints = f.get("endpoints") or []
+        ep_txt = "<br>".join(
+            f'<a href="{esc(u)}" target="_blank" rel="noopener">{esc(u[:78])}</a>'
+            for u in endpoints[:3]) or "—"
+        canais_falhos = f.get("canais_falhos") or []
+        detalhe = f.get("erro_detalhe") or ""
+        if canais_falhos and st != "ok":
+            detalhe = "canais com falha: " + ", ".join(canais_falhos[:4]) + \
+                      (f" · {detalhe}" if detalhe else "")
+        novidades = f.get("novidades")
+        linhas_fontes.append(
+            f'<tr><td><b>{esc(f.get("nome") or chave)}</b><br><span style="color:var(--muted);'
+            f'font-size:12px">{esc(chave)}</span></td>'
+            f'<td><span class="run-status {classe_st}">{esc(rotulo_st)}</span>'
+            + (f'<br><span style="font-size:12px;color:var(--muted)">'
+               f'{esc(detalhe[:170])}</span>' if detalhe else "")
+            + f'</td>'
+            f'<td>{esc((f.get("ultima_tentativa") or "—")[:16].replace("T", " "))}</td>'
+            f'<td>{esc((f.get("ultima_execucao_ok") or "—")[:16].replace("T", " "))}</td>'
+            f'<td>{f.get("itens_consultados", "—")}</td>'
+            f'<td>{novidades if novidades is not None else "—"}</td>'
+            f'<td>{f.get("erros", 0)}</td><td style="font-size:12px">{ep_txt}</td></tr>')
+    total_fontes = len([f for f in fontes_ult.values() if f])
+    status_global_txt = (ultima.get("status_global") or "—")
+    cor_global = {"OK": "green", "PARCIAL": "yellow", "FALHA": "red"}.get(
+        status_global_txt, "")
+    quadro_fontes = f'''
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Monitoramento por órgão</h2>
+  <p class="section-sub">Status obrigatório de cada fonte na última execução: quando foi a última
+  tentativa, quando foi a última execução bem-sucedida, quantos itens foram consultados, quantas
+  novidades apareceram, quantos erros e quais endpoints oficiais foram usados.
+  <b>Fonte que não respondeu aparece como falha</b> — nunca como monitorada.</p>
+  <div class="grid cols-4" style="margin-bottom:16px">
+    {kpi(f"{ok_fontes}/{total_fontes}" if total_fontes else "—", "Fontes OK na última execução")}
+    {kpi(status_global_txt, "Status global da coleta", cor_global)}
+    {kpi(len(ultima.get("fontes_falha") or []), "Fontes com falha")}
+    {kpi(len(ultima.get("fontes_parciais") or []), "Fontes parciais")}
+  </div>
+  <div class="table-wrap" style="overflow-x:auto">
+  <table class="table"><thead><tr>
+    <th>Órgão</th><th>Status</th><th>Última tentativa</th><th>Última execução OK</th>
+    <th>Itens consultados</th><th>Novidades</th><th>Erros</th><th>Endpoints oficiais</th>
+  </tr></thead><tbody>
+  {"".join(linhas_fontes) or "<tr><td colspan='8'>Sem registro de fontes nesta execução.</td></tr>"}
+  </tbody></table></div>
+  <p class="disclaimer" style="margin-top:10px">Status global: <b>OK</b> = todos os órgãos
+  obrigatórios consultados; <b>PARCIAL</b> = ao menos uma fonte falhou (o dataset preserva o último
+  estado verificado e a falha fica registrada em <code>updates.json</code>);
+  <b>FALHA</b> = execução incapaz de produzir dados confiáveis — nesse caso nada é publicado.
+  O detalhe por canal (o que respondeu e o que não respondeu) está em
+  <code>data/legislation/updates.json</code>.</p>
+</div></section>
+'''
 
     # --- séries temporais
     tem_series = len([v for v in ser["cobertura_pct"] if v is not None]) >= 1
@@ -1664,6 +1814,7 @@ def build_monitoramento(props, laws, events, updates, met):
   <p class="disclaimer" style="margin-top:12px">A idade desde a última execução é recalculada no
   seu navegador a cada visita — se o painel ficar vermelho, o cron parou.</p>
 </div></section>
+{quadro_fontes}
 
 <section class="block"><div class="wrap">
   <h2 class="section-title">Evolução por execução</h2>

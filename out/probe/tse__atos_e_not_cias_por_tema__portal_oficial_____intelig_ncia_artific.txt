@@ -1,0 +1,749 @@
+URL: https://www.tse.jus.br/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=20&sort_on=effective&sort_order=descending
+STATUS: 200 CT: application/json
+INFO: {"items_total": 83127, "items_len": 20, "amostra_titulos": ["Delegação de Timor-Leste visita TSE para conhecer sistema el|", "Wilson Grassi|", "Leonardo Avalanche|"]}
+---
+{
+  "@id": "https://www.tse.jus.br/++api++/@search", 
+  "batching": {
+    "@id": "https://www.tse.jus.br/++api++/@search?b_size=20&sort_on=effective&sort_order=descending", 
+    "first": "https://www.tse.jus.br/++api++/@search?b_start=0&b_size=20&sort_on=effective&sort_order=descending", 
+    "last": "https://www.tse.jus.br/++api++/@search?b_start=83120&b_size=20&sort_on=effective&sort_order=descending", 
+    "next": "https://www.tse.jus.br/++api++/@search?b_start=20&b_size=20&sort_on=effective&sort_order=descending"
+  }, 
+  "items": [
+    {
+      "@id": "https://www.tse.jus.br/comunicacao/noticias/2026/Setembro/delegacao-de-timor-leste-visita-tse-para-conhecer-sistema-eleitoral-brasileiro", 
+      "@type": "Noticia", 
+      "description": "Iniciativa integra miss\u00e3o de estudos e capacita\u00e7\u00e3o de defensores p\u00fablicos e oficiais de Justi\u00e7a timorenses", 
+      "effective": "2026-09-17T20:28:04+00:00", 
+      "end": null, 
+      "getObjSize": "1.6 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Delega\u00e7\u00e3o de Timor-Leste visita TSE para conhecer sistema eleitoral brasileiro", 
+      "type_title": "Not\u00edcia"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/wilson-grassi", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:39+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Wilson Grassi", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/leonardo-avalanche", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:39+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Leonardo Avalanche", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/samara-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:39+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Samara Martins - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/zema", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Zema", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/flavio-bolsonaro", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Fl\u00e1vio Bolsonaro - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/clariana-barao-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Clariana Barao - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/rui-costa-pimenta-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Rui Costa Pimenta - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/ronaldo-caiado-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Ronaldo Caiado - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/renan-santos-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Renan Santos - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/lula-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Lula - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/hertz-dias-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:38+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Hertz Dias - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/escritor-augusto-cury-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:37+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Escritor Augusto Cury - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026/edmilson-costa-propostas-de-governo", 
+      "@type": "PastaTopicos", 
+      "description": "", 
+      "effective": "2026-09-17T19:07:37+00:00", 
+      "end": null, 
+      "getObjSize": "1 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Edmilson Costa - Propostas de Governo", 
+      "type_title": "Pasta de t\u00f3picos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propostas-de-governo-dos-candidatos-ao-cargo-de-presidente-da-republica-eleicoes-2026", 
+      "@type": "Folder", 
+      "description": "", 
+      "effective": "2026-09-17T19:05:36+00:00", 
+      "end": null, 
+      "getObjSize": "0 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Propostas de governo dos candidatos ao cargo de Presidente da Rep\u00fablica", 
+      "type_title": "Pasta"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/eleicoes/eleicoes-2026-content/propaganda-eleitoral-gratuita-eleicoes-2026/arquivos-partidos/pl-partido-liberal/17-09", 
+      "@type": "PastaArquivos", 
+      "description": "", 
+      "effective": "2026-09-17T18:38:44+00:00", 
+      "end": null, 
+      "getObjSize": "0 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "17-09", 
+      "type_title": "Pasta arquivos"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/comunicacao/noticias/2026/Setembro/violencia-politica-tem-genero-tse-intensifica-prevencao-e-combate-a-crimes-contra-as-mulheres", 
+      "@type": "Noticia", 
+      "description": "A\u00e7\u00e3o Viol\u00eancia Pol\u00edtica TEM G\u00eanero, na pr\u00f3xima ter\u00e7a (22), marcar\u00e1 o lan\u00e7amento de iniciativas voltadas ao enfrentamento do tema", 
+      "effective": "2026-09-17T18:00:00+00:00", 
+      "end": null, 
+      "getObjSize": "10.3 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "TSE intensifica preven\u00e7\u00e3o e combate a crimes contra as mulheres", 
+      "type_title": "Not\u00edcia"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/administracao/destaques/tse-lanca-projeto-meu-primeiro-confirma-para-engajar-jovens-eleitores-no-df", 
+      "@type": "Destaque", 
+      "description": "A\u00e7\u00e3o-piloto com estudantes de 16 e 17 anos promoveu experi\u00eancia para incentivar a participa\u00e7\u00e3o pol\u00edtica e demonstrar a seguran\u00e7a do processo eleitoral", 
+      "effective": "2026-09-17T16:43:39+00:00", 
+      "end": null, 
+      "getObjSize": "196.8 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": {
+        "image": [
+          {
+            "content-type": "image/jpeg", 
+            "download": "@@images/image-1140-1fbcbb07228ac4a0deb2a9134a430ccd.jpeg", 
+            "filename": "Meu primeiro confirma.jpeg", 
+            "height": 615, 
+            "scales": {
+              "assunto_preview": {
+                "download": "@@images/image-186-21e578421e23a92ea6719458456f689b.jpeg", 
+                "height": 100, 
+                "width": 186
+              }, 
+              "audio_radio_destaque": {
+                "download": "@@images/image-274-9ed4360cbf91dfc2ec0dc445a50a4b6f.jpeg", 
+                "height": 147, 
+                "width": 274
+              }, 
+              "banner_biblioteca_colecao": {
+                "download": "@@images/image-110-d226ff867cff8477d67cfede5f2dd307.jpeg", 
+                "height": 59, 
+                "width": 110
+              }, 
+              "banner_biblioteca_rodape": {
+                "download": "@@images/image-285-c9936f0b51fed02e9cf23c2e61a9ae13.jpeg", 
+                "height": 107, 
+                "width": 199
+              }, 
+              "banner_biblioteca_topo": {
+                "download": "@@images/image-566-c15d7af0684a12499cc9d86dc2da3051.jpeg", 
+                "height": 174, 
+                "width": 322
+              }, 
+              "banner_exposicao": {
+                "download": "@@images/image-590-72496499222a994d72b509dfe1c34790.jpeg", 
+                "height": 318, 
+                "width": 590
+              }, 
+              "banner_exposicao_card_midia": {
+                "download": "@@images/image-254-2189009fe9c331521374b2125a0b739c.jpeg", 
+                "height": 137, 
+                "width": 254
+              }, 
+              "banner_jurisprudencia": {
+                "download": "@@images/image-524-3110275e83313d759ab59b10faa3fa55.jpeg", 
+                "height": 282, 
+                "width": 524
+              }, 
+              "banner_menu": {
+                "download": "@@images/image-152-a207caeb2044dd09426018f178ecb432.jpeg", 
+                "height": 82, 
+                "width": 152
+              }, 
+              "banner_selo": {
+                "download": "@@images/image-48-b0975ee6b50fd2ffd5e4a949a8a90415.jpeg", 
+                "height": 25, 
+                "width": 48
+              }, 
+              "campanha_horizontal": {
+                "download": "@@images/image-569-207b15870336d427250db02d5e37f946.jpeg", 
+                "height": 178, 
+                "width": 330
+              }, 
+              "campanha_vertical": {
+                "download": "@@images/image-186-21e578421e23a92ea6719458456f689b.jpeg", 
+                "height": 100, 
+                "width": 186
+              }, 
+              "card_thumb": {
+                "download": "@@images/image-84-c598771ec601a497c17c7a95c3d45208.jpeg", 
+                "height": 45, 
+                "width": 84
+              }, 
+              "destaque_interno": {
+                "download": "@@images/image-623-9569d4c83326dd4a087cff72bd1d7da1.jpeg", 
+                "height": 263, 
+                "width": 487
+              }, 
+              "destaque_principal": {
+                "download": "@@images/image-870-efc3fd3ae4c876f4ffeb51788e7944bf.jpeg", 
+                "height": 469, 
+                "width": 870
+              }, 
+              "destaque_secundario": {
+                "download": "@@images/image-270-3c1dda13bfc5b6481136fea85ce1112b.jpeg", 
+                "height": 145, 
+                "width": 270
+              }, 
+              "galeria_midia": {
+                "download": "@@images/image-250-9977058a58adc3ce9bc45ba11c64fa59.jpeg", 
+                "height": 120, 
+                "width": 223
+              }, 
+              "galeria_texto": {
+                "download": "@@images/image-543-c346b820848a2b9f87390bf7ab0eed99.jpeg", 
+                "height": 263, 
+                "width": 489
+              }, 
+              "galeria_thumb": {
+                "download": "@@images/image-127-7e032cac50bdd177340e84a1bd724b04.jpeg", 
+                "height": 68, 
+                "width": 127
+              }, 
+              "icon": {
+                "download": "@@images/image-32-07fb051c6e6761ffdeae5cefecbeaada.jpeg", 
+                "height": 17, 
+                "width": 32
+              }, 
+              "je_forms_destaque": {
+                "download": "@@images/image-623-9569d4c83326dd4a087cff72bd1d7da1.jpeg", 
+                "height": 263, 
+                "width": 487
+              }, 
+              "large": {
+                "download": "@@images/image-768-33be9d2eb4ef26a3de8f55287c18bd2b.jpeg", 
+                "height": 414, 
+                "width": 768
+              }, 
+              "larger": {
+                "download": "@@images/image-1000-e8fdeb683fe40b6d0f8c4022dd925dc7.jpeg", 
+                "height": 539, 
+                "width": 1000
+              }, 
+              "listing": {
+                "download": "@@images/image-16-c9163533c152630b1bd09e18b73619c0.jpeg", 
+                "height": 8, 
+                "width": 16
+              }, 
+              "mini": {
+                "download": "@@images/image-200-39bde5790c70b58c66877de53a70aac2.jpeg", 
+                "height": 107, 
+                "width": 200
+              }, 
+              "noticia_assunto": {
+                "download": "@@images/image-186-21e578421e23a92ea6719458456f689b.jpeg", 
+                "height": 100, 
+                "width": 186
+              }, 
+              "noticia_card": {
+                "download": "@@images/image-273-d17d687bca4970319a3447cb10d869b1.jpeg", 
+                "height": 147, 
+                "width": 273
+              }, 
+              "noticia_home_destaque": {
+                "download": "@@images/image-543-a8143bff0f40d9c6083f87c19d29cd0c.jpeg", 
+                "height": 261, 
+                "width": 485
+              }, 
+              "noticia_interna": {
+                "download": "@@images/image-1140-6d2dfc00454efa0c8da4e662ee220058.jpeg", 
+                "height": 409, 
+                "width": 758
+              }, 
+              "noticia_lista": {
+                "download": "@@images/image-260-f0e320bc4e2672b10a9fa0bba475d3fb.jpeg", 
+                "height": 126, 
+                "width": 234
+              }, 
+              "noticia_lista_destaque": {
+                "download": "@@images/image-540-8dc64cac3675b1613a3837fad697a2f3.jpeg", 
+                "height": 279, 
+                "width": 517
+              }, 
+              "noticia_portlet_destaque": {
+                "download": "@@images/image-270-8476111719ddac3bcbb1f5061b61f747.jpeg", 
+                "height": 131, 
+                "width": 243
+              }, 
+              "pagina_interna": {
+                "download": "@@images/image-623-9569d4c83326dd4a087cff72bd1d7da1.jpeg", 
+                "height": 263, 
+                "width": 487
+              }, 
+              "painellink_background": {
+                "download": "@@images/image-720-66207c5e0f4cebcf5df68438c624e06b.jpeg", 
+                "height": 388, 
+                "width": 720
+              }, 
+              "painellink_thumb": {
+                "download": "@@images/image-259-5f18ecf0383aa0bd2e0f69d616d85ba6.jpeg", 
+                "height": 139, 
+                "width": 259
+              }, 
+              "playlist": {
+                "download": "@@images/image-370-753d9429454185429581a0d398115f8c.jpeg", 
+                "height": 199, 
+                "width": 370
+              }, 
+              "preview": {
+                "download": "@@images/image-400-598a4a872689df60813acfe8491c0cbc.jpeg", 
+                "height": 215, 
+                "width": 400
+              }, 
+              "teaser": {
+                "download": "@@images/image-600-21fbeea11703a9429223146578cc9747.jpeg", 
+                "height": 323, 
+                "width": 600
+              }, 
+              "thumb": {
+                "download": "@@images/image-128-10294361243989e9b4e618e10b987451.jpeg", 
+                "height": 69, 
+                "width": 128
+              }, 
+              "tile": {
+                "download": "@@images/image-64-381b387774be018ddf4e96f8bbf97c18.jpeg", 
+                "height": 34, 
+                "width": 64
+              }
+            }, 
+            "size": 201553, 
+            "width": 1140
+          }
+        ]
+      }, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "TSE lan\u00e7a projeto \"Meu Primeiro Confirma\" para engajar jovens eleitores no DF", 
+      "type_title": "Destaque"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/comunicacao/noticias/2026/Setembro/tse-lanca-projeto-meu-primeiro-confirma-para-engajar-jovens-eleitores-no-df", 
+      "@type": "Noticia", 
+      "description": "A\u00e7\u00e3o-piloto com estudantes de 16 e 17 anos promoveu experi\u00eancia para incentivar a participa\u00e7\u00e3o pol\u00edtica e demonstrar a seguran\u00e7a do processo eleitoral", 
+      "effective": "2026-09-17T16:36:00+00:00", 
+      "end": null, 
+      "getObjSize": "14.4 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "TSE lan\u00e7a projeto \"Meu Primeiro Confirma\" para engajar jovens eleitores no DF", 
+      "type_title": "Not\u00edcia"
+    }, 
+    {
+      "@id": "https://www.tse.jus.br/administracao/destaques/ministro-antonio-carlos-se-despede-do-mandato-no-tse", 
+      "@type": "Destaque", 
+      "description": "Magistrado recebeu homenagens dos colegas de tribunal e dos representantes de outros poderes e entidades na Corte", 
+      "effective": "2026-09-17T16:28:00+00:00", 
+      "end": null, 
+      "getObjSize": "232.7 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": null, 
+      "image_scales": {
+        "image": [
+          {
+            "content-type": "image/jpeg", 
+            "download": "@@images/image-1140-001a6d10a8d3cd85703a9caac3f4a4f0.jpeg", 
+            "filename": "sess\u00e3o plen\u00e1ria 17.09.2026.jpeg", 
+            "height": 615, 
+            "scales": {
+              "assunto_preview": {
+                "download": "@@images/image-186-5c190e4b8a9c48b197ced23eafb66a3d.jpeg", 
+                "height": 100, 
+                "width": 186
+              }, 
+              "audio_radio_destaque": {
+                "download": "@@images/image-274-205076c1a11c676de515536ce3c3dba3.jpeg", 
+                "height": 147, 
+                "width": 274
+              }, 
+              "banner_biblioteca_colecao": {
+                "download": "@@images/image-110-7786cbd5aed99c3420e5f53369ada434.jpeg", 
+                "height": 59, 
+                "width": 110
+              }, 
+              "banner_biblioteca_rodape": {
+                "download": "@@images/image-285-02511ceced78b5768adb290c5df47a10.jpeg", 
+                "height": 107, 
+                "width": 199
+              }, 
+              "banner_biblioteca_topo": {
+                "download": "@@images/image-566-f463c44730832e55c1d5cb45e6e77046.jpeg", 
+                "height": 174, 
+                "width": 322
+              }, 
+              "banner_exposicao": {
+                "download": "@@images/image-590-97d996e56c12a50d2e251e4a75a7ddae.jpeg", 
+                "height": 318, 
+                "width": 590
+              }, 
+              "banner_exposicao_card_midia": {
+                "download": "@@images/image-254-1896e71075f728c9adce359bffa1f625.jpeg", 
+                "height": 137, 
+                "width": 254
+              }, 
+              "banner_jurisprudencia": {
+                "download": "@@images/image-524-aaebe6e66f9699f611e37de7903cd67b.jpeg", 
+                "height": 282, 
+                "width": 524
+              }, 
+              "banner_menu": {
+                "download": "@@images/image-152-dc0290fb55b7fd76b1851b6bf92fc9e2.jpeg", 
+                "height": 82, 
+                "width": 152
+              }, 
+              "banner_selo": {
+                "download": "@@images/image-48-3cf8bab0d12752500653567032b789cd.jpeg", 
+                "height": 25, 
+                "width": 48
+              }, 
+              "campanha_horizontal": {
+                "download": "@@images/image-569-7d9f068de4a4af14bba06c0ae3bcdf46.jpeg", 
+                "height": 178, 
+                "width": 330
+              }, 
+              "campanha_vertical": {
+                "download": "@@images/image-186-5c190e4b8a9c48b197ced23eafb66a3d.jpeg", 
+                "height": 100, 
+                "width": 186
+              }, 
+              "card_thumb": {
+                "download": "@@images/image-84-f1959a61990f2b6b9d925de00a2336ba.jpeg", 
+                "height": 45, 
+                "width": 84
+              }, 
+              "destaque_interno": {
+                "download": "@@images/image-623-f35e399b138d5c6e53acd010a2e80c84.jpeg", 
+                "height": 263, 
+                "width": 487
+              }, 
+              "destaque_principal": {
+                "download": "@@images/image-870-fc7a7ab68cef7d2c1d036910c5bdef63.jpeg", 
+                "height": 469, 
+                "width": 870
+              }, 
+              "destaque_secundario": {
+                "download": "@@images/image-270-54c6c97073255a737310b551ab19df2f.jpeg", 
+                "height": 145, 
+                "width": 270
+              }, 
+              "galeria_midia": {
+                "download": "@@images/image-250-0f54f032f7725d722bed9c4d22424b00.jpeg", 
+                "height": 120, 
+                "width": 223
+              }, 
+              "galeria_texto": {
+                "download": "@@images/image-543-6d0706ef8d043b9ae231fe2ce3933414.jpeg", 
+                "height": 263, 
+                "width": 489
+              }, 
+              "galeria_thumb": {
+                "download": "@@images/image-127-279ae31827dfee4e7fa7c4b11a3af0e6.jpeg", 
+                "height": 68, 
+                "width": 127
+              }, 
+              "icon": {
+                "download": "@@images/image-32-2c09b00b7c47d51221bcfec911c25c7c.jpeg", 
+                "height": 17, 
+                "width": 32
+              }, 
+              "je_forms_destaque": {
+                "download": "@@images/image-623-f35e399b138d5c6e53acd010a2e80c84.jpeg", 
+                "height": 263, 
+                "width": 487
+              }, 
+              "large": {
+                "download": "@@images/image-768-183fd58a84c6f83cc11bd6071ae2732e.jpeg", 
+                "height": 414, 
+                "width": 768
+              }, 
+              "larger": {
+                "download": "@@images/image-1000-9c734b8bd2b94fee9de09be80ef4fc84.jpeg", 
+                "height": 539, 
+                "width": 1000
+              }, 
+              "listing": {
+                "download": "@@images/image-16-839ef8409fec9378a8ebb7ed41ffb48c.jpeg", 
+                "height": 8, 
+                "width": 16
+              }, 
+              "mini": {
+                "download": "@@images/image-200-c83e51245dc3cc980283be9f561621ea.jpeg", 
+                "height": 107, 
+                "width": 200
+              }, 
+              "noticia_assunto": {
+                "download": "@@images/image-186-5c190e4b8a9c48b197ced23eafb66a3d.jpeg", 
+                "height": 100, 
+                "width": 186
+              }, 
+              "noticia_card": {
+                "download": "@@images/image-273-f4382294e6c30268e7a49825f0846cd1.jpeg", 
+                "height": 147, 
+                "width": 273
+              }, 
+              "noticia_home_destaque": {
+                "download": "@@images/image-543-3fed9cf657e1fd7edee024833be80dc6.jpeg", 
+                "height": 261, 
+                "width": 485
+              }, 
+              "noticia_interna": {
+                "download": "@@images/image-1140-d39e88aa4e537238fed4e8d9d081d0b3.jpeg", 
+                "height": 409, 
+                "width": 758
+              }, 
+              "noticia_lista": {
+                "download": "@@images/image-260-539b0d2f3f2edbdc94366cbbff022891.jpeg", 
+                "height": 126, 
+                "width": 234
+              }, 
+              "noticia_lista_destaque": {
+                "download": "@@images/image-540-df2c26e087587f236a6fd0e739d81a64.jpeg", 
+                "height": 279, 
+                "width": 517
+              }, 
+              "noticia_portlet_destaque": {
+                "download": "@@images/image-270-5e825a71109aa02c4ec79a2c9de402af.jpeg", 
+                "height": 131, 
+                "width": 243
+              }, 
+              "pagina_interna": {
+                "download": "@@images/image-623-f35e399b138d5c6e53acd010a2e80c84.jpeg", 
+                "height": 26

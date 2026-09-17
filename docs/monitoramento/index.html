@@ -47,10 +47,10 @@
   <p class="section-sub">Sinais automáticos calculados a partir do histórico de execuções
   (<code>data/legislation/updates.json</code>).</p>
   <div data-freshness-panel="2026-09-17T15:08:40-03:00">
-  <div class="alert ok"><b>Monitoramento em dia</b><span>Última execução há 0h.</span></div><div class="alert atencao"><b>Última execução foi parcial</b><span>0 proposição(ões) ficaram para a próxima execução (cobertura 23.7%).</span></div><div class="alert atencao"><b>50 erro(s) na última execução</b><span>Cada erro guarda a proposição e a URL oficial; ver updates.json.</span></div><div class="alert atencao"><b>103 proposições aguardam curadoria</b><span>Registros automáticos têm score preliminar e categorias incompletas.</span></div>
+  <div class="alert ok"><b>Monitoramento em dia</b><span>Última execução há 2h.</span></div><div class="alert atencao"><b>Última execução foi parcial</b><span>0 proposição(ões) ficaram para a próxima execução (cobertura 23.7%).</span></div><div class="alert atencao"><b>50 erro(s) na última execução</b><span>Cada erro guarda a proposição e a URL oficial; ver updates.json.</span></div><div class="alert atencao"><b>103 proposições aguardam curadoria</b><span>Registros automáticos têm score preliminar e categorias incompletas.</span></div>
   </div>
   <div class="grid cols-4" style="margin-top:16px">
-    <div class="metric green"><div class="num">0.0 h</div><div class="lbl">Desde a última execução</div></div>
+    <div class="metric green"><div class="num">2.5 h</div><div class="lbl">Desde a última execução</div></div>
     <div class="metric"><div class="num">23.7%</div><div class="lbl">Cobertura da última execução</div></div>
     <div class="metric"><div class="num">0</div><div class="lbl">Proposições pendentes</div></div>
     <div class="metric"><div class="num">84.3</div><div class="lbl">Cobertura média (histórico)</div></div>
@@ -62,6 +62,34 @@
   <p class="disclaimer" style="margin-top:12px">A idade desde a última execução é recalculada no
   seu navegador a cada visita — se o painel ficar vermelho, o cron parou.</p>
 </div></section>
+
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Monitoramento por órgão</h2>
+  <p class="section-sub">Status obrigatório de cada fonte na última execução: quando foi a última
+  tentativa, quando foi a última execução bem-sucedida, quantos itens foram consultados, quantas
+  novidades apareceram, quantos erros e quais endpoints oficiais foram usados.
+  <b>Fonte que não respondeu aparece como falha</b> — nunca como monitorada.</p>
+  <div class="grid cols-4" style="margin-bottom:16px">
+    <div class="metric"><div class="num">—</div><div class="lbl">Fontes OK na última execução</div></div>
+    <div class="metric"><div class="num">—</div><div class="lbl">Status global da coleta</div></div>
+    <div class="metric"><div class="num">0</div><div class="lbl">Fontes com falha</div></div>
+    <div class="metric"><div class="num">0</div><div class="lbl">Fontes parciais</div></div>
+  </div>
+  <div class="table-wrap" style="overflow-x:auto">
+  <table class="table"><thead><tr>
+    <th>Órgão</th><th>Status</th><th>Última tentativa</th><th>Última execução OK</th>
+    <th>Itens consultados</th><th>Novidades</th><th>Erros</th><th>Endpoints oficiais</th>
+  </tr></thead><tbody>
+  <tr><td colspan='8'>Sem registro de fontes nesta execução.</td></tr>
+  </tbody></table></div>
+  <p class="disclaimer" style="margin-top:10px">Status global: <b>OK</b> = todos os órgãos
+  obrigatórios consultados; <b>PARCIAL</b> = ao menos uma fonte falhou (o dataset preserva o último
+  estado verificado e a falha fica registrada em <code>updates.json</code>);
+  <b>FALHA</b> = execução incapaz de produzir dados confiáveis — nesse caso nada é publicado.
+  O detalhe por canal (o que respondeu e o que não respondeu) está em
+  <code>data/legislation/updates.json</code>.</p>
+</div></section>
+
 
 <section class="block"><div class="wrap">
   <h2 class="section-title">Evolução por execução</h2>
