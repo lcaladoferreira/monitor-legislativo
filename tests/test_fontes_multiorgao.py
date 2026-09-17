@@ -301,6 +301,15 @@ class ContratoDasFontesTests(unittest.TestCase):
                 for _topico, url in canal.urls():
                     url.encode("ascii")  # levanta se houver acento cru
 
+    def test_anpd_cobre_tipos_exigidos(self):
+        """ANPD: notícias, resoluções/regulamentos, consultas, fiscalização e
+        agenda regulatória precisam ter canal oficial."""
+        fonte = instanciar("anpd", logger=lambda *a, **k: None)
+        rotulos = " | ".join(c.rotulo for c in fonte.canais)
+        for exigido in ("notícias", "regulação", "consultas", "fiscalização",
+                        "agenda regulatória", "atos normativos"):
+            self.assertIn(exigido, rotulos)
+
     def test_tse_usa_api_oficial_do_portal(self):
         fonte = instanciar("tse", logger=lambda *a, **k: None)
         urls = [c.url for c in fonte.canais]

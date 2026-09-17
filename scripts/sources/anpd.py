@@ -14,6 +14,7 @@ Canais:
   · regulação/normas         @search path=/pt-br/assuntos/regulacao
   · consultas e participação @search SearchableText=consulta pública / tomada de subsídios
   · atos normativos (arquivos) @search portal_type=File (resoluções em PDF)
+  · fiscalização e agenda regulatória @search path=<pasta oficial> (opcionais)
 
 Nada é inventado: se a API não responde, a fonte é marcada como falha e o
 evento é registrado no painel; nenhum item é criado por dedução.
@@ -66,5 +67,20 @@ class ANPD(Fonte):
             "atos normativos (arquivos)", API, formato="json", parser="plone_search",
             tipo_padrao="ato_normativo", obrigatorio=False,
             opcoes={"params": _ordenado(portal_type="File", SearchableText="resolução")},
+        ),
+        # Pastas oficiais do portal da ANPD confirmadas na sonda (17/09/2026):
+        # /pt-br/assuntos/fiscalizacao e /pt-br/assuntos/agenda-regulatoria
+        # respondem 200 na API de conteúdo. São canais opcionais: se a pasta
+        # ficar vazia ou o portal responder mal, isso aparece no painel sem
+        # afetar o resto da fonte (nada é inventado).
+        Canal(
+            "fiscalização (pasta oficial)", API, formato="json", parser="plone_search",
+            tipo_padrao="fiscalizacao", obrigatorio=False,
+            opcoes={"params": _ordenado(path="/pt-br/assuntos/fiscalizacao")},
+        ),
+        Canal(
+            "agenda regulatória (pasta oficial)", API, formato="json",
+            parser="plone_search", tipo_padrao="agenda_regulatoria", obrigatorio=False,
+            opcoes={"params": _ordenado(path="/pt-br/assuntos/agenda-regulatoria")},
         ),
     ]
