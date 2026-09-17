@@ -10,15 +10,17 @@ Fontes oficiais:
   · Portal do CNJ — https://www.cnj.jus.br/wp-json/wp/v2/posts
     (API de conteúdo do próprio portal: notícias oficiais com data e link)
 
-Canais:
-  · atos normativos por tema   (resoluções, provimentos, portarias, decisões)
-  · atos normativos recentes   (últimos atos publicados)
-  · notícias oficiais          (portal CNJ, filtro temático item a item)
+Evidência da sonda (CI, 17/09/2026): a API de atos devolve os mesmos itens
+quaisquer que sejam os parâmetros de busca testados (`q`, `search`, `busca`,
+`ementa`, `palavra_chave`, `order`, `tipo`, `per_page`) — todos ignorados —,
+sempre ordenados por data de publicação decrescente. Por isso o canal consulta
+a listagem recente e o filtro temático é aplicado item a item pelo núcleo
+comum; não há busca por tema server-side a explorar.
 
 O filtro temático é conservador: item sem sinal temático claro é descartado e
 item duvidoso entra marcado como "revisar" (curadoria editorial).
 """
-from .base import Canal, Fonte, TOPICOS_BUSCA, registrar
+from .base import Canal, Fonte, registrar
 
 ATOS = "https://atos.cnj.jus.br/api/atos"
 WP = "https://www.cnj.jus.br/wp-json/wp/v2/posts"
@@ -33,25 +35,22 @@ class CNJ(Fonte):
         Canal(
             "atos normativos recentes", ATOS, formato="json", parser="cnj_atos",
             tipo_padrao="ato_normativo",
-            opcoes={"params": {"per_page": 50, "order": "data_publicacao", "sort": "desc"}},
         ),
         Canal(
-            "atos normativos por tema", ATOS, formato="json", parser="cnj_atos",
-            tipo_padrao="ato_normativo", topicos=TOPICOS_BUSCA,
-            url_template=ATOS + "?search={topico}&per_page=30",
-        ),
-        Canal(
-            "resoluções sobre IA e dados", ATOS, formato="json", parser="cnj_atos",
-            tipo_padrao="resolucao", obrigatorio=False, topicos=[
-                "inteligência artificial", "algoritmo", "reconhecimento facial",
-                "proteção de dados", "deepfake",
-            ],
-            url_template=ATOS + "?search={topico}&tipo=Resolu%C3%A7%C3%A3o&per_page=30",
+            "atos normativos recentes (página 2)", ATOS, formato="json",
+            parser="cnj_atos", tipo_padrao="ato_normativo", obrigatorio=False,
+            opcoes={"params": {"page": 2}},
         ),
         Canal(
             "notícias oficiais", WP, formato="json", parser="wp_json",
             tipo_padrao="noticia",
             opcoes={"params": {"per_page": 50, "_fields":
+                               "id,date,link,title,excerpt,type"}},
+        ),
+        Canal(
+            "notícias oficiais (página 2)", WP, formato="json", parser="wp_json",
+            tipo_padrao="noticia", obrigatorio=False,
+            opcoes={"params": {"per_page": 50, "page": 2, "_fields":
                                "id,date,link,title,excerpt,type"}},
         ),
     ]

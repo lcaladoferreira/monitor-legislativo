@@ -1406,11 +1406,16 @@ class Collector:
         }
 
     @staticmethod
-    def _status_por_http(chamadas, falhas):
-        """ok · parcial · falha a partir da telemetria HTTP do host."""
-        if not chamadas or falhas >= chamadas:
+    def _status_casa(verificadas, falhas):
+        """ok · parcial · falha por casa a partir de evidência de consulta.
+
+        A evidência primária é o nº de fichas efetivamente consultadas na casa
+        (contadas também quando vêm do cache da execução). Sem nenhuma ficha
+        consultada, a casa conta como **falha** — nunca como monitorada.
+        """
+        if not verificadas:
             return "falha"
-        return "ok" if not falhas else "parcial"
+        return "parcial" if falhas else "ok"
 
     def _saude_casas(self):
         """Saúde de Câmara e Senado na mesma estrutura das fontes multiórgão."""
@@ -1426,11 +1431,12 @@ class Collector:
                          if k.startswith(casa))
             verificadas = self.verificadas_casa.get(casa, 0)
             erros_casa = [e for e in self.errors if e.startswith(f"{casa}_")]
+            status_casa = self._status_casa(verificadas, falhas)
             saude[casa] = {
                 "nome": rotulo,
-                "status": self._status_por_http(chamadas, falhas),
+                "status": status_casa,
                 "ultima_tentativa": self.run_iso,
-                "ultima_execucao_ok": self.run_iso if chamadas and not falhas else None,
+                "ultima_execucao_ok": self.run_iso if status_casa == "ok" else None,
                 "itens_consultados": verificadas,
                 "novidades": len([p for p in self.new_props
                                   if str(p.get("id", "")).startswith(casa + "_")]),

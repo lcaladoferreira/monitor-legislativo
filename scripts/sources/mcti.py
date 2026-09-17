@@ -49,6 +49,11 @@ class MCTI(Fonte):
                                   "%20e%20Inova%C3%A7%C3%A3o"),
         ),
         Canal(
+            "notícias institucionais (RSS oficial)",
+            PORTAL + "/acompanhe-o-mcti/noticias/RSS",
+            formato="rss", parser="rss", obrigatorio=False, tipo_padrao="noticia",
+        ),
+        Canal(
             "notícias institucionais", PORTAL + "/acompanhe-o-mcti/noticias",
             formato="html", parser="plone_html", obrigatorio=False,
             tipo_padrao="noticia",
@@ -58,12 +63,14 @@ class MCTI(Fonte):
             "portarias publicadas", PORTAL + "/acesso-a-informacao/legislacao/portarias",
             formato="html", parser="plone_html", obrigatorio=False,
             tipo_padrao="portaria",
-            padrao_href=r"gov\.br/mcti/pt-br/acesso-a-informacao/legislacao/[a-z0-9/-]{4,}",
+            padrao_href=(r"gov\.br/mcti/pt-br/acesso-a-informacao/legislacao/"
+                         r"(portarias|outros-atos-normativos)/[a-z0-9-]{5,}"),
         ),
         Canal(
-            "planos, programas e consultas", PORTAL + "/acompanhe-o-mcti/programas-e-projetos",
+            "planos, programas e consultas",
+            PORTAL + "/acesso-a-informacao/participacao-social/consultas-publicas",
             formato="html", parser="plone_html", obrigatorio=False,
-            tipo_padrao="programa",
+            tipo_padrao="consulta_publica",
             padrao_href=r"gov\.br/mcti/pt-br/[a-z0-9/-]{6,}",
         ),
     ]

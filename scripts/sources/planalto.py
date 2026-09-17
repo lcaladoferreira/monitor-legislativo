@@ -21,8 +21,9 @@ Canais:
   · atos do Poder Legislativo por tema (leis, decretos legislativos, vetos)
   · atos da Presidência por tema       (decretos, medidas provisórias)
 """
-from .base import (BRT, Canal, Fonte, TOPICOS_BUSCA, datetime, normalizar,
-                   registrar)
+import urllib.parse
+
+from .base import Canal, Fonte, TOPICOS_BUSCA, normalizar, registrar
 
 BUSCA = "https://www.in.gov.br/consulta/-/buscar/dou"
 
@@ -57,14 +58,19 @@ def _filtro_presidencia_direta(item):
     return _hierarquia_ok(item, [ORGAO_PRESIDENCIA]) and _tipo_ok(item)
 
 
-def _canal(rotulo, org_prin, filtro, topicos, tipo_padrao, enc="%20"):
+NOTICIAS = "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias"
+
+
+def _canal(rotulo, org_prin, filtro, topicos, tipo_padrao):
+    # Os rótulos do DOU têm acento e espaço: vão percent-encoded (a URL precisa
+    # ser ASCII — sem isso o cliente HTTP recusa a requisição).
+    org = urllib.parse.quote(org_prin, safe="")
     return Canal(
         rotulo, BUSCA, formato="html", parser="dou_embutido", tipo_padrao=tipo_padrao,
         topicos=topicos, dias=30, filtro_tema=filtro, padrao_href=r"/web/dou/-/",
         url_template=(BUSCA + "?q=%22{topico}%22&s=todos&exactDate=personalizado"
                               "&sortType=0&delta=50&currentPage=1"
-                              "&publishFrom={from}&publishTo={to}&orgPrin="
-                      + org_prin.replace(" ", enc)),
+                              "&publishFrom={from}&publishTo={to}&orgPrin=" + org),
     )
 
 
@@ -80,8 +86,13 @@ class Planalto(Fonte):
                _filtro_presidencia_direta, TOPICOS_BUSCA, "decreto"),
         # Portal do Planalto: pode estar protegido por WAF para robôs; se estiver,
         # o canal entra como falho (transparência), sem substituir a fonte oficial.
+        # O feed RSS oficial dá o mesmo conteúdo em formato estruturado.
         Canal(
-            "portal do Planalto (notícias)", "https://www.gov.br/planalto/pt-br",
+            "notícias do Planalto (RSS oficial)", NOTICIAS + "/RSS",
+            formato="rss", parser="rss", obrigatorio=False, tipo_padrao="noticia",
+        ),
+        Canal(
+            "notícias do Planalto (página oficial)", NOTICIAS,
             formato="html", parser="plone_html", obrigatorio=False,
             tipo_padrao="noticia",
             padrao_href=r"planalto/pt-br/acompanhe-o-planalto/noticias/[a-z0-9-]{8,}",

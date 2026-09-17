@@ -371,7 +371,8 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <a href="{SITE_URL}/data/events.json">events.json</a><br>
       <a href="{SITE_URL}/data/parliamentarians.json">parliamentarians.json</a><br>
       <a href="{SITE_URL}/data/categories.json">categories.json</a><br>
-      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>
+      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a><br>
+      <a href="{SITE_URL}/data/atos.json">atos.json</a>
       <span style="color:var(--muted)">(métricas do cron)</span></p>
     </div>
     <div>

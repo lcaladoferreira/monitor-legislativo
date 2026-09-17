@@ -75,6 +75,18 @@ DETALHE = [
     ("dou", "s1-mes-corrente", "https://www.in.gov.br/consulta/-/buscar/dou?q=&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=01-09-2026&publishTo=17-09-2026&s=do1", None, None),
     ("dou", "delivery-oficial", "https://www.in.gov.br/servicos/dou/", None, "curl"),
 
+    # ------------------------------------------------- feeds RSS oficiais (gov.br)
+    ("mcti", "noticias-rss-oficial", "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/RSS", "application/rss+xml", None),
+    ("mcti", "noticias-rss-xml", "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/rss.xml", "application/rss+xml", None),
+    ("mcti", "consultas-publicas", "https://www.gov.br/mcti/pt-br/acesso-a-informacao/participacao-social/consultas-publicas", None, None),
+    ("mcti", "acoes-e-programas", "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/acoes-e-programas", None, None),
+    ("planalto", "noticias-rss-oficial", "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS", "application/rss+xml", None),
+    ("planalto", "noticias-rss-xml", "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/rss.xml", "application/rss+xml", None),
+    ("planalto", "noticias-pagina", "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias", None, None),
+    ("cnj", "feed-rss-do-portal", "https://www.cnj.jus.br/feed/", "application/rss+xml", None),
+    ("dou", "tse-resolucoes-titulo-orgsub", "https://www.in.gov.br/consulta/-/buscar/dou?q=RESOLU%C3%87%C3%83O&s=titulo&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=01-09-2026&publishTo=17-09-2026&orgPrin=Poder%20Judici%C3%A1rio&orgSub=Tribunal%20Superior%20Eleitoral", None, None),
+    ("dou", "presidencia-decretos", "https://www.in.gov.br/consulta/-/buscar/dou?q=DECRETO&s=titulo&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=18-08-2026&publishTo=17-09-2026&orgPrin=Presid%C3%AAncia%20da%20Rep%C3%BAblica", None, None),
+
     # ------------------------------------------------------------------ TSE
     ("tse", "noticias-curl", "https://www.tse.jus.br/comunicacao/noticias", None, "curl"),
     ("tse", "noticias-urllib-browser", "https://www.tse.jus.br/comunicacao/noticias", None, None),

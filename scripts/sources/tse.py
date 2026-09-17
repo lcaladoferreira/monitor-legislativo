@@ -47,6 +47,15 @@ class TSE(Fonte):
                                   "Poder%20Judici%C3%A1rio"),
         ),
         Canal(
+            "resoluções do TSE (DOU, título)", BUSCA, formato="html",
+            parser="dou_embutido", tipo_padrao="resolucao", dias=30,
+            filtro_tema=_filtro_tse, padrao_href=r"/web/dou/-/",
+            url_template=(BUSCA + "?q=RESOLU%C3%87%C3%83O&s=titulo"
+                                  "&exactDate=personalizado&sortType=0&delta=50"
+                                  "&currentPage=1&publishFrom={from}&publishTo={to}"
+                                  "&orgPrin=Poder%20Judici%C3%A1rio"),
+        ),
+        Canal(
             "notícias oficiais", "https://www.tse.jus.br/comunicacao/noticias",
             formato="html", parser="plone_html", obrigatorio=False,
             tipo_padrao="noticia", paginas=2,
