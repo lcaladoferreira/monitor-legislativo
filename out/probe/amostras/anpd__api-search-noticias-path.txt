@@ -1,0 +1,10 @@
+URL: https://www.gov.br/anpd/++api++/@search?path=/anpd/pt-br/assuntos/noticias&b_size=5&sort_on=effective&sort_order=descending
+ACCEPT: application/json
+STATUS: 200 CT: application/json
+SINAIS: json,plone-restapi
+---
+{
+  "@id": "https://www.gov.br/anpd/@search?path=%2Fanpd%2Fpt-br%2Fassuntos%2Fnoticias", 
+  "items": [], 
+  "items_total": 0
+}

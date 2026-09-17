@@ -1,0 +1,416 @@
+[
+  {
+    "orgao": "anpd",
+    "rotulo": "noticias-lista",
+    "url": "https://www.gov.br/anpd/pt-br/assuntos/noticias",
+    "status": 200,
+    "ct": "text/html; charset=utf-8",
+    "bytes": 325595,
+    "sinais": "links=11,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "noticias-pagina2",
+    "url": "https://www.gov.br/anpd/pt-br/assuntos/noticias?b_start:int=20",
+    "status": 200,
+    "ct": "text/html; charset=utf-8",
+    "bytes": 325628,
+    "sinais": "links=11,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-rest-noticias",
+    "url": "https://www.gov.br/anpd/pt-br/assuntos/noticias/++api++",
+    "status": 200,
+    "ct": "text/html; charset=utf-8",
+    "bytes": 325726,
+    "sinais": "links=11,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "busca-interna",
+    "url": "https://www.gov.br/anpd/pt-br/search?SearchableText=intelig%C3%AAncia%20artificial",
+    "status": 200,
+    "ct": "text/html; charset=utf-8",
+    "bytes": 360561,
+    "sinais": "links=6,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "regulacao",
+    "url": "https://www.gov.br/anpd/pt-br/assuntos/regulacao",
+    "status": 200,
+    "ct": "text/html; charset=utf-8",
+    "bytes": 301922,
+    "sinais": "links=7,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "participamaisbrasil",
+    "url": "https://www.gov.br/participamaisbrasil/consultas-publicas",
+    "status": 200,
+    "ct": "text/html; charset=UTF-8",
+    "bytes": 21170,
+    "sinais": "links=26"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-posts",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?per_page=3&_fields=id,date,link,title,excerpt",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2379,
+    "sinais": "json,wp-json"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-busca-ia",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=intelig%C3%AAncia%20artificial&per_page=3&_fields=id,date,link,title",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2,
+    "sinais": "json"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-busca-artificial",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=artificial&per_page=3&_fields=id,date,link,title",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2,
+    "sinais": "json"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-busca-algoritmo",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=algoritmo&per_page=3&_fields=id,date,link,title",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2,
+    "sinais": "json"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-categorias",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/categories?per_page=5&_fields=id,name,slug",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 489,
+    "sinais": "json"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "atos-lista",
+    "url": "https://atos.cnj.jus.br/atos",
+    "status": 200,
+    "ct": "text/html; charset=UTF-8",
+    "bytes": 76251,
+    "sinais": ""
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "atos-api-guess",
+    "url": "https://atos.cnj.jus.br/api/atos?q=inteligencia%20artificial",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 42201,
+    "sinais": "json,links=37"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "site-busca",
+    "url": "https://www.cnj.jus.br/?s=intelig%C3%AAncia+artificial",
+    "status": 200,
+    "ct": "text/html; charset=UTF-8",
+    "bytes": 275458,
+    "sinais": "plone-restapi,links=42"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-resolucoes-busca",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=resolu%C3%A7%C3%A3o%20intelig%C3%AAncia%20artificial&per_page=3&_fields=id,date,link,title",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2,
+    "sinais": "json"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "busca-json",
+    "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%22intelig%C3%AAncia+artificial%22&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=10-09-2026&publishTo=17-09-2026",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 207723,
+    "sinais": "jsonArray,links=22"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "busca-html",
+    "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%22intelig%C3%AAncia+artificial%22&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=10-09-2026&publishTo=17-09-2026",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 207723,
+    "sinais": "jsonArray,links=22"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "busca-filtro-orgao",
+    "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=intelig%C3%AAncia+artificial&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=10-09-2026&publishTo=17-09-2026&orgPrin=presidencia-da-republica",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 172071,
+    "sinais": "jsonArray,links=22"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "leiturajornal",
+    "url": "https://www.in.gov.br/leiturajornal?data=17-09-2026&secao=do1",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 601823,
+    "sinais": "jsonArray,links=15"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "legado-consulta",
+    "url": "https://pesquisa.in.gov.br/imprensa/jsp/visualiza/index.jsp?jornal=515&pagina=1&data=17/09/2026",
+    "status": 200,
+    "ct": "text/html;charset=ISO-8859-1",
+    "bytes": 1133,
+    "sinais": ""
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "item",
+    "url": "https://www.in.gov.br/web/dou/-/despacho-minc-n-164-de-16-de-setembro-de-2026-732378994",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 84409,
+    "sinais": "links=13"
+  },
+  {
+    "orgao": "planalto",
+    "rotulo": "gov-br-planalto",
+    "url": "https://www.gov.br/planalto/pt-br",
+    "status": 200,
+    "ct": "text/html;charset=utf-8",
+    "bytes": 177208,
+    "sinais": "links=376"
+  },
+  {
+    "orgao": "planalto",
+    "rotulo": "gov-br-noticias",
+    "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias",
+    "status": 200,
+    "ct": "text/html;charset=utf-8",
+    "bytes": 179958,
+    "sinais": "links=428"
+  },
+  {
+    "orgao": "planalto",
+    "rotulo": "legislacao-portal",
+    "url": "https://www4.planalto.gov.br/legislacao/",
+    "status": 200,
+    "ct": "text/html",
+    "bytes": 6207,
+    "sinais": ""
+  },
+  {
+    "orgao": "planalto",
+    "rotulo": "lexml-busca",
+    "url": "https://www.lexml.gov.br/busca/search?f1-tipoDocumento=Legisla%C3%A7%C3%A3o&keyword=inteligencia+artificial",
+    "status": 200,
+    "ct": "text/html; charset=UTF-8",
+    "bytes": 9050,
+    "sinais": ""
+  },
+  {
+    "orgao": "planalto",
+    "rotulo": "dou-planalto-lei",
+    "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=10-09-2026&publishTo=17-09-2026&artType=Lei&orgPrin=presidencia-da-republica",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 171645,
+    "sinais": "jsonArray,links=22"
+  },
+  {
+    "orgao": "mcti",
+    "rotulo": "noticias",
+    "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/noticias-julho-outubro-2026",
+    "status": 200,
+    "ct": "text/html;charset=utf-8",
+    "bytes": 235293,
+    "sinais": "links=574,paginacao=b_start"
+  },
+  {
+    "orgao": "mcti",
+    "rotulo": "busca-interna",
+    "url": "https://www.gov.br/mcti/pt-br/search?SearchableText=intelig%C3%AAncia%20artificial",
+    "status": 200,
+    "ct": "text/html;charset=utf-8",
+    "bytes": 156934,
+    "sinais": "links=530"
+  },
+  {
+    "orgao": "mcti",
+    "rotulo": "portarias",
+    "url": "https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+    "status": 200,
+    "ct": "text/html;charset=utf-8",
+    "bytes": 159663,
+    "sinais": "links=540"
+  },
+  {
+    "orgao": "mcti",
+    "rotulo": "atos-normativos",
+    "url": "https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao",
+    "status": 200,
+    "ct": "text/html;charset=utf-8",
+    "bytes": 165296,
+    "sinais": "links=533"
+  },
+  {
+    "orgao": "senado",
+    "rotulo": "pesquisa",
+    "url": "https://legis.senado.leg.br/dadosabertos/materia/pesquisa/lista?sigla=PL&ano=2026&v=7",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 245273,
+    "sinais": "json"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-root",
+    "url": "https://www.gov.br/anpd/++api++",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 3274,
+    "sinais": "json,plone-restapi"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-search-noticias",
+    "url": "https://www.gov.br/anpd/++api++/@search?portal_type=News%20Item&b_size=5&sort_on=effective&sort_order=descending",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 16580,
+    "sinais": "json,plone-restapi,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-search-noticias-path",
+    "url": "https://www.gov.br/anpd/++api++/@search?path=/anpd/pt-br/assuntos/noticias&b_size=5&sort_on=effective&sort_order=descending",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 126,
+    "sinais": "json,plone-restapi"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-search-tema",
+    "url": "https://www.gov.br/anpd/++api++/@search?SearchableText=inteligencia%20artificial&b_size=5",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 6741,
+    "sinais": "json,plone-restapi,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-folder-noticias",
+    "url": "https://www.gov.br/anpd/++api++/pt-br/assuntos/noticias?b_size=5",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 18579,
+    "sinais": "json,plone-restapi,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-folder-regulacao",
+    "url": "https://www.gov.br/anpd/++api++/pt-br/assuntos/regulacao?b_size=5",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 41531,
+    "sinais": "json,plone-restapi,paginacao=b_start"
+  },
+  {
+    "orgao": "anpd",
+    "rotulo": "api-search-documentos",
+    "url": "https://www.gov.br/anpd/++api++/@search?portal_type=File&b_size=5&sort_on=effective&sort_order=descending",
+    "status": 200,
+    "ct": "application/json",
+    "bytes": 3825,
+    "sinais": "json,plone-restapi,paginacao=b_start"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-busca-ia-sem-artificial",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=intelig%C3%AAncia%20artificial%20IA&per_page=3&_fields=id,date,link,title",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2,
+    "sinais": "json"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-busca-IA",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=IA&per_page=3&_fields=id,date,link,title",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2,
+    "sinais": "json"
+  },
+  {
+    "orgao": "cnj",
+    "rotulo": "wp-busca-lgpd",
+    "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=LGPD&per_page=3&_fields=id,date,link,title",
+    "status": 200,
+    "ct": "application/json; charset=UTF-8",
+    "bytes": 2,
+    "sinais": "json"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "busca-json-ajax",
+    "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=intelig%C3%AAncia+artificial&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=10-09-2026&publishTo=17-09-2026",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 210579,
+    "sinais": "jsonArray,links=22"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "secao1-dia",
+    "url": "https://www.in.gov.br/leiturajornal?data=17-09-2026&secao=do1",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 601823,
+    "sinais": "jsonArray,links=15"
+  },
+  {
+    "orgao": "dou",
+    "rotulo": "busca-titulo",
+    "url": "https://www.in.gov.br/consulta/-/buscar/dou?q=%22intelig%C3%AAncia+artificial%22&s=titulo&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=01-01-2026&publishTo=17-09-2026",
+    "status": 200,
+    "ct": "text/html;charset=UTF-8",
+    "bytes": 171349,
+    "sinais": "jsonArray,links=22"
+  },
+  {
+    "orgao": "planalto",
+    "rotulo": "planalto-lexml-novo",
+    "url": "https://www.lexml.gov.br/busca/search?keyword=inteligencia+artificial",
+    "status": 200,
+    "ct": "text/html; charset=UTF-8",
+    "bytes": 9050,
+    "sinais": ""
+  },
+  {
+    "orgao": "planalto",
+    "rotulo": "planalto-legislacao-pesquisa",
+    "url": "https://www4.planalto.gov.br/legislacao/portal-legis/legislacao-1",
+    "status": 200,
+    "ct": "text/html",
+    "bytes": 6207,
+    "sinais": ""
+  }
+]

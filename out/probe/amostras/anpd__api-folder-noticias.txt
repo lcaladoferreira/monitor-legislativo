@@ -1,0 +1,520 @@
+URL: https://www.gov.br/anpd/++api++/pt-br/assuntos/noticias?b_size=5
+ACCEPT: application/json
+STATUS: 200 CT: application/json
+SINAIS: json,plone-restapi,paginacao=b_start
+---
+{
+  "@components": {
+    "actions": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@actions"
+    }, 
+    "aliases": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@aliases"
+    }, 
+    "breadcrumbs": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@breadcrumbs"
+    }, 
+    "contextnavigation": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@contextnavigation"
+    }, 
+    "navigation": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@navigation"
+    }, 
+    "navroot": {
+      "@id": "https://www.gov.br/anpd/pt-br", 
+      "@type": "LRF", 
+      "title": "Ag\u00eancia Nacional de Prote\u00e7\u00e3o de Dados - Inicial"
+    }, 
+    "translations": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@translations"
+    }, 
+    "types": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@types"
+    }, 
+    "workflow": {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/@workflow"
+    }
+  }, 
+  "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias", 
+  "@type": "Document", 
+  "UID": "d0064464f28243979770b7b7027bbf11", 
+  "allow_discussion": false, 
+  "alt_card": "", 
+  "batching": {
+    "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias?b_size=5", 
+    "first": "https://www.gov.br/anpd/pt-br/assuntos/noticias?b_start=0&b_size=5", 
+    "last": "https://www.gov.br/anpd/pt-br/assuntos/noticias?b_start=45&b_size=5", 
+    "next": "https://www.gov.br/anpd/pt-br/assuntos/noticias?b_start=5&b_size=5"
+  }, 
+  "blocks": {
+    "953a7d08-26c4-4d1b-9b33-9920e08c6642": {
+      "@type": "customSearch", 
+      "context": true, 
+      "facets": [
+        {
+          "@id": "98ccb1f8-0df5-4cd9-9b85-893dc3a03c8c", 
+          "advanced": false, 
+          "field": {
+            "label": "Data de Publica\u00e7\u00e3o", 
+            "value": "effective"
+          }, 
+          "hidden": false, 
+          "multiple": false, 
+          "title": "Data de Publica\u00e7\u00e3o", 
+          "type": "daterangeFacet"
+        }, 
+        {
+          "@id": "f757cba0-aba9-409e-9a43-45c96edb0292", 
+          "advanced": false, 
+          "field": {
+            "label": "Categoria", 
+            "value": "category_id"
+          }, 
+          "hidden": false, 
+          "multiple": false, 
+          "title": "Categoria", 
+          "type": "selectFacet"
+        }
+      ], 
+      "filters": "news", 
+      "itemsPerPage": 30, 
+      "query": {
+        "b_size": 30, 
+        "limit": 10000000000, 
+        "query": [
+          {
+            "i": "portal_type", 
+            "o": "plone.app.querystring.operation.selection.any", 
+            "v": [
+              "News Item"
+            ]
+          }, 
+          {
+            "i": "path", 
+            "o": "plone.app.querystring.operation.string.relativePath", 
+            "v": ""
+          }
+        ], 
+        "sort_on": "effective", 
+        "sort_order": "descending", 
+        "sort_order_boolean": true
+      }, 
+      "showSearchInput": true, 
+      "showTotalResults": true
+    }, 
+    "9601fd2d-136d-41ab-b7c1-00d59d9366ea": {
+      "@type": "description"
+    }, 
+    "97b9ddae-37f5-436e-867a-1d407a86a926": {
+      "@type": "dateSocialShareBlock"
+    }, 
+    "f28c8124-47bf-4dd2-953d-a62abb898ef2": {
+      "@type": "title"
+    }
+  }, 
+  "blocks_layout": {
+    "items": [
+      "f28c8124-47bf-4dd2-953d-a62abb898ef2", 
+      "9601fd2d-136d-41ab-b7c1-00d59d9366ea", 
+      "97b9ddae-37f5-436e-867a-1d407a86a926", 
+      "953a7d08-26c4-4d1b-9b33-9920e08c6642"
+    ]
+  }, 
+  "changeNote": "", 
+  "contributors": [], 
+  "created": "2020-12-02T19:33:39+00:00", 
+  "creators": [], 
+  "descricao_card": "", 
+  "description": "", 
+  "effective": "2020-12-02T19:35:00+00:00", 
+  "exclude_from_nav": false, 
+  "expires": null, 
+  "icone_card": "fa-solid fa-newspaper", 
+  "id": "noticias", 
+  "image_card": null, 
+  "is_folderish": true, 
+  "items": [
+    {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-mapa-de-temas-prioritarios-para-o-bienio-2026-2027-e-atualiza-agenda-regulatoria-2025-2026", 
+      "@type": "News Item", 
+      "description": "Documentos preveem a\u00e7\u00f5es de fiscaliza\u00e7\u00e3o e de normatiza\u00e7\u00e3o voltadas para a prote\u00e7\u00e3o de crian\u00e7as e adolescentes no ambiente digital, conferindo mais transpar\u00eancia e previsibilidade \u00e0 atua\u00e7\u00e3o da Ag\u00eancia", 
+      "effective": "2025-12-24T14:09:00+00:00", 
+      "end": null, 
+      "getObjSize": "71.3 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": "image", 
+      "image_scales": {
+        "image": [
+          {
+            "content-type": "image/jpeg", 
+            "download": "@@images/image-1600-3cbdaba4c9643dd41052977fd253275d.jpeg", 
+            "filename": "M\u00eddia.jpg", 
+            "height": 533, 
+            "scales": {
+              "great": {
+                "download": "@@images/image-1200-b4482e6f30bcd23ce929a4058f356be8.jpeg", 
+                "height": 399, 
+                "width": 1200
+              }, 
+              "huge": {
+                "download": "@@images/image-1600-3f822c4d510032ec90f61bb804bec868.jpeg", 
+                "height": 533, 
+                "width": 1600
+              }, 
+              "icon": {
+                "download": "@@images/image-32-9b68221fa87bddc7db4bd61e2fcbf19c.jpeg", 
+                "height": 10, 
+                "width": 32
+              }, 
+              "large": {
+                "download": "@@images/image-800-0ac9ceac8cf004e2dc5d66602aaeced5.jpeg", 
+                "height": 266, 
+                "width": 800
+              }, 
+              "larger": {
+                "download": "@@images/image-1000-785d0d4c341accbb18c9536ac936448c.jpeg", 
+                "height": 333, 
+                "width": 1000
+              }, 
+              "mini": {
+                "download": "@@images/image-200-a1b550fc3922d99c3be13e26f016f3ba.jpeg", 
+                "height": 66, 
+                "width": 200
+              }, 
+              "preview": {
+                "download": "@@images/image-400-a0111c0eb0e99fbed462570375035a52.jpeg", 
+                "height": 133, 
+                "width": 400
+              }, 
+              "teaser": {
+                "download": "@@images/image-600-6e8a6ef575189b2c28c6c901903ff389.jpeg", 
+                "height": 199, 
+                "width": 600
+              }, 
+              "thumb": {
+                "download": "@@images/image-128-31c2fd88ffb092913cf160d7084cee54.jpeg", 
+                "height": 42, 
+                "width": 128
+              }, 
+              "tile": {
+                "download": "@@images/image-64-8450a948b06ac5e3d2fd36201497ad9a.jpeg", 
+                "height": 21, 
+                "width": 64
+              }
+            }, 
+            "size": 72977, 
+            "width": 1600
+          }
+        ]
+      }, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "ANPD publica Mapa de Temas Priorit\u00e1rios para o bi\u00eanio 2026-2027 e atualiza Agenda Regulat\u00f3ria 2025-2026", 
+      "type_title": "Not\u00edcia"
+    }, 
+    {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-orientacoes-preliminares-e-cronograma-para-afericao-de-idade-no-ambiente-digital", 
+      "@type": "News Item", 
+      "description": "", 
+      "effective": "2026-03-20T11:20:00+00:00", 
+      "end": null, 
+      "getObjSize": "916.4 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": "image", 
+      "image_scales": {
+        "image": [
+          {
+            "content-type": "image/jpeg", 
+            "download": "@@images/image-2700-670590584968d20aeb492f210c6221df.jpeg", 
+            "filename": "carrossel-eca-digital-afericao-de-idade-orientacoes-preliminares.jpg", 
+            "height": 900, 
+            "scales": {
+              "great": {
+                "download": "@@images/image-1200-38655193c32137ae07ec32c307ecd96b.jpeg", 
+                "height": 400, 
+                "width": 1200
+              }, 
+              "huge": {
+                "download": "@@images/image-1600-c5030a31c3eb1d2540f8b1d7741cf264.jpeg", 
+                "height": 533, 
+                "width": 1600
+              }, 
+              "icon": {
+                "download": "@@images/image-32-f52c6abb3e2e55e5e2074cbf44989bfe.jpeg", 
+                "height": 10, 
+                "width": 32
+              }, 
+              "large": {
+                "download": "@@images/image-800-c5c7cb3b9594bec5a2c9511a4cf9dd58.jpeg", 
+                "height": 266, 
+                "width": 800
+              }, 
+              "larger": {
+                "download": "@@images/image-1000-cfe0d6c13b17167c7f8983de81f58068.jpeg", 
+                "height": 333, 
+                "width": 1000
+              }, 
+              "mini": {
+                "download": "@@images/image-200-383d5d4a963776ddf94e779438c2bae6.jpeg", 
+                "height": 66, 
+                "width": 200
+              }, 
+              "preview": {
+                "download": "@@images/image-400-04b5187f899d2781ea9d88da23bdcb27.jpeg", 
+                "height": 133, 
+                "width": 400
+              }, 
+              "teaser": {
+                "download": "@@images/image-600-97b11d58fd3ceacf4ed109e9d013b22c.jpeg", 
+                "height": 200, 
+                "width": 600
+              }, 
+              "thumb": {
+                "download": "@@images/image-128-5e77acb9a1fb9173f7297d4b19fd71f2.jpeg", 
+                "height": 42, 
+                "width": 128
+              }, 
+              "tile": {
+                "download": "@@images/image-64-5ca8114d00ee9702907d22f8761fd164.jpeg", 
+                "height": 21, 
+                "width": 64
+              }
+            }, 
+            "size": 938398, 
+            "width": 2700
+          }
+        ]
+      }, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "ANPD publica orienta\u00e7\u00f5es preliminares e cronograma para aferi\u00e7\u00e3o de idade no ambiente digital", 
+      "type_title": "Not\u00edcia"
+    }, 
+    {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/atualizacao-acesso-externo-sei", 
+      "@type": "News Item", 
+      "description": "Sistema Eletr\u00f4nico de Informa\u00e7\u00f5es passou por mudan\u00e7as para facilitar a utiliza\u00e7\u00e3o do servi\u00e7o por usu\u00e1rios externos e agora n\u00e3o precisa de cadastro manual pr\u00e9vio", 
+      "effective": "2026-05-26T15:44:00+00:00", 
+      "end": null, 
+      "getObjSize": "0 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": "", 
+      "image_scales": null, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Usu\u00e1rios externos podem acessar o SEI com login do gov.br", 
+      "type_title": "Not\u00edcia"
+    }, 
+    {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-sediara-encontros-lusofono-e-internacional-de-protecao-de-dados-em-julho-inscricoes-para-o-publico-ja-estao-abertas", 
+      "@type": "News Item", 
+      "description": "Eventos conjuntos em Bras\u00edlia reunir\u00e3o autoridades de pa\u00edses de l\u00edngua portuguesa para debater intelig\u00eancia artificial, biometria e o fortalecimento de direitos fundamentais no ambiente digital     ", 
+      "effective": "2026-06-26T15:30:00+00:00", 
+      "end": null, 
+      "getObjSize": "621.4 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": "image", 
+      "image_scales": {
+        "image": [
+          {
+            "content-type": "image/jpeg", 
+            "download": "@@images/image-3750-c034451b906e2e64c8dc7706354f6bdc.jpeg", 
+            "filename": "carrossel-2-Encontro-Rede-Lusofona.jpg", 
+            "height": 1250, 
+            "scales": {
+              "great": {
+                "download": "@@images/image-1200-c29d3911c263fe78bf347b1e95548ac0.jpeg", 
+                "height": 400, 
+                "width": 1200
+              }, 
+              "huge": {
+                "download": "@@images/image-1600-86c29641e19749525c783f55678195c1.jpeg", 
+                "height": 533, 
+                "width": 1600
+              }, 
+              "icon": {
+                "download": "@@images/image-32-e22f647daa3c02ff82f365bb4a97524c.jpeg", 
+                "height": 10, 
+                "width": 32
+              }, 
+              "large": {
+                "download": "@@images/image-800-f18176edd54c3f7b973932794535707f.jpeg", 
+                "height": 266, 
+                "width": 800
+              }, 
+              "larger": {
+                "download": "@@images/image-1000-323d82f88d53fd6bd19333caf7ea89b2.jpeg", 
+                "height": 333, 
+                "width": 1000
+              }, 
+              "mini": {
+                "download": "@@images/image-200-c4f1c18a913d0100058a03ef98d8667d.jpeg", 
+                "height": 66, 
+                "width": 200
+              }, 
+              "preview": {
+                "download": "@@images/image-400-d06b1a597c444eb848d0473f3a9148b3.jpeg", 
+                "height": 133, 
+                "width": 400
+              }, 
+              "teaser": {
+                "download": "@@images/image-600-1ffa7a4f9f82979eb4bd3552fdc6f65f.jpeg", 
+                "height": 200, 
+                "width": 600
+              }, 
+              "thumb": {
+                "download": "@@images/image-128-f6c1ebda9c3768c2fe8e378f69a00498.jpeg", 
+                "height": 42, 
+                "width": 128
+              }, 
+              "tile": {
+                "download": "@@images/image-64-861654223313d323b5541ed793602ac2.jpeg", 
+                "height": 21, 
+                "width": 64
+              }
+            }, 
+            "size": 636279, 
+            "width": 3750
+          }
+        ]
+      }, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "ANPD sediar\u00e1 Encontros Lus\u00f3fono e Internacional de Prote\u00e7\u00e3o de Dados em julho", 
+      "type_title": "Not\u00edcia"
+    }, 
+    {
+      "@id": "https://www.gov.br/anpd/pt-br/assuntos/noticias/consulta-publica-contribuicoes-guia-transparencia-protecao-de-dados-pessoais-prorrogada", 
+      "@type": "News Item", 
+      "description": "ANPD e CGU estendem o prazo da consulta at\u00e9 24 de julho. Documento vai orientar \u00f3rg\u00e3os e entidades sobre o acesso a informa\u00e7\u00f5es pessoais, compatibilizando a aplica\u00e7\u00e3o da LAI e da LGPD ", 
+      "effective": "2026-06-26T19:11:00+00:00", 
+      "end": null, 
+      "getObjSize": "28.8 KB", 
+      "getRemoteUrl": null, 
+      "head_title": null, 
+      "image_field": "image", 
+      "image_scales": {
+        "image": [
+          {
+            "content-type": "image/png", 
+            "download": "@@images/image-1500-9a7043bc1c2e1dab8c7b1f91802f956e.png", 
+            "filename": "carrossel_guia-de-transpar\u00eancia.png", 
+            "height": 500, 
+            "scales": {
+              "great": {
+                "download": "@@images/image-1200-e4d6bcfe3a6789cdc6e5af5f193a2f1c.png", 
+                "height": 400, 
+                "width": 1200
+              }, 
+              "icon": {
+                "download": "@@images/image-32-2ef0a31811c576367668eae1147786e4.png", 
+                "height": 10, 
+                "width": 32
+              }, 
+              "large": {
+                "download": "@@images/image-800-0b973605495c561e37ebbb20a81e4df3.png", 
+                "height": 266, 
+                "width": 800
+              }, 
+              "larger": {
+                "download": "@@images/image-1000-496250bdd7a301d336ec7ab4c556a300.png", 
+                "height": 333, 
+                "width": 1000
+              }, 
+              "mini": {
+                "download": "@@images/image-200-fe94d0f19d811a4997b75c0a10a5a003.png", 
+                "height": 66, 
+                "width": 200
+              }, 
+              "preview": {
+                "download": "@@images/image-400-96966b4bb380bfa41b36e358a193da91.png", 
+                "height": 133, 
+                "width": 400
+              }, 
+              "teaser": {
+                "download": "@@images/image-600-73fe6e0fa50adc107b39f723753ad2a9.png", 
+                "height": 200, 
+                "width": 600
+              }, 
+              "thumb": {
+                "download": "@@images/image-128-b60e0ec9bd2313f11fd7e96686523a9f.png", 
+                "height": 42, 
+                "width": 128
+              }, 
+              "tile": {
+                "download": "@@images/image-64-62b053bf35996e0c35f93d363ab4eeb3.png", 
+                "height": 21, 
+                "width": 64
+              }
+            }, 
+            "size": 29458, 
+            "width": 1500
+          }
+        ]
+      }, 
+      "mime_type": "text/plain", 
+      "nav_title": null, 
+      "review_state": "published", 
+      "start": null, 
+      "title": "Consulta p\u00fablica para contribui\u00e7\u00f5es ao Guia de Transpar\u00eancia e Prote\u00e7\u00e3o de Dados Pessoais \u00e9 prorrogada", 
+      "type_title": "Not\u00edcia"
+    }
+  ], 
+  "items_total": 50, 
+  "language": {
+    "title": "Portugu\u00eas (Brasil)", 
+    "token": "pt-br"
+  }, 
+  "layout": "document_view", 
+  "lock": {
+    "locked": false, 
+    "stealable": true
+  }, 
+  "modified": "2026-09-16T23:27:19+00:00", 
+  "nav_title": null, 
+  "next_item": {}, 
+  "parent": {
+    "@id": "https://www.gov.br/anpd/pt-br/assuntos", 
+    "@type": "Document", 
+    "description": "", 
+    "effective": "2020-12-04T14:50:00+00:00", 
+    "end": null, 
+    "getObjSize": null, 
+    "getRemoteUrl": null, 
+    "head_title": null, 
+    "image_field": null, 
+    "image_scales": {}, 
+    "mime_type": null, 
+    "nav_title": null, 
+    "review_state": "published", 
+    "start": null, 
+    "title": "Assuntos", 
+    "type_title": "P\u00e1gina"
+  }, 
+  "preview_caption_link": null, 
+  "preview_image_link": null, 
+  "previous_item": {}, 
+  "relatedItems": [], 
+  "review_state": "published", 
+  "rights": "", 
+  "subjects": [], 
+  "title": "Not\u00edcias", 
+  "titulo_card": "", 
+  "type_title": "P\u00e1gina", 
+  "version": "current", 
+  "versioning_enabled": true, 
+  "working_copy": null, 
+  "working_copy_of": null
+}
