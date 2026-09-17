@@ -1,24 +1,18 @@
 name: Sonda de fontes oficiais (diagnóstico)
 
 # Diagnóstico manual: consulta candidatos a endpoint oficial de cada órgão
-# (ANPD, CNJ, TSE, DOU, Planalto, MCTI) e publica o resultado nos logs e como
-# artifact. Não grava dataset, não commita nada. Serve para comprovar, com
-# evidência real, qual fonte estruturada cada coletor usa.
+# (ANPD, CNJ, TSE, DOU, Planalto, MCTI) e publica o resultado (resumo + amostras
+# dos corpos) no próprio branch, além do artifact. Não grava dataset, não
+# altera o site. Serve para comprovar, com evidência real, qual fonte
+# estruturada cada coletor usa.
 on:
   workflow_dispatch:
-  # Permite rodar o diagnóstico a partir de uma branch de trabalho (o dispatch
-  # só é liberado depois que o workflow entra na branch default).
   push:
     branches: ["arena/**", "main"]
     paths:
       - ".github/probe-trigger"
       - "scripts/probe_sources.py"
       - ".github/workflows/probe-sources.yml"
-    inputs:
-      orgao:
-        description: "Órgão a sondar (anpd, cnj, tse, dou, planalto, mcti) — vazio = todos"
-        required: false
-        default: ""
 
 permissions:
   contents: write
@@ -29,7 +23,7 @@ env:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -37,33 +31,37 @@ jobs:
           python-version: "3.13"
       - name: Sondar endpoints
         run: |
+          mkdir -p out
           ARGS=()
           if [ -n "${{ inputs.orgao }}" ]; then
             for o in ${{ inputs.orgao }}; do ARGS+=(--orgao "$o"); done
           fi
           python3 scripts/probe_sources.py --exemplos --limite-exemplo 600 \
-            --salvar-dir out/probe "${ARGS[@]}" 2>&1 | tee out/probe.log || true
+            --salvar-dir out/probe "${ARGS[@]}" > out/probe.log 2>&1 || true
+          tail -c 4000 out/probe.log
           echo "## Sonda de fontes oficiais" >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-          grep -E "^\s*(=== |    status=)" out/probe.log >> "$GITHUB_STEP_SUMMARY" || true
+          grep -E "^(=== |    status=)" out/probe.log >> "$GITHUB_STEP_SUMMARY" || true
           echo '```' >> "$GITHUB_STEP_SUMMARY"
-      - name: Publicar corpos coletados
+      - name: Publicar corpos coletados (artifact)
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: probe-${{ github.run_id }}
           path: out/probe
           retention-days: 7
-      - name: Publicar a sonda no branch (CI sem acesso a artifacts)
+      - name: Publicar a sonda no branch (CI externo não lê artifacts)
         if: always()
+        continue-on-error: true
         run: |
-          rm -f out/probe/*.html out/probe/*.json out/probe/*.xml 2>/dev/null || true
+          set -x
+          ls -la out/probe/amostras | head || true
           git config user.name "monitor-legislativo-bot"
           git config user.email "monitor-legislativo-bot@users.noreply.github.com"
-          git add -f out/probe/amostras out/probe/_resumo.json out/probe.log
+          git add -Af out/probe/amostras out/probe/_resumo.json out/probe.log 2>&1 || true
           if git diff --cached --quiet; then
             echo "Sonda sem alterações a publicar."
           else
             git commit -m "chore(diag): resultado da sonda de fontes [skip ci]"
-            git push
+            git push origin HEAD:${{ github.ref_name }} || echo "push recusado"
           fi
