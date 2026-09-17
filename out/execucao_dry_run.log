@@ -1,10 +1,10 @@
 Estado anterior: 135 proposições · última execução: 2026-09-17 · orçamento: 12 min · novas/execução: 5 · workers: 5 (HTTP ≤ 4)
 Consultando fichas oficiais de 135 proposições monitoradas...
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2487262 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
-)  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes?siglaTipo=PL&numero=3066&ano=2025&ordem=ASC&ordenarPor=i (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
-)
-
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2594000 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+)
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes?siglaTipo=PL&numero=3066&ano=2025&ordem=ASC&ordenarPor=i (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+)
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2487262 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2600838 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
@@ -20,21 +20,31 @@ Consultando fichas oficiais de 135 proposições monitoradas...
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2612845 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2604315 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2604315 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2612896 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2589443 (curl exit 28: curl: (28) Connection timed out after 20003 milliseconds
+  [aviso] falha após 1 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2595639/votacoes (curl exit 28: curl: (28) Connection timed out after 12002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2543191 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2577251/tramitacoes (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2595639 (curl exit 28: curl: (28) Connection timed out after 20003 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2487262 (curl exit 28: curl: (28) Connection timed out after 20003 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2631787 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2527110 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2577251 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2487262 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+)
+  [aviso] falha após 1 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2631787/votacoes (curl exit 28: curl: (28) Connection timed out after 12001 milliseconds
+)
+  [aviso] falha após 1 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2589443/votacoes (curl exit 28: curl: (28) Connection timed out after 12002 milliseconds
+)
+  [aviso] falha após 1 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2543191/votacoes (curl exit 28: curl: (28) Connection timed out after 12001 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2607218 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+)
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2541085 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+)
+  [aviso] falha após 1 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2577251/votacoes (curl exit 28: curl: (28) Connection timed out after 12002 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2592508 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
@@ -42,20 +52,20 @@ Consultando fichas oficiais de 135 proposições monitoradas...
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2497660 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2625435 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2625435 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2555654 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2555654 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2583896 (curl exit 28: curl: (28) Connection timed out after 20003 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2583896 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2597476 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [25/135] verificadas · 262s decorridos · 457s restantes
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2599301 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [25/135] verificadas · 310s decorridos · 409s restantes
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2599301 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2502877 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2541085 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2541085 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2433206 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
@@ -63,11 +73,11 @@ Consultando fichas oficiais de 135 proposições monitoradas...
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2526910 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2641070 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2641070 (curl exit 28: curl: (28) Connection timed out after 20000 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes?siglaTipo=PL&numero=5178&ano=2026&ordem=ASC&ordenarPor=i (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2601059 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2601059 (curl exit 28: curl: (28) Connection timed out after 20000 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2639860 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
@@ -75,13 +85,13 @@ Consultando fichas oficiais de 135 proposições monitoradas...
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2406516 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2646413 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2646413 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2636065 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2496418 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2496418 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2464691 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2464691 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2609587 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
@@ -91,9 +101,9 @@ Consultando fichas oficiais de 135 proposições monitoradas...
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2625561 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2629940 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2629940 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
 )
-  [50/135] verificadas · 495s decorridos · 224s restantes
+  [50/135] verificadas · 531s decorridos · 188s restantes
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2561378 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2482618 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
@@ -102,7 +112,7 @@ Consultando fichas oficiais de 135 proposições monitoradas...
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2636062 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2600015 (curl exit 28: curl: (28) Connection timed out after 20001 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2600015 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2636044 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
@@ -112,29 +122,19 @@ Consultando fichas oficiais de 135 proposições monitoradas...
 )
   [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2641166 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2641087 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2641087 (curl exit 28: curl: (28) Connection timed out after 20003 milliseconds
 )
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2640552 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
-)
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2630094 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
-)
-  [75/135] verificadas · 607s decorridos · 112s restantes
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2630042 (curl exit 28: curl: (28) Connection timed out after 20002 milliseconds
-)
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2641936 (curl exit 28: curl: (28) Connection timed out after 6001 milliseconds
-)
+  [75/135] verificadas · 630s decorridos · 89s restantes
   [100/135] verificadas · 630s decorridos · 89s restantes
   [125/135] verificadas · 630s decorridos · 89s restantes
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2619913 (curl exit 28: curl: (28) Connection timed out after 5001 milliseconds
-)
-  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2355883 (curl exit 28: curl: (28) Connection timed out after 5000 milliseconds
+  [aviso] falha após 2 tentativas: https://dadosabertos.camara.leg.br/api/v2/proposicoes/2640552 (curl exit 28: curl: (28) Connection timed out after 5000 milliseconds
 )
   [135/135] verificadas · 634s decorridos · 85s restantes
-Fase 1 concluída em 634.8s · 19 verificadas · 85s de orçamento restantes
+Fase 1 concluída em 634.1s · 24 verificadas · 85s de orçamento restantes
 Orçamento insuficiente para a descoberta — etapa adiada.
 Orçamento insuficiente para a agenda — etapa adiada.
 Orçamento insuficiente para as fontes multiórgão — etapa adiada.
 
-Mudanças detectadas: 0 · novas: 0 · atualizadas: 0 · verificadas: 19 · erros: 119 · status: parcial · duração: 634s
+Mudanças detectadas: 0 · novas: 0 · atualizadas: 0 · verificadas: 24 · erros: 99 · status: parcial · duração: 634s
 DRY-RUN: nada foi gravado.
 [aviso] execução parcial: o excedente entra na próxima execução.
