@@ -3,7 +3,7 @@
   · fonte 'cnj' (timeout 150s, subprocesso isolado)
     → status=ok · itens=16 · consultados=130 · canais_ok=5 · canais_falhos=0
   · fonte 'tse' (timeout 150s, subprocesso isolado)
-    → status=parcial · itens=1 · consultados=6 · canais_ok=2 · canais_falhos=3
+    → status=ok · itens=1 · consultados=6 · canais_ok=2 · canais_falhos=3
   · fonte 'dou' (timeout 150s, subprocesso isolado)
     → status=ok · itens=102 · consultados=150 · canais_ok=1 · canais_falhos=0
   · fonte 'planalto' (timeout 150s, subprocesso isolado)
@@ -11,7 +11,7 @@
   · fonte 'mcti' (timeout 150s, subprocesso isolado)
     → status=ok · itens=34 · consultados=103 · canais_ok=3 · canais_falhos=1
 [anpd] ANPD — Autoridade Nacional de Proteção de Dados
-  status: ok · duração 8.0s
+  status: ok · duração 7.7s
   itens consultados: 281 · relevantes: 58 · descartados (tema): 142
   canais ok: notícias recentes, notícias por tema, regulação e normas, consultas públicas, tomada de subsídios, atos normativos (arquivos)
     - [2026-09-16] (noticia, forte) ECA Digital completa um ano e é marco na proteção de crianças e adolescentes na internet
@@ -36,7 +36,7 @@
       https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-realiza-encontro-anpd-de-encarregados-na-proxima-quarta
     ... (+48 itens)
 [cnj] CNJ — Conselho Nacional de Justiça
-  status: ok · duração 3.0s
+  status: ok · duração 3.7s
   itens consultados: 130 · relevantes: 16 · descartados (tema): 112
   canais ok: atos normativos recentes, atos normativos recentes (página 2), atos normativos recentes (página 3), notícias oficiais, notícias oficiais (página 2)
     - [2026-09-08] (ato_normativo, revisar) Portaria CNJ nº 420
@@ -61,7 +61,7 @@
       https://www.cnj.jus.br/comunidade-quilombola-do-amapa-ganha-ponto-de-inclusao-digital/
     ... (+6 itens)
 [tse] TSE — Tribunal Superior Eleitoral
-  status: parcial · duração 11.4s
+  status: ok · duração 12.5s
   itens consultados: 6 · relevantes: 1 · descartados (tema): 5
   canais ok: atos do TSE por tema (DOU), resoluções do TSE (DOU, órgão/subórgão)
   canais com falha: atos normativos (portal oficial), notícias oficiais (portal oficial), atos e notícias por tema (portal oficial)
@@ -69,7 +69,7 @@
     - [2026-07-14] (ato_normativo, forte) PORTARIA Nº 424, DE 8 DE JULHO DE 2026
       https://www.in.gov.br/web/dou/-/portaria-n-424-de-8-de-julho-de-2026-718977388
 [dou] DOU — Diário Oficial da União (Imprensa Nacional)
-  status: ok · duração 9.3s
+  status: ok · duração 11.0s
   itens consultados: 150 · relevantes: 102 · descartados (tema): 34
   canais ok: busca por tema (7 dias)
     - [2026-09-17] (publicacao, revisar) PORTARIAS PGJ DE 10 DE SETEMBRO DE 2026
@@ -94,7 +94,7 @@
       https://www.in.gov.br/web/dou/-/portaria-n-5.825/ifsp-de-15-de-setembro-de-2026-732046805
     ... (+92 itens)
 [planalto] Planalto — Presidência da República
-  status: ok · duração 25.9s
+  status: ok · duração 34.1s
   itens consultados: 68 · relevantes: 11 · descartados (tema): 24
   canais ok: atos do Poder Legislativo (leis, vetos), atos da Presidência (decretos, MPs), notícias do Planalto (RSS oficial), notícias do Planalto (página oficial)
     - [2026-09-15] (lei, forte) LEI Nº 15.504, DE 15 DE SETEMBRO DE 2026
@@ -119,11 +119,11 @@
       https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/visita-presidencial-ao-parque-tecnologico-de-macaiba-e-anuncios-relativos-aos-supercomputadores-e-soberania-digital
     ... (+1 itens)
 [mcti] MCTI — Ministério da Ciência, Tecnologia e Inovação
-  status: ok · duração 15.5s
+  status: ok · duração 26.2s
   itens consultados: 103 · relevantes: 34 · descartados (tema): 33
   canais ok: atos do MCTI por tema (DOU), notícias institucionais, planos, programas e políticas
   canais com falha: portarias publicadas
-  erro: portarias publicadas: listagem sem itens reconhecíveis (157315 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias
+  erro: portarias publicadas: listagem sem itens reconhecíveis (159128 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias
     - [2026-09-14] (portaria, forte) DESPACHO DE 11 DE SETEMBRO DE 2026
       https://www.in.gov.br/web/dou/-/despacho-de-11-de-setembro-de-2026-731457497
     - [2026-09-14] (portaria, forte) DESPACHO DE 10 DE SETEMBRO DE 2026
@@ -146,4 +146,4 @@
       https://www.in.gov.br/web/dou/-/despacho-de-14-de-agosto-de-2026-726678071
     ... (+24 itens)
 
-relatório: out/fontes_reais.json · status global: PARCIAL
+relatório: out/fontes_reais.json · status global: OK

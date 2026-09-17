@@ -19,22 +19,25 @@ window["loaderConfig"] = "/TSPD/?type=20";
 
 <script type="text/javascript">
 (function(){
-window.VGy=!!window.VGy;try{(function(){(function(){})();var _s=24;try{var is,ls,os=S(170)?1:0,Ji=S(157)?1:0,li=S(374)?1:0;for(var zs=(S(20),0);zs<ls;++zs)os+=S(90)?2:1,Ji+=(S(850),2),li+=(S(140),3);is=os+Ji+li;window.IS===is&&(window.IS=++is)}catch(SS){window.IS=is}var jS=!0;function L(s){var _=arguments.length,J=[],O=1;while(O<_)J[O-1]=arguments[O++]-s;return String.fromCharCode.apply(String,J)}
-function JS(s){var _=60;!s||document[l(_,178,165,175,165,158,165,168,165,176,181,143,176,157,176,161)]&&document[l(_,178,165,175,165,158,165,168,165,176,181,143,176,157,176,161)]!==l(_,178,165,175,165,158,168,161)||(jS=!1);return jS}function l(s){var _=arguments.length,J=[];for(var O=1;O<_;++O)J.push(arguments[O]-s);return String.fromCharCode.apply(String,J)}function zS(){}JS(window[zS[I(1086830,_s)]]===zS);JS(typeof ie9rgb4!==I(1242178186175,_s));
-JS(RegExp("\x3c")[l(_s,140,125,139,140)](function(){return"\x3c"})&!RegExp(L(_s,144,75,124))[l(_s,140,125,139,140)](function(){return"'x3'+'d';"}));
-var ZS=window[L(_s,121,140,140,121,123,128,93,142,125,134,140)]||RegExp(L(_s,133,135,122,129,148,121,134,124,138,135,129,124),I(-6,_s))[I(1372181,_s)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),s_=+new Date+(S(745)?6E5:323785),__,i_,j_,l_=window[l(_s,139,125,140,108,129,133,125,135,141,140)],L_=ZS?S(61)?3E4:25598:S(523)?6E3:5400;
-document[l(_s,121,124,124,93,142,125,134,140,100,129,139,140,125,134,125,138)]&&document[L(_s,121,124,124,93,142,125,134,140,100,129,139,140,125,134,125,138)](L(_s,142,129,139,129,122,129,132,129,140,145,123,128,121,134,127,125),function(s){var _=84;document[l(_,202,189,199,189,182,189,192,189,200,205,167,200,181,200,185)]&&(document[l(_,202,189,199,189,182,189,192,189,200,205,167,200,181,200,185)]===L(_,188,189,184,184,185,194)&&s[L(_,189,199,168,198,201,199,200,185,184)]?j_=!0:document[l(_,202,
-189,199,189,182,189,192,189,200,205,167,200,181,200,185)]===I(68616527582,_)&&(__=+new Date,j_=!1,z_()))});function I(s,_){s+=_;return s.toString(36)}function z_(){if(!document[L(8,121,125,109,122,129,91,109,116,109,107,124,119,122)])return!0;var s=+new Date;if(s>s_&&(S(661)?6E5:783547)>s-__)return JS(!1);var _=JS(i_&&!j_&&__+L_<s);__=s;i_||(i_=!0,l_(function(){i_=!1},S(317)?1:0));return _}z_();var Z_=[S(505)?17795081:16090234,S(798)?27611931586:2147483647,S(283)?1558153217:1082199938];
-function _i(s){var _=18;s=typeof s===I(1743045658,_)?s:s[l(_,134,129,101,134,132,123,128,121)](S(790)?36:30);var J=window[s];if(!J||!J[l(_,134,129,101,134,132,123,128,121)])return;var O=""+J;window[s]=function(s,_){i_=!1;return J(s,_)};window[s][L(_,134,129,101,134,132,123,128,121)]=function(){return O}}for(var Ii=(S(713),0);Ii<Z_[L(_s,132,125,134,127,140,128)];++Ii)_i(Z_[Ii]);JS(!1!==window[l(_s,110,95,145)]);window.js=window.js||{};window.js.Jzo="08604da2e916e8007a2f9459830d70e8c621da35494241bad4a63af448b6e49aed3281a341caa4a749bb950f837bb07f4e8d411c25280fae110aafe85a585d589e89b3cf20c032667531e3df7c9e0cac0d64f781a23e596b42b092614b36b110e791ba51b1cb138dfaa2126aed5c849545c4593dc159ed680dcdf6607c68adc712bb3c0328fbcb6eee861a5a02bab184f69644846c777506fa3442b706b30cfd204a1f13f35a43bcb1cf9025d3c41f867da8b11ce51e0864908b7dfa890172149fcd45d983488457c1076b8d390550b5922a48e7233371979cae874bd6696de5d7fed48655b685ef458721d76fe16f4d";
-function ji(s){var _=+new Date,J;!document[L(75,188,192,176,189,196,158,176,183,176,174,191,186,189,140,183,183)]||_>s_&&(S(889)?6E5:893378)>_-__?J=JS(!1):(J=JS(i_&&!j_&&__+L_<_),__=_,i_||(i_=!0,l_(function(){i_=!1},S(549)?1:0)));return!(arguments[s]^J)}function S(s){return 946>s}
-(function(){var s=/(\A([0-9a-f]{1,4}:){1,6}(:[0-9a-f]{1,4}){1,1}\Z)|(\A(([0-9a-f]{1,4}:){1,7}|:):\Z)|(\A:(:[0-9a-f]{1,4}){1,7}\Z)/ig,_=document.getElementsByTagName("head")[0],J=[];_&&(_=_.innerHTML.slice(0,1E3));while(_=s.exec(""))J.push(_)})();})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
+window.Dizz=!!window.Dizz;try{(function(){(function(){var J=-1,J={ll:++J,_I:"false"[J],l:++J,Jz:"false"[J],Il:++J,Zzl:"[object Object]"[J],Ss:(J[J]+"")[J],lZ:++J,ss:"true"[J],zl:++J,lL:++J,iI:"[object Object]"[J],i:++J,_L:++J,iOL:++J,_OL:++J};try{J.jz=(J.jz=J+"")[J.lL]+(J.jO=J.jz[J.l])+(J.SI=(J.IO+"")[J.l])+(!J+"")[J.lZ]+(J.JO=J.jz[J.i])+(J.IO="true"[J.l])+(J.Is="true"[J.Il])+J.jz[J.lL]+J.JO+J.jO+J.IO,J.SI=J.IO+"true"[J.lZ]+J.JO+J.Is+J.IO+J.SI,J.IO=J.ll[J.jz][J.jz],J.IO(J.IO(J.SI+'"\\'+J.l+J.lL+J.l+J._I+"\\"+J.zl+J.ll+"("+J.JO+"\\"+J.l+J._L+
+J.l+"\\"+J.l+J.i+J.ll+J.ss+J.jO+J._I+"\\"+J.zl+J.ll+"\\"+J.l+J.i+J._L+"\\"+J.l+J.lL+J.l+"\\"+J.l+J.lL+J.i+J.Ss+J.jO+"\\"+J.l+J.i+J._L+"['\\"+J.l+J.i+J.ll+J.Jz+"\\"+J.l+J._L+J.l+"false"[J.Il]+J.jO+J.Jz+J.Ss+"']\\"+J.zl+J.ll+"===\\"+J.zl+J.ll+"'\\"+J.l+J.i+J.lZ+J.JO+"\\"+J.l+J.i+J.Il+"\\"+J.l+J.lL+J.l+"\\"+J.l+J.lL+J.i+"\\"+J.l+J.zl+J._L+"')\\"+J.zl+J.ll+"{\\"+J.l+J.Il+"\\"+J.l+J.l+"\\"+J.l+J.i+J.i+J.Jz+"\\"+J.l+J.i+J.Il+"\\"+J.zl+J.ll+J.ss+J.Ss+"\\"+J.l+J.i+J.i+J.iI+"\\"+J.l+J._L+J.l+J.Is+"\\"+J.l+
+J.lL+J.Il+"\\"+J.l+J.lL+J.lZ+"\\"+J.l+J.i+J.ll+"\\"+J.zl+J.ll+"=\\"+J.zl+J.ll+"\\"+J.l+J.i+J._L+"\\"+J.l+J.lL+J.l+"\\"+J.l+J.lL+J.i+J.Ss+J.jO+"\\"+J.l+J.i+J._L+"['\\"+J.l+J.i+J.ll+J.Jz+"\\"+J.l+J._L+J.l+"false"[J.Il]+J.jO+J.Jz+J.Ss+"'].\\"+J.l+J.i+J.Il+J.ss+"\\"+J.l+J.i+J.ll+"false"[J.Il]+J.Jz+J.iI+J.ss+"(/.{"+J.l+","+J.zl+"}/\\"+J.l+J.zl+J._L+",\\"+J.zl+J.ll+J._I+J.Is+"\\"+J.l+J.lL+J.i+J.iI+J.JO+"\\"+J.l+J.lL+J.l+J.jO+"\\"+J.l+J.lL+J.i+"\\"+J.zl+J.ll+"(\\"+J.l+J._L+J.ll+")\\"+J.zl+J.ll+"{\\"+J.l+
+J.Il+"\\"+J.l+J.l+"\\"+J.l+J.l+"\\"+J.l+J.l+"\\"+J.l+J.i+J.Il+J.ss+J.JO+J.Is+"\\"+J.l+J.i+J.Il+"\\"+J.l+J.lL+J.i+"\\"+J.zl+J.ll+"(\\"+J.l+J._L+J.ll+"\\"+J.zl+J.ll+"+\\"+J.zl+J.ll+"\\"+J.l+J._L+J.ll+").\\"+J.l+J.i+J.lZ+J.Is+J.Zzl+"\\"+J.l+J.i+J.lZ+J.JO+"\\"+J.l+J.i+J.Il+"("+J.Il+",\\"+J.zl+J.ll+J.zl+")\\"+J.l+J.Il+"\\"+J.l+J.l+"\\"+J.l+J.l+"});\\"+J.l+J.Il+"}\\"+J.l+J.Il+'"')())()}catch(L){J%=5}})();var lj=44;
+try{var Lj,zj,sj=l(421)?0:1,oL=l(327)?0:1,OL=l(532)?0:1,zL=l(63)?0:1,ZL=l(746)?0:1;for(var _j=(l(890),0);_j<zj;++_j)sj+=(l(882),2),oL+=l(429)?1:2,OL+=(l(336),2),zL+=(l(124),2),ZL+=l(527)?2:3;Lj=sj+oL+OL+zL+ZL;window._s===Lj&&(window._s=++Lj)}catch(Ij){window._s=Lj}var LJ=!0;function O(J){var L=arguments.length,z=[];for(var S=1;S<L;++S)z.push(arguments[S]-J);return String.fromCharCode.apply(String,z)}
+function oJ(J){var L=12;!J||document[O(L,130,117,127,117,110,117,120,117,128,133,95,128,109,128,113)]&&document[O(L,130,117,127,117,110,117,120,117,128,133,95,128,109,128,113)]!==s(68616527654,L)||(LJ=!1);return LJ}function Z(J){var L=arguments.length,z=[],S=1;while(S<L)z[S-1]=arguments[S++]-J;return String.fromCharCode.apply(String,z)}function sJ(){}oJ(window[sJ[s(1086810,lj)]]===sJ);oJ(typeof ie9rgb4!==s(1242178186155,lj));
+oJ(RegExp("\x3c")[Z(lj,160,145,159,160)](function(){return"\x3c"})&!RegExp(s(42845,lj))[s(1372161,lj)](function(){return"'x3'+'d';"}));
+var _J=window[O(lj,141,160,160,141,143,148,113,162,145,154,160)]||RegExp(Z(lj,153,155,142,149,168,141,154,144,158,155,149,144),s(-26,lj))[O(lj,160,145,159,160)](window["\x6e\x61vi\x67a\x74\x6f\x72"]["\x75\x73e\x72A\x67\x65\x6et"]),iJ=+new Date+(l(563)?782446:6E5),jl,Jl,Ll,ol=window[O(lj,159,145,160,128,149,153,145,155,161,160)],zl=_J?l(763)?30029:3E4:l(945)?5665:6E3;
+document[O(lj,141,144,144,113,162,145,154,160,120,149,159,160,145,154,145,158)]&&document[O(lj,141,144,144,113,162,145,154,160,120,149,159,160,145,154,145,158)](O(lj,162,149,159,149,142,149,152,149,160,165,143,148,141,154,147,145),function(J){var L=68;document[Z(L,186,173,183,173,166,173,176,173,184,189,151,184,165,184,169)]&&(document[Z(L,186,173,183,173,166,173,176,173,184,189,151,184,165,184,169)]===s(1058781915,L)&&J[Z(L,173,183,152,182,185,183,184,169,168)]?Ll=!0:document[Z(L,186,173,183,173,
+166,173,176,173,184,189,151,184,165,184,169)]===Z(L,186,173,183,173,166,176,169)&&(jl=+new Date,Ll=!1,Sl()))});function Sl(){if(!document[Z(56,169,173,157,170,177,139,157,164,157,155,172,167,170)])return!0;var J=+new Date;if(J>iJ&&(l(213)?346124:6E5)>J-jl)return oJ(!1);var L=oJ(Jl&&!Ll&&jl+zl<J);jl=J;Jl||(Jl=!0,ol(function(){Jl=!1},l(675)?0:1));return L}Sl();var _l=[l(721)?13608429:17795081,l(612)?2147483647:27611931586,l(323)?2147483647:1558153217];
+function Il(J){var L=16;J=typeof J===s(1743045660,L)?J:J[Z(L,132,127,99,132,130,121,126,119)](l(401)?39:36);var z=window[J];if(!z||!z[O(L,132,127,99,132,130,121,126,119)])return;var S=""+z;window[J]=function(J,L){Jl=!1;return z(J,L)};window[J][O(L,132,127,99,132,130,121,126,119)]=function(){return S}}for(var JL=(l(336),0);JL<_l[s(1294399161,lj)];++JL)Il(_l[JL]);oJ(!1!==window[O(lj,112,149,166,166)]);window.iZ=window.iZ||{};window.iZ.jOL="08e535947e16e800203824b70ee4640825c76fee2768447c57449cbe0428a8f01da52e3beba221a4095d18291d842f60698bb0506dd70b2ff31925995437115815789e6aaf77fd5e9c609a7a2d24cf5ad3f3108c3341e9bfda61ddd4d18ce42ff26765d686b33dbf5d83a823697bb3808a712dacce563f5e8a7a0502c4af4be8b9af10d3cbcc54ed774baef9221a66971e0338d685bae37e825984353c51d82f7b8ff23a258736269882a3e41c76fb4ff1d6d3bccb6fbc44a655416e5d3a17ec26bd0cae4e25b5f4974e8ea6ad1cffd3217e31b1f35fb1ffcf01dec72534d55d41806082f519c2db0cab2e57b81a314b";
+function LL(J){var L=+new Date,z;!document[Z(14,127,131,115,128,135,97,115,122,115,113,130,125,128,79,122,122)]||L>iJ&&(l(747)?627008:6E5)>L-jl?z=oJ(!1):(z=oJ(Jl&&!Ll&&jl+zl<L),jl=L,Jl||(Jl=!0,ol(function(){Jl=!1},l(447)?0:1)));return!(arguments[J]^z)}function s(J,L){J+=L;return J.toString(36)}function l(J){return 29>J}(function(J){J||setTimeout(function(){var J=setTimeout(function(){},250);for(var z=0;z<=J;++z)clearTimeout(z)},500)})(!0);})();}catch(x){}finally{ie9rgb4=void(0);};function ie9rgb4(a,b){return a>>b>>0};
 
 })();
 
 </script>
 </APM_DO_NOT_TOUCH>
 
-<script type="text/javascript" src="/TSPD/086f3e6665ab2000fd07e8e4c1f24020042fe6f49a25ffb0297f0368d933e77b2c2a5c5c6046a798?type=17"></script>
+<script type="text/javascript" src="/TSPD/086f3e6665ab200084a8dd8f9d2605ead675f02bceacb18c7cd95c0e97ee09820089d7b6b7ef8ee2?type=17"></script>
 
     <meta charset="utf-8" />
   <!-- Google Tag Manager -->
@@ -190,7 +193,7 @@ function ji(s){var _=+new Date,J;!document[L(75,188,192,176,189,196,158,176,183,
 
 
 
-    <link rel="search" href="https://www.gov.br/mcti/@@search" title="Buscar neste site" />
+    <link rel="search" href="https://www.gov.br/mcti/pt-br/@@search" title="Buscar neste site" />
 
 
 
@@ -665,107 +668,4 @@ function ji(s){var _=+new Date,J;!document[L(75,188,192,176,189,196,158,176,183,
 
     
 
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/popciencia" class="state-published">
-            
-            Popularização da Ciência
-        </a>
-
-        
-    
-</li>
-
-<li>
-
-    
-
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/cooperacao-internacional" class="state-published">
-            
-            Cooperação Internacional
-        </a>
-
-        
-    
-</li>
-
-<li class="dropdown-submenu">
-
-    
-
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/tecnologias-convergentes-e-habilitadoras" class="state-published hasDropDown">
-            
-            Tecnologias Habilitadoras
-        </a>
-
-        <ul class="submenu navTree navTreeLevel1">
-            
-
-
-
-
-<li>
-
-    
-
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/tecnologias-convergentes-e-habilitadoras/nanotecnologia" class="state-published">
-            
-            Nanotecnologia
-        </a>
-
-        
-    
-</li>
-
-<li>
-
-    
-
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/tecnologias-convergentes-e-habilitadoras/fotonica" class="state-published">
-            
-            Fotônica
-        </a>
-
-        
-    
-</li>
-
-<li>
-
-    
-
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/tecnologias-convergentes-e-habilitadoras/materiais-avancados" class="state-published">
-            
-            Materiais Avançados
-        </a>
-
-        
-    
-</li>
-
-
-
-
-        </ul>
-    
-</li>
-
-<li class="dropdown-submenu">
-
-    
-
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital" class="state-published hasDropDown">
-            
-            Transformação Digital
-        </a>
-
-        <ul class="submenu navTree navTreeLevel1">
-            
-
-
-
-
-<li>
-
-    
-
-        <a href="https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital/Camaras%204.0" class="state-published">
-    
+        <a href="https://www.gov.br/mcti/pt-br/a
