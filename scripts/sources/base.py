@@ -54,6 +54,22 @@ class OrcamentoEsgotado(RuntimeError):
     """O tempo reservado para a fonte (ou para a coleta inteira) acabou."""
 
 
+# Termos de busca usados nas consultas por assunto das fontes oficiais.
+# São termos temáticos (o filtro fino é aplicado item a item, depois).
+TOPICOS_BUSCA = [
+    "inteligência artificial",
+    "algoritmo",
+    "proteção de dados",
+    "reconhecimento facial",
+    "biometria",
+    "deepfake",
+    "plataformas digitais",
+    "semicondutor",
+    "computação em nuvem",
+    "data center",
+]
+
+
 # --------------------------------------------------------------- tema/filtro
 # Padrões avaliados sobre texto normalizado (minúsculo, sem acento).
 FORTE_PATTERNS = [
@@ -247,6 +263,14 @@ class Cliente:
                                  "image/avif,image/webp,*/*;q=0.8"),
             "Accept-Language": "pt-BR,pt;q=0.9,en;q=0.8",
             "Accept-Encoding": "gzip, identity",
+            # Cabeçalhos de navegador: vários portais oficiais (ex.: TSE) recusam
+            # requisições sem eles. Não mudam o conteúdo — apenas permitem a
+            # leitura da mesma página pública que qualquer cidadão acessa.
+            "Upgrade-Insecure-Requests": "1",
+            "Sec-Fetch-Dest": "document",
+            "Sec-Fetch-Mode": "navigate",
+            "Sec-Fetch-Site": "none",
+            "Sec-Fetch-User": "?1",
         }
         if headers:
             hdrs.update(headers)
@@ -460,6 +484,120 @@ def parse_dou_json(dados):
     return itens
 
 
+def parse_plone_search(dados):
+    """plone.restapi (@search / pasta) → itens oficiais de sites gov.br (Volto).
+
+    Cada item traz `@id` (URL oficial), `title`, `description` e `effective`.
+    Itens que não são conteúdo editorial (imagens, arquivos de layout) são
+    descartados: só entram tipos com título e URL de página.
+    """
+    if not isinstance(dados, dict):
+        return []
+    itens = []
+    for it in (dados.get("items") or []):
+        if not isinstance(it, dict):
+            continue
+        url = (it.get("@id") or "").strip()
+        titulo = limpar_texto(it.get("title") or "", 300)
+        if not url or not titulo:
+            continue
+        tipo = it.get("@type") or ""
+        if tipo in ("Image", "Image Container"):
+            continue
+        if re.search(r"\.(png|jpe?g|gif|webp|svg|ico)$", url, re.I):
+            continue
+        itens.append({
+            "titulo": titulo,
+            "link": url.split("#")[0],
+            "data": data_iso(it.get("effective") or it.get("created") or it.get("modified")),
+            "descricao": limpar_texto(it.get("description") or "", 600),
+            "tipo_ato": tipo or None,
+            "orgao_item": limpar_texto(it.get("head_title") or "", 120) or None,
+        })
+    return itens
+
+
+def parse_cnj_atos(dados):
+    """API oficial do Sistema de Atos Normativos do CNJ (atos.cnj.jus.br).
+
+    Formato: {"data": [{id, tipo, numero, data_publicacao, situacao, ementa,
+    observacao, url_ato, ...}], "total": n}. O título é montado com os campos
+    oficiais (nunca inventado); a ementa vem do próprio ato.
+    """
+    if not isinstance(dados, dict):
+        return []
+    itens = []
+    for ato in (dados.get("data") or []):
+        if not isinstance(ato, dict) or not ato.get("id"):
+            continue
+        tipo = limpar_texto(ato.get("tipo") or "Ato", 60)
+        numero = limpar_texto(ato.get("numero") or "", 30)
+        titulo = f"{tipo} CNJ nº {numero}" if numero else f"{tipo} CNJ"
+        ementa = limpar_texto(ato.get("ementa") or "", 800)
+        situacao = limpar_texto(ato.get("situacao") or "", 60)
+        obs = limpar_texto(ato.get("observacao") or "", 200)
+        descricao = " ".join(x for x in (ementa, f"Situação: {situacao}." if situacao else "",
+                                         obs) if x)
+        itens.append({
+            "titulo": titulo,
+            "link": f"https://atos.cnj.jus.br/atos/detalhar/{ato['id']}",
+            "data": data_iso(ato.get("data_publicacao")),
+            "descricao": descricao[:900],
+            "tipo_ato": tipo,
+            "situacao": situacao or None,
+        })
+    return itens
+
+
+DOU_RE_SCRIPT = re.compile(
+    r'<script[^>]+id="[^"]*BuscaDouPortlet_params"[^>]*>(.*?)</script>', re.I | re.S)
+
+
+def parse_dou_embutido(html):
+    """Extrai o JSON de resultados embutido na página de busca do DOU.
+
+    A busca do in.gov.br devolve HTML com um <script type="application/json">
+    contendo {"jsonArray": [...]}. Cada resultado tem `title`, `urlTitle`,
+    `pubDate`, `content`, `artType` e `hierarchyStr` — é daí que saem o título,
+    a data, o órgão e a URL oficial do ato.
+    """
+    if not html:
+        return []
+    m = DOU_RE_SCRIPT.search(html)
+    if not m:
+        return []
+    bruto = html_mod.unescape(m.group(1)).strip()
+    try:
+        dados = json.loads(bruto)
+    except ValueError:
+        return []
+    itens = []
+    for it in (dados.get("jsonArray") or []):
+        if not isinstance(it, dict):
+            continue
+        titulo = limpar_texto(it.get("title") or "", 400)
+        url_title = (it.get("urlTitle") or "").strip()
+        if not titulo or not url_title:
+            continue
+        hierarquia = limpar_texto(it.get("hierarchyStr") or it.get("hierarchyList") or "", 240)
+        art_type = limpar_texto(it.get("artType") or "", 80)
+        conteudo = limpar_texto(it.get("content") or "", 900)
+        itens.append({
+            "titulo": titulo,
+            "link": f"https://www.in.gov.br/web/dou/-/{url_title}",
+            "data": data_iso(it.get("pubDate")),
+            "descricao": " ".join(x for x in (conteudo,
+                                              f"({art_type} — {hierarquia})" if hierarquia else "")
+                                 if x)[:900],
+            "tipo_ato": art_type or None,
+            "hierarquia": hierarquia or None,
+            "secao": (it.get("pubName") or None),
+            "edicao": it.get("editionNumber") or None,
+            "id_dou": it.get("classPK") or None,
+        })
+    return itens
+
+
 def html_para_texto_blocos(html, padrao_href, base_url="https://www.in.gov.br/", limite=50):
     """Fallback: extrai resultados da busca do DOU direto do HTML.
 
@@ -508,7 +646,8 @@ class Canal:
 
     def __init__(self, rotulo, url, formato="html", parser="generico", padrao_href=None,
                  paginas=1, passo=20, accept=None, obrigatorio=True, extrai=None,
-                 topicos=None, url_template=None, tipo_padrao=None, opcoes=None):
+                 topicos=None, url_template=None, tipo_padrao=None, opcoes=None,
+                 filtro_tema=None, dias=None):
         self.rotulo = rotulo
         self.url = url
         self.formato = formato
@@ -523,16 +662,34 @@ class Canal:
         self.url_template = url_template or url
         self.tipo_padrao = tipo_padrao
         self.opcoes = opcoes or {}
+        # `filtro_tema`: função(item) -> bool aplicada ao resultado do canal
+        # (ex.: manter só itens cuja hierarquia do DOU é do órgão monitorado)
+        self.filtro_tema = filtro_tema
+        self.dias = dias  # janela de datas para canais de busca (DOU)
+
+    def _com_params(self, url):
+        extras = self.opcoes.get("params") or {}
+        if not extras:
+            return url
+        sep = "&" if "?" in url else "?"
+        return url + sep + urllib.parse.urlencode(extras)
 
     def urls(self):
+        """Gera (tópico, url) do canal. Suporta {topico}, {from} e {to}
+        (janela de datas do DOU, em DD-MM-AAAA) e paginação b_start:int."""
+        hoje = datetime.now(BRT).date()
+        inicio = hoje - timedelta(days=self.dias if self.dias else 30)
+        ctx = {"from": inicio.strftime("%d-%m-%Y"), "to": hoje.strftime("%d-%m-%Y")}
         if self.topicos:
             for t in self.topicos:
-                yield t, self.url_template.format(topico=urllib.parse.quote(t))
+                yield t, self._com_params(
+                    self.url_template.format(topico=urllib.parse.quote(t), **ctx))
             return
         for i in range(self.paginas):
             sep = "&" if "?" in self.url else "?"
-            u = self.url if i == 0 else f"{self.url}{sep}b_start:int={i * self.passo}"
-            yield None, u
+            base = self.url_template.format(topico="", **ctx)
+            u = base if i == 0 else f"{base}{sep}b_start:int={i * self.passo}"
+            yield None, self._com_params(u)
 
 
 class ResultadoFonte:
@@ -545,7 +702,9 @@ class ResultadoFonte:
         self.tentativa_em = datetime.now(BRT).isoformat(timespec="seconds")
         self.duracao = 0.0
         self.canais_ok = []
-        self.canais_falhos = []
+        self.canais_falhos = []          # todas as falhas (visíveis no painel)
+        self.canais_falhos_obrigatorios = []
+        self.canais_opcionais_falhos = []
         self.endpoints = []
         self.erros = []
         self.itens_consultados = 0
@@ -554,12 +713,19 @@ class ResultadoFonte:
         self.revisao_pendente = 0
         self.ultima_execucao_ok = None
         self.parcial_por_orcamento = False
+        self.canais_detalhe = []
 
     @property
     def status(self):
+        """ok · parcial · falha — calculado só com os canais obrigatórios.
+
+        Um canal opcional que falha (ex.: portal com bloqueio anti-bot) fica
+        registrado em `canais_opcionais_falhos` e no painel, mas não rebaixa a
+        fonte quando ela cumpriu o que é obrigatório pela via oficial.
+        """
         if not self.canais_ok:
             return "falha"
-        if self.canais_falhos or self.parcial_por_orcamento:
+        if self.canais_falhos_obrigatorios or self.parcial_por_orcamento:
             return "parcial"
         return "ok"
 
@@ -580,8 +746,11 @@ class ResultadoFonte:
             "erros": len(self.erros),
             "duracao_segundos": round(self.duracao, 1),
             "endpoints": self.endpoints,
+            "canais_detalhe": self.canais_detalhe,
             "canais_ok": self.canais_ok,
             "canais_falhos": self.canais_falhos,
+            "canais_falhos_obrigatorios": self.canais_falhos_obrigatorios,
+            "canais_opcionais_falhos": self.canais_opcionais_falhos,
             "erro_detalhe": self.erro_resumo(),
         }
 
@@ -629,12 +798,12 @@ class Fonte:
 
     # ---------------------------------------------------------------- coleta
     def coletar(self, ctx: ContextoFonte, resultado: ResultadoFonte):
+        resultado.canais_detalhe = resultado.canais_detalhe or []
         for canal in self.canais:
             if ctx.expirado(5):
                 resultado.parcial_por_orcamento = True
                 resultado.erros.append(f"tempo esgotado antes do canal '{canal.rotulo}'")
-                if canal.obrigatorio:
-                    resultado.canais_falhos.append(canal.rotulo)
+                self._marca_falha(resultado, canal)
                 continue
             resultado.endpoints.append(canal.url)
             try:
@@ -642,27 +811,42 @@ class Fonte:
             except OrcamentoEsgotado as e:
                 resultado.parcial_por_orcamento = True
                 resultado.erros.append(f"{canal.rotulo}: {e}")
-                if canal.obrigatorio:
-                    resultado.canais_falhos.append(canal.rotulo)
+                self._marca_falha(resultado, canal)
                 continue
             except FonteIndisponivel as e:
                 resultado.erros.append(f"{canal.rotulo}: {e}")
-                resultado.canais_falhos.append(canal.rotulo)
+                self._marca_falha(resultado, canal)
                 continue
             except Exception as e:  # noqa: BLE001 — um canal não derruba a fonte
                 resultado.erros.append(f"{canal.rotulo}: {type(e).__name__}: {e}")
-                resultado.canais_falhos.append(canal.rotulo)
+                self._marca_falha(resultado, canal)
                 continue
 
             resultado.canais_ok.append(canal.rotulo)
             self.log(f"    · {canal.rotulo}: {len(itens)} itens")
+            detalhe = {"canal": canal.rotulo, "url": canal.url,
+                       "itens_brutos": len(itens),
+                       "amostra_hierarquia": sorted({
+                           (i.get("hierarquia") or "")[:60] for i in itens if i.get("hierarquia")
+                       })[:3]}
+            resultado.canais_detalhe.append(detalhe)
             self._absorver(resultado, itens, canal)
+            detalhe["itens_relevantes"] = len(resultado.itens) - self._itens_antes
 
         if not resultado.canais_ok:
             raise FonteIndisponivel(
                 "nenhum canal respondeu — " + (resultado.erro_resumo() or "sem detalhe"))
 
+    @staticmethod
+    def _marca_falha(resultado, canal):
+        resultado.canais_falhos.append(canal.rotulo)
+        if canal.obrigatorio:
+            resultado.canais_falhos_obrigatorios.append(canal.rotulo)
+        else:
+            resultado.canais_opcionais_falhos.append(canal.rotulo)
+
     def _absorver(self, resultado, itens, canal):
+        self._itens_antes = len(resultado.itens)
         for item in itens:
             resultado.itens_consultados += 1
             if not item.get("link") or not item.get("titulo"):
@@ -711,9 +895,12 @@ class Fonte:
         itens = []
         for topico, url in canal.urls():
             ctx.checar(5)
-            dados = ctx.cliente.get_json(
-                url, accept=canal.accept or "application/json",
-                headers={"X-Requested-With": "XMLHttpRequest"} if canal.opcoes.get("ajax") else None)
+            cabecalhos = {"X-Requested-With": "XMLHttpRequest"} if canal.opcoes.get("ajax") else None
+            if canal.accept and canal.accept != "application/json":
+                resp = ctx.cliente.get(url, accept=canal.accept, headers=cabecalhos)
+                dados = resp.json() if resp.ok else None
+            else:
+                dados = ctx.cliente.get_json(url, headers=cabecalhos)
             if dados is None:
                 raise FonteIndisponivel(f"JSON indisponível: {url}")
             itens += self._parser_json(dados, canal, topico)
@@ -727,6 +914,10 @@ class Fonte:
             return self._parse_ckan(dados)
         if parser == "dou_json":
             return parse_dou_json(dados)
+        if parser == "plone_search":
+            return parse_plone_search(dados)
+        if parser == "cnj_atos":
+            return parse_cnj_atos(dados)
         if parser == "lista_json":
             return self._parse_lista_json(dados, canal)
         # genérico: tenta os formatos conhecidos
@@ -812,21 +1003,38 @@ class Fonte:
         itens = []
         for _topico, url in canal.urls():
             ctx.checar(5)
-            html = ctx.cliente.get_texto(url)
-            if html is None:
-                raise FonteIndisponivel(f"HTML indisponível: {url}")
-            if canal.parser == "dou_html":
+            resp = ctx.cliente.get(url)
+            if not resp.ok:
+                raise FonteIndisponivel(f"HTML indisponível: {url} ({resp.erro or resp.status})")
+            html = resp.texto
+            if canal.parser == "dou_embutido":
+                if not DOU_RE_SCRIPT.search(html):
+                    raise FonteIndisponivel(
+                        f"busca do DOU sem bloco de resultados (layout mudou?): {url}")
+                extraidos = parse_dou_embutido(html)
+                itens += extraidos if extraidos else html_para_texto_blocos(
+                    html, canal.padrao_href or r"/web/dou/-/")
+            elif canal.parser == "dou_html":
                 itens += html_para_texto_blocos(html, canal.padrao_href)
             else:
                 if not canal.padrao_href:
                     raise FonteIndisponivel(f"canal HTML sem padrao_href: {canal.rotulo}")
-                itens += parse_html_links(html, url, canal.padrao_href,
-                                          limite=canal.opcoes.get("limite", 60))
+                extraidos = parse_html_links(html, url, canal.padrao_href,
+                                             limite=canal.opcoes.get("limite", 60))
+                if not extraidos and len(html) > 5000:
+                    # Página existe mas nenhum item foi reconhecido: ou o layout
+                    # mudou, ou a página é um desafio anti-bot. Nos dois casos o
+                    # correto é falhar o canal (nunca fingir que não há novidade).
+                    raise FonteIndisponivel(
+                        f"listagem sem itens reconhecíveis ({len(html)} bytes): {url}")
+                itens += extraidos
         return self._pos_processar(itens, canal)
 
     def _pos_processar(self, itens, canal):
         if canal.extrai:
             itens = canal.extrai(itens, canal)
+        if canal.filtro_tema:
+            itens = [i for i in itens if canal.filtro_tema(i)]
         return [i for i in itens if i.get("titulo") and i.get("link")]
 
 
