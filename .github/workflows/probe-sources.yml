@@ -6,6 +6,14 @@ name: Sonda de fontes oficiais (diagnóstico)
 # evidência real, qual fonte estruturada cada coletor usa.
 on:
   workflow_dispatch:
+  # Permite rodar o diagnóstico a partir de uma branch de trabalho (o dispatch
+  # só é liberado depois que o workflow entra na branch default).
+  push:
+    branches: ["arena/**", "main"]
+    paths:
+      - ".github/probe-trigger"
+      - "scripts/probe_sources.py"
+      - ".github/workflows/probe-sources.yml"
     inputs:
       orgao:
         description: "Órgão a sondar (anpd, cnj, tse, dou, planalto, mcti) — vazio = todos"
