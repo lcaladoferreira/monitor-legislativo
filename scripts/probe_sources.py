@@ -164,6 +164,8 @@ def main(argv=None):
     ap.add_argument("--limite-exemplo", type=int, default=400)
     ap.add_argument("--salvar-dir", default=None,
                     help="diretório para gravar os corpos (para inspeção offline)")
+    ap.add_argument("--amostra-bytes", type=int, default=24000,
+                    help="bytes preservados por endpoint no arquivo de amostras")
     args = ap.parse_args(argv)
 
     alvos = [c for c in CANDIDATOS if not args.orgao or c[0] in args.orgao]
@@ -197,6 +199,12 @@ def main(argv=None):
                 ext = ".json" if "json" in res["ct"] else (".xml" if "xml" in res["ct"] else ".html")
                 with open(os.path.join(args.salvar_dir, nome + ext), "wb") as f:
                     f.write(body[:400000])
+                campos = ["TIT:", "DATA:", "RES:", "URL:"] if "json" in res["ct"] else []
+                with open(os.path.join(args.salvar_dir, "amostras", nome + ".txt"),
+                          "w", encoding="utf-8") as f:
+                    f.write(f"URL: {url}\nACCEPT: {accept}\nSTATUS: {res['status']} "
+                            f"CT: {res['ct']}\nSINAIS: {resumo_estrutura(body)}\n---\n")
+                    f.write(txt[:args.amostra_bytes])
 
     print(f"\n--- {ok_total}/{len(alvos)} candidatos responderam 200 ---")
     if args.salvar_dir:
