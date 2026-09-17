@@ -431,7 +431,7 @@
 
 === [tse] noticias-pagina2 (modo=base)
     GET https://www.tse.jus.br/comunicacao/noticias?b_start:int=20
-    status=200 ct=text/html;charset=utf-8 bytes=190177 t=0.07s
+    status=200 ct=text/html;charset=utf-8 bytes=190177 t=0.1s
     info: {"links": 292}
     amostra: <!DOCTYPE html> <html xmlns="http://www.w3.org/1999/xhtml" lang="pt-br" xml:lang="pt-br"> <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><base href="https://www.tse.jus.br/comunicacao/noticias" /> <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> <meta http-equiv="X-UA-Compatible" content="IE=edge" /> <title>Notícias — Tribu
 
