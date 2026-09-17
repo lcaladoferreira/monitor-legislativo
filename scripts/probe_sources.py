@@ -105,6 +105,44 @@ CANDIDATOS = [
     ("senado", "pesquisa", "https://legis.senado.leg.br/dadosabertos/materia/pesquisa/lista?sigla=PL&ano=2026&v=7", "application/json"),
 ]
 
+# ------------------------------------------- candidatos plone.restapi (@search)
+# Os sites do gov.br migraram para Volto (React): o HTML cru não traz a
+# listagem. A API oficial por trás dessas páginas é o plone.restapi (++api++),
+# com o endpoint @search — estruturado, paginado e estável.
+API_GOVBR = [
+    ("anpd", "api-root", "https://www.gov.br/anpd/++api++", "application/json"),
+    ("anpd", "api-search-noticias", "https://www.gov.br/anpd/++api++/@search?portal_type=News%20Item&b_size=5&sort_on=effective&sort_order=descending", "application/json"),
+    ("anpd", "api-search-noticias-path", "https://www.gov.br/anpd/++api++/@search?path=/anpd/pt-br/assuntos/noticias&b_size=5&sort_on=effective&sort_order=descending", "application/json"),
+    ("anpd", "api-search-tema", "https://www.gov.br/anpd/++api++/@search?SearchableText=inteligencia%20artificial&b_size=5", "application/json"),
+    ("anpd", "api-folder-noticias", "https://www.gov.br/anpd/++api++/pt-br/assuntos/noticias?b_size=5", "application/json"),
+    ("anpd", "api-folder-legislacao", "https://www.gov.br/anpd/++api++/pt-br/assuntos/legislacao?b_size=5", "application/json"),
+    ("anpd", "api-folder-regulacao", "https://www.gov.br/anpd/++api++/pt-br/assuntos/regulacao?b_size=5", "application/json"),
+    ("anpd", "api-search-documentos", "https://www.gov.br/anpd/++api++/@search?portal_type=File&b_size=5&sort_on=effective&sort_order=descending", "application/json"),
+    ("mcti", "api-root", "https://www.gov.br/mcti/++api++", "application/json"),
+    ("mcti", "api-search-noticias", "https://www.gov.br/mcti/++api++/@search?portal_type=News%20Item&b_size=5&sort_on=effective&sort_order=descending", "application/json"),
+    ("mcti", "api-search-tema", "https://www.gov.br/mcti/++api++/@search?SearchableText=inteligencia%20artificial&b_size=5", "application/json"),
+    ("mcti", "api-search-portarias", "https://www.gov.br/mcti/++api++/@search?SearchableText=portaria&portal_type=File&b_size=5", "application/json"),
+    ("mcti", "api-search-legislacao-path", "https://www.gov.br/mcti/++api++/@search?path=/mcti/pt-br/acesso-a-informacao/legislacao&b_size=5&sort_on=effective&sort_order=descending", "application/json"),
+    ("planalto", "api-root", "https://www.gov.br/planalto/++api++", "application/json"),
+    ("planalto", "api-search-noticias", "https://www.gov.br/planalto/++api++/@search?portal_type=News%20Item&b_size=5&sort_on=effective&sort_order=descending", "application/json"),
+    ("planalto", "api-search-tema", "https://www.gov.br/planalto/++api++/@search?SearchableText=inteligencia%20artificial&b_size=5", "application/json"),
+    ("tse", "api-root", "https://www.tse.jus.br/++api++", "application/json"),
+    ("tse", "api-search-noticias", "https://www.tse.jus.br/++api++/@search?portal_type=News%20Item&b_size=5&sort_on=effective&sort_order=descending", "application/json"),
+    ("tse", "api-search-tema", "https://www.tse.jus.br/++api++/@search?SearchableText=inteligencia%20artificial&b_size=5", "application/json"),
+    ("tse", "api-search-resolucao", "https://www.tse.jus.br/++api++/@search?SearchableText=resolucao%20inteligencia%20artificial&b_size=5", "application/json"),
+    ("cnj", "api-root", "https://www.cnj.jus.br/wp-json", "application/json"),
+    ("cnj", "wp-busca-ia-sem-artificial", "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=intelig%C3%AAncia%20artificial%20IA&per_page=3&_fields=id,date,link,title", "application/json"),
+    ("cnj", "wp-busca-IA", "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=IA&per_page=3&_fields=id,date,link,title", "application/json"),
+    ("cnj", "wp-busca-lgpd", "https://www.cnj.jus.br/wp-json/wp/v2/posts?search=LGPD&per_page=3&_fields=id,date,link,title", "application/json"),
+    ("dou", "busca-json-ajax", "https://www.in.gov.br/consulta/-/buscar/dou?q=intelig%C3%AAncia+artificial&s=todos&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=10-09-2026&publishTo=17-09-2026", "application/json"),
+    ("dou", "secao1-dia", "https://www.in.gov.br/leiturajornal?data=17-09-2026&secao=do1", "application/json"),
+    ("dou", "api-oficial", "https://www.in.gov.br/api/consulta/publicacao?data=17-09-2026&secao=do1", "application/json"),
+    ("dou", "busca-titulo", "https://www.in.gov.br/consulta/-/buscar/dou?q=%22intelig%C3%AAncia+artificial%22&s=titulo&exactDate=personalizado&sortType=0&delta=20&currentPage=1&publishFrom=01-01-2026&publishTo=17-09-2026", None),
+    ("planalto", "planalto-lexml-novo", "https://www.lexml.gov.br/busca/search?keyword=inteligencia+artificial", None),
+    ("planalto", "planalto-legislacao-pesquisa", "https://www4.planalto.gov.br/legislacao/portal-legis/legislacao-1", None),
+]
+CANDIDATOS = CANDIDATOS + API_GOVBR
+
 MARCADORES = [
     ("json", lambda b, ct: ct.startswith("application/json") or b.lstrip()[:1] in "{["),
     ("rss", lambda b, ct: "<rss" in b[:2000].lower() or "<feed" in b[:2000].lower()),
@@ -170,7 +208,7 @@ def main(argv=None):
 
     alvos = [c for c in CANDIDATOS if not args.orgao or c[0] in args.orgao]
     if args.salvar_dir:
-        os.makedirs(args.salvar_dir, exist_ok=True)
+        os.makedirs(os.path.join(args.salvar_dir, "amostras"), exist_ok=True)
 
     ok_total = 0
     linhas_resumo = []
