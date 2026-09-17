@@ -122,12 +122,22 @@ jobs:
         run: |
           git config user.name "monitor-legislativo-bot"
           git config user.email "monitor-legislativo-bot@users.noreply.github.com"
-          git add -A out/probe out/probe.log out/probe_rodada4.log \
-            out/probe_canais.log out/fontes_reais.json out/fontes_reais.log
+          git add -Af out/probe out/probe.log out/probe_rodada4.log \
+            out/probe_canais.log out/fontes_reais.json out/fontes_reais.log \
             out/execucao_dry_run.log
+          echo "--- arquivos a publicar ---"
+          git status --porcelain | head -40
           if git diff --cached --quiet; then
             echo "Diagnóstico sem alterações a publicar."
-          else
-            git commit -m "chore(diag): sonda e ensaio das fontes oficiais"
+            exit 0
+          fi
+          git commit -m "chore(diag): sonda e ensaio das fontes oficiais"
+          echo "--- push ---"
+          if ! git push origin HEAD:${{ github.ref_name }}; then
+            # corrida com outro push no mesmo branch: sincroniza e repete
+            echo "push recusado — sincronizando com o branch e repetindo"
+            git fetch origin ${{ github.ref_name }}
+            git rebase origin/${{ github.ref_name }} || git rebase --abort || true
             git push origin HEAD:${{ github.ref_name }}
           fi
+          git log --oneline -1
