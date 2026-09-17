@@ -16,6 +16,7 @@ on:
 
 permissions:
   contents: write
+  pull-requests: write
 
 env:
   PYTHONUNBUFFERED: "1"
@@ -50,6 +51,32 @@ jobs:
           name: probe-${{ github.run_id }}
           path: out/probe
           retention-days: 7
+      - name: Publicar a sonda como comentário no PR (leitura externa ao CI)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          n=$(gh pr list --head "${{ github.ref_name }}" --state open --json number --jq '.[0].number' || true)
+          if [ -z "$n" ]; then echo "sem PR aberto para este branch"; exit 0; fi
+          {
+            echo "### Sonda de fontes oficiais (\`${{ github.run_id }}\`)"
+            echo
+            echo '```'
+            grep -E "^(=== |    status=|    sinais=|    erro=|--- )" out/probe.log || tail -50 out/probe.log
+            echo '```'
+            echo
+            echo "<details><summary>Amostras dos corpos (1ºs caracteres)</summary>"
+            echo
+            echo '```'
+            for f in out/probe/amostras/*.txt; do echo "### $f"; head -c 1500 "$f"; echo; echo "-----"; done
+            echo '```'
+            echo
+            echo "</details>"
+          } > /tmp/comentario.md
+          gh pr comment "$n" --body-file /tmp/comentario.md
+          echo "comentário publicado no PR #$n"
+
       - name: Publicar a sonda no branch (CI externo não lê artifacts)
         if: always()
         continue-on-error: true
@@ -65,3 +92,4 @@ jobs:
             git commit -m "chore(diag): resultado da sonda de fontes [skip ci]"
             git push origin HEAD:${{ github.ref_name }} || echo "push recusado"
           fi
+          echo "publish-step-fim status=$?"
