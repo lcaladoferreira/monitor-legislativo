@@ -1,19 +1,20 @@
 {
-  "gerado_em": "2026-09-17T17:35:29-03:00",
+  "gerado_em": "2026-09-17T17:44:10-03:00",
   "status_global": "OK",
   "fontes": {
     "anpd": {
       "nome": "ANPD — Autoridade Nacional de Proteção de Dados",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T17:33:17-03:00",
+      "ultima_tentativa": "2026-09-17T17:42:41-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 281,
-      "itens_relevantes": 120,
-      "itens_descartados": 161,
-      "revisao_pendente": 22,
+      "itens_relevantes": 58,
+      "itens_descartados": 142,
+      "itens_duplicados": 81,
+      "revisao_pendente": 13,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 8.4,
+      "duracao_segundos": 8.9,
       "endpoints": [
         "https://www.gov.br/anpd/++api++/@search",
         "https://www.gov.br/anpd/++api++/@search",
@@ -46,7 +47,7 @@
           "url": "https://www.gov.br/anpd/++api++/@search",
           "itens_brutos": 59,
           "amostra_hierarquia": [],
-          "itens_relevantes": 49
+          "itens_relevantes": 0
         },
         {
           "canal": "regulação e normas",
@@ -60,14 +61,14 @@
           "url": "https://www.gov.br/anpd/++api++/@search",
           "itens_brutos": 47,
           "amostra_hierarquia": [],
-          "itens_relevantes": 12
+          "itens_relevantes": 6
         },
         {
           "canal": "tomada de subsídios",
           "url": "https://www.gov.br/anpd/++api++/@search",
           "itens_brutos": 45,
           "amostra_hierarquia": [],
-          "itens_relevantes": 23
+          "itens_relevantes": 16
         },
         {
           "canal": "atos normativos (arquivos)",
@@ -82,12 +83,12 @@
         "chamadas": 15,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 8.37,
+        "tempo_total": 8.87,
         "por_endpoint": {
           "gov.br/anpd/++api++/@search": {
             "chamadas": 15,
             "falhas": 0,
-            "tempo_total": 8.37
+            "tempo_total": 8.87
           }
         }
       },
@@ -186,24 +187,23 @@
     "cnj": {
       "nome": "CNJ — Conselho Nacional de Justiça",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T17:33:26-03:00",
+      "ultima_tentativa": "2026-09-17T17:42:50-03:00",
       "ultima_execucao_ok": null,
-      "itens_consultados": 120,
-      "itens_relevantes": 16,
-      "itens_descartados": 104,
-      "revisao_pendente": 10,
+      "itens_consultados": 110,
+      "itens_relevantes": 15,
+      "itens_descartados": 95,
+      "itens_duplicados": 0,
+      "revisao_pendente": 9,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 4.1,
+      "duracao_segundos": 3.1,
       "endpoints": [
-        "https://atos.cnj.jus.br/api/atos",
         "https://atos.cnj.jus.br/api/atos",
         "https://www.cnj.jus.br/wp-json/wp/v2/posts",
         "https://www.cnj.jus.br/wp-json/wp/v2/posts"
       ],
       "canais_ok": [
         "atos normativos recentes",
-        "atos normativos recentes (página 2)",
         "notícias oficiais",
         "notícias oficiais (página 2)"
       ],
@@ -213,13 +213,6 @@
       "canais_detalhe": [
         {
           "canal": "atos normativos recentes",
-          "url": "https://atos.cnj.jus.br/api/atos",
-          "itens_brutos": 10,
-          "amostra_hierarquia": [],
-          "itens_relevantes": 1
-        },
-        {
-          "canal": "atos normativos recentes (página 2)",
           "url": "https://atos.cnj.jus.br/api/atos",
           "itens_brutos": 10,
           "amostra_hierarquia": [],
@@ -242,36 +235,25 @@
       ],
       "erro_detalhe": null,
       "http": {
-        "chamadas": 4,
+        "chamadas": 3,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 4.12,
+        "tempo_total": 3.07,
         "por_endpoint": {
           "atos.cnj.jus.br/api/atos": {
-            "chamadas": 2,
+            "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.69
+            "tempo_total": 0.77
           },
           "cnj.jus.br/wp-json/wp/v2/posts": {
             "chamadas": 2,
             "falhas": 0,
-            "tempo_total": 2.42
+            "tempo_total": 2.3
           }
         }
       },
       "erro_fatal": null,
       "amostra": [
-        {
-          "id": "cnj_atos_cnj_jus_br_atos_detalhar_7034",
-          "tipo": "ato_normativo",
-          "titulo": "Portaria CNJ nº 420",
-          "data": "2026-09-08",
-          "url_oficial": "https://atos.cnj.jus.br/atos/detalhar/7034",
-          "relevancia": "revisar",
-          "revisao_pendente": true,
-          "hierarquia": null,
-          "situacao": "Vigente"
-        },
         {
           "id": "cnj_atos_cnj_jus_br_atos_detalhar_7034",
           "tipo": "ato_normativo",
@@ -348,21 +330,33 @@
           "revisao_pendente": true,
           "hierarquia": null,
           "situacao": null
+        },
+        {
+          "id": "cnj_cnj_jus_br_oficinas_buscam_solucoes_inovadoras_para_tratamento_de_processos_estruturais",
+          "tipo": "noticia",
+          "titulo": "Oficinas buscam soluções inovadoras para tratamento de processos estruturais",
+          "data": "2026-09-08",
+          "url_oficial": "https://www.cnj.jus.br/oficinas-buscam-solucoes-inovadoras-para-tratamento-de-processos-estruturais/",
+          "relevancia": "revisar",
+          "revisao_pendente": true,
+          "hierarquia": null,
+          "situacao": null
         }
       ]
     },
     "tse": {
       "nome": "TSE — Tribunal Superior Eleitoral",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T17:33:30-03:00",
+      "ultima_tentativa": "2026-09-17T17:42:53-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 5,
       "itens_relevantes": 0,
       "itens_descartados": 5,
+      "itens_duplicados": 0,
       "revisao_pendente": 0,
       "novidades": 0,
       "erros": 3,
-      "duracao_segundos": 25.6,
+      "duracao_segundos": 18.1,
       "endpoints": [
         "https://www.in.gov.br/consulta/-/buscar/dou",
         "https://www.in.gov.br/consulta/-/buscar/dou",
@@ -372,7 +366,7 @@
       ],
       "canais_ok": [
         "atos do TSE por tema (DOU)",
-        "resoluções do TSE (DOU, título)"
+        "resoluções do TSE (DOU, órgão/subórgão)"
       ],
       "canais_falhos": [
         "notícias oficiais",
@@ -397,7 +391,7 @@
           "itens_relevantes": 0
         },
         {
-          "canal": "resoluções do TSE (DOU, título)",
+          "canal": "resoluções do TSE (DOU, órgão/subórgão)",
           "url": "https://www.in.gov.br/consulta/-/buscar/dou",
           "itens_brutos": 0,
           "amostra_hierarquia": [],
@@ -409,27 +403,27 @@
         "chamadas": 14,
         "falhas": 3,
         "cache": 0,
-        "tempo_total": 25.58,
+        "tempo_total": 18.05,
         "por_endpoint": {
           "dadosabertos.tse.jus.br/api/3/action/package_search": {
             "chamadas": 1,
             "falhas": 1,
-            "tempo_total": 0.33
+            "tempo_total": 0.28
           },
           "in.gov.br/consulta/-/buscar/dou": {
             "chamadas": 11,
             "falhas": 0,
-            "tempo_total": 24.76
+            "tempo_total": 17.0
           },
           "tse.jus.br/comunicacao/noticias": {
             "chamadas": 1,
             "falhas": 1,
-            "tempo_total": 0.34
+            "tempo_total": 0.38
           },
           "tse.jus.br/legislacao/compilada": {
             "chamadas": 1,
             "falhas": 1,
-            "tempo_total": 0.16
+            "tempo_total": 0.39
           }
         }
       },
@@ -439,15 +433,16 @@
     "dou": {
       "nome": "DOU — Diário Oficial da União (Imprensa Nacional)",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T17:33:56-03:00",
+      "ultima_tentativa": "2026-09-17T17:43:11-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 150,
-      "itens_relevantes": 113,
-      "itens_descartados": 37,
-      "revisao_pendente": 30,
+      "itens_relevantes": 102,
+      "itens_descartados": 34,
+      "itens_duplicados": 14,
+      "revisao_pendente": 28,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 43.1,
+      "duracao_segundos": 14.4,
       "endpoints": [
         "https://www.in.gov.br/consulta/-/buscar/dou"
       ],
@@ -467,20 +462,20 @@
             "Conselho Nacional do Ministério Público/Secretaria-Geral",
             "Editais e Avisos/Ministério da Educação"
           ],
-          "itens_relevantes": 113
+          "itens_relevantes": 102
         }
       ],
       "erro_detalhe": null,
       "http": {
-        "chamadas": 11,
-        "falhas": 1,
+        "chamadas": 10,
+        "falhas": 0,
         "cache": 0,
-        "tempo_total": 41.52,
+        "tempo_total": 14.39,
         "por_endpoint": {
           "in.gov.br/consulta/-/buscar/dou": {
-            "chamadas": 11,
-            "falhas": 1,
-            "tempo_total": 41.52
+            "chamadas": 10,
+            "falhas": 0,
+            "tempo_total": 14.38
           }
         }
       },
@@ -579,15 +574,16 @@
     "planalto": {
       "nome": "Planalto — Presidência da República",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T17:34:39-03:00",
+      "ultima_tentativa": "2026-09-17T17:43:25-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 59,
-      "itens_relevantes": 12,
-      "itens_descartados": 47,
-      "revisao_pendente": 5,
+      "itens_relevantes": 6,
+      "itens_descartados": 24,
+      "itens_duplicados": 29,
+      "revisao_pendente": 2,
       "novidades": 0,
       "erros": 0,
-      "duracao_segundos": 34.1,
+      "duracao_segundos": 28.1,
       "endpoints": [
         "https://www.in.gov.br/consulta/-/buscar/dou",
         "https://www.in.gov.br/consulta/-/buscar/dou",
@@ -611,7 +607,7 @@
           "amostra_hierarquia": [
             "Atos do Poder Legislativo"
           ],
-          "itens_relevantes": 6
+          "itens_relevantes": 3
         },
         {
           "canal": "atos da Presidência (decretos, MPs)",
@@ -632,7 +628,7 @@
           "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias",
           "itens_brutos": 26,
           "amostra_hierarquia": [],
-          "itens_relevantes": 3
+          "itens_relevantes": 0
         }
       ],
       "erro_detalhe": null,
@@ -640,22 +636,22 @@
         "chamadas": 22,
         "falhas": 0,
         "cache": 0,
-        "tempo_total": 34.08,
+        "tempo_total": 28.11,
         "por_endpoint": {
           "gov.br/planalto/pt-br/acompanhe-o-planalto/noticias": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.57
+            "tempo_total": 1.67
           },
           "gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.25
+            "tempo_total": 1.11
           },
           "in.gov.br/consulta/-/buscar/dou": {
             "chamadas": 20,
             "falhas": 0,
-            "tempo_total": 31.26
+            "tempo_total": 25.33
           }
         }
       },
@@ -684,44 +680,11 @@
           "situacao": null
         },
         {
-          "id": "planalto_in_gov_br_web_dou_lei_n_15_503_de_14_de_setembro_de_2026_731640068",
-          "tipo": "lei",
-          "titulo": "LEI Nº 15.503, DE 14 DE SETEMBRO DE 2026",
-          "data": "2026-09-14",
-          "url_oficial": "https://www.in.gov.br/web/dou/-/lei-n-15.503-de-14-de-setembro-de-2026-731640068",
-          "relevancia": "revisar",
-          "revisao_pendente": true,
-          "hierarquia": "Atos do Poder Legislativo",
-          "situacao": null
-        },
-        {
           "id": "planalto_in_gov_br_web_dou_lei_n_15_502_de_10_de_setembro_de_2026_730982911",
           "tipo": "lei",
           "titulo": "LEI Nº 15.502, DE 10 DE SETEMBRO DE 2026",
           "data": "2026-09-10",
           "url_oficial": "https://www.in.gov.br/web/dou/-/lei-n-15.502-de-10-de-setembro-de-2026-730982911",
-          "relevancia": "forte",
-          "revisao_pendente": false,
-          "hierarquia": "Atos do Poder Legislativo",
-          "situacao": null
-        },
-        {
-          "id": "planalto_in_gov_br_web_dou_lei_n_15_503_de_14_de_setembro_de_2026_731640068",
-          "tipo": "lei",
-          "titulo": "LEI Nº 15.503, DE 14 DE SETEMBRO DE 2026",
-          "data": "2026-09-14",
-          "url_oficial": "https://www.in.gov.br/web/dou/-/lei-n-15.503-de-14-de-setembro-de-2026-731640068",
-          "relevancia": "forte",
-          "revisao_pendente": false,
-          "hierarquia": "Atos do Poder Legislativo",
-          "situacao": null
-        },
-        {
-          "id": "planalto_in_gov_br_web_dou_lei_n_15_504_de_15_de_setembro_de_2026_731892072",
-          "tipo": "lei",
-          "titulo": "LEI Nº 15.504, DE 15 DE SETEMBRO DE 2026",
-          "data": "2026-09-15",
-          "url_oficial": "https://www.in.gov.br/web/dou/-/lei-n-15.504-de-15-de-setembro-de-2026-731892072",
           "relevancia": "forte",
           "revisao_pendente": false,
           "hierarquia": "Atos do Poder Legislativo",
@@ -748,21 +711,33 @@
           "revisao_pendente": false,
           "hierarquia": null,
           "situacao": null
+        },
+        {
+          "id": "planalto_gov_br_planalto_pt_br_acompanhe_o_planalto_noticias_presidente_da_republica_participa_de_encontro_com_lideranc",
+          "tipo": "noticia",
+          "titulo": "Presidente da República participa de encontro com lideranças do sistema de ciência e tecnologia no Brasil",
+          "data": "2026-07-23",
+          "url_oficial": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/presidente-da-republica-participa-de-encontro-com-liderancas-do-sistema-de-ciencia-e-tecnologia-no-brasil",
+          "relevancia": "revisar",
+          "revisao_pendente": true,
+          "hierarquia": null,
+          "situacao": null
         }
       ]
     },
     "mcti": {
       "nome": "MCTI — Ministério da Ciência, Tecnologia e Inovação",
       "status": "ok",
-      "ultima_tentativa": "2026-09-17T17:35:13-03:00",
+      "ultima_tentativa": "2026-09-17T17:43:54-03:00",
       "ultima_execucao_ok": null,
       "itens_consultados": 51,
-      "itens_relevantes": 25,
+      "itens_relevantes": 23,
       "itens_descartados": 26,
+      "itens_duplicados": 2,
       "revisao_pendente": 13,
       "novidades": 0,
       "erros": 3,
-      "duracao_segundos": 16.4,
+      "duracao_segundos": 16.0,
       "endpoints": [
         "https://www.in.gov.br/consulta/-/buscar/dou",
         "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/RSS",
@@ -795,7 +770,7 @@
             "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Min",
             "Ministério da Ciência, Tecnologia e Inovação/Instituto Nacio"
           ],
-          "itens_relevantes": 17
+          "itens_relevantes": 15
         },
         {
           "canal": "notícias institucionais",
@@ -805,37 +780,37 @@
           "itens_relevantes": 8
         }
       ],
-      "erro_detalhe": "notícias institucionais (RSS oficial): RSS indisponível: https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/RSS (HTTP 404); portarias publicadas: listagem sem itens reconhecíveis (158438 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias; planos, programas e consultas: HTML indisponível: https://www.gov.br/mcti/pt-br/acesso-a-informacao/participacao-social/consultas-publicas (HTTP 404)",
+      "erro_detalhe": "notícias institucionais (RSS oficial): RSS indisponível: https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/RSS (HTTP 404); portarias publicadas: listagem sem itens reconhecíveis (158491 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias; planos, programas e consultas: HTML indisponível: https://www.gov.br/mcti/pt-br/acesso-a-informacao/participacao-social/consultas-publicas (HTTP 404)",
       "http": {
         "chamadas": 14,
         "falhas": 2,
         "cache": 0,
-        "tempo_total": 16.4,
+        "tempo_total": 15.95,
         "por_endpoint": {
           "gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.44
+            "tempo_total": 1.3
           },
           "gov.br/mcti/pt-br/acesso-a-informacao/participacao-social/consultas-publicas": {
             "chamadas": 1,
             "falhas": 1,
-            "tempo_total": 1.24
+            "tempo_total": 1.3
           },
           "gov.br/mcti/pt-br/acompanhe-o-mcti/noticias": {
             "chamadas": 1,
             "falhas": 0,
-            "tempo_total": 1.98
+            "tempo_total": 2.23
           },
           "gov.br/mcti/pt-br/acompanhe-o-mcti/noticias/RSS": {
             "chamadas": 1,
             "falhas": 1,
-            "tempo_total": 0.57
+            "tempo_total": 0.58
           },
           "in.gov.br/consulta/-/buscar/dou": {
             "chamadas": 10,
             "falhas": 0,
-            "tempo_total": 11.18
+            "tempo_total": 10.56
           }
         }
       },
