@@ -1,0 +1,16 @@
+
+=== [anpd] noticias-lista
+    GET https://www.gov.br/anpd/pt-br/assuntos/noticias
+    status=200 ct=text/html; charset=utf-8 bytes=325594 t=2.58s final=https://www.gov.br/anpd/pt-br/assuntos/noticias
+    sinais: links=11,paginacao=b_start
+    amostra: <!doctype html> <html lang="pt-br"><head><meta charSet="utf-8"/><title data-react-helmet="true">Notícias</title><meta data-react-helmet="true" name="description" content=""/><meta data-react-helmet="true" property="og:site_name" content="Agência Nacional de Proteção de Dados"/><meta data-react-helmet="true" property="og:title" content="Notícias"/><meta data-react-helmet="true" property="og:url" content="https://www.gov.br/anpd/pt-br/assuntos/noticias"/><meta data-react-helmet="true" name="twitter:card" content="summary_large_image"/><script type="text/javascript" src="/ruxitagentjs_ICA
+Traceback (most recent call last):
+  File "/home/runner/work/monitor-legislativo/monitor-legislativo/scripts/probe_sources.py", line 218, in <module>
+    sys.exit(main())
+             ~~~~^^
+  File "/home/runner/work/monitor-legislativo/monitor-legislativo/scripts/probe_sources.py", line 203, in main
+    with open(os.path.join(args.salvar_dir, "amostras", nome + ".txt"),
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+              "w", encoding="utf-8") as f:
+              ^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'out/probe/amostras/anpd__noticias-lista.txt'
