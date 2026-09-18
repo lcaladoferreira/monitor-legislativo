@@ -391,7 +391,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
     <div>
       <h4>Metodologia</h4>
       <p>Última execução do monitoramento: <b>{fmt_date(EXECUTION_DATE)}</b>.<br>
-      Fontes primárias: Câmara, Senado, Congresso, Planalto, DOU, TSE, CNJ e ANPD.<br>
+      Fontes primárias: Câmara, Senado, Congresso, Planalto, DOU, TSE, CNJ, ANPD e MCTI.<br>
       <a href="{SITE_URL}/metodologia/">Metodologia completa</a> ·
       <a href="{SITE_URL}/relatorio/">Relatório da execução</a></p>
     </div>
@@ -440,7 +440,13 @@ def change_card(m, by_id):
 
 
 def run_summary():
-    """Resumo da última execução para blocos de verificação."""
+    """Resumo da última execução para blocos de verificação.
+
+    Consolida as fontes legislativas tradicionais (Câmara/Senado) com os
+    conectores multiórgão registrados em `fontes_monitoradas`. Assim o
+    relatório reflete exatamente o que a execução realmente consultou, sem
+    hardcode de órgãos adicionais no HTML.
+    """
     run = EXECUTION_RUN or {}
     dh = run.get("data_hora", EXECUTION_DATE)
     data = fmt_date(dh)
@@ -448,7 +454,26 @@ def run_summary():
     m = re.search(r"T(\d{2}:\d{2})", str(dh))
     if m:
         hora = m.group(1) + " (BRT)"
-    fontes = run.get("fontes_consultadas", [])
+
+    fontes = list(run.get("fontes_consultadas", []) or [])
+    fontes_monitoradas = run.get("fontes_monitoradas") or {}
+
+    if isinstance(fontes_monitoradas, dict):
+        for chave, info in fontes_monitoradas.items():
+            # Câmara e Senado já aparecem detalhados em fontes_consultadas.
+            if chave in ("camara", "senado") or not info:
+                continue
+            rotulo = ROTULO_ORGAO.get(chave, str(chave).upper())
+            endpoints = info.get("endpoints") or []
+            if endpoints:
+                for endpoint in endpoints:
+                    fontes.append(f"{rotulo} — {endpoint}")
+            else:
+                fontes.append(rotulo)
+
+    # Preserva ordem e remove duplicatas.
+    fontes = list(dict.fromkeys(fontes))
+
     return {
         "data": data, "hora": hora or "—",
         "fontes": fontes,
