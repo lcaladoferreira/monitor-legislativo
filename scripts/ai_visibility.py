@@ -10,6 +10,53 @@ Implements technical foundations without changing title/H1/keyword targeting:
 - Organization structured data and discovery links in <head>
 """
 import json
+import os
+
+
+def _artigos_para_descoberta(core):
+    """Artigos publicados do dataset editorial (tolerante à ausência)."""
+    try:
+        path = os.path.join(core.BASE, "data", "articles", "articles.json")
+        with open(path, encoding="utf-8") as f:
+            dados = json.load(f)
+        return [a for a in dados.get("artigos", []) if a.get("status") == "published"]
+    except (OSError, ValueError, AttributeError):
+        return []
+
+
+def _ordenar_por_frescor(artigos):
+    return sorted(artigos,
+                  key=lambda a: (a.get("modified_at") or a.get("published_at") or ""),
+                  reverse=True)
+
+
+def secao_artigos_llms(core, artigos, max_itens=12):
+    """Bloco do llms.txt: artigos como páginas citáveis, com datas."""
+    if not artigos:
+        return ""
+    linhas = [f'- [Artigos — índice]({core.SITE_URL}/artigos/): '
+              f'análises factuais de regulação de IA, atualizadas na mesma URL quando o assunto evolui']
+    for a in _ordenar_por_frescor(artigos)[:max_itens]:
+        pub, mod = a.get("published_at"), a.get("modified_at")
+        datas = f"publicado {pub}" + (f", atualizado {mod}" if mod and mod != pub else "")
+        linhas.append(f'- [{a.get("title", "")[:110]}]({core.SITE_URL}/{a.get("url")}) — {datas}: '
+                      f'{(a.get("summary") or "")[:140]}')
+    return "\n".join(linhas)
+
+
+def secao_artigos_llms_full(core, artigos, max_itens=50):
+    if not artigos:
+        return ""
+    linhas = ["## Published articles (auto-updated on the same URL)"]
+    for a in _ordenar_por_frescor(artigos)[:max_itens]:
+        pub, mod = a.get("published_at"), a.get("modified_at")
+        fontes = "; ".join(s.get("url") or "" for s in (a.get("official_sources") or [])[:2])
+        linhas.append(
+            f'- [{a.get("title", "")[:110]}]({core.SITE_URL}/{a.get("url")})\n'
+            f'  published {pub}' + (f'; modified {mod}' if mod and mod != pub else '') +
+            f'\n  summary: {(a.get("summary") or "")[:300]}\n'
+            f'  official sources: {fontes}')
+    return "\n".join(linhas)
 
 
 def install(core):
@@ -46,6 +93,8 @@ def install(core):
     def write_ai_files():
         props = core.load("propositions.json").get("proposicoes", [])
         top = sorted(props, key=lambda p: -(p.get("impacto") or {}).get("score", 0))[:20]
+        artigos = _artigos_para_descoberta(core)
+        secao_artigos = secao_artigos_llms(core, artigos)
 
         llms = f"""# Monitor Legislativo de IA
 
@@ -67,6 +116,9 @@ def install(core):
 - [Laws JSON]({core.SITE_URL}/data/laws.json)
 - [Events JSON]({core.SITE_URL}/data/events.json)
 - [Monitoring JSON]({core.SITE_URL}/data/monitoramento.json)
+
+## Artigos (análises factuais geradas pelo monitor)
+{secao_artigos}
 
 ## AI / Agent Discovery
 - [LLMs full]({core.SITE_URL}/llms-full.txt)
@@ -96,6 +148,8 @@ Facts are grounded in primary sources including Câmara dos Deputados, Senado Fe
 
 Last build reference: {core.EXECUTION_DATE}.
 """
+        if artigos:
+            llms_full = llms_full + "\n\n" + secao_artigos_llms_full(core, artigos)
         core.write("llms-full.txt", llms_full)
 
         md = f"""# Monitor Legislativo de IA — AI-readable index
@@ -116,7 +170,11 @@ Public, structured monitoring of Brazilian federal legislation and regulation re
 - Methodology: {core.SITE_URL}/metodologia/
 - Executive report: {core.SITE_URL}/relatorio/
 
+## Articles & analysis
+{core.SITE_URL}/artigos/ — fact-based analyses generated from the monitoring dataset. Each article states what changed, the current official status, why it matters, what happens next, and cites official sources. Articles keep one permanent URL and are updated in place (dateModified reflects real content changes). Structured feed: {core.SITE_URL}/data/articles.json (datePublished/dateModified per article).
+
 ## Machine-readable feeds
+- {core.SITE_URL}/data/articles.json (published articles with dates and official sources)
 - {core.SITE_URL}/data/propositions.json
 - {core.SITE_URL}/data/updates.json
 - {core.SITE_URL}/data/laws.json
@@ -167,6 +225,13 @@ Public reading and citation are allowed. Legislative facts should be verified ag
                     "description": "Retrieve the public structured feed of detected legislative changes.",
                     "method": "GET",
                     "endpoint": f"{core.SITE_URL}/data/updates.json",
+                },
+                {
+                    "id": "read-articles",
+                    "name": "Read published articles",
+                    "description": "Retrieve the structured feed of editorial articles (analyses) generated from detected legislative changes, with datePublished/dateModified and official sources.",
+                    "method": "GET",
+                    "endpoint": f"{core.SITE_URL}/data/articles.json",
                 },
                 {
                     "id": "read-propositions",

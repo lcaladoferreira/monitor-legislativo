@@ -16,7 +16,11 @@ Public, structured monitoring of Brazilian federal legislation and regulation re
 - Methodology: https://monitor.lcfconsulting.com.br/metodologia/
 - Executive report: https://monitor.lcfconsulting.com.br/relatorio/
 
+## Articles & analysis
+https://monitor.lcfconsulting.com.br/artigos/ — fact-based analyses generated from the monitoring dataset. Each article states what changed, the current official status, why it matters, what happens next, and cites official sources. Articles keep one permanent URL and are updated in place (dateModified reflects real content changes). Structured feed: https://monitor.lcfconsulting.com.br/data/articles.json (datePublished/dateModified per article).
+
 ## Machine-readable feeds
+- https://monitor.lcfconsulting.com.br/data/articles.json (published articles with dates and official sources)
 - https://monitor.lcfconsulting.com.br/data/propositions.json
 - https://monitor.lcfconsulting.com.br/data/updates.json
 - https://monitor.lcfconsulting.com.br/data/laws.json

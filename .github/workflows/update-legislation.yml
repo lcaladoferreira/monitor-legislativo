@@ -68,6 +68,16 @@ jobs:
           fi
           python3 scripts/update_legislation.py "${ARGS[@]}"
 
+      - name: Editorial — classificar mudanças e criar/atualizar artigos
+        id: editorial
+        if: always()
+        # Camada editorial independente: lê o dataset já gravado, processa cada
+        # mudança uma única vez (máx. 1 artigo novo/dia; atualizações ilimitadas)
+        # e grava apenas em data/articles/. Falha aqui NUNCA corrompe o dataset
+        # legislativo nem impede o rebuild/commit do monitor.
+        continue-on-error: true
+        run: python3 scripts/generate_articles.py
+
       - name: Rebuild do site
         id: build
         if: always()
@@ -108,6 +118,22 @@ jobs:
               f"- **Erros:** {len(ex.get('erros') or [])}",
               f"- **Status global (multiórgão):** `{ex.get('status_global', '—')}`",
           ]
+          art_path = pathlib.Path("data/articles/editorial_state.json")
+          if art_path.exists():
+              try:
+                  st = json.loads(art_path.read_text(encoding="utf-8"))
+                  ex_ed = (st.get("execucoes") or [{}])[0]
+                  arts = json.loads(pathlib.Path("data/articles/articles.json")
+                                    .read_text(encoding="utf-8"))
+                  n_art = len(arts.get("artigos", []))
+                  print("")
+                  print(f"- **Editorial (/artigos/):** {n_art} artigo(s) publicado(s) · "
+                        f"{ex_ed.get('novos_artigos', 0)} novo(s) nesta execução · "
+                        f"{ex_ed.get('artigos_atualizados', 0)} atualização(ões) · "
+                        f"{ex_ed.get('ignoradas', 0)} mudança(s) sem ação editorial · "
+                        f"{ex_ed.get('aguardando_curadoria', 0)} aguardando curadoria")
+              except Exception as e:
+                  print(f"- **Editorial (/artigos/):** estado não lido ({e})")
           fm = ex.get("fontes_monitoradas") or {}
           if fm:
               linhas += ["", "| órgão | status | itens consultados | novidades | erros |",
@@ -146,7 +172,16 @@ jobs:
           else
             DATA=$(date -u +%Y-%m-%d)
             STATUS=$(python3 -c "import json;print((json.load(open('data/legislation/updates.json')).get('execucoes') or [{}])[0].get('status','?'))")
-            git commit -m "chore: atualização automática do monitoramento ($DATA) [$STATUS]" -m "Execução do coletor (update_legislation.py) + rebuild (build_site.py). Mudanças e métricas em data/legislation/updates.json — painel em /monitoramento/."
+            MSG_EDITORIAL="Sem ação editorial nesta execução."
+            if [ -f data/articles/editorial_state.json ]; then
+              MSG_EDITORIAL=$(python3 -c "
+import json
+st = json.load(open('data/articles/editorial_state.json'))
+ex = (st.get('execucoes') or [{}])[0]
+print(f"Editorial: {ex.get('novos_artigos', 0)} artigo(s) novo(s), {ex.get('artigos_atualizados', 0)} atualização(ões), {ex.get('ignoradas', 0)} ignorada(s).")
+")
+            fi
+            git commit -m "chore: atualização automática do monitoramento ($DATA) [$STATUS]" -m "Execução do coletor (update_legislation.py) + camada editorial (generate_articles.py) + rebuild (build_site.py). $MSG_EDITORIAL Mudanças e métricas em data/legislation/updates.json — painel em /monitoramento/; log editorial em data/articles/editorial_state.json."
             git push
           fi
 

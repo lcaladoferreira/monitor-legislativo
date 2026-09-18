@@ -312,12 +312,20 @@ def _atos_footer_link():
     return ""
 
 
+def _artigos_footer_link():
+    """Link para o feed público dos artigos só quando o dataset existe."""
+    if os.path.exists(os.path.join(BASE, "data", "articles", "articles.json")):
+        return '<br>\n      <a href="{0}/data/articles.json">articles.json</a>'.format(SITE_URL)
+    return ""
+
+
 def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None):
     canon = SITE_URL + "/" + path if path else SITE_URL + "/"
     nav_items = [
         ("", "Início"),
         ("proposicoes/", "Proposições"),
         ("atualizacoes/", "Atualizações"),
+        ("artigos/", "Artigos"),
         ("leis/", "Leis e normas"),
         ("timeline/", "Timeline"),
         ("parlamentares/", "Parlamentares"),
@@ -385,7 +393,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
       <a href="{SITE_URL}/data/events.json">events.json</a><br>
       <a href="{SITE_URL}/data/parliamentarians.json">parliamentarians.json</a><br>
       <a href="{SITE_URL}/data/categories.json">categories.json</a><br>
-      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>{_atos_footer_link()}
+      <a href="{SITE_URL}/data/monitoramento.json">monitoramento.json</a>{_atos_footer_link()}{_artigos_footer_link()}
       <span style="color:var(--muted)">(métricas do cron)</span></p>
     </div>
     <div>
@@ -484,7 +492,7 @@ def run_summary():
 
 
 # ---------------------------------------------------------------- páginas
-def build_home(props, laws, events, updates, timeline, cats):
+def build_home(props, laws, events, updates, timeline, cats, artigos=None):
     by_id = {p["id"]: p for p in props}
     mudancas = sorted(updates["mudancas"], key=lambda m: m["data"], reverse=True)
     last24 = [m for m in mudancas if days_ago(m["data"]) == 0]
@@ -549,6 +557,31 @@ def build_home(props, laws, events, updates, timeline, cats):
         f'<p style="margin-top:8px"><a href="{l["url"]}" target="_blank" rel="noopener">Texto oficial ↗</a></p></div>'
         for l in laws_sorted
     )
+
+    # Artigos editoriais recentes (área /artigos/) — linkagem interna a partir da home
+    artigos_html = ""
+    try:
+        import build_articles as _ba
+        arts_home = sorted(_ba.artigos_publicados(artigos or {"artigos": []}),
+                           key=lambda a: (a.get("modified_at") or a.get("published_at") or ""),
+                           reverse=True)[:3]
+        cards_art = "".join(
+            f'<div class="card"><h3><a href="{SITE_URL}/artigos/{a["slug"]}/">{esc(a["title"])}</a></h3>'
+            f'<p>{esc((a.get("summary") or "")[:180])}…</p>'
+            f'<div class="meta"><span class="tag">Publicado em {fmt_date(a.get("published_at"))}</span>'
+            + (f'<span class="tag status-approved">Atualizado em {fmt_date(a.get("modified_at"))}</span>'
+               if a.get("modified_at") and a["modified_at"] != a.get("published_at") else "")
+            + '</div></div>'
+            for a in arts_home)
+        if cards_art:
+            artigos_html = (f'<section class="block"><div class="wrap">'
+                            f'<h2 class="section-title">Artigos e análises</h2>'
+                            f'<p class="section-sub">Análises factuais geradas pelo sistema editorial do monitor — '
+                            f'atualizadas na mesma URL quando o assunto evolui. '
+                            f'<a href="{SITE_URL}/artigos/">Todos os artigos →</a></p>'
+                            f'<div class="grid cols-3">{cards_art}</div></section>\n')
+    except Exception:
+        artigos_html = ""
 
     agenda_soon = [e for e in events["eventos"] if e.get("janela") in ("proximos_7_dias", "proximos_30_dias")]
     agenda_html = "".join(
@@ -679,7 +712,7 @@ def build_home(props, laws, events, updates, timeline, cats):
   <div class="grid cols-3">{agenda_html}</div>
 </div></section>
 
-<section class="block"><div class="wrap">
+{artigos_html}<section class="block"><div class="wrap">
   <h2 class="section-title">Categorias temáticas</h2>
   <p class="section-sub">Classificação das matérias em até 30 categorias, de regulação geral a soberania digital. Veja os filtros na página de proposições.</p>
   <div style="display:flex;gap:8px;flex-wrap:wrap">{cat_chips} <a class="tag cat" href="{SITE_URL}/proposicoes/">+ todas</a></div>
@@ -787,8 +820,17 @@ def seo_desc_prop(p):
     return (base + " Ementa, relator, comissão, apensados e fontes oficiais.")[:300]
 
 
-def build_prop_pages(props, cats, updates):
+def build_prop_pages(props, cats, updates, artigos=None):
     by_id = {p["id"]: p for p in props}
+    artigos_por_prop = {}
+    if artigos:
+        try:
+            import build_articles as _ba
+            for a in _ba.artigos_publicados(artigos):
+                for pid in (a.get("related_propositions") or []) + list(a.get("source_entity_ids") or []):
+                    artigos_por_prop.setdefault(pid, []).append(a)
+        except Exception:
+            artigos_por_prop = {}
     for p in props:
         sg = status_group(p)
         lbl, cls = STATUS_LABEL[sg]
@@ -870,6 +912,18 @@ def build_prop_pages(props, cats, updates):
             )
         else:
             recent_html = "<p style='color:var(--muted)'>Nenhuma mudança registrada para esta proposição desde o início do monitoramento. O histórico completo está na página de <a href=\"" + SITE_URL + "/atualizacoes/\">atualizações</a>.</p>"
+
+        # Artigo editorial correspondente (linkagem artigo ↔ proposição)
+        arts_p = artigos_por_prop.get(p["id"]) or []
+        if arts_p:
+            a0 = sorted(arts_p, key=lambda a: (a.get("modified_at") or ""), reverse=True)[0]
+            extra_sections += (
+                f'<div class="kv" style="margin-bottom:12px;border-color:rgba(47,202,138,.4)">'
+                f'<dt style="font-size:12px">Artigo relacionado</dt><dd>'
+                f'<a href="{SITE_URL}/artigos/{a0["slug"]}/">{esc(a0["title"])}</a>'
+                + (f' <span style="color:var(--muted);font-size:12px">· atualizado em {fmt_date(a0.get("modified_at"))}</span>'
+                   if a0.get("modified_at") and a0["modified_at"] != a0.get("published_at") else "")
+                + '</dd></div>')
 
         review_note = ""
         if p.get("revisao_pendente"):
@@ -1943,9 +1997,16 @@ def build_monitoramento(props, laws, events, updates, met):
 
 def build_sitemap(paths):
     today = EXECUTION_DATE
-    urls = "".join(
-        f"<url><loc>{SITE_URL}/{p}</loc><lastmod>{today}</lastmod></url>"
-        for p in paths)
+    # lastmod por URL: tuplas (path, lastmod) e o registro preenchido pela
+    # área de artigos — sobrevive à reescrita do sitemap pela camada comercial.
+    reg = globals().setdefault("_SITEMAP_LASTMOD", {})
+    urls = ""
+    for item in paths:
+        if isinstance(item, (tuple, list)):
+            p, lastmod = (tuple(item) + (today,))[:2]
+        else:
+            p, lastmod = item, reg.get(item) or today
+        urls += f"<url><loc>{SITE_URL}/{p}</loc><lastmod>{lastmod}</lastmod></url>"
     write("sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
     write("robots.txt", f"User-agent: *\nAllow: /\nSitemap: {SITE_URL}/sitemap.xml\n")
 
@@ -1958,6 +2019,18 @@ def main():
     updates = load("updates.json")
     timeline = load("timeline.json")
     cats = cat_map()
+
+    # Área editorial /artigos/ (dataset em data/articles/). Tolerante à
+    # ausência: sem dataset editorial, o restante do site permanece idêntico.
+    global _ARTIGOS
+    try:
+        import build_articles as _ba
+        _ARTIGOS = _ba.carregar_artigos()
+    except Exception as _e:  # falha editorial nunca derruba o site do monitor
+        print(f"[aviso] área de artigos não carregada: {_e}")
+        _ARTIGOS = None
+    globals().setdefault("_SITEMAP_LASTMOD", {})
+    globals()["_SITEMAP_LASTMOD"].clear()
 
     EXECUTION_DATE = updates.get("meta", {}).get("execucao", EXECUTION_DATE) or EXECUTION_DATE
     if updates.get("execucoes"):
@@ -1972,9 +2045,9 @@ def main():
     shutil.copytree(os.path.join(BASE, "data", "legislation"), os.path.join(OUT, "data"))
     shutil.copytree(ASSETS, os.path.join(OUT, "assets"))
 
-    build_home(props, laws, events, updates, timeline, cats)
+    build_home(props, laws, events, updates, timeline, cats, artigos=_ARTIGOS)
     build_propositions(props, cats)
-    build_prop_pages(props, cats, updates)
+    build_prop_pages(props, cats, updates, artigos=_ARTIGOS)
     build_updates(props, updates)
     build_laws(laws)
     build_timeline(timeline)
@@ -1988,13 +2061,33 @@ def main():
     build_monitoramento(props, laws, events, updates, met)
     write("data/monitoramento.json", json.dumps(met, ensure_ascii=False, indent=2) + "\n")
 
+    # Área editorial /artigos/ (páginas + feeds públicos + lastmod do sitemap)
+    n_artigos = 0
+    if _ARTIGOS:
+        try:
+            n_artigos = _ba.build(self_module(), _ARTIGOS)
+        except Exception as _e:
+            print(f"[aviso] /artigos/ não gerado: {_e}")
+            n_artigos = 0
+
     paths = ["", "proposicoes/", "atualizacoes/", "leis/", "timeline/", "parlamentares/",
              "agenda/", "monitoramento/", "metodologia/", "relatorio/"]
+    if n_artigos:
+        paths.append("artigos/")
+        paths += [f"artigos/{a['slug']}/" for a in _ARTIGOS.get("artigos", [])
+                  if a.get("status") == "published"]
     paths += [prop_fs_path(p["id"]).replace("index.html", "") for p in props]
     build_sitemap(paths)
 
-    n_pages = 10 + len(props)
-    print(f"OK: site gerado em docs/ — {n_pages} páginas, {len(paths)} URLs no sitemap.")
+    n_pages = 10 + len(props) + (n_artigos or 0)
+    print(f"OK: site gerado em docs/ — {n_pages} páginas, {len(paths)} URLs no sitemap"
+          + (f" ({len(_ARTIGOS.get('artigos', []))} artigo(s) editorial(ais))" if n_artigos else "") + ".")
+
+
+def self_module():
+    """Referência ao próprio módulo (para build_articles usar page/write/etc.)."""
+    import sys
+    return sys.modules[__name__]
 
 
 if __name__ == "__main__":

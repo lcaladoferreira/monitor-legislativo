@@ -19,6 +19,13 @@
       "endpoint": "https://monitor.lcfconsulting.com.br/data/updates.json"
     },
     {
+      "id": "read-articles",
+      "name": "Read published articles",
+      "description": "Retrieve the structured feed of editorial articles (analyses) generated from detected legislative changes, with datePublished/dateModified and official sources.",
+      "method": "GET",
+      "endpoint": "https://monitor.lcfconsulting.com.br/data/articles.json"
+    },
+    {
       "id": "read-propositions",
       "name": "Read monitored propositions",
       "description": "Retrieve the public structured feed of monitored AI-related propositions.",
