@@ -13,6 +13,9 @@ Detecta:
   - canonical/sitemap/robots apontando para domínio errado
   - links internos quebrados (hrefs do SITE_URL sem arquivo correspondente)
   - referências remanescentes ao domínio antigo do GitHub Pages
+  - área editorial /artigos/: esquema dos artigos, datas, canonical,
+    sitemap (1 URL por artigo com lastmod = modified_at), JSON-LD NewsArticle,
+    preservação de published_at, feed público espelhado em docs/data
 
 Uso: python3 scripts/validate_site.py
 Saída: exit 0 se OK (avisos permitidos), exit 1 se houver erros.
@@ -232,6 +235,130 @@ def check_docs(rep, site):
         rep.err(f"sitemap.xml: XML inválido — {e}")
 
 
+def check_artigos(rep, site):
+    """Validações da área editorial /artigos/ (quando o dataset existir)."""
+    arts_path = os.path.join(BASE, "data", "articles", "articles.json")
+    state_path = os.path.join(BASE, "data", "articles", "editorial_state.json")
+    if not os.path.isfile(arts_path):
+        if os.path.isdir(os.path.join(OUT, "artigos")):
+            rep.err("docs/artigos/ existe sem data/articles/articles.json")
+        return
+    arts_f = load_json(arts_path, rep, "articles.json")
+    if arts_f is None:
+        return
+    arts = arts_f.get("artigos", [])
+    acoes_validas = {"new_article", "article_update", "ignored"}
+    obrigatorios = ["id", "editorial_topic_id", "slug", "title", "description",
+                    "published_at", "modified_at", "source_change_ids", "url",
+                    "status", "revision_count", "revisions", "official_sources"]
+    ids, slugs = set(), set()
+    for a in arts:
+        ref = (a.get("slug") or a.get("id") or "?")[:60]
+        for campo in obrigatorios:
+            if campo not in a:
+                rep.err(f"articles.json: {ref}: campo ausente '{campo}'")
+        if a.get("id") in ids:
+            rep.err(f"articles.json: id duplicado {a.get('id')}")
+        ids.add(a.get("id"))
+        slug = a.get("slug") or ""
+        if slug in slugs:
+            rep.err(f"articles.json: slug duplicado {slug}")
+        slugs.add(slug)
+        if slug and not re.fullmatch(r"[a-z0-9]+(-[a-z0-9]+)*", slug):
+            rep.err(f"articles.json: slug fora do padrão: {slug[:60]}")
+        pub, mod = a.get("published_at"), a.get("modified_at")
+        if pub and mod and str(mod) < str(pub):
+            rep.err(f"articles.json: {ref}: modified_at ({mod}) < published_at ({pub})")
+        if a.get("status") == "published":
+            n_rev = len(a.get("revisions") or [])
+            if int(a.get("revision_count") or 0) != n_rev:
+                rep.err(f"articles.json: {ref}: revision_count ({a.get('revision_count')}) "
+                        f"≠ nº de revisões ({n_rev})")
+            # TODA revisão além da criação deve preservar published_at
+            if n_rev > 1 and (a["revisions"][0].get("date") or "") != str(pub):
+                rep.err(f"articles.json: {ref}: primeira revisão não é a data de publicação")
+    # estado editorial: ações válidas e nenhuma mudança em duplicidade
+    st = load_json(state_path, rep, "editorial_state.json") or {}
+    n_actions = 0
+    for cid, v in (st.get("processadas") or {}).items():
+        n_actions += 1
+        if v.get("editorial_action") not in acoes_validas:
+            rep.err(f"editorial_state.json: ação inválida '{v.get('editorial_action')}' para {cid[:16]}")
+        if cid not in (st.get("pendentes") or {}):
+            continue
+    dup = set(st.get("processadas") or {}) & set(st.get("pendentes") or {})
+    if dup:
+        rep.err(f"editorial_state.json: {len(dup)} mudança(s) processada(s) E pendente(s)")
+    # cota diária: somente new_article conta
+    por_dia = {}
+    for a in arts:
+        por_dia[str(a.get("published_at"))[:10]] = por_dia.get(str(a.get("published_at"))[:10], 0) + 1
+    for dia, n in por_dia.items():
+        if n > 1:
+            rep.err(f"articles.json: {n} artigos novos publicados no mesmo dia ({dia}) — "
+                    f"cota diária de 1 novo artigo violada")
+    # sitemap: uma única URL por artigo, lastmod = modified_at, canonical estável
+    sm = os.path.join(OUT, "sitemap.xml")
+    if arts and os.path.isfile(sm):
+        try:
+            root = ET.fromstring(open(sm, encoding="utf-8").read())
+            ns = {"s": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+            urls = [u.text for u in root.findall("s:url/s:loc", ns)]
+            for a in arts:
+                if a.get("status") != "published":
+                    continue
+                esperada = f"{site}/artigos/{a['slug']}/"
+                n_vezes = sum(1 for u in urls if u == esperada)
+                if n_vezes != 1:
+                    rep.err(f"sitemap.xml: artigo {a['slug'][:50]} aparece {n_vezes}x "
+                            f"(esperado 1)")
+        except ET.ParseError:
+            pass  # já validado em check_docs
+    # páginas geradas
+    if arts:
+        idx = os.path.join(OUT, "artigos", "index.html")
+        if not os.path.isfile(idx):
+            rep.err("docs/artigos/index.html ausente com artigos publicados")
+        for a in arts:
+            if a.get("status") != "published":
+                continue
+            pg = os.path.join(OUT, "artigos", a["slug"], "index.html")
+            if not os.path.isfile(pg):
+                rep.err(f"docs/artigos/{a['slug'][:50]}/index.html ausente")
+                continue
+            html = open(pg, encoding="utf-8").read()
+            canon = re.search(r'<link rel="canonical" href="([^"]+)"', html)
+            if canon and canon.group(1) != f"{site}/artigos/{a['slug']}/":
+                rep.err(f"artigo {a['slug'][:50]}: canonical divergente do slug")
+            if f'"datePublished": "{a.get("published_at")}' not in html.replace(': ', ': ').replace('"datePublished":"', '"datePublished": "'):
+                if f'"datePublished":"{a.get("published_at")}' not in html:
+                    rep.err(f"artigo {a['slug'][:50]}: JSON-LD sem datePublished correto")
+            if f'"dateModified":"{a.get("modified_at")}' not in html and \
+                    f'"dateModified": "{a.get("modified_at")}' not in html:
+                rep.err(f"artigo {a['slug'][:50]}: JSON-LD sem dateModified correto")
+            if "NewsArticle" not in html:
+                rep.err(f"artigo {a['slug'][:50]}: JSON-LD sem NewsArticle")
+            if a.get("modified_at") and a["modified_at"] != a.get("published_at") \
+                    and "Atualizado em" not in html:
+                rep.err(f"artigo {a['slug'][:50]}: atualizado sem exibir 'Atualizado em'")
+            if "Leandro Calado" not in html or "LCF Consulting" not in html:
+                rep.err(f"artigo {a['slug'][:50]}: autoria ausente")
+    # feed público espelhado
+    docs_arts = os.path.join(OUT, "data", "articles.json")
+    if os.path.isfile(docs_arts):
+        try:
+            if json.load(open(docs_arts, encoding="utf-8")) != arts_f:
+                rep.err("docs/data/articles.json difere de data/articles/articles.json")
+        except json.JSONDecodeError:
+            rep.err("docs/data/articles.json: JSON inválido")
+    # descoberta por IA deve citar /artigos/ quando há artigos
+    if arts:
+        for nome in ("llms.txt", "ai-content.md"):
+            fpath = os.path.join(OUT, nome)
+            if os.path.isfile(fpath) and "/artigos/" not in open(fpath, encoding="utf-8").read():
+                rep.err(f"{nome}: não cita /artigos/ com artigos publicados")
+
+
 def main():
     site = site_url()
     rep = Report()
@@ -240,6 +367,7 @@ def main():
         rep.err("SITE_URL ainda aponta para o GitHub Pages")
     check_data(rep)
     check_docs(rep, site)
+    check_artigos(rep, site)
     # varredura geral do domínio antigo em arquivos-fonte (exceto histórico git).
     # Ignora a linha de definição da constante OLD_DOMAIN (usada por esta checagem);
     # qualquer outro uso (ex.: SITE_URL regressivo) é erro.

@@ -221,3 +221,26 @@ footer.site h4 { color: var(--text); font-size: 13px; text-transform: uppercase;
 .fresh[data-estado="atencao"] .dot { background: var(--warn); box-shadow: 0 0 0 3px rgba(210,153,34,.16); }
 .fresh[data-estado="critico"] .dot { background: var(--danger); box-shadow: 0 0 0 3px rgba(248,81,73,.18); }
 .fresh b { color: var(--text); font-weight: 600; }
+
+/* ---- Área editorial /artigos/ (reutiliza componentes do site) ---- */
+.article-dateline { font-size: 13.5px; }
+.article-dateline time { color: var(--text); font-weight: 600; }
+.article-body { padding-top: 28px; }
+.article-body h2 { font-size: 20px; margin: 30px 0 12px; letter-spacing: -.3px; scroll-margin-top: 70px; }
+.article-body h2::after { content: ""; display: block; width: 42px; height: 3px; background: var(--accent); border-radius: 2px; margin-top: 7px; }
+.article-body p { color: var(--text); font-size: 15.5px; max-width: 860px; margin-bottom: 10px; }
+.article-lead { font-size: 15.5px; line-height: 1.65; margin-bottom: 8px; }
+.article-lead b { color: var(--accent); }
+.article-changemeta { color: var(--muted); font-size: 13px; }
+.article-more { margin: 12px 0 4px; font-size: 14px; color: var(--muted); }
+.article-more summary { cursor: pointer; color: var(--accent-2); }
+.article-more .changes-list { margin-top: 10px; }
+.article-revisions { margin: 26px 0 0; font-size: 13.5px; color: var(--muted); }
+.article-revisions summary { cursor: pointer; color: var(--accent-2); }
+.article-revisions ul { margin: 10px 0 0 18px; }
+.article-revisions li { margin-bottom: 6px; }
+.article-revisions b { color: var(--text); }
+.article-card .article-dates { font-size: 12.5px; color: var(--accent); margin-bottom: 6px; }
+.article-card .article-dates b { color: var(--accent); }
+.article-sources, .article-related { font-size: 14.5px; }
+.article-sources li, .article-related li { margin-bottom: 8px; }

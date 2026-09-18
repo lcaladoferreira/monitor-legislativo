@@ -31,8 +31,14 @@ data/legislation/            # DATASET (fonte única da verdade)
   updates.json               # "O que mudou" + log de execuções
   categories.json            # 30 categorias temáticas
 
+data/articles/
+  articles.json            # Artigos editoriais (conteúdo, datas, fontes, histórico de revisões)
+  editorial_state.json     # Log auditável: cada mudança → ação editorial (novo artigo / atualização / ignorada)
+
 scripts/
   update_legislation.py    # Coletor automático: APIs da Câmara/Senado → compara estado → atualiza dataset
+  generate_articles.py     # Camada editorial: classifica mudanças → cria/atualiza artigos (máx. 1 novo/dia)
+  build_articles.py        # Renderiza /artigos/ (SEO, AEO, JSON-LD NewsArticle, feeds para IA)
   scoring.py               # Rúbrica pública do AI Legislative Impact Score (reproduzível)
   build_site.py            # Gera o site estático a partir do dataset → /docs
   dataviz.py               # Gráficos SVG (stdlib, sem JS) do painel de monitoramento
@@ -54,7 +60,8 @@ docs/                        # SITE GERADO (não editar manualmente)
   metodologia/               # Fontes, critérios, score, limitações e correções
   monitoramento/             # Painel de métricas do cron (frescor, cobertura, mudanças, custo HTTP)
   relatorio/                 # Relatório da execução + síntese editorial
-  data/                      # Cópia pública do dataset (JSON)
+  artigos/                   # Área editorial automática (artigos criados/atualizados pelo monitor)
+  data/                      # Cópia pública do dataset (JSON) + articles.json/editorial_state.json
   sitemap.xml · robots.txt   # SEO
 ```
 
@@ -77,6 +84,24 @@ python3 scripts/update_legislation.py --budget-min 25 --max-novas 25 --workers 5
 Publicação: a Vercel executa `python3 scripts/build_site.py` e publica a pasta `/docs`.
 O domínio oficial (`SITE_URL` em `scripts/build_site.py`) é
 `https://monitor.lcfconsulting.com.br`.
+
+## Área de artigos automática (/artigos/)
+
+Uma **camada editorial** transforma as mudanças que o monitor já detecta em
+artigos públicos — sem intervenção humana e sem inventar nada:
+
+1. `update_legislation.py` coleta as fontes oficiais e registra mudanças em `updates.json`/`atos.json`;
+2. `generate_articles.py` classifica **cada mudança nova** (por `change_id` estável, processada uma única vez):
+   - `NEW_ARTICLE_CANDIDATE` — fato editorialmente autônomo → **no máximo 1 artigo novo por dia** (o mais relevante; os demais ficam adiados para o dia seguinte);
+   - `ARTICLE_UPDATE_CANDIDATE` — continuação de assunto já coberto (mesmo `editorial_topic_id`) → **atualiza o artigo existente na mesma URL**, preservando `published_at`, com novo `modified_at`, `revision_count++` e histórico de revisões;
+   - `NO_EDITORIAL_ACTION` — ruído administrativo, eco de protocolo, registro aguardando curadoria → registrado como `ignored` no log editorial;
+3. `build_site.py` gera `/artigos/` com SEO completo (canonical estável, Open Graph de artigo, `NewsArticle` JSON-LD com `datePublished`/`dateModified`/autor/publisher/about/mentions), breadcrumbs, linkagem interna bidirecional com as fichas, entrada única no sitemap com `<lastmod>` real por artigo;
+4. os arquivos de descoberta para IA (`llms.txt`, `llms-full.txt`, `ai-content.md`, `mcp-actions.json`, `data/articles.json`) passam a citar os artigos automaticamente.
+
+Toda decisão editorial é auditável em `data/articles/editorial_state.json`
+(`source_change_id`, `editorial_action`, `article_id`, `selection_reason`,
+`processed_at`). A falha da camada editorial nunca corrompe o dataset
+legislativo — ela grava apenas em `data/articles/`. Testes: `tests/test_editorial.py`.
 
 ## Ciclo de execução do monitoramento (execuções futuras)
 
