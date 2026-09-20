@@ -1066,6 +1066,27 @@ class Collector:
         do estouro de tempo do job).
         """
         found = []
+        # Lacunas da auditoria: consultar fichas históricas diretamente.
+        # Só aceitar o registro se a API oficial confirmar tipo, número e ano.
+        for pid, numero, ano in (
+            (2520003, 2688, 2025),
+            (2500594, 1884, 2025),
+            (2418364, 370, 2024),
+        ):
+            if BUDGET.expirado(120):
+                break
+            if ("camara", "PL", numero, ano) in known_keys:
+                continue
+            detail = camara_detail(pid)
+            if not detail or (detail.get("siglaTipo"), detail.get("numero"),
+                              detail.get("ano")) != ("PL", numero, ano):
+                self.errors.append(f"watchlist Câmara {numero}/{ano}: ficha oficial indisponível ou divergente")
+                continue
+            rel = relevance(detail.get("ementa") or "")
+            if rel:
+                found.append((detail, rel, "auditoria"))
+            else:
+                self.errors.append(f"watchlist Câmara {numero}/{ano}: relevância não confirmada")
         # 1) Incremental: tudo apresentado desde a última execução (1 dia de
         #    sobreposição para não perder matérias apresentadas entre execuções).
         if last_run:
@@ -1204,6 +1225,23 @@ class Collector:
     # ------------------------------------------------- descoberta: Senado
     def discover_senado(self, known_keys):
         found = []
+        # A busca temática pode perder proposições históricas arquivadas.
+        # Validar a watchlist no próprio endpoint oficial antes de indexar.
+        if ("senado", "PL", 3592, 2023) not in known_keys and not BUDGET.expirado(120):
+            for m in senado_search(sigla="PL", numero=3592, ano=2023):
+                try:
+                    ok = ((m.get("Sigla") or "").upper() == "PL"
+                          and int(str(m.get("Numero")).lstrip("0") or "0") == 3592
+                          and int(str(m.get("Ano"))) == 2023
+                          and str(m.get("Codigo")) == "158816")
+                except (ValueError, TypeError):
+                    ok = False
+                if ok and relevance(m.get("Ementa") or ""):
+                    m["_relevancia"] = relevance(m["Ementa"])
+                    found.append(m)
+                    break
+            if not found:
+                self.errors.append("watchlist Senado PL 3592/2023: não confirmado na busca oficial")
         for kw in ("inteligencia artificial", "deepfake", "reconhecimento facial"):
             if BUDGET.expirado():
                 break
@@ -1238,12 +1276,18 @@ class Collector:
         ano = int(str(m.get("Ano")))
         ficha = f"https://www25.senado.leg.br/web/atividade/materias/-/materia/{code}"
         ementa = dados.get("EmentaMateria") or m.get("Ementa", "")
-        # Situação atual via movimentações
-        situacao = ("Em tramitação no Senado Federal" if (det or mov)
-                    else "Situação não confirmada nesta execução — ver ficha oficial")
+        # Não usar det ou mov antes da atribuição e nunca assumir que
+        # uma matéria antiga ainda tramita apenas porque há metadados.
+        mov = senado_movimentacoes(code)
+        indicador = norm(str(ident.get("IndicadorTramitando") or ""))
+        if indicador in ("nao", "n", "false", "0"):
+            situacao = "Tramitação encerrada — consultar decisão na ficha oficial"
+        elif indicador in ("sim", "s", "true", "1"):
+            situacao = "Em tramitação no Senado Federal"
+        else:
+            situacao = "Situação não confirmada nesta execução — ver ficha oficial"
         last_date = dados.get("DataApresentacao")
         last_desc = "Apresentação da matéria."
-        mov = senado_movimentacoes(code)
         try:
             aut = mov["Autuacoes"]["Autuacao"][0]
             sit = as_list((aut.get("SituacoesAtuais") or {}).get("SituacaoAtual"))[0]
@@ -1627,7 +1671,9 @@ class Collector:
                 try:
                     cands = [(it, rel, via) for it, rel, via in self.discover_camara(known_keys, last_run)
                              if not (rel == "infra" and it.get("siglaTipo") in TIPOS_REQUERIMENTO)]
-                    cands.sort(key=self._prioridade_candidato)
+                    cands.sort(key=lambda cand: (
+                        0 if cand[2] == "auditoria" else 1,
+                        self._prioridade_candidato(cand)))
                     candidatos_total = len(cands)
                     uniq, seen = [], set(known_keys)
                     for it, rel, via in cands:

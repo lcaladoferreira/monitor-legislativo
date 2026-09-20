@@ -10,12 +10,11 @@ name: Atualizar monitoramento legislativo
 # A coleta pública não depende de banco, SMTP ou credenciais comerciais.
 on:
   schedule:
-    # Diário às 10:17 UTC (07:17 BRT). Evita o minuto 0, quando o GitHub atrasa
-    # os agendamentos por excesso de jobs na fila.
-    - cron: "17 10 * * *"
-    # Repetições diárias às 10:43, 14:43 e 18:43 BRT. O GitHub pode atrasar
-    # ou descartar um disparo; não dependemos de uma única oportunidade diária.
-    - cron: "43 13,17,21 * * *"
+    # SLA alvo de 2 horas exige coleta mais frequente do que quatro vezes/dia.
+    # Horário UTC: todo início de hora no minuto 17, fora do pico do minuto 0.
+    # Agendamento do GitHub é best effort: isto reduz o intervalo planejado,
+    # mas não garante SLA em caso de atraso, indisponibilidade ou fila.
+    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
       orcamento_minutos:
@@ -87,6 +86,11 @@ jobs:
         id: validate
         if: always()
         run: python3 scripts/validate_site.py
+
+      - name: Verificar regressões da auditoria regulatória
+        id: audit
+        if: always()
+        run: python3 tests/test_audit_watchlist.py
 
       - name: Resumo da execução
         if: always()
@@ -161,7 +165,7 @@ jobs:
           fi
 
       - name: Commit e push (somente se houver alteração)
-        if: always() && steps.diff.outputs.changed == 'true' && steps.build.outcome == 'success' && steps.validate.outcome == 'success'
+        if: always() && steps.diff.outputs.changed == 'true' && steps.build.outcome == 'success' && steps.validate.outcome == 'success' && steps.audit.outcome == 'success'
         run: |
           git config user.name "monitor-legislativo-bot"
           git config user.email "monitor-legislativo-bot@users.noreply.github.com"
@@ -183,7 +187,7 @@ jobs:
           fi
 
       - name: Conferir saúde da coleta publicada
-        if: always() && steps.build.outcome == 'success' && steps.validate.outcome == 'success'
+        if: always() && steps.build.outcome == 'success' && steps.validate.outcome == 'success' && steps.audit.outcome == 'success'
         run: python3 scripts/check_collection.py
 
       - name: Preservar dados coletados em caso de falha

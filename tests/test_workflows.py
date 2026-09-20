@@ -47,11 +47,10 @@ class WorkflowYamlTests(unittest.TestCase):
                         "Se for linha de script dentro de run: |, indente-a (incidente 2026-09-18).",
                     )
 
-    def test_daily_cron_slots_present(self):
-        """O cron diário (07:17 BRT + repetições) precisa continuar agendado."""
+    def test_hourly_cron_present(self):
+        """A coleta horária não pode regredir à frequência incompatível com o SLA."""
         text = (WORKFLOWS / "update-legislation.yml").read_text(encoding="utf-8")
-        self.assertIn("17 10 * * *", text, "slot principal 07:17 BRT ausente do cron")
-        self.assertIn("43 13,17,21 * * *", text, "slots de repetição ausentes do cron")
+        self.assertIn('cron: "17 * * * *"', text, "coleta horária ausente do cron")
         self.assertIn("schedule:", text)
 
     def test_yaml_parses_when_pyyaml_available(self):
