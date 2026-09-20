@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-09-18"
+    "atualizado_em": "2026-09-20"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -2003,6 +2003,36 @@
       "selection_reason": "ato tipo=Mensagem órgão=planalto peso=10 → abaixo do limiar de novo artigo",
       "processed_at": "2026-09-18T12:07:40-03:00",
       "run_id": "bootstrap_2026-09-18"
+    },
+    "chg_a047c11702ec54ce": {
+      "change_id": "chg_a047c11702ec54ce",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-institui-o-sistema-nacional-de-prevencao-e-enfrentamento-a-v",
+      "editorial_topic_id": "pl-2435-2026-institui-o-sistema-nacional-de-prevencao-e-enfrentamento-a-v",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-09-20T11:17:22-03:00",
+      "run_id": null
+    },
+    "chg_c2da6fbd3bcf5c2c": {
+      "change_id": "chg_c2da6fbd3bcf5c2c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-20T11:17:22-03:00",
+      "run_id": null
+    },
+    "chg_5b9e12a3a5a84dab": {
+      "change_id": "chg_5b9e12a3a5a84dab",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-20T11:17:22-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -2298,13 +2328,6 @@
       "since": "2026-09-18",
       "editorial_topic_id": "pl-2451-2026-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
       "prioridade": 25,
-      "attempts": 3
-    },
-    "chg_a047c11702ec54ce": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "pl-2435-2026-institui-o-sistema-nacional-de-prevencao-e-enfrentamento-a-v",
-      "prioridade": 32,
       "attempts": 3
     },
     "chg_8ba8d8b68a6ac448": {
@@ -2822,6 +2845,19 @@
       "stale": 0,
       "aguardando_curadoria": 72,
       "run_id": "verif_3",
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-20T11:17:22-03:00",
+      "dia": "2026-09-20",
+      "mudancas_novas": 113,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 73,
+      "run_id": null,
       "bootstrap": false
     }
   ]
