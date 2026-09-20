@@ -21,24 +21,38 @@ class SourceBudgetTests(unittest.TestCase):
         url = "https://dadosabertos.camara.leg.br/api/v2/proposicoes/123"
         with patch.object(m, "_CURL_BIN", "/usr/bin/curl"), \
              patch.object(m, "_http_curl", side_effect=TimeoutError("API indisponível")) as req, \
+             patch.object(m, "_http_urllib", side_effect=TimeoutError("API indisponível")) as alt, \
              patch.object(m, "HTTP_FAILURE_LIMIT", 2), \
              patch.object(m, "HTTP_RETRIES", 1):
             self.assertIsNone(m.http_get_json(url, timeout=1, cache=False))
             self.assertIsNone(m.http_get_json(url, timeout=1, cache=False))
             self.assertIsNone(m.http_get_json(url, timeout=1, cache=False))
             self.assertEqual(req.call_count, 2)
+            self.assertEqual(alt.call_count, 2)
 
     def test_circuito_isolado_por_host(self):
         a = "https://dadosabertos.camara.leg.br/api/v2/proposicoes/123"
         b = "https://legis.senado.leg.br/dadosabertos/materia/123.json"
         with patch.object(m, "_CURL_BIN", "/usr/bin/curl"), \
              patch.object(m, "_http_curl", side_effect=TimeoutError("falha")) as req, \
+             patch.object(m, "_http_urllib", side_effect=TimeoutError("falha")), \
              patch.object(m, "HTTP_FAILURE_LIMIT", 2), \
              patch.object(m, "HTTP_RETRIES", 1):
             m.http_get_json(a, timeout=1, cache=False)
             m.http_get_json(a, timeout=1, cache=False)
             m.http_get_json(b, timeout=1, cache=False)
             self.assertEqual(req.call_count, 3)
+
+    def test_fallback_urllib_recupera_curl_indisponivel(self):
+        url = "https://dadosabertos.camara.leg.br/api/v2/proposicoes/456"
+        with patch.object(m, "_CURL_BIN", "/usr/bin/curl"), \
+             patch.object(m, "_http_curl", side_effect=TimeoutError("curl expirou")), \
+             patch.object(m, "_http_urllib", return_value={"dados": {"id": 456}}) as alt, \
+             patch.object(m, "HTTP_RETRIES", 1):
+            self.assertEqual(m.http_get_json(url, timeout=8, cache=False),
+                             {"dados": {"id": 456}})
+            self.assertEqual(alt.call_count, 1)
+            self.assertEqual(m._HTTP_HOST_FAILURES.get("dadosabertos.camara.leg.br"), 0)
 
     def test_orgaos_sao_consultados_antes_das_fichas_legislativas(self):
         source = (Path(__file__).resolve().parents[1] /
