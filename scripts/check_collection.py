@@ -6,6 +6,27 @@ from pathlib import Path
 
 BRT = timezone(timedelta(hours=-3))
 
+# Fichas documentadas pela auditoria: exigimos presença real no dataset,
+# e não apenas a existência de código que tentará descobri-las futuramente.
+AUDIT_WATCHLIST = {
+    "camara_pl_2688_2025": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2520003",
+    "camara_pl_1884_2025": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2500594",
+    "camara_pl_370_2024": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2418364",
+    "senado_pl_3592_2023": "https://www25.senado.leg.br/web/atividade/materias/-/materia/158816",
+}
+
+
+def audit_coverage(props):
+    by_id = {p.get("id"): p for p in props}
+    errors = []
+    for identifier, url in AUDIT_WATCHLIST.items():
+        prop = by_id.get(identifier)
+        if not prop:
+            errors.append(f"Auditoria: proposição ausente do dataset: {identifier}")
+        elif prop.get("url_oficial") != url:
+            errors.append(f"Auditoria: fonte primária divergente: {identifier}")
+    return errors
+
 def problems(record, now=None):
     now = now or datetime.now(BRT)
     errors = []
@@ -50,6 +71,8 @@ def main():
     try:
         data = json.loads(Path("data/legislation/updates.json").read_text())
         found = problems((data.get("execucoes") or [{}])[0])
+        props = json.loads(Path("data/legislation/propositions.json").read_text())
+        found.extend(audit_coverage(props.get("proposicoes") or []))
     except (OSError, ValueError, TypeError, AttributeError):
         found = ["Não foi possível verificar o registro da coleta."]
     for message in found:
