@@ -174,12 +174,9 @@ jobs:
             STATUS=$(python3 -c "import json;print((json.load(open('data/legislation/updates.json')).get('execucoes') or [{}])[0].get('status','?'))")
             MSG_EDITORIAL="Sem ação editorial nesta execução."
             if [ -f data/articles/editorial_state.json ]; then
-              MSG_EDITORIAL=$(python3 -c "
-import json
-st = json.load(open('data/articles/editorial_state.json'))
-ex = (st.get('execucoes') or [{}])[0]
-print(f"Editorial: {ex.get('novos_artigos', 0)} artigo(s) novo(s), {ex.get('artigos_atualizados', 0)} atualização(ões), {ex.get('ignoradas', 0)} ignorada(s).")
-")
+              # UMA LINHA SÓ: python multilinha colado na coluna 0 quebra o YAML
+              # do workflow e o GitHub para de agendar o cron (incidente 2026-09-18).
+              MSG_EDITORIAL=$(python3 -c "import json;st=json.load(open('data/articles/editorial_state.json'));ex=(st.get('execucoes') or [{}])[0];print(f\"Editorial: {ex.get('novos_artigos',0)} artigo(s) novo(s), {ex.get('artigos_atualizados',0)} atualização(ões), {ex.get('ignoradas',0)} ignorada(s).\")")
             fi
             git commit -m "chore: atualização automática do monitoramento ($DATA) [$STATUS]" -m "Execução do coletor (update_legislation.py) + camada editorial (generate_articles.py) + rebuild (build_site.py). $MSG_EDITORIAL Mudanças e métricas em data/legislation/updates.json — painel em /monitoramento/; log editorial em data/articles/editorial_state.json."
             git push
