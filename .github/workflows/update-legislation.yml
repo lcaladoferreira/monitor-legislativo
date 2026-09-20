@@ -87,6 +87,11 @@ jobs:
         if: always()
         run: python3 scripts/validate_site.py
 
+      - name: Verificar regressões da auditoria regulatória
+        id: audit
+        if: always()
+        run: python3 tests/test_audit_watchlist.py
+
       - name: Resumo da execução
         if: always()
         run: |
@@ -160,7 +165,7 @@ jobs:
           fi
 
       - name: Commit e push (somente se houver alteração)
-        if: always() && steps.diff.outputs.changed == 'true' && steps.build.outcome == 'success' && steps.validate.outcome == 'success'
+        if: always() && steps.diff.outputs.changed == 'true' && steps.build.outcome == 'success' && steps.validate.outcome == 'success' && steps.audit.outcome == 'success'
         run: |
           git config user.name "monitor-legislativo-bot"
           git config user.email "monitor-legislativo-bot@users.noreply.github.com"
@@ -182,7 +187,7 @@ jobs:
           fi
 
       - name: Conferir saúde da coleta publicada
-        if: always() && steps.build.outcome == 'success' && steps.validate.outcome == 'success'
+        if: always() && steps.build.outcome == 'success' && steps.validate.outcome == 'success' && steps.audit.outcome == 'success'
         run: python3 scripts/check_collection.py
 
       - name: Preservar dados coletados em caso de falha
