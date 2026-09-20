@@ -6882,9 +6882,612 @@
       "data_deteccao": "2026-09-17",
       "timestamp_execucao": "2026-09-17T20:41:49-03:00",
       "id_execucao": "run_2026_09_17_2041"
+    },
+    {
+      "data": "2025-06-02",
+      "titulo": "Nova proposição: PL 2688/2025",
+      "descricao": "Institui o Marco Regulatório do Desenvolvimento e Uso da Inteligência Artificial no Brasil, estabelece direitos, deveres, princípios, mecanismos de governança, normas de transparência e responsabilidade civil e penal, e dá outras providências. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_2688_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2520003",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-20",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2520003",
+      "timestamp_execucao": "2026-09-20T15:37:29-03:00",
+      "id_execucao": "run_2026_09_20_1537"
+    },
+    {
+      "data": "2025-04-28",
+      "titulo": "Nova proposição: PL 1884/2025",
+      "descricao": "Dispõe sobre a regulação do uso de deepfakes, estabelece penalidades para usos prejudiciais e incentiva o desenvolvimento ético e responsável da tecnologia. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_1884_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2500594",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-20",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2500594",
+      "timestamp_execucao": "2026-09-20T15:37:29-03:00",
+      "id_execucao": "run_2026_09_20_1537"
+    },
+    {
+      "data": "2024-02-21",
+      "titulo": "Nova proposição: PL 370/2024",
+      "descricao": "Inclui uma majorante no crime de violência psicológica contra a mulher quando cometido mediante uso de inteligência artificial ou qualquer outro recurso tecnológico e aumenta a pena cominada ao crime de divulgação de cena de estupro ou de cena de estupro de vulnerável, de cena de sexo ou de pornografia.\n\r\n\r\nNOVA EMENTA: Altera o art. 147-B do Decreto-Lei nº 2.848, de 7 de dezembro de 1940 (Código  (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_370_2024",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2418364",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-20",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2418364",
+      "timestamp_execucao": "2026-09-20T15:37:29-03:00",
+      "id_execucao": "run_2026_09_20_1537"
     }
   ],
   "execucoes": [
+    {
+      "id": "run_2026_09_20_1537",
+      "data_hora": "2026-09-20T15:37:29-03:00",
+      "tipo": "atualizacao",
+      "status": "parcial",
+      "motor": {
+        "orcamento_segundos": 1500,
+        "max_novas": 25,
+        "workers": 5,
+        "http_concorrencia": 4
+      },
+      "proposicoes_monitoradas": 138,
+      "sugestoes_curadoria": [],
+      "resumo": "Verificação automática: 109 fichas consultadas, 0 proposições atualizadas, 3 novas, 3 mudanças detectadas, 0 eventos adicionados.",
+      "proposicoes_verificadas": 109,
+      "proposicoes_atualizadas": 0,
+      "novas_proposicoes": 3,
+      "novas_leis_regulamentos": 0,
+      "mudancas_detectadas": 3,
+      "eventos_adicionados": 0,
+      "fontes_consultadas": [
+        "API de Dados Abertos da Câmara dos Deputados — deputados (relator)",
+        "API de Dados Abertos da Câmara dos Deputados — descoberta (keywords + incremental)",
+        "API de Dados Abertos da Câmara dos Deputados — eventos (agenda)",
+        "API de Dados Abertos da Câmara dos Deputados — proposições (detalhe)",
+        "API de Dados Abertos da Câmara dos Deputados — tramitações",
+        "API de Dados Abertos da Câmara dos Deputados — votações"
+      ],
+      "erros": [
+        "watchlist Senado PL 3592/2023: não confirmado na busca oficial"
+      ],
+      "observacao": "Nada foi inventado: todos os registros novos ou alterados citam a URL oficial. Registros automáticos aguardam curadoria editorial. Status global: PARCIAL — fontes com falha: anpd, senado.",
+      "duracao_segundos": 419,
+      "orcamento_segundos": 1500,
+      "orcamento_restante_segundos": 1080,
+      "fases_segundos": {
+        "agenda_eventos": 1.1,
+        "atualizacao_proposicoes": 80.8,
+        "descoberta_camara": 11.3,
+        "descoberta_senado": 1.2,
+        "fontes_multiorgao": 324.7
+      },
+      "http": {
+        "chamadas": 388,
+        "cache": 44,
+        "falhas": 6,
+        "tempo_total": 272.31,
+        "por_endpoint": {
+          "camara:deputados/{id}": {
+            "chamadas": 30,
+            "falhas": 0,
+            "tempo_total": 16.02
+          },
+          "camara:eventos": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "camara:proposicoes": {
+            "chamadas": 12,
+            "falhas": 0,
+            "tempo_total": 11.74
+          },
+          "camara:proposicoes/{id}": {
+            "chamadas": 115,
+            "falhas": 0,
+            "tempo_total": 66.44
+          },
+          "camara:proposicoes/{id}/autores": {
+            "chamadas": 3,
+            "falhas": 0,
+            "tempo_total": 1.61
+          },
+          "camara:proposicoes/{id}/tramitacoes": {
+            "chamadas": 112,
+            "falhas": 0,
+            "tempo_total": 64.93
+          },
+          "camara:proposicoes/{id}/votacoes": {
+            "chamadas": 109,
+            "falhas": 0,
+            "tempo_total": 62.8
+          },
+          "senado:157233": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          },
+          "senado:172900": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          },
+          "senado:174481": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          },
+          "senado:174923": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          },
+          "senado:movimentacoes/157233": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          },
+          "senado:movimentacoes/174481": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          }
+        }
+      },
+      "fim": "2026-09-20T15:44:29-03:00",
+      "proposicoes_pendentes": 0,
+      "proposicoes_distintas_verificadas": 109,
+      "cobertura_pct": 79.0,
+      "snapshot_dataset": {
+        "proposicoes_total": 138,
+        "por_situacao": {
+          "a_sancao": 1,
+          "aprovada_lei": 1,
+          "arquivada": 6,
+          "em_tramitacao": 130
+        },
+        "normas_total": 15,
+        "eventos_total": 10,
+        "mudancas_registradas": 391
+      },
+      "descoberta_candidatos": 3,
+      "descoberta_adiada": 0,
+      "fontes_monitoradas": {
+        "anpd": {
+          "nome": "ANPD — Autoridade Nacional de Proteção de Dados",
+          "status": "falha",
+          "ultima_tentativa": "2026-09-20T15:37:30-03:00",
+          "ultima_execucao_ok": "2026-09-20T14:00:57-03:00",
+          "itens_consultados": 0,
+          "itens_relevantes": 0,
+          "itens_descartados": 0,
+          "itens_duplicados": 0,
+          "revisao_pendente": 0,
+          "novidades": 0,
+          "erros": 9,
+          "duracao_segundos": 80.0,
+          "endpoints": [
+            "https://www.gov.br/anpd/++api++/@search"
+          ],
+          "canais_detalhe": [],
+          "canais_ok": [],
+          "canais_falhos": [
+            "notícias recentes",
+            "notícias por tema",
+            "regulação e normas",
+            "consultas públicas",
+            "tomada de subsídios",
+            "atos normativos (arquivos)",
+            "fiscalização (pasta oficial)",
+            "agenda regulatória (pasta oficial)"
+          ],
+          "canais_falhos_obrigatorios": [
+            "notícias recentes",
+            "notícias por tema",
+            "regulação e normas"
+          ],
+          "canais_opcionais_falhos": [
+            "consultas públicas",
+            "tomada de subsídios",
+            "atos normativos (arquivos)",
+            "fiscalização (pasta oficial)",
+            "agenda regulatória (pasta oficial)"
+          ],
+          "erro_detalhe": "notícias recentes: JSON indisponível: https://www.gov.br/anpd/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&portal_type=News+Item; tempo esgotado antes do canal 'notícias por tema'; tempo esgotado antes do canal 'regulação e normas'; tempo esgotado antes do canal 'consultas públicas'",
+          "atos_registrados": 57,
+          "atos_descartados_por_retencao": 0
+        },
+        "camara": {
+          "nome": "Câmara dos Deputados — API de Dados Abertos v2",
+          "status": "ok",
+          "ultima_tentativa": "2026-09-20T15:37:29-03:00",
+          "ultima_execucao_ok": "2026-09-20T15:37:29-03:00",
+          "itens_consultados": 109,
+          "novidades": 3,
+          "erros": 0,
+          "chamadas_http": 382,
+          "falhas_http": 0,
+          "endpoints": [
+            "https://dadosabertos.camara.leg.br/api/v2"
+          ],
+          "canais_ok": [
+            "camara:deputados/{id}",
+            "camara:eventos",
+            "camara:proposicoes",
+            "camara:proposicoes/{id}",
+            "camara:proposicoes/{id}/autores",
+            "camara:proposicoes/{id}/tramitacoes"
+          ],
+          "canais_falhos": [],
+          "erro_detalhe": null
+        },
+        "cnj": {
+          "nome": "CNJ — Conselho Nacional de Justiça",
+          "status": "ok",
+          "ultima_tentativa": "2026-09-20T15:38:50-03:00",
+          "ultima_execucao_ok": "2026-09-20T15:42:54-03:00",
+          "itens_consultados": 130,
+          "itens_relevantes": 16,
+          "itens_descartados": 112,
+          "itens_duplicados": 2,
+          "revisao_pendente": 10,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 4.7,
+          "endpoints": [
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos normativos recentes",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "atos normativos recentes (página 2)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "atos normativos recentes (página 3)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "notícias oficiais",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 7
+            },
+            {
+              "canal": "notícias oficiais (página 2)",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 7
+            }
+          ],
+          "canais_ok": [
+            "atos normativos recentes",
+            "atos normativos recentes (página 2)",
+            "atos normativos recentes (página 3)",
+            "notícias oficiais",
+            "notícias oficiais (página 2)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 17,
+          "atos_descartados_por_retencao": 0
+        },
+        "dou": {
+          "nome": "DOU — Diário Oficial da União (Imprensa Nacional)",
+          "status": "ok",
+          "ultima_tentativa": "2026-09-20T15:39:10-03:00",
+          "ultima_execucao_ok": "2026-09-20T15:42:54-03:00",
+          "itens_consultados": 128,
+          "itens_relevantes": 85,
+          "itens_descartados": 31,
+          "itens_duplicados": 12,
+          "revisao_pendente": 19,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 25.1,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "busca por tema (7 dias)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 128,
+              "amostra_hierarquia": [
+                "Atos do Poder Legislativo",
+                "Conselho Nacional do Ministério Público/Secretaria-Geral",
+                "Editais e Avisos/Ministério da Educação"
+              ],
+              "itens_relevantes": 85
+            }
+          ],
+          "canais_ok": [
+            "busca por tema (7 dias)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 115,
+          "atos_descartados_por_retencao": 0
+        },
+        "mcti": {
+          "nome": "MCTI — Ministério da Ciência, Tecnologia e Inovação",
+          "status": "parcial",
+          "ultima_tentativa": "2026-09-20T15:41:22-03:00",
+          "ultima_execucao_ok": "2026-09-20T14:02:20-03:00",
+          "itens_consultados": 12,
+          "itens_relevantes": 11,
+          "itens_descartados": 0,
+          "itens_duplicados": 1,
+          "revisao_pendente": 5,
+          "novidades": 0,
+          "erros": 3,
+          "duracao_segundos": 92.0,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do MCTI por tema (DOU)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 12,
+              "amostra_hierarquia": [
+                "Ministério da Ciência, Tecnologia e Inovação/Conselho Nacion",
+                "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Min",
+                "Ministério da Ciência, Tecnologia e Inovação/Instituto Nacio"
+              ],
+              "itens_relevantes": 11
+            }
+          ],
+          "canais_ok": [
+            "atos do MCTI por tema (DOU)"
+          ],
+          "canais_falhos": [
+            "notícias institucionais",
+            "portarias publicadas",
+            "planos, programas e políticas"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "notícias institucionais",
+            "portarias publicadas",
+            "planos, programas e políticas"
+          ],
+          "erro_detalhe": "notícias institucionais: HTML indisponível: https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias (URLError: <urlopen error [Errno 101] Network is unreachable>); tempo esgotado antes do canal 'portarias publicadas'; tempo esgotado antes do canal 'planos, programas e políticas'",
+          "atos_registrados": 34,
+          "atos_descartados_por_retencao": 0
+        },
+        "planalto": {
+          "nome": "Planalto — Presidência da República",
+          "status": "parcial",
+          "ultima_tentativa": "2026-09-20T15:39:36-03:00",
+          "ultima_execucao_ok": "2026-09-20T14:01:46-03:00",
+          "itens_consultados": 16,
+          "itens_relevantes": 8,
+          "itens_descartados": 1,
+          "itens_duplicados": 7,
+          "revisao_pendente": 0,
+          "novidades": 0,
+          "erros": 2,
+          "duracao_segundos": 106.3,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do Poder Legislativo (leis, vetos)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 15,
+              "amostra_hierarquia": [
+                "Atos do Poder Legislativo"
+              ],
+              "itens_relevantes": 7
+            },
+            {
+              "canal": "atos da Presidência (decretos, MPs)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 1,
+              "amostra_hierarquia": [
+                "Presidência da República"
+              ],
+              "itens_relevantes": 1
+            }
+          ],
+          "canais_ok": [
+            "atos do Poder Legislativo (leis, vetos)",
+            "atos da Presidência (decretos, MPs)"
+          ],
+          "canais_falhos": [
+            "notícias do Planalto (RSS oficial)",
+            "notícias do Planalto (página oficial)"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "notícias do Planalto (RSS oficial)",
+            "notícias do Planalto (página oficial)"
+          ],
+          "erro_detalhe": "notícias do Planalto (RSS oficial): RSS indisponível: https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS (URLError: <urlopen error [Errno 101] Network is unreachable>); tempo esgotado antes do canal 'notícias do Planalto (página oficial)'",
+          "atos_registrados": 11,
+          "atos_descartados_por_retencao": 0
+        },
+        "senado": {
+          "nome": "Senado Federal — API de Dados Abertos v7",
+          "status": "falha",
+          "ultima_tentativa": "2026-09-20T15:37:29-03:00",
+          "ultima_execucao_ok": "2026-09-20T15:00:37-03:00",
+          "itens_consultados": 0,
+          "novidades": 0,
+          "erros": 0,
+          "chamadas_http": 0,
+          "falhas_http": 6,
+          "endpoints": [
+            "https://legis.senado.leg.br/dadosabertos"
+          ],
+          "canais_ok": [],
+          "canais_falhos": [
+            "senado:157233",
+            "senado:172900",
+            "senado:174481",
+            "senado:174923",
+            "senado:movimentacoes/157233",
+            "senado:movimentacoes/174481"
+          ],
+          "erro_detalhe": null
+        },
+        "tse": {
+          "nome": "TSE — Tribunal Superior Eleitoral",
+          "status": "ok",
+          "ultima_tentativa": "2026-09-20T15:38:54-03:00",
+          "ultima_execucao_ok": "2026-09-20T15:42:54-03:00",
+          "itens_consultados": 6,
+          "itens_relevantes": 1,
+          "itens_descartados": 5,
+          "itens_duplicados": 0,
+          "revisao_pendente": 0,
+          "novidades": 0,
+          "erros": 3,
+          "duracao_segundos": 16.0,
+          "endpoints": [
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do TSE por tema (DOU)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 6,
+              "amostra_hierarquia": [
+                "Poder Judiciário/Tribunal Superior Eleitoral",
+                "Poder Judiciário/Tribunal Superior Eleitoral/Secretaria do T"
+              ],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "resoluções do TSE (DOU, órgão/subórgão)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 0,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "atos do TSE por tema (DOU)",
+            "resoluções do TSE (DOU, órgão/subórgão)"
+          ],
+          "canais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)"
+          ],
+          "erro_detalhe": "atos normativos (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&path=%2Flegislacao; notícias oficiais (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&portal_type=Noticia; atos e notícias por tema (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=20&sort_on=effective&sort_order=descending",
+          "atos_registrados": 1,
+          "atos_descartados_por_retencao": 0
+        }
+      },
+      "status_global": "PARCIAL",
+      "fontes_falha": [
+        "anpd",
+        "senado"
+      ],
+      "fontes_parciais": [
+        "mcti",
+        "planalto"
+      ],
+      "http_fontes": {
+        "chamadas": 68,
+        "falhas": 12,
+        "cache": 0,
+        "tempo_total": 310.48,
+        "por_orgao": {
+          "anpd": {
+            "chamadas": 3,
+            "falhas": 3,
+            "tempo_total": 75.47
+          },
+          "cnj": {
+            "chamadas": 5,
+            "falhas": 0,
+            "tempo_total": 4.69
+          },
+          "tse": {
+            "chamadas": 14,
+            "falhas": 3,
+            "tempo_total": 15.95
+          },
+          "dou": {
+            "chamadas": 10,
+            "falhas": 0,
+            "tempo_total": 25.07
+          },
+          "planalto": {
+            "chamadas": 23,
+            "falhas": 3,
+            "tempo_total": 101.82
+          },
+          "mcti": {
+            "chamadas": 13,
+            "falhas": 3,
+            "tempo_total": 87.48
+          }
+        }
+      },
+      "novidades_multiorgao": {
+        "anpd": 0,
+        "cnj": 0,
+        "tse": 0,
+        "dou": 0,
+        "planalto": 0,
+        "mcti": 0
+      },
+      "mudancas_multiorgao": 0
+    },
     {
       "id": "run_2026_09_20_1500",
       "data_hora": "2026-09-20T15:00:37-03:00",
