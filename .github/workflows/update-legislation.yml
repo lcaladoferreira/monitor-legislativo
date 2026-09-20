@@ -10,12 +10,11 @@ name: Atualizar monitoramento legislativo
 # A coleta pública não depende de banco, SMTP ou credenciais comerciais.
 on:
   schedule:
-    # Diário às 10:17 UTC (07:17 BRT). Evita o minuto 0, quando o GitHub atrasa
-    # os agendamentos por excesso de jobs na fila.
-    - cron: "17 10 * * *"
-    # Repetições diárias às 10:43, 14:43 e 18:43 BRT. O GitHub pode atrasar
-    # ou descartar um disparo; não dependemos de uma única oportunidade diária.
-    - cron: "43 13,17,21 * * *"
+    # SLA alvo de 2 horas exige coleta mais frequente do que quatro vezes/dia.
+    # Horário UTC: todo início de hora no minuto 17, fora do pico do minuto 0.
+    # Agendamento do GitHub é best effort: isto reduz o intervalo planejado,
+    # mas não garante SLA em caso de atraso, indisponibilidade ou fila.
+    - cron: "17 * * * *"
   workflow_dispatch:
     inputs:
       orcamento_minutos:
