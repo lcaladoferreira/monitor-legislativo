@@ -28,6 +28,18 @@ def problems(record, now=None):
         errors.append("Cobertura inválida.")
     if record.get("erros") or record.get("proposicoes_pendentes"):
         errors.append("Há erros ou proposições pendentes.")
+    # A cobertura legislativa não substitui a saúde dos órgãos reguladores.
+    # Um CNJ/DOU/TSE indisponível não pode produzir um falso "100% íntegro".
+    if record.get("status_global") not in (None, "ok", "concluida"):
+        errors.append("Coleta multiórgão incompleta: status_global="
+                      + str(record["status_global"]))
+    if record.get("fontes_falha"):
+        errors.append("Fontes com falha: " + ", ".join(map(str, record["fontes_falha"])))
+    if record.get("fontes_parciais"):
+        errors.append("Fontes parciais: " + ", ".join(map(str, record["fontes_parciais"])))
+    for orgao, fonte in (record.get("fontes_monitoradas") or {}).items():
+        if fonte.get("status") not in ("ok",):
+            errors.append(f"Fonte {orgao} não íntegra: {fonte.get('status', 'sem status')}")
     return errors
 
 def main():
