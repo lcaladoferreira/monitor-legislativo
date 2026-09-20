@@ -1066,6 +1066,27 @@ class Collector:
         do estouro de tempo do job).
         """
         found = []
+        # Lacunas da auditoria: consultar fichas históricas diretamente.
+        # Só aceitar o registro se a API oficial confirmar tipo, número e ano.
+        for pid, numero, ano in (
+            (2520003, 2688, 2025),
+            (2500594, 1884, 2025),
+            (2418364, 370, 2024),
+        ):
+            if BUDGET.expirado(120):
+                break
+            if ("camara", "PL", numero, ano) in known_keys:
+                continue
+            detail = camara_detail(pid)
+            if not detail or (detail.get("siglaTipo"), detail.get("numero"),
+                              detail.get("ano")) != ("PL", numero, ano):
+                self.errors.append(f"watchlist Câmara {numero}/{ano}: ficha oficial indisponível ou divergente")
+                continue
+            rel = relevance(detail.get("ementa") or "")
+            if rel:
+                found.append((detail, rel, "auditoria"))
+            else:
+                self.errors.append(f"watchlist Câmara {numero}/{ano}: relevância não confirmada")
         # 1) Incremental: tudo apresentado desde a última execução (1 dia de
         #    sobreposição para não perder matérias apresentadas entre execuções).
         if last_run:
@@ -1627,7 +1648,9 @@ class Collector:
                 try:
                     cands = [(it, rel, via) for it, rel, via in self.discover_camara(known_keys, last_run)
                              if not (rel == "infra" and it.get("siglaTipo") in TIPOS_REQUERIMENTO)]
-                    cands.sort(key=self._prioridade_candidato)
+                    cands.sort(key=lambda cand: (
+                        0 if cand[2] == "auditoria" else 1,
+                        self._prioridade_candidato(cand)))
                     candidatos_total = len(cands)
                     uniq, seen = [], set(known_keys)
                     for it, rel, via in cands:
