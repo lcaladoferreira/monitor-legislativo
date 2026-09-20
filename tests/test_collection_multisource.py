@@ -16,7 +16,7 @@ class CollectionHealthMultisourceTests(unittest.TestCase):
             "cobertura_pct": 100,
             "erros": [],
             "proposicoes_pendentes": 0,
-            "status_global": "ok",
+            "status_global": "OK",
             "fontes_falha": [],
             "fontes_parciais": [],
             "fontes_monitoradas": {"cnj": {"status": "ok"}, "dou": {"status": "ok"}},
@@ -32,6 +32,10 @@ class CollectionHealthMultisourceTests(unittest.TestCase):
     def test_fonte_parcial_reprova(self):
         self.record["fontes_parciais"] = ["dou"]
         self.assertTrue(any("dou" in e for e in problems(self.record, now=self.now)))
+
+    def test_canais_opcionais_falhos_sao_visiveis(self):
+        self.record["fontes_monitoradas"]["cnj"]["canais_falhos"] = ["atos normativos"]
+        self.assertTrue(any("atos normativos" in e for e in problems(self.record, now=self.now)))
 
     def test_status_global_incompleto_reprova(self):
         self.record["status_global"] = "parcial"
