@@ -98,8 +98,9 @@ MAX_NOVAS = _env_int("MONITOR_MAX_NOVAS", 25)             # fichas novas por exe
 MAX_PROPS = _env_int("MONITOR_MAX_PROPS", 0)              # 0 = sem limite
 WORKERS = max(1, _env_int("MONITOR_WORKERS", 5))          # threads de coleta
 HTTP_CONCORRENCIA = max(1, _env_int("MONITOR_HTTP_CONCORRENCIA", 4))
-HTTP_TIMEOUT = _env_int("MONITOR_HTTP_TIMEOUT", 20)
-HTTP_RETRIES = max(1, _env_int("MONITOR_HTTP_RETRIES", 2))
+HTTP_TIMEOUT = _env_int("MONITOR_HTTP_TIMEOUT", 8)
+HTTP_RETRIES = max(1, _env_int("MONITOR_HTTP_RETRIES", 1))
+HTTP_FAILURE_LIMIT = max(2, _env_int("MONITOR_HTTP_FAILURE_LIMIT", 5))
 
 
 class BudgetExceeded(RuntimeError):
@@ -201,6 +202,7 @@ _CURL_BIN = shutil.which("curl")
 _HTTP_SEM = threading.BoundedSemaphore(HTTP_CONCORRENCIA)  # concorrência máxima de HTTP
 _HTTP_LOCK = threading.Lock()
 _HTTP_CACHE = {}          # url -> payload (evita consultar a mesma ficha 2x na execução)
+_HTTP_HOST_FAILURES = {}  # host -> falhas consecutivas; circuito por fonte
 _HTTP_STATS = {"chamadas": 0, "cache": 0, "falhas": 0, "tempo_total": 0.0,
                "por_endpoint": {}}
 
@@ -273,6 +275,10 @@ def http_get_json(url, timeout=None, retries=None, cache=True):
             if url in _HTTP_CACHE:
                 _HTTP_STATS["cache"] += 1
                 return _HTTP_CACHE[url]
+    host = urllib.parse.urlparse(url).hostname or "desconhecido"
+    with _HTTP_LOCK:
+        if _HTTP_HOST_FAILURES.get(host, 0) >= HTTP_FAILURE_LIMIT:
+            return None  # falha rápida: preservar orçamento para outras fontes
     last_err = None
     for attempt in range(retries):
         BUDGET.checar()
@@ -292,6 +298,7 @@ def http_get_json(url, timeout=None, retries=None, cache=True):
                 _HTTP_STATS["tempo_total"] += time.monotonic() - t0
                 if cache:
                     _HTTP_CACHE[url] = payload
+                _HTTP_HOST_FAILURES[host] = 0
             _stat_endpoint(url, "chamadas")
             _stat_endpoint(url, "tempo_total", round(time.monotonic() - t0, 2))
             return payload
@@ -302,6 +309,7 @@ def http_get_json(url, timeout=None, retries=None, cache=True):
             with _HTTP_LOCK:
                 _HTTP_STATS["tempo_total"] += time.monotonic() - t0
                 _HTTP_STATS["falhas"] += 1
+                _HTTP_HOST_FAILURES[host] = _HTTP_HOST_FAILURES.get(host, 0) + 1
             _stat_endpoint(url, "falhas")
             if attempt + 1 < retries:
                 BUDGET.pausa(2 * (attempt + 1))
@@ -1609,6 +1617,48 @@ class Collector:
         }
         self._atualizar_registro(exec_record)
 
+        # Prioridade operacional: nenhuma indisponibilidade da Câmara deve
+        # impedir a consulta das fontes regulatórias independentes.
+        # 3.5) Fontes multiórgão (ANPD, CNJ, TSE, DOU, Planalto, MCTI).
+        #      Cada uma roda em subprocesso com timeout próprio: uma fonte
+        #      travada/bloqueada não impede as demais nem o build do site.
+        resumo_fontes = None
+        atos_f = load("atos.json") if os.path.exists(os.path.join(DATA, "atos.json")) else None
+        if atos_f is None:
+            import update_sources as _us
+            atos_f = _us._atos_vazios()
+        if os.environ.get("MONITOR_SEM_FONTES"):
+            print("Coleta multiórgão desativada por MONITOR_SEM_FONTES.", flush=True)
+        elif BUDGET.expirado(90):
+            print("Orçamento insuficiente para as fontes multiórgão — etapa adiada.", flush=True)
+            exec_record["fontes_multiorgao_adiadas"] = True
+        else:
+            print("Coletando fontes multiórgão (ANPD, CNJ, TSE, DOU, Planalto, MCTI)...",
+                  flush=True)
+            with self.fase("fontes_multiorgao"):
+                try:
+                    import update_sources as _us
+                    timeout_fonte = int(os.environ.get("MONITOR_FONTES_TIMEOUT_S", "") or 75)
+                    # teto total: nunca consome o orçamento que falta para build/commit
+                    limite_total = min(480, max(60, int(BUDGET.restante() - BUDGET.margem - 180)))
+                    resultados = _us.executar_todas(timeout_s=timeout_fonte,
+                                                    limite_total_s=limite_total)
+                    exec_info = {"id": self.run_id, "timestamp": self.run_iso,
+                                 "data": self.today}
+                    resumo_fontes = _us.mesclar(atos_f, up_f, resultados, exec_info,
+                                                execucoes_anteriores=up_f.get("execucoes"))
+                    if not dry_run:
+                        n_mud = _us.registrar_mudancas(up_f, resumo_fontes["mudancas"],
+                                                       exec_info)
+                        print(f"  · {n_mud} mudança(s) registradas das fontes multiórgão",
+                              flush=True)
+                except BudgetExceeded:
+                    print("  orçamento esgotado durante as fontes multiórgão", flush=True)
+                except Exception as e:  # noqa: BLE001 — não derruba a execução legislativa
+                    self.errors.append(f"fontes multiórgão: {e}")
+                    print(f"  [erro] fontes multiórgão: {e}", flush=True)
+
+
         # 1) Atualizar proposições monitoradas (paralelo, I/O-bound; cada thread
         #    toca apenas o seu dict de proposição + estruturas com lock).
         #    A fila é ordenada por prioridade: se o orçamento acabar, o que fica
@@ -1790,45 +1840,6 @@ class Collector:
                     print("  orçamento esgotado na agenda de eventos", flush=True)
                 except Exception as e:  # noqa: BLE001
                     self.errors.append(f"eventos: {e}")
-
-        # 3.5) Fontes multiórgão (ANPD, CNJ, TSE, DOU, Planalto, MCTI).
-        #      Cada uma roda em subprocesso com timeout próprio: uma fonte
-        #      travada/bloqueada não impede as demais nem o build do site.
-        resumo_fontes = None
-        atos_f = load("atos.json") if os.path.exists(os.path.join(DATA, "atos.json")) else None
-        if atos_f is None:
-            import update_sources as _us
-            atos_f = _us._atos_vazios()
-        if os.environ.get("MONITOR_SEM_FONTES"):
-            print("Coleta multiórgão desativada por MONITOR_SEM_FONTES.", flush=True)
-        elif BUDGET.expirado(90):
-            print("Orçamento insuficiente para as fontes multiórgão — etapa adiada.", flush=True)
-            exec_record["fontes_multiorgao_adiadas"] = True
-        else:
-            print("Coletando fontes multiórgão (ANPD, CNJ, TSE, DOU, Planalto, MCTI)...",
-                  flush=True)
-            with self.fase("fontes_multiorgao"):
-                try:
-                    import update_sources as _us
-                    timeout_fonte = int(os.environ.get("MONITOR_FONTES_TIMEOUT_S", "") or 150)
-                    # teto total: nunca consome o orçamento que falta para build/commit
-                    limite_total = max(60, int(BUDGET.restante() - BUDGET.margem - 60))
-                    resultados = _us.executar_todas(timeout_s=timeout_fonte,
-                                                    limite_total_s=limite_total)
-                    exec_info = {"id": self.run_id, "timestamp": self.run_iso,
-                                 "data": self.today}
-                    resumo_fontes = _us.mesclar(atos_f, up_f, resultados, exec_info,
-                                                execucoes_anteriores=up_f.get("execucoes"))
-                    if not dry_run:
-                        n_mud = _us.registrar_mudancas(up_f, resumo_fontes["mudancas"],
-                                                       exec_info)
-                        print(f"  · {n_mud} mudança(s) registradas das fontes multiórgão",
-                              flush=True)
-                except BudgetExceeded:
-                    print("  orçamento esgotado durante as fontes multiórgão", flush=True)
-                except Exception as e:  # noqa: BLE001 — não derruba a execução legislativa
-                    self.errors.append(f"fontes multiórgão: {e}")
-                    print(f"  [erro] fontes multiórgão: {e}", flush=True)
 
         # 4) Checagem de conversão em lei (sugestão, sem auto-criar norma)
         sugestoes_lei = []
