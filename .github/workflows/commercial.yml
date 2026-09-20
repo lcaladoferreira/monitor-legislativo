@@ -21,6 +21,7 @@ jobs:
         with:
           python-version: '3.13'
       - run: python3 scripts/selftest_offline.py
+      - run: python3 scripts/recover_audit_history.py
       - run: python3 scripts/build_site.py
       - run: python3 scripts/validate_site.py
       - run: python3 -m unittest discover -s tests -v
