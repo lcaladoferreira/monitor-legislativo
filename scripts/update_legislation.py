@@ -291,7 +291,14 @@ def http_get_json(url, timeout=None, retries=None, cache=True):
                 with _HTTP_LOCK:
                     _HTTP_STATS["chamadas"] += 1
                 if _CURL_BIN:
-                    payload = _http_curl(url, int(espera))
+                    # O runner pode alcançar o endpoint por urllib mesmo
+                    # quando a conexão curl expira. Respeitar o mesmo teto
+                    # de tempo dividindo-o entre os dois transportes.
+                    metade = max(2, int(espera) // 2)
+                    try:
+                        payload = _http_curl(url, metade)
+                    except Exception:
+                        payload = _http_urllib(url, max(2, int(espera) - metade))
                 else:
                     payload = _http_urllib(url, int(espera))
             with _HTTP_LOCK:
