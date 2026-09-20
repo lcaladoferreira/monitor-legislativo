@@ -30,7 +30,7 @@ def problems(record, now=None):
         errors.append("Há erros ou proposições pendentes.")
     # A cobertura legislativa não substitui a saúde dos órgãos reguladores.
     # Um CNJ/DOU/TSE indisponível não pode produzir um falso "100% íntegro".
-    if str(record.get("status_global") or "").lower() not in ("ok", "concluida"):
+    if "status_global" in record and str(record["status_global"] or "").lower() not in ("ok", "concluida"):
         errors.append("Coleta multiórgão incompleta: status_global="
                       + str(record["status_global"]))
     if record.get("fontes_falha"):
