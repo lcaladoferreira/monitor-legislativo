@@ -925,6 +925,15 @@ def build_prop_pages(props, cats, updates, artigos=None):
                    if a0.get("modified_at") and a0["modified_at"] != a0.get("published_at") else "")
                 + '</dd></div>')
 
+        analise = p.get("analise_complementar") or {}
+        if analise.get("url"):
+            extra_sections += (
+                f'<div class="kv" style="margin-bottom:12px;border-color:rgba(79,140,255,.45)">'
+                f'<dt style="font-size:12px">Análise complementar na LCF Consulting</dt><dd>'
+                f'<a href="{esc(analise["url"])}" target="_blank" rel="noopener">{esc(analise.get("titulo") or "Abrir análise")}</a>'
+                + (f'<p style="margin:6px 0 0;color:var(--muted);font-size:13px">{esc(analise["descricao"])}</p>' if analise.get("descricao") else "")
+                + '</dd></div>')
+
         review_note = ""
         if p.get("revisao_pendente"):
             review_note = ('<div class="note warn"><b>Aguardando curadoria:</b> registro criado automaticamente a partir '

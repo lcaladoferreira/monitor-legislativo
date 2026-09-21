@@ -3,7 +3,8 @@
     "descricao": "Banco de proposições legislativas federais relacionadas à Inteligência Artificial no Brasil",
     "execucao": "2026-09-21",
     "chave_primaria": "casa_tipo_numero_ano (ex.: camara_pl_2338_2023)",
-    "nota": "Scores atribuídos conforme metodologia pública (seção Metodologia do site). Dados confirmados em fontes oficiais; datas não confirmadas aparecem apenas com o ano. Campos dependentes de verificação futura estão ausentes."
+    "nota": "Scores atribuídos conforme metodologia pública (seção Metodologia do site). Dados confirmados em fontes oficiais; datas não confirmadas aparecem apenas com o ano. Campos dependentes de verificação futura estão ausentes.",
+    "ultima_atualizacao": "2026-09-21"
   },
   "proposicoes": [
     {
@@ -356,7 +357,7 @@
       "titulo": "Redata — Regime Especial de Tributação para Serviços de Datacenter",
       "ementa": "Altera a Lei nº 11.196, de 21 de novembro de 2005, para instituir o Regime Especial de Tributação para Serviços de Datacenter – REDATA, e a Lei nº 15.211, de 17 de setembro de 2025.",
       "casa_origem": "Câmara dos Deputados",
-      "casa_atual": "Presidência da República (à sanção)",
+      "casa_atual": "Norma jurídica — Lei 15.504/2026",
       "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2600838",
       "autor": {
         "nome": "José Guimarães",
@@ -365,7 +366,7 @@
         "cargo": "Deputado Federal (líder do governo na Câmara)"
       },
       "data_apresentacao": "2026-02-04",
-      "situacao": "Aprovado pelo Congresso Nacional; aguarda sanção presidencial",
+      "situacao": "Transformado na Lei 15.504/2026; regulamentação operacional pendente",
       "comissao_atual": "—",
       "relator_camara": {
         "nome": "Deputado Aguinaldo Ribeiro",
@@ -381,7 +382,7 @@
         "data": "2026-09-15",
         "descricao": "Transformado na Lei Ordinária 15504/2026. DOU 15/09/2026 PÁG 01 COL 01.EDIÇÃO EXTRA C"
       },
-      "proxima_etapa": "Sanção presidencial (ou veto), com promulgação e publicação no DOU",
+      "proxima_etapa": "Regulamentação pelo Poder Executivo e procedimento de habilitação pela Receita Federal",
       "resumo": "Reapresenta, como projeto de lei, o conteúdo da MP 1.318/2025 (caducada em 25/02/2026): institui o Redata, com suspensão por 5 anos de Imposto de Importação, PIS/Cofins, PIS/Cofins-Importação e IPI na aquisição de máquinas e equipamentos para instalação/ampliação de data centers (incluindo nuvem, IA e processamento de alto desempenho). Contrapartidas: investimento de 2% do valor dos equipamentos em P&D (40% do valor aplicado nas regiões Norte, Nordeste e Centro-Oeste, com flexibilização de 20% nos compromissos para projetos nessas regiões); disponibilização de ao menos 10% da capacidade instalada ao mercado interno; contratação integral de energia elétrica de fontes renováveis ou de baixa emissão; Índice de Eficiência Hídrica ≤ 0,05 L/kWh; relatórios de sustentabilidade. Habilitação pelo Ministério da Fazenda. Benefícios de PIS/Pasep/Cofins/IPI produzem efeitos até 31/12/2026, com transição para a reforma tributária (CBS) a partir de 2027.",
       "obrigacoes_criadas": "Contrapartidas de P&D, oferta de capacidade ao mercado nacional, energia de baixa emissão, eficiência hídrica e relatórios de sustentabilidade",
       "orgaos_responsaveis": "Ministério da Fazenda (habilitação e fiscalização); Receita Federal",
@@ -394,9 +395,13 @@
         "score": 85,
         "classificacao": "MUITO RELEVANTE"
       },
-      "estagio": "Aprovado pelas duas Casas; à sanção presidencial",
-      "chance_impacto_regulatorio": "Altíssima proximidade de virar lei: aprovado sem alteração de mérito pelo Senado, dispensa nova votação na Câmara. Estimativas de renúncia fiscal variam de cerca de R$ 1 bi/ano (a partir de 2027) a R$ 5,2 bi em 2026 e R$ 7,25 bi até 2028, conforme projeções citadas pela imprensa",
+      "estagio": "Lei sancionada e vigente; regulamentação operacional pendente",
+      "chance_impacto_regulatorio": "A lei está vigente, mas a fruição depende de regulamentação, listas de serviços e bens elegíveis e habilitação pela Receita Federal. O risco central migrou da aprovação legislativa para a implementação regulatória.",
       "documentos": [
+        {
+          "titulo": "Lei 15.504/2026 — texto integral",
+          "url": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/l15504.htm"
+        },
         {
           "titulo": "Ficha de tramitação na Câmara",
           "url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2600838"
@@ -404,7 +409,8 @@
       ],
       "relacionamentos": [
         "mp_1318_2025 (antecessora, caducada)",
-        "lei_15211_2025 (alterada)"
+        "lei_15211_2025 (alterada)",
+        "lei_15504_2026 (norma resultante)"
       ],
       "timeline": [
         {
@@ -426,6 +432,11 @@
           "data": "2026-09-01",
           "evento": "Senado aprova o projeto em votação simbólica (relator Cid Gomes), sem alteração de mérito; segue à sanção presidencial",
           "fonte": "https://teletime.com.br/01/09/2026/redata-senado/"
+        },
+        {
+          "data": "2026-09-15",
+          "evento": "Lei 15.504/2026 é publicada e institui o Redata; implementação passa a depender de regulamentação e habilitação",
+          "fonte": "https://www.planalto.gov.br/ccivil_03/_ato2023-2026/2026/lei/l15504.htm"
         }
       ],
       "fontes_adicionais": [
@@ -467,7 +478,12 @@
         "votacoes_total": 4
       },
       "regime_tramitacao": "Urgência (Art. 155, RICD)",
-      "forma_apreciacao": "Proposição Sujeita à Apreciação do Plenário"
+      "forma_apreciacao": "Proposição Sujeita à Apreciação do Plenário",
+      "analise_complementar": {
+        "titulo": "Redata já pode ser usado? Lei 15.504 ainda depende de regulamentação",
+        "url": "https://www.lcfconsulting.com.br/dossies/redata-lei-15504-regulamentacao-habilitacao/",
+        "descricao": "Nota de Inteligência Regulatória com tracker de implementação, matriz de evidências e mapa de stakeholders."
+      }
     },
     {
       "id": "camara_pl_3066_2025",
