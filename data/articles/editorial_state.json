@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-09-23"
+    "atualizado_em": "2026-09-24"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -2933,6 +2933,76 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-09-23T20:44:44-03:00",
       "run_id": null
+    },
+    "chg_561e657e025bd7fc": {
+      "change_id": "chg_561e657e025bd7fc",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-dispoe-sobre-transparencia-auditabilidade-e-nao-discriminaca",
+      "editorial_topic_id": "pl-3877-2026-dispoe-sobre-transparencia-auditabilidade-e-nao-discriminaca",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-09-24T01:52:03-03:00",
+      "run_id": null
+    },
+    "chg_3c3b6f3e6bd7e6ee": {
+      "change_id": "chg_3c3b6f3e6bd7e6ee",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-no-12-de-2-de-setembro-de-2026-5c68c0ed",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
+      "processed_at": "2026-09-24T01:52:03-03:00",
+      "run_id": null
+    },
+    "chg_7350f7b0d87d8e68": {
+      "change_id": "chg_7350f7b0d87d8e68",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gm-mmulheres-no-134-de-22-de-setembro-de-2026-f7d2214f",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-09-24T01:52:03-03:00",
+      "run_id": null
+    },
+    "chg_6af107ac334f3824": {
+      "change_id": "chg_6af107ac334f3824",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-no-4-de-18-de-agosto-de-2026-44226376",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
+      "processed_at": "2026-09-24T01:52:03-03:00",
+      "run_id": null
+    },
+    "chg_339aa60745edff6b": {
+      "change_id": "chg_339aa60745edff6b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-conjunta-senacon-sedigi-spdigi-no-3-de-22-de-setemb-99f8e1ff",
+      "selection_reason": "ato tipo=Portaria Conjunta órgão=dou peso=5 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-09-24T01:52:03-03:00",
+      "run_id": null
+    },
+    "chg_8639db4c091d5d79": {
+      "change_id": "chg_8639db4c091d5d79",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-24T01:52:03-03:00",
+      "run_id": null
+    },
+    "chg_13c4338952382420": {
+      "change_id": "chg_13c4338952382420",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-24T01:52:03-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -3088,13 +3158,6 @@
       "since": "2026-09-18",
       "editorial_topic_id": "pl-3966-2026-altera-a-medida-provisoria-no-2-228-1-de-6-de-setembro-de-20",
       "prioridade": 14,
-      "attempts": 3
-    },
-    "chg_561e657e025bd7fc": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "pl-3877-2026-dispoe-sobre-transparencia-auditabilidade-e-nao-discriminaca",
-      "prioridade": 27,
       "attempts": 3
     },
     "chg_d0e85ed02d72567c": {
@@ -4025,6 +4088,19 @@
       "novos_artigos": 0,
       "artigos_atualizados": 0,
       "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 100,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-24T01:52:03-03:00",
+      "dia": "2026-09-24",
+      "mudancas_novas": 116,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 6,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 100,
