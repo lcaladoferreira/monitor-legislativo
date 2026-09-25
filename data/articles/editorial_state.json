@@ -3483,6 +3483,26 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-09-25T04:50:29-03:00",
       "run_id": null
+    },
+    "chg_2029f7cdc2a32637": {
+      "change_id": "chg_2029f7cdc2a32637",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-25T10:50:13-03:00",
+      "run_id": null
+    },
+    "chg_b1ef5efab6258001": {
+      "change_id": "chg_b1ef5efab6258001",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-25T10:50:13-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -4239,6 +4259,12 @@
       "since": "2026-09-20",
       "editorial_topic_id": "pl-370-2024-inclui-uma-majorante-no-crime-de-violencia-psicologica-contr",
       "prioridade": 24
+    },
+    "chg_8934c490dcb41e5f": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-09-25",
+      "editorial_topic_id": "ato-cnj-portaria-cnj-no-119-f44b02f2",
+      "prioridade": 12
     }
   },
   "execucoes": [
@@ -4655,6 +4681,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 109,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-25T10:50:13-03:00",
+      "dia": "2026-09-25",
+      "mudancas_novas": 111,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 1,
+      "stale": 0,
+      "aguardando_curadoria": 110,
       "run_id": null,
       "bootstrap": false
     }
