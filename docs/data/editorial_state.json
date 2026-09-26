@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-09-25"
+    "atualizado_em": "2026-09-26"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -3583,6 +3583,36 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-09-25T22:35:40-03:00",
       "run_id": null
+    },
+    "chg_73fa0c5427333895": {
+      "change_id": "chg_73fa0c5427333895",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-altera-a-lei-no-8-080-de-19-de-setembro-de-1990-lei-organica",
+      "editorial_topic_id": "pl-1254-2026-altera-a-lei-no-8-080-de-19-de-setembro-de-1990-lei-organica",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-09-26T04:43:25-03:00",
+      "run_id": null
+    },
+    "chg_bf32df5fb701672c": {
+      "change_id": "chg_bf32df5fb701672c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-26T04:43:25-03:00",
+      "run_id": null
+    },
+    "chg_c60a4055b3a4b39c": {
+      "change_id": "chg_c60a4055b3a4b39c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-26T04:43:25-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -3941,13 +3971,6 @@
       "since": "2026-09-18",
       "editorial_topic_id": "req-10-2026-requer-a-inclusao-de-convidado-na-audiencia-publica-objeto-d",
       "prioridade": 25,
-      "attempts": 3
-    },
-    "chg_73fa0c5427333895": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "pl-1254-2026-altera-a-lei-no-8-080-de-19-de-setembro-de-1990-lei-organica",
-      "prioridade": 26,
       "attempts": 3
     },
     "chg_b728b2c957aa22f5": {
@@ -4810,6 +4833,19 @@
       "novos_artigos": 0,
       "artigos_atualizados": 0,
       "ignoradas": 4,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 110,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-26T04:43:25-03:00",
+      "dia": "2026-09-26",
+      "mudancas_novas": 111,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 110,
