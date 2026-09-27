@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-09-26"
+    "atualizado_em": "2026-09-27"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -3713,6 +3713,36 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-09-26T22:29:38-03:00",
       "run_id": null
+    },
+    "chg_85a55bc561470d9d": {
+      "change_id": "chg_85a55bc561470d9d",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-dispoe-sobre-os-principios-eticos-diretrizes-de-governanca-r",
+      "editorial_topic_id": "pl-931-2026-dispoe-sobre-os-principios-eticos-diretrizes-de-governanca-r",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-09-27T05:11:09-03:00",
+      "run_id": null
+    },
+    "chg_fb430f7789c58b8b": {
+      "change_id": "chg_fb430f7789c58b8b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-27T05:11:09-03:00",
+      "run_id": null
+    },
+    "chg_3bdecbea0d0dfe5a": {
+      "change_id": "chg_3bdecbea0d0dfe5a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-27T05:11:09-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -4113,13 +4143,6 @@
       "since": "2026-09-18",
       "editorial_topic_id": "req-8-2026-requer-a-inclusao-de-convidados-na-audiencia-publica-objeto",
       "prioridade": 25,
-      "attempts": 3
-    },
-    "chg_85a55bc561470d9d": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "pl-931-2026-dispoe-sobre-os-principios-eticos-diretrizes-de-governanca-r",
-      "prioridade": 26,
       "attempts": 3
     },
     "chg_70652793b634b27c": {
@@ -5009,6 +5032,19 @@
       "dia": "2026-09-26",
       "mudancas_novas": 110,
       "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 110,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-27T05:11:09-03:00",
+      "dia": "2026-09-27",
+      "mudancas_novas": 110,
+      "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 2,
       "adiadas": 0,
