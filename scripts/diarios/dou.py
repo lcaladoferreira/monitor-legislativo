@@ -613,7 +613,7 @@ class ColetorDouIntegral(FonteDiario):
     marcadores_estruturais = MARCADORES_LEITURA
 
     def __init__(self, logger=print, secoes=SECOES, max_itens_por_edicao=None, datas=None,
-                 max_textos_por_edicao=None):
+                 max_textos_por_edicao=None, max_texto_bytes_por_edicao=None):
         super().__init__(logger=logger)
         self.secoes = tuple(secoes or SECOES)
         self.datas = list(datas) if datas else None
@@ -626,6 +626,12 @@ class ColetorDouIntegral(FonteDiario):
         self.max_textos_por_edicao = int(
             max_textos_por_edicao if max_textos_por_edicao is not None
             else (os.environ.get("MONITOR_DOU_TEXTOS_POR_EDICAO") or 25))
+        # Teto de bytes de texto por data/edição: o texto integral é o que mais
+        # pesa na memória do processo e no payload. Ao estourar, a captura para e
+        # o que faltou entra em `textos_pendentes` (documentado, nunca inferido).
+        mp = (max_texto_bytes_por_edicao if max_texto_bytes_por_edicao is not None
+              else int(os.environ.get("MONITOR_DOU_TEXTO_MB_POR_EDICAO") or 12) * 1024 * 1024)
+        self.max_texto_bytes_por_edicao = int(mp)
 
     def janela(self, ctx):
         """Datas a consultar: janela explícita (backfill) ou derivada da janela de dias."""
@@ -731,8 +737,19 @@ class ColetorDouIntegral(FonteDiario):
         if not pendentes:
             return
         buscados = obtidos = 0
+        bytes_texto = 0
+        motivo_parada = None
         for item in pendentes:
-            if buscados >= self.max_textos_por_edicao or ctx.expirado(3):
+            if buscados >= self.max_textos_por_edicao:
+                motivo_parada = (f"teto de {self.max_textos_por_edicao} página(s) por "
+                                 f"edição (MONITOR_DOU_TEXTOS_POR_EDICAO)")
+                break
+            if bytes_texto >= self.max_texto_bytes_por_edicao:
+                motivo_parada = (f"teto de {self.max_texto_bytes_por_edicao // (1024 * 1024)}MB "
+                                 f"de texto por edição (MONITOR_DOU_TEXTO_MB_POR_EDICAO)")
+                break
+            if ctx.expirado(3):
+                motivo_parada = "orçamento da fonte esgotado durante a captura de texto"
                 break
             ctx.checar(2)
             resp = ctx.cliente.get(item["url_oficial"])
@@ -746,19 +763,23 @@ class ColetorDouIntegral(FonteDiario):
                 continue
             item["texto"] = texto
             item["texto_fonte"] = item["url_oficial"]
+            bytes_texto += len(texto.encode("utf-8", "ignore"))
             obtidos += 1
         pendentes_restantes = len(pendentes) - obtidos
         resultado.edicoes.append({
             "data": data, "secao": "texto integral", "itens": obtidos,
             "textos_buscados": buscados, "textos_pendentes": pendentes_restantes,
             "teto_por_edicao": self.max_textos_por_edicao,
+            "bytes_texto": bytes_texto,
+            "teto_bytes": self.max_texto_bytes_por_edicao,
+            "motivo_parada": motivo_parada,
         })
         if pendentes_restantes:
             resultado.avisos.append(
                 f"{pendentes_restantes} ato(s) de {data} seguem sem texto integral na "
-                f"listagem (teto de {self.max_textos_por_edicao} página(s)/edição ou "
-                f"conteúdo não servido): o item permanece publicado com `texto` "
-                f"ausente — nada é inferido a partir do título")
+                f"listagem ({motivo_parada or 'conteúdo não servido pela fonte oficial'}): "
+                f"o item permanece publicado com `texto` ausente — nada é inferido a "
+                f"partir do título")
 
     def _coletar_extras(self, ctx, resultado, data):
         """Consulta as edições extra que a página da Seção 1 declarar (se declarar)."""

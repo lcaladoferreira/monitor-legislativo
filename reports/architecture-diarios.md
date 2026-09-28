@@ -249,6 +249,9 @@ Variáveis de ambiente (todas opcionais):
 | `MONITOR_DIARIOS_DATAS` | janela explícita de datas (backfill, `AAAA-MM-DD,AAAA-MM-DD`) |
 | `MONITOR_DOU_DIAS` | tamanho da janela de datas |
 | `MONITOR_DOU_MAX_ITENS_EDICAO` | teto de itens por edição (padrão 2000) |
+| `MONITOR_DOU_TEXTOS_POR_EDICAO` | teto de páginas de ato abertas por edição para capturar o texto (padrão 25; `0` desliga) |
+| `MONITOR_DOU_TEXTO_MB_POR_EDICAO` | teto de MB de texto integral por edição (padrão 12) |
+| `MONITOR_ARQUIVO_FONTE_MB` | teto do arquivo-fonte guardado por página (padrão 4 MB; o corte é registrado em `avisos`) |
 | `MONITOR_RAW_STORAGE` | backend de raw storage (`local` hoje) |
 | `MONITOR_RAW_DIR` | raiz do raw storage |
 | `MONITOR_QUERIDO_DIARIO_API` | base da API do agregador municipal |
@@ -262,6 +265,31 @@ payload para o contrato legado e **só então** `mesclar()` grava
 aconteceu. `MONITOR_DOU_DIARIOS=0` desliga a rota nova sem mexer em dado.
 
 ---
+
+## 8.1 Limites de recurso (por que existem)
+
+A primeira execução da rota integral em CI morreu com **exit code 137 (OOM)**. Três
+causas foram corrigidas e ficaram cobertas por testes
+(`tests/test_diarios_memoria.py`):
+
+1. **arquivo-fonte liberado depois de gravar** — a página HTML de cada seção era
+   mantida em memória até o fim da execução e nem chegava ao raw storage; agora é
+   entregue a `RawStorage.save(..., arquivos=…)` e o dicionário é esvaziado em
+   `finally` (inclusive em `--dry-run`, que não grava nada);
+2. **tetos de captura de texto** — a captura do texto integral é limitada em
+   número de páginas **e em bytes** por edição; ao estourar, a captura para, o
+   motivo vai para `edicoes[].motivo_parada` e o restante para
+   `textos_pendentes` (o item segue publicado com `texto` ausente — nada é
+   inferido do título);
+3. **sem processos órfãos** — os subprocessos rodam em grupo próprio
+   (`start_new_session=True`) e o timeout mata o grupo inteiro
+   (`os.killpg`), então netos não continuam consumindo rede/memória depois do
+   estouro. O fallback também não reentra no pipeline: o subprocesso do coletor
+   histórico recebe `MONITOR_DOU_DIARIOS=0`, evitando reexecutar a ingestão
+   integral inteira só para chegar à mesma resposta.
+
+Nada disso muda o que é publicado: os limites só restringem **quanto texto** é
+capturado por execução, e o que ficou de fora aparece explicitamente.
 
 ## 9. Testes
 

@@ -30,6 +30,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import signal
 import subprocess
 import sys
 import tempfile
@@ -199,11 +200,19 @@ def executar_fonte_subprocesso(orgao, timeout_s=None, logger=print):
     os.close(fd)
     cmd = [sys.executable, os.path.abspath(__file__), "--fonte", orgao,
            "--json", caminho, "--timeout", str(timeout_s)]
+    env = None
+    if orgao in FONTES_DIARIOS:
+        # Este subprocesso existe para rodar o coletor **histórico** (busca
+        # temática). Sem desligar a rota de diários aqui, o filho reexecutaria a
+        # ingestão integral inteira — trabalho dobrado (tempo e memória) e a
+        # mesma resposta.
+        env = dict(os.environ, MONITOR_DOU_DIARIOS="0")
     t0 = time.monotonic()
     try:
-        proc = subprocess.run(cmd, capture_output=True, timeout=timeout_s + 60)
+        proc = _executar_cmd(cmd, timeout_s + 60, env=env)
     except subprocess.TimeoutExpired:
-        logger(f"    [aviso] {orgao}: timeout de {timeout_s}s + margem — subprocesso morto")
+        logger(f"    [aviso] {orgao}: timeout de {timeout_s}s + margem — processo e "
+               f"netos encerrados")
         motivo = f"timeout: a fonte não terminou em {timeout_s}s"
         return _resultado_falha(orgao, motivo, time.monotonic() - t0)
     duracao = time.monotonic() - t0
@@ -223,6 +232,50 @@ def executar_fonte_subprocesso(orgao, timeout_s=None, logger=print):
             pass
     dados["duracao_subprocesso"] = round(duracao, 1)
     return dados
+
+
+class _Processo:
+    """Resultado mínimo de um subprocesso (mesma leitura usada no arquivo)."""
+
+    __slots__ = ("returncode", "stdout", "stderr")
+
+    def __init__(self, returncode, stdout, stderr):
+        self.returncode = returncode
+        self.stdout = stdout
+        self.stderr = stderr
+
+
+def _encerrar_grupo(proc):
+    """Mata o processo **e os netos** (incidente 2026-09-28).
+
+    Um coletor morre por timeout, mas os subprocessos que ele abriu continuam
+    rodando (consumindo rede, disco e memória) — inclusive depois de o job
+    terminar. Matar o grupo inteiro evita o acúmulo de órfãos no runner.
+    """
+    try:
+        os.killpg(os.getpgid(proc.pid), signal.SIGKILL)
+    except (ProcessLookupError, PermissionError, OSError):
+        try:
+            proc.kill()
+        except OSError:
+            pass
+
+
+def _executar_cmd(cmd, timeout_s, env=None):
+    """Executa `cmd` com timeout rígido e sem deixar netos vivos.
+
+    Levanta `subprocess.TimeoutExpired` no estouro (contrato já usado pelos
+    chamadores), depois de derrubar o grupo inteiro.
+    """
+    proc = subprocess.Popen(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                            env=env, start_new_session=True)
+    try:
+        saida, erro = proc.communicate(timeout=timeout_s)
+    except subprocess.TimeoutExpired:
+        _encerrar_grupo(proc)
+        proc.communicate()
+        raise
+    return _Processo(proc.returncode, saida, erro)
 
 
 def _diarios_habilitado():
@@ -252,7 +305,7 @@ def executar_diarios_fonte(orgao, timeout_s=None, dias=None, logger=print, dry_r
         cmd.append("--dry-run")
     t0 = time.monotonic()
     try:
-        proc = subprocess.run(cmd, capture_output=True, timeout=timeout_s + 90)
+        proc = _executar_cmd(cmd, timeout_s + 90)
     except subprocess.TimeoutExpired:
         motivo = f"pipeline de diários não terminou em {timeout_s}s + margem"
         logger(f"    [aviso] {orgao}: {motivo}")
@@ -804,8 +857,12 @@ def main(argv=None):
         return 0
 
     if args.todas:
+        # `--todas --dry-run` não pode gravar nada: o pipeline de diários roda em
+        # subprocesso e precisa receber a mesma promessa (o workflow de
+        # diagnóstico conta com isso para não escrever dataset nem raw).
         resultados = executar_todas(timeout_s=args.timeout,
-                                    usar_subprocesso=not args.sem_subprocesso)
+                                    usar_subprocesso=not args.sem_subprocesso,
+                                    dry_run=args.dry_run)
         for dados in resultados.values():
             _resumo_texto(dados)
         if args.relatorio:

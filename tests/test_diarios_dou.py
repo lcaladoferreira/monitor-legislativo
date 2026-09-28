@@ -238,16 +238,20 @@ class ColetorIntegralTests(unittest.TestCase):
         self.assertTrue(resultado.zero_evidencia)
 
     def test_fonte_indisponivel(self):
-        from diarios.base import ResultadoColeta
+        from diarios.base import ResultadoColeta, dias_uteis_janela
         from sources.base import FonteIndisponivel
         resultado = ResultadoColeta("dou", "DOU")
         rotas = {secao: RespostaFalsa("x", 500, "", erro="HTTP 500")
                  for secao in ("secao=do1", "secao=do2", "secao=do3")}
+        # Janela explícita: o teste não pode depender do dia em que roda.
+        coletor = ColetorDouIntegral(logger=lambda *_: None, datas=["2026-09-25"])
         with self.assertRaises(FonteIndisponivel):
-            ColetorDouIntegral(logger=lambda *_: None).coletar(contexto(rotas), resultado)
+            coletor.coletar(contexto(rotas), resultado)
         self.assertTrue(resultado.erros)
-        self.assertEqual(resultado.canais_falhos, ["do1 2026-09-26", "do2 2026-09-26",
-                                                   "do3 2026-09-26"])
+        self.assertEqual(resultado.canais_falhos, ["do1 2026-09-25", "do2 2026-09-25",
+                                                   "do3 2026-09-25"])
+        self.assertEqual(coletor.janela(None), ["2026-09-25"])
+        self.assertTrue(dias_uteis_janela(1))   # a janela padrão continua existindo
 
     def test_edicao_extra_declarada_pela_pagina_e_coletada(self):
         rotas = {"secao=do1": HTML_JSON, "secao=do2": HTML_ZERO, "secao=do3": HTML_ZERO,

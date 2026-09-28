@@ -311,6 +311,10 @@ class PipelineDiarios:
     def _persistir_raw(self, resultado):
         """RAW — payload bruto e arquivos-fonte vão para o storage (nunca para o Git)."""
         if self.raw is None or self.dry_run or not resultado.coleta.itens:
+            # Sem storage (dry-run/diagnóstico) ou sem itens: nada é gravado e o
+            # arquivo-fonte não fica pendurado em memória.
+            resultado.coleta.arquivos_fonte.clear()
+            resultado.coleta.arquivos_fonte = {}
             return
         referencia = (resultado.coleta.ultima_publicacao or ts_iso()[:10])
         meta = {
@@ -332,11 +336,17 @@ class PipelineDiarios:
         }
         try:
             resultado.raw_referencia = self.raw.save(
-                resultado.fonte.source_id, referencia, resultado.coleta.itens, meta)
+                resultado.fonte.source_id, referencia, resultado.coleta.itens, meta,
+                arquivos=dict(resultado.coleta.arquivos_fonte or {}))
         except Exception as e:  # noqa: BLE001 — storage não derruba a coleta
             aviso = f"raw storage indisponível ({type(e).__name__}: {e})"
             resultado.avisos.append(aviso)
             self.log(f"      aviso: {aviso[:160]}")
+        finally:
+            # O arquivo-fonte (HTML/XML de páginas inteiras) é liberado depois de
+            # gravado: mantê-lo até o fim da execução era o que inflava a memória
+            # da ingestão integral de uma edição real.
+            resultado.coleta.arquivos_fonte.clear()
 
     def _normalizar(self, resultado):
         """PARSE/NORMALIZE — item bruto → contrato comum (campo ausente fica ausente)."""

@@ -44,7 +44,11 @@ A coleta deixou de depender de busca por tema. A ordem é:
    `MONITOR_INLABS_SENHA` (credencial vive no ambiente, nunca no repositório);
 2. **edição integral** pela página oficial de leitura do jornal
    (`in.gov.br/leiturajornal`, seções do1/do2/do3, com as edições extra que a
-   própria página declarar) — sem termo de busca: entra a edição inteira;
+   própria página declarar) — sem termo de busca: entra a edição inteira. O texto
+   de cada ato que a listagem não trouxer é lido na página oficial do ato, com
+   tetos explícitos de páginas e de bytes por edição
+   (`MONITOR_DOU_TEXTOS_POR_EDICAO`, `MONITOR_DOU_TEXTO_MB_POR_EDICAO`) — o que
+   não for capturado é registrado como pendente;
 3. **busca temática** (`scripts/sources/dou.py`, preservado) como *fallback* e
    verificação complementar.
 
@@ -291,6 +295,12 @@ publicadas em `docs/data/monitoramento.json` para uso externo (BI, planilhas).
   tamanho e por ser reproduzível na fonte; o que é versionado é o estado
   auditável (`data/diarios/estado.json`) e o dataset público
   (`data/legislation/*.json`).
+- A captura do texto integral de uma edição é **limitada por execução** (teto de
+  páginas e de MB por edição, `MONITOR_DOU_TEXTOS_POR_EDICAO` /
+  `MONITOR_DOU_TEXTO_MB_POR_EDICAO`): o texto que não couber fica pendente e
+  aparece como tal — o item continua publicado, mas sem texto inferido.
+- Os subprocessos de coleta rodam em grupo próprio e o timeout derruba o grupo
+  inteiro: um coletor travado não deixa processos órfãos consumindo o runner.
 
 ## Autoria
 

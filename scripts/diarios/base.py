@@ -390,6 +390,12 @@ class ResultadoColeta:
         }
 
 
+# Teto do arquivo-fonte mantido em memória/gravado por página. Páginas de edição
+# do DOU embutem o JSON de todos os atos do dia e podem passar de dezenas de MB;
+# o limite evita que a ingestão integral cresça sem controle em memória.
+LIMITE_ARQUIVO_FONTE_BYTES = int(os.environ.get("MONITOR_ARQUIVO_FONTE_MB") or 4) * 1024 * 1024
+
+
 class FonteDiario:
     """Conector de um Diário Oficial (federal, estadual, municipal ou judiciário).
 
@@ -427,9 +433,27 @@ class FonteDiario:
 
     # ------------------------------------------------------------------ helpers
     def registrar_arquivo_fonte(self, resultado, nome, conteudo):
-        """Guarda o arquivo-fonte (para o raw storage) sem inflar o dataset público."""
-        if nome and conteudo is not None:
-            resultado.arquivos_fonte[nome] = conteudo
+        """Guarda o arquivo-fonte (para o raw storage) sem inflar o dataset público.
+
+        O conteúdo fica em memória só até ser entregue ao raw storage (o pipeline
+        libera depois de gravar). Páginas HTML de edição podem ser grandes: acima
+        de `LIMITE_ARQUIVO_FONTE_BYTES` a cópia guardada é parcial e o corte é
+        registrado — nunca silenciado.
+        """
+        if not nome or conteudo is None:
+            return
+        texto = conteudo if isinstance(conteudo, str) else None
+        tamanho = len(conteudo) if texto is not None else len(conteudo)
+        if tamanho > LIMITE_ARQUIVO_FONTE_BYTES:
+            corte = (conteudo[:LIMITE_ARQUIVO_FONTE_BYTES] if texto is not None
+                     else bytes(conteudo[:LIMITE_ARQUIVO_FONTE_BYTES]))
+            resultado.arquivos_fonte[nome] = corte
+            resultado.avisos.append(
+                f"arquivo-fonte '{nome}' guardado parcialmente: {tamanho} bytes > "
+                f"limite de {LIMITE_ARQUIVO_FONTE_BYTES} bytes "
+                f"(MONITOR_ARQUIVO_FONTE_MB ajusta)")
+            return
+        resultado.arquivos_fonte[nome] = conteudo
 
     def avaliar_layout(self, resultado, html_ou_texto, marcadores, itens, rotulo):
         """Detecta quebra de layout (FASE 12) sem confundir com "sem publicação".

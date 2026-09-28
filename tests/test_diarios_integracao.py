@@ -72,7 +72,7 @@ def _payload(orgao="dou", itens=2):
 
 
 class _SubprocessoFalso:
-    """Duplo de `subprocess.run` que escreve os arquivos pedidos pelo CLI."""
+    """Duplo de `_executar_cmd` que escreve os arquivos pedidos pelo CLI."""
 
     def __init__(self, payload, relatorio=None, returncode=0):
         self.payload = payload
@@ -80,7 +80,7 @@ class _SubprocessoFalso:
         self.returncode = returncode
         self.chamadas = []
 
-    def __call__(self, cmd, capture_output=True, timeout=None):
+    def __call__(self, cmd, timeout_s, env=None):
         self.chamadas.append(list(cmd))
         if self.payload is not None:
             destino = pathlib.Path(cmd[cmd.index("--json-legado") + 1])
@@ -88,14 +88,13 @@ class _SubprocessoFalso:
         if self.relatorio is not None:
             destino = pathlib.Path(cmd[cmd.index("--json") + 1])
             destino.write_text(json.dumps(self.relatorio, ensure_ascii=False), encoding="utf-8")
-        saida = mock.Mock(returncode=self.returncode, stderr=b"", stdout=b"")
-        return saida
+        return us._Processo(self.returncode, b"", b"")
 
 
 class ExecutarDiariosFonteTests(unittest.TestCase):
     def test_payload_legado_volta_com_itens_e_saude(self):
         falso = _SubprocessoFalso(_payload())
-        with mock.patch.object(us.subprocess, "run", falso):
+        with mock.patch.object(us, "_executar_cmd", falso):
             dados = us.executar_diarios_fonte("dou", timeout_s=5, logger=lambda *_: None)
         self.assertEqual(dados["orgao"], "dou")
         self.assertEqual(len(dados["itens"]), 2)
@@ -109,18 +108,18 @@ class ExecutarDiariosFonteTests(unittest.TestCase):
 
     def test_falha_do_pipeline_nunca_vira_sucesso(self):
         falso = _SubprocessoFalso(payload=None, relatorio=None, returncode=2)
-        with mock.patch.object(us.subprocess, "run", falso):
+        with mock.patch.object(us, "_executar_cmd", falso):
             dados = us.executar_diarios_fonte("dou", timeout_s=5, logger=lambda *_: None)
         self.assertEqual(dados["saude"]["status"], "falha")
         self.assertEqual(dados["itens"], [])
         self.assertIn("sem resultado para 'dou'", dados["saude"]["erro_detalhe"])
 
     def test_timeout_do_subprocesso_e_registrado(self):
-        def estoura(cmd, capture_output=True, timeout=None):
-            raise us.subprocess.TimeoutExpired(cmd, timeout)
+        def estoura(cmd, timeout_s, env=None):
+            raise us.subprocess.TimeoutExpired(cmd, timeout_s)
 
         antes = set(pathlib.Path(tempfile.gettempdir()).glob("diarios_dou_*.json"))
-        with mock.patch.object(us.subprocess, "run", estoura):
+        with mock.patch.object(us, "_executar_cmd", estoura):
             dados = us.executar_diarios_fonte("dou", timeout_s=5, logger=lambda *_: None)
         self.assertEqual(dados["saude"]["status"], "falha")
         self.assertIn("não terminou", dados["saude"]["erro_detalhe"])
@@ -130,9 +129,32 @@ class ExecutarDiariosFonteTests(unittest.TestCase):
 
     def test_dry_run_e_repassado_ao_pipeline(self):
         falso = _SubprocessoFalso(_payload())
-        with mock.patch.object(us.subprocess, "run", falso):
+        with mock.patch.object(us, "_executar_cmd", falso):
             us.executar_diarios_fonte("dou", timeout_s=5, logger=lambda *_: None, dry_run=True)
         self.assertIn("--dry-run", falso.chamadas[0])
+
+    def test_coletor_historico_roda_sem_reentrar_no_pipeline_de_diarios(self):
+        """O subprocesso do fallback não pode reexecutar a ingestão integral.
+
+        Sem `MONITOR_DOU_DIARIOS=0` no ambiente do filho, `--fonte dou` reabriria o
+        pipeline de diários inteiro: trabalho dobrado (tempo e memória) e a mesma
+        resposta que já falhou.
+        """
+        capturado = {}
+
+        def falso(cmd, capture_output=True, timeout=None, env=None):
+            capturado["cmd"] = list(cmd)
+            capturado["env"] = env
+            return mock.Mock(returncode=1, stderr=b"", stdout=b"")
+
+        with mock.patch.object(us, "_executar_cmd", falso):
+            us.executar_fonte_subprocesso("dou", timeout_s=5, logger=lambda *_: None)
+        self.assertIsNotNone(capturado["env"])
+        self.assertEqual(capturado["env"]["MONITOR_DOU_DIARIOS"], "0")
+        # as demais fontes seguem sem forçar variável nenhuma
+        with mock.patch.object(us, "_executar_cmd", falso):
+            us.executar_fonte_subprocesso("anpd", timeout_s=5, logger=lambda *_: None)
+        self.assertIsNone(capturado["env"])
 
 
 class FallbackDaFonteTests(unittest.TestCase):
@@ -245,6 +267,35 @@ class ExecutarTodasTests(unittest.TestCase):
         coleta.assert_not_called()   # nada roda sem tempo: falha explícita, não silêncio
         self.assertEqual(resultados["dou"]["saude"]["status"], "falha")
         self.assertIn("teto de tempo", resultados["dou"]["saude"]["erro_detalhe"])
+
+
+class EncerramentoDeOrfaosTests(unittest.TestCase):
+    """Timeout mata o processo **e a árvore** — nada continua rodando no runner."""
+
+    def test_timeout_derruba_netos_sem_deixar_orfao(self):
+        import subprocess as sp
+        import time as _time
+        marcador = pathlib.Path(tempfile.mkdtemp(prefix="orfao_")) / "pid.txt"
+        neto = ("import os, pathlib, time; "
+                f"pathlib.Path(r'{marcador}').write_text(str(os.getpid())); "
+                "time.sleep(120)")
+        pai = ("import subprocess, sys, time; "
+               f"subprocess.Popen([sys.executable, '-c', {neto!r}]); "
+               "time.sleep(120)")
+        with self.assertRaises(sp.TimeoutExpired):
+            us._executar_cmd([sys.executable, "-c", pai], 1)
+        _time.sleep(1.5)
+        self.assertTrue(marcador.exists(), "o neto precisa ter iniciado")
+        pid_neto = int(marcador.read_text())
+        with self.assertRaises(ProcessLookupError):
+            os.kill(pid_neto, 0)   # o neto foi morto junto com o grupo
+
+    def test_execucao_normal_devolve_returncode_e_saidas(self):
+        proc = us._executar_cmd([sys.executable, "-c", "import sys; print('ok'); "
+                                 "sys.stderr.write('aviso')"], 30)
+        self.assertEqual(proc.returncode, 0)
+        self.assertEqual(proc.stdout.decode().strip(), "ok")
+        self.assertEqual(proc.stderr.decode().strip(), "aviso")
 
 
 if __name__ == "__main__":
