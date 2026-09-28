@@ -1,0 +1,19 @@
+{
+  "meta": {
+    "descricao": "Registry operacional dos Diários Oficiais municipais. Vazio de propósito: nenhum município está monitorado hoje e nenhuma cobertura é declarada sem coletor verificado.",
+    "como_habilitar": [
+      "1. rode a sonda para o endereço oficial: python3 scripts/probe_diarios.py --orgao municipal --url <endpoint>",
+      "2. escolha a adapter_family (querido_diario, plataforma_compartilhada, api_municipal, diario_individual, pdf_listing)",
+      "3. inclua o município abaixo com 'url' confirmada e 'habilitado': true",
+      "4. o registry passa a exibir o município como implementado; o status só vira 'funcionando' depois de uma coleta com resposta verificável"
+    ],
+    "familias": [
+      "querido_diario",
+      "plataforma_compartilhada",
+      "api_municipal",
+      "diario_individual",
+      "pdf_listing"
+    ]
+  },
+  "municipios": []
+}

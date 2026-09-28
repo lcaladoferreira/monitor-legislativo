@@ -62,9 +62,19 @@ LIMITE_TOTAL_FONTES_S = _env_int("MONITOR_FONTES_LIMITE_TOTAL_S", 900)
 LIMITE_ATOS_POR_FONTE = _env_int("MONITOR_ATOS_POR_FONTE", 400)
 LIMITE_MUDANCAS = _env_int("MONITOR_LIMITE_MUDANCAS", 800)
 RETENCAO_DIAS = _env_int("MONITOR_RETENCAO_DIAS", 180)
+# Janela de datas da ingestão integral dos diários (0/ausente = padrão do coletor).
+DIARIOS_DIAS = _env_int("MONITOR_DOU_DIAS", 0) or None
 
 # Fontes obrigatórias da execução (as demais entram via update_legislation).
 FONTES_NOVAS = ["anpd", "cnj", "tse", "dou", "planalto", "mcti"]
+
+# Fontes cuja ingestão passa pelo pipeline de Diários Oficiais
+# (`scripts/update_diarios.py`): coleta a edição **integral** (sem filtro
+# temático na origem), normaliza, deduplica, classifica e publica só o que é
+# relevante. O coletor histórico por busca temática (`scripts/sources/dou.py`)
+# continua no repositório e é acionado como fallback automático.
+FONTES_DIARIOS = ("dou",)
+UPDATE_DIARIOS = os.path.join(os.path.dirname(os.path.abspath(__file__)), "update_diarios.py")
 
 # id do tipo de item → tipo do evento registrado em updates.json
 TIPO_EVENTO = {
@@ -215,8 +225,119 @@ def executar_fonte_subprocesso(orgao, timeout_s=None, logger=print):
     return dados
 
 
+def _diarios_habilitado():
+    """Liga/desliga a rota integral (MONITOR_DOU_DIARIOS=0 volta ao coletor antigo)."""
+    return os.environ.get("MONITOR_DOU_DIARIOS", "1") != "0"
+
+
+def executar_diarios_fonte(orgao, timeout_s=None, dias=None, logger=print, dry_run=False):
+    """Executa a fonte pelo pipeline de Diários (edição integral) → formato legado.
+
+    O subprocesso tem timeout próprio e devolve dois arquivos: o relatório de
+    cobertura e o payload completo (`--json-legado`) com itens publicáveis,
+    saúde e telemetria HTTP. Qualquer falha aqui é **registrada** e devolvida
+    como resultado de falha; quem decide acionar o coletor legado é o chamador.
+    """
+    timeout_s = timeout_s or TIMEOUT_FONTE_S
+    fd_rel, caminho_rel = tempfile.mkstemp(prefix=f"diarios_{orgao}_", suffix=".json")
+    fd_leg, caminho_leg = tempfile.mkstemp(prefix=f"diarios_legado_{orgao}_", suffix=".json")
+    os.close(fd_rel)
+    os.close(fd_leg)
+    cmd = [sys.executable, UPDATE_DIARIOS, "--fonte", orgao,
+           "--json", caminho_rel, "--json-legado", caminho_leg,
+           "--timeout", str(timeout_s)]
+    if dias:
+        cmd += ["--dias", str(dias)]
+    if dry_run:
+        cmd.append("--dry-run")
+    t0 = time.monotonic()
+    try:
+        proc = subprocess.run(cmd, capture_output=True, timeout=timeout_s + 90)
+    except subprocess.TimeoutExpired:
+        motivo = f"pipeline de diários não terminou em {timeout_s}s + margem"
+        logger(f"    [aviso] {orgao}: {motivo}")
+        for caminho in (caminho_rel, caminho_leg):
+            try:
+                os.unlink(caminho)
+            except OSError:
+                pass
+        return _resultado_falha(orgao, motivo, time.monotonic() - t0)
+    duracao = time.monotonic() - t0
+    relatorio = None
+    try:
+        with open(caminho_rel, encoding="utf-8") as f:
+            relatorio = json.load(f)
+    except (OSError, ValueError):
+        relatorio = None
+    try:
+        with open(caminho_leg, encoding="utf-8") as f:
+            dados_legado = json.load(f)
+    except (OSError, ValueError) as e:
+        detalhe = (proc.stderr or b"").decode("utf-8", "replace")[-400:]
+        motivo = f"pipeline de diários sem payload válido ({e}); stderr: {detalhe}"
+        if proc.returncode != 0:
+            motivo = f"pipeline de diários saiu com código {proc.returncode}; {motivo}"
+        dados_legado = None
+    finally:
+        for caminho in (caminho_rel, caminho_leg):
+            try:
+                os.unlink(caminho)
+            except OSError:
+                pass
+    if not isinstance(dados_legado, dict) or orgao not in dados_legado:
+        pista = json.dumps(relatorio, ensure_ascii=False)[:300] if relatorio else ""
+        return _resultado_falha(orgao, f"pipeline de diários sem resultado para '{orgao}'; "
+                                       f"detalhe: {pista}", duracao)
+    dados = dados_legado[orgao]
+    dados["duracao_subprocesso"] = round(duracao, 1)
+    dados["caminho_ingestao"] = "diarios_integral"
+    if isinstance(relatorio, dict):
+        dados["relatorio_diarios"] = {
+            "cobertura": relatorio.get("cobertura"),
+            "metricas_ingestao": relatorio.get("metricas_ingestao"),
+        }
+    return dados
+
+
+def executar_fonte_com_fallback(orgao, timeout_s=None, dias=None, logger=print,
+                                usar_subprocesso=True, orcamento=None, dry_run=False):
+    """Ingestão integral primeiro; busca temática (coletor histórico) só se ela falhar.
+
+    O registro do caminho usado vai para a saúde da fonte (`caminho_ingestao`,
+    `diarios.modo_ingestao`), então o painel mostra exatamente o que aconteceu —
+    inclusive quando a integral caiu e a busca temática cobriu o dia.
+    """
+    if orgao in FONTES_DIARIOS and _diarios_habilitado():
+        dados = executar_diarios_fonte(orgao, timeout_s=timeout_s, dias=dias, logger=logger,
+                                       dry_run=dry_run)
+        fallback_ligado = os.environ.get("MONITOR_DOU_FALLBACK", "1") != "0"
+        if dados["saude"]["status"] != "falha" or not fallback_ligado:
+            return dados
+        logger(f"    [aviso] {orgao}: ingestão integral indisponível — "
+               f"acionando o coletor histórico por busca temática (fallback)")
+        if usar_subprocesso:
+            legado = executar_fonte_subprocesso(orgao, timeout_s, logger=logger)
+        else:
+            legado = executar_fonte(orgao, timeout_s, orcamento=orcamento,
+                                    dry_run=dry_run, logger=logger)
+        legado["caminho_ingestao"] = "busca_tematica_fallback"
+        legado["saude"]["diarios"] = {
+            "modo_ingestao": "fallback",
+            "cobertura_integral": False,
+            "caminho_integral_estado": "falha",
+            "erro_integral": (dados.get("saude") or {}).get("erro_detalhe"),
+            "observacao": ("ingestão integral indisponível nesta execução; "
+                           "resultado veio da busca temática (sem cobertura integral)"),
+        }
+        return legado
+    if usar_subprocesso:
+        return executar_fonte_subprocesso(orgao, timeout_s, logger=logger)
+    return executar_fonte(orgao, timeout_s, orcamento=orcamento, dry_run=dry_run,
+                          logger=logger)
+
+
 def executar_todas(orgaos=None, timeout_s=None, usar_subprocesso=True, logger=print,
-                   orcamento=None, limite_total_s=None):
+                   orcamento=None, limite_total_s=None, dry_run=False):
     """Executa as fontes novas, isoladas entre si e com teto de tempo total.
 
     Fonte que não chegou a rodar por falta de tempo entra como **falha**
@@ -237,10 +358,10 @@ def executar_todas(orgaos=None, timeout_s=None, usar_subprocesso=True, logger=pr
             continue
         logger(f"  · fonte '{orgao}' (timeout {timeout_s}s"
                + (", subprocesso isolado)" if usar_subprocesso else ")"))
-        if usar_subprocesso:
-            dados = executar_fonte_subprocesso(orgao, timeout_s, logger=logger)
-        else:
-            dados = executar_fonte(orgao, timeout_s, orcamento=orcamento, logger=logger)
+        dados = executar_fonte_com_fallback(orgao, timeout_s=timeout_s, dias=DIARIOS_DIAS,
+                                           usar_subprocesso=usar_subprocesso,
+                                           orcamento=orcamento, logger=logger,
+                                           dry_run=dry_run)
         resultados[orgao] = dados
         saude = dados["saude"]
         logger(f"    → status={saude['status']} · itens={len(dados['itens'])} "
@@ -666,7 +787,9 @@ def main(argv=None):
         return 0
 
     if args.fonte:
-        dados = executar_fonte(args.fonte, timeout_s=args.timeout)
+        dados = executar_fonte_com_fallback(args.fonte, timeout_s=args.timeout,
+                                           usar_subprocesso=not args.sem_subprocesso,
+                                           dry_run=args.dry_run)
         if args.json_saida:
             with open(args.json_saida, "w", encoding="utf-8") as f:
                 json.dump(dados, f, ensure_ascii=False)

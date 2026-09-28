@@ -19,6 +19,86 @@ O ativo principal é o **dataset legislativo histórico** (`/data/legislation`),
 - Parlamentares com atuação documentada em IA
 - Agenda de eventos futuros e marcos normativos
 
+## Fontes monitoradas
+
+**Fontes legislativas.** Câmara dos Deputados e Senado Federal (APIs de Dados
+Abertos, fichas de tramitação, eventos e votações) — a base do dataset de
+proposições.
+
+**Fontes regulatórias.** ANPD, CNJ, TSE, Planalto e MCTI, coletadas por
+`scripts/update_sources.py` no mesmo ciclo horário, com saúde por fonte e
+fallback independente: uma fonte que falha não impede as demais nem o build.
+
+**Diários Oficiais.** O DOU é coletado de forma **integral e auditável**; os 27
+entes estaduais (26 estados + DF) e os municípios estão cadastrados no registry
+com o vocabulário de coleta pronto para implementação incremental. Detalhes de
+arquitetura: [`reports/architecture-diarios.md`](reports/architecture-diarios.md)
+(publicado também em `docs/architecture-diarios.md`).
+
+### DOU integral
+
+A coleta deixou de depender de busca por tema. A ordem é:
+
+1. **XML oficial do INLABS** (estruturado): pacotes locais via
+   `MONITOR_DOU_XML_DIR` ou download autenticado via `MONITOR_INLABS_USUARIO`/
+   `MONITOR_INLABS_SENHA` (credencial vive no ambiente, nunca no repositório);
+2. **edição integral** pela página oficial de leitura do jornal
+   (`in.gov.br/leiturajornal`, seções do1/do2/do3, com as edições extra que a
+   própria página declarar) — sem termo de busca: entra a edição inteira;
+3. **busca temática** (`scripts/sources/dou.py`, preservado) como *fallback* e
+   verificação complementar.
+
+A classificação temática acontece **depois** da ingestão, com os mesmos padrões
+publicados (30 grupos temáticos). Regra explícita: **ausência de match temático
+não é erro de ingestão** — o item fica registrado no corpus e nos contadores
+(`itens_coletados`, `itens_normalizados`, `itens_classificados`,
+`itens_relevantes`, `itens_descartados`, `itens_revisao`, `duplicados`,
+`falhas_parse`).
+
+### Estados implementados e pendentes
+
+| Nível | Cadastrados | Com coletor | Situação |
+|---|---|---|---|
+| Federal (DOU) | 3 | 3 | XML oficial + edição integral + busca temática |
+| Judiciário (DJEN) | 1 | 0 | cadastrado, aguardando coletor |
+| Estaduais | 27 | 0 | **todos cadastrados e explicitamente `nao_implementado`** |
+| Municipais | 0 habilitados | 0 | arquitetura pronta (5 famílias de adapter) |
+
+Os 27 entes são cadastrados mesmo sem coletor: a cobertura estadual aparece como
+**pendência nominal**, nunca como cobertura. A ordem de implementação é
+incremental, um ente por vez, com execução verificada antes de qualquer
+mudança de status.
+
+### Municípios
+
+`config/diarios_municipios.json` (vazio por padrão) habilita municípios por
+família de adapter: `querido_diario` (agregador), `diario_individual`,
+`plataforma_compartilhada`, `api_municipal` e `pdf_listing`. Nenhum município é
+declarado coberto enquanto não houver coletor e execução verificada.
+
+### Cobertura (o que o número significa)
+
+`data/legislation/diarios.json` publica o Coverage Monitor: por fonte
+(`ultima_tentativa`, `ultima_coleta_ok`, `ultima_publicacao_detectada`,
+`itens_coletados`, `erro`, `status`, `duracao`, `layout_changed`, modo de
+ingestão e se houve cobertura integral) e os agregados `fontes_totais`,
+`fontes_implementadas`, `fontes_ok`, `fontes_parciais`, `fontes_falha`,
+`fontes_nao_implementadas` e `cobertura_tecnica_pct`.
+
+`cobertura_tecnica_pct` mede **fontes cadastradas com coletor implementado** —
+não é a fração de publicações cobertas, e nunca é 100% só porque os coletores
+rodaram. Quebra de layout é reportada como `layout_changed` (status
+parcial/falha) e **nunca** como "não houve publicação"; zero publicações
+legítimo só é afirmado quando os marcadores da edição estão presentes e a lista
+vem vazia.
+
+### Visual fallback (planejado, desligado)
+
+Fontes cujo texto extraído é ruim (`degraded`/`failed` no quality gate) podem,
+no futuro, acionar o pipeline visual. Nesta etapa existe **somente a interface**
+(`scripts/visual_fallback/`), com o stub do PixelRAG desligado: nenhum PyTorch,
+Qwen, FAISS ou dependência pesada entra no repositório ou no GitHub Actions.
+
 ## Estrutura
 
 ```
@@ -30,6 +110,13 @@ data/legislation/            # DATASET (fonte única da verdade)
   events.json                # Agenda legislativa de IA (eventos futuros)
   updates.json               # "O que mudou" + log de execuções
   categories.json            # 30 categorias temáticas
+  diarios.json               # Coverage Monitor dos Diários Oficiais (cobertura real por fonte)
+  atos.json                  # Atos/publicações coletados das fontes regulatórias (ANPD, CNJ, TSE, DOU…)
+
+data/diarios/
+  estado.json                # Estado versionado da dedup dos diários (histórico; corpus fica fora do Git)
+
+var/raw/diarios/             # Payload bruto da ingestão (FORA do Git): <source_id>/<referência>/…
 
 data/articles/
   articles.json            # Artigos editoriais (conteúdo, datas, fontes, histórico de revisões)
@@ -37,6 +124,13 @@ data/articles/
 
 scripts/
   update_legislation.py    # Coletor automático: APIs da Câmara/Senado → compara estado → atualiza dataset
+  update_sources.py        # Fontes multiórgão (ANPD, CNJ, TSE, DOU, Planalto, MCTI) → atos.json/updates.json
+  update_diarios.py        # Ingestão dos Diários Oficiais (edição integral) → estado + snapshot de cobertura
+  probe_diarios.py         # Sonda de estrutura das fontes de Diários (diagnóstico, não coleta)
+  sources/                 # Conectores multiórgão + vocabulário de descoberta/classificação (base.py)
+  diarios/                 # Camada de Diários Oficiais: registry, DOU integral, dedup, coverage, quality
+  storage/                 # Abstração de armazenamento (RawStorage/MetadataStore) — implementações locais
+  visual_fallback/         # Interface do fallback visual (stub PixelRAG; nenhuma dependência pesada)
   generate_articles.py     # Camada editorial: classifica mudanças → cria/atualiza artigos (máx. 1 novo/dia)
   build_articles.py        # Renderiza /artigos/ (SEO, AEO, JSON-LD NewsArticle, feeds para IA)
   scoring.py               # Rúbrica pública do AI Legislative Impact Score (reproduzível)
@@ -49,6 +143,7 @@ scripts/
 .github/workflows/
   update-legislation.yml   # Action diária: coleta → build → valida → commit se houver mudança
 
+reports/architecture-diarios.md  # Arquitetura da ingestão de diários (documento de fonte; build copia para docs/)
 docs/                        # SITE GERADO (não editar manualmente)
   index.html                 # Página principal (verificação, o que mudou, dashboard, top matérias)
   proposicoes/               # Lista filtrável + ficha individual de cada proposição
@@ -72,6 +167,14 @@ python3 scripts/update_legislation.py   # coleta das fontes oficiais → atualiz
 python3 scripts/build_site.py           # regenera /docs a partir de /data
 python3 scripts/validate_site.py        # valida dataset, páginas, links e domínio
 python3 scripts/selftest_offline.py     # testes offline do coletor (orçamento, persistência, métricas)
+python3 -m unittest discover -s tests -t tests   # suíte completa (offline, com fixtures)
+
+# Diários Oficiais (edição integral)
+python3 scripts/update_diarios.py --listar                  # registry: federal, judiciário, 27 estaduais, municípios
+python3 scripts/update_diarios.py --cobertura               # snapshot de cobertura + pendências explícitas
+python3 scripts/update_diarios.py --quality "Art. 1º ..."   # quality gate do texto extraído
+python3 scripts/update_diarios.py --fonte dou --dry-run     # coleta sem gravar nada
+python3 scripts/probe_diarios.py --fonte dou_inlabs_xml     # sonda da estrutura oficial (diagnóstico)
 ```
 
 O coletor aceita limites explícitos (todos com equivalente em variável de ambiente
@@ -169,6 +272,25 @@ cobertura da verificação, proposições pendentes, mudanças por dia/mês/tipo
 latência de detecção, evolução do banco, curadoria pendente, custo em chamadas
 HTTP por endpoint e o histórico completo de execuções. As mesmas métricas são
 publicadas em `docs/data/monitoramento.json` para uso externo (BI, planilhas).
+
+## Limitações conhecidas
+
+- **Cobertura estadual/municipal é 0% hoje** e isso é declarado: os 27 entes
+  estão cadastrados como `nao_implementado` até existir coletor com execução
+  verificada. Não há número de cobertura sem coletor por trás.
+- O download autenticado do pacote XML do INLABS exige credencial fornecida pelo
+  ambiente do runner; sem ela, o caminho XML fica `nao_configurado` e a coleta
+  segue pelos caminhos públicos (edições integrais) ou pela busca temática.
+- A página oficial de leitura do jornal é HTML; o parser aceita JSON embutido e
+  a listagem com breadcrumb. Mudança de layout **não** é silenciada: vira
+  `layout_changed` com status parcial/falha até o parser ser atualizado.
+- O fallback visual é apenas interface: extração visual de PDF digitalizado
+  ainda não roda (dependeria de autorização explícita e de dependências pesadas
+  fora do Actions).
+- O corpus integral (payload bruto) fica em `var/raw/` **fora do Git**, por
+  tamanho e por ser reproduzível na fonte; o que é versionado é o estado
+  auditável (`data/diarios/estado.json`) e o dataset público
+  (`data/legislation/*.json`).
 
 ## Autoria
 

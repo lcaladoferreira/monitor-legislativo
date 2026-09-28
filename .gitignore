@@ -2,6 +2,11 @@
 __pycache__/
 *.pyc
 
+# Payload bruto da ingestão dos Diários Oficiais (o dataset público fica em
+# data/legislation/*.json; a íntegra fica fora do Git, por tamanho e por ser
+# reproduzível a partir da fonte oficial).
+var/
+
 # Sistema
 .DS_Store
 Thumbs.db

@@ -1641,8 +1641,12 @@ class Collector:
                     timeout_fonte = int(os.environ.get("MONITOR_FONTES_TIMEOUT_S", "") or 75)
                     # teto total: nunca consome o orçamento que falta para build/commit
                     limite_total = min(480, max(60, int(BUDGET.restante() - BUDGET.margem - 180)))
+                    # O DOU entra por aqui já na rota nova: ingestão integral da
+                    # edição (leiturajornal/XML do INLABS), com a busca temática
+                    # como fallback — ver scripts/diarios/ e update_sources.py.
                     resultados = _us.executar_todas(timeout_s=timeout_fonte,
-                                                    limite_total_s=limite_total)
+                                                    limite_total_s=limite_total,
+                                                    dry_run=dry_run)
                     exec_info = {"id": self.run_id, "timestamp": self.run_iso,
                                  "data": self.today}
                     resumo_fontes = _us.mesclar(atos_f, up_f, resultados, exec_info,
@@ -1881,6 +1885,22 @@ class Collector:
                                              if (s or {}).get("status") == "falha")
         exec_record["fontes_parciais"] = sorted(o for o, s in fontes_monitoradas.items()
                                                 if (s or {}).get("status") == "parcial")
+        # 5.2) Cobertura dos Diários Oficiais (registry + monitor): mostra o que
+        #      está implementado e o que segue pendente, sem inflar percentual.
+        try:
+            import json as _json
+            caminho_diarios = os.path.join(DATA, "diarios.json")
+            if os.path.exists(caminho_diarios):
+                with open(caminho_diarios, encoding="utf-8") as f:
+                    cobertura_diarios = _json.load(f)
+                exec_record["diarios"] = {
+                    "gerado_em": cobertura_diarios.get("gerado_em"),
+                    "metricas": cobertura_diarios.get("metricas"),
+                    "por_nivel": cobertura_diarios.get("por_nivel"),
+                    "pendentes": (cobertura_diarios.get("pendentes") or {}).get("total"),
+                }
+        except Exception as e:  # noqa: BLE001 — cobertura não derruba a execução
+            print(f"  [aviso] cobertura dos diários não lida: {e}", flush=True)
         if resumo_fontes:
             exec_record["http_fontes"] = resumo_fontes["http_fontes"]
             exec_record["novidades_multiorgao"] = resumo_fontes["novidades"]

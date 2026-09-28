@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <title>Leitura do Jornal - Imprensa Nacional</title>
+  <meta charset="utf-8">
+</head>
+<body>
+  <!-- Amostra mínima e representativa da página oficial de leitura do jornal
+       (https://www.in.gov.br/leiturajornal): título, seletores de organização e
+       de tipo do ato, alternância de visualização e o JSON embutido do portlet
+       com a edição inteira (jsonArray). O conteúdo abaixo reproduz a estrutura,
+       com atos de exemplo, para os testes de parser rodarem offline. -->
+  <h1>Leitura do Jornal</h1>
+  <h2>Diário Oficial da União</h2>
+
+  <section id="filtros">
+    <label>Selecionar Organização Principal</label>
+    <select><option>Todos</option><option>Atos do Poder Legislativo</option></select>
+    <label>Selecionar Tipo do Ato</label>
+    <select><option>Todos</option><option>Lei</option><option>Portaria</option></select>
+    <button>VISUALIZAR EM LISTA</button>
+    <button>VISUALIZAR EM SUMÁRIO</button>
+  </section>
+
+  <h3>VOCÊ ESTÁ VENDO: Seção 1, dia 25 de setembro de 2026</h3>
+
+  <script id="BuscaDouPortlet_params" type="application/json">{"jsonArray":[{"title":"LEI Nº 15.520, DE 24 DE SETEMBRO DE 2026","urlTitle":"lei-n-15.520-de-24-de-setembro-de-2026-734421039","pubDate":"2026-09-25","content":"Cria a Universidade Federal da Fronteira Norte. O PRESIDENTE DA REPÚBLICA Faço saber que o Congresso Nacional decreta e eu sanciono a seguinte Lei: Art. 1º Fica criada a Universidade Federal da Fronteira Norte (UFFN), por meio de desmembramento da Universidade Federal do Amapá (Unifap).","artType":"Lei","hierarchyStr":"Atos do Poder Legislativo","hierarchyList":"Atos do Poder Legislativo","pubName":"DO1","editionNumber":"182","numberPage":"1","classPK":"734421039"},{"title":"RESOLUÇÃO Nº 27, DE 24 DE SETEMBRO DE 2026","urlTitle":"resolucao-n-27-de-24-de-setembro-de-2026-734499001","pubDate":"2026-09-25","content":"Dispõe sobre o uso de sistemas de inteligência artificial e de reconhecimento facial no âmbito da administração pública federal, exige avaliação de impacto algorítmico e governança de dados pessoais em conformidade com a LGPD.","artType":"Resolução","hierarchyStr":"Ministério da Gestão e da Inovação em Serviços Públicos","hierarchyList":"Ministério da Gestão e da Inovação em Serviços Públicos","pubName":"DO1","editionNumber":"182","numberPage":"12","classPK":"734499001"},{"title":"PORTARIA Nº 3181, DE 24 DE SETEMBRO DE 2026","urlTitle":"portaria-n-3.181-de-24-de-setembro-de-2026-734499331","pubDate":"2026-09-25","content":"Município de Joaíma (MG) recebe repasse para execução de ações de Defesa Civil.","artType":"Portaria","hierarchyStr":"Ministério da Integração e do Desenvolvimento Regional","hierarchyList":"Ministério da Integração e do Desenvolvimento Regional","pubName":"DO1","editionNumber":"182","numberPage":"17","classPK":"734499331"}],"itemsTotal":3}</script>
+
+  <div id="edicoes-relacionadas">
+    <a href="/leiturajornal?data=25-09-2026&amp;secao=do1&amp;edicao=extra">EDIÇÃO EXTRA</a>
+    <a href="/leiturajornal?data=25-09-2026&amp;secao=do2">SEÇÃO 2</a>
+  </div>
+</body>
+</html>

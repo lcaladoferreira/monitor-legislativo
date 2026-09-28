@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "descricao": "Estado versionado da ingestão dos Diários Oficiais: itens relevantes/de revisão com histórico de alterações (hash anterior/atual, primeira detecção, última verificação) e o digest das edições já ingeridas. O corpus integral fica no raw storage/índice de metadados, fora do Git — ver docs/architecture-diarios.md.",
+    "versao": 1,
+    "atualizado_em": "2026-09-26T02:47:30-03:00",
+    "resumo": {
+      "itens_relevantes": 0,
+      "edicoes_registradas": 1,
+      "por_fonte": {
+        "dou": 1
+      }
+    }
+  },
+  "itens_relevantes": {},
+  "edicoes": {
+    "dou": {
+      "2026-09-26": {
+        "itens": 0,
+        "hash_lista": "sha1:da39a3ee5e6b4b0d3255bfef95601890afd80709",
+        "ingerido_em": "2026-09-26T02:25:35-03:00",
+        "secoes": {},
+        "modo_ingestao": null,
+        "layout_ok": true,
+        "paginacao_detectada": false,
+        "truncado": false,
+        "reingestao": null
+      }
+    }
+  }
+}

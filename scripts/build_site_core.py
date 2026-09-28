@@ -67,6 +67,21 @@ def load(name):
         return json.load(f)
 
 
+def load_diarios():
+    """Cobertura dos Diários Oficiais (`data/legislation/diarios.json`).
+
+    Ausente/ilegível → {} (a página continua funcionando, sem inventar cobertura).
+    """
+    caminho = os.path.join(DATA, "diarios.json")
+    if not os.path.exists(caminho):
+        return {}
+    try:
+        with open(caminho, encoding="utf-8") as f:
+            return json.load(f)
+    except (OSError, ValueError):
+        return {}
+
+
 def esc(t):
     if t is None:
         return ""
@@ -1692,6 +1707,134 @@ def metricas_monitoramento(props, laws, events, updates):
     }
 
 
+def build_cobertura_diarios(diarios):
+    """Seção do painel sobre a cobertura real dos Diários Oficiais (FASE 11/16).
+
+    Mostra, sem inflar percentual: quantas fontes estão cadastradas, quantas têm
+    coletor implementado, quantas executaram, o modo de ingestão do DOU e a lista
+    explícita das pendências (27 entes estaduais + DJEN + municípios).
+    """
+    if not diarios:
+        return ""
+
+    def kpi(num, lbl, cor=""):
+        cls = f"metric {cor}".strip()
+        return f'<div class="{cls}"><div class="num">{num}</div><div class="lbl">{lbl}</div></div>'
+
+    metricas = diarios.get("metricas") or {}
+    por_nivel = diarios.get("por_nivel") or {}
+    fontes = diarios.get("fontes") or {}
+    pendentes = diarios.get("pendentes") or {}
+    nomes_nivel = {"federal": "Federal", "estadual": "Estadual",
+                   "municipal": "Municipal", "judiciario": "Judiciário"}
+
+    linhas_nivel = []
+    for nivel in ("federal", "estadual", "municipal", "judiciario"):
+        dados = por_nivel.get(nivel)
+        if not dados:
+            continue
+        linhas_nivel.append(
+            f'<tr><td><b>{esc(nomes_nivel.get(nivel, nivel))}</b></td>'
+            f'<td>{dados.get("total", 0)}</td>'
+            f'<td>{dados.get("implementadas", 0)}</td>'
+            f'<td>{dados.get("funcionando", 0)}</td>'
+            f'<td>{dados.get("parciais", 0)}</td>'
+            f'<td>{dados.get("falha", 0)}</td>'
+            f'<td>{dados.get("sem_execucao", 0)}</td>'
+            f'<td>{dados.get("nao_implementadas", 0)}</td>'
+            f'<td>{dados.get("cobertura_tecnica_pct", 0)}%</td></tr>')
+
+    rotulo_modo = {"xml": "XML oficial (INLABS)", "integral": "edição integral",
+                   "integral+complementar": "integral + verificação por busca",
+                   "fallback": "busca temática (fallback)", None: "—"}
+    linhas_fontes = []
+    for source_id, fonte in sorted(fontes.items()):
+        if not fonte.get("implementado"):
+            continue
+        status = fonte.get("status") or "—"
+        classe = {"funcionando": "green", "implementado": "yellow",
+                  "parcial": "yellow", "falha": "red"}.get(status, "red")
+        rotulo = {"funcionando": "funcionando", "implementado": "implementado (sem execução)",
+                  "parcial": "parcial", "falha": "falha"}.get(status, status)
+        linhas_fontes.append(
+            f'<tr><td><b>{esc(fonte.get("nome") or source_id)}</b><br>'
+            f'<span style="color:var(--muted);font-size:12px">{esc(source_id)} · '
+            f'{esc(fonte.get("jurisdicao") or "")}</span></td>'
+            f'<td><span class="run-status {classe}">{esc(rotulo)}</span></td>'
+            f'<td>{esc(rotulo_modo.get(fonte.get("modo_ingestao"), fonte.get("modo_ingestao") or "—"))}</td>'
+            f'<td>{"sim" if fonte.get("cobertura_integral") else ("—" if fonte.get("cobertura_integral") is None else "não")}</td>'
+            f'<td>{esc((fonte.get("ultima_tentativa") or "—")[:16].replace("T", " "))}</td>'
+            f'<td>{fonte.get("itens_coletados") if fonte.get("itens_coletados") is not None else "—"}</td>'
+            f'<td>{fonte.get("itens_relevantes") if fonte.get("itens_relevantes") is not None else "—"}</td>'
+            f'<td>{esc((fonte.get("ultima_publicacao_detectada") or "—"))}</td>'
+            f'<td>{"sim" if fonte.get("layout_changed") else "não"}</td></tr>')
+
+    pendentes_ids = [i for i in (pendentes.get("source_ids") or [])]
+    estaduais = [i.replace("estadual_", "").upper() for i in pendentes_ids
+                 if i.startswith("estadual_")]
+    outros = [i for i in pendentes_ids if not i.startswith("estadual_")]
+    municipais = [i for i in outros if i.startswith("municipal_")]
+    outros = [i for i in outros if not i.startswith("municipal_")]
+    linhas_pendentes = []
+    if estaduais:
+        linhas_pendentes.append(
+            f'<div class="note warn"><b>Estados sem coletor ({len(estaduais)} de 27):</b> '
+            f'{esc(", ".join(sorted(estaduais)))}. Cadastrados no registry como '
+            f'<code>nao_implementado</code> — não há cobertura declarada para eles.</div>')
+    if outros:
+        linhas_pendentes.append(
+            f'<div class="note"><b>Outras fontes cadastradas e ainda não implementadas:</b> '
+            f'{esc(", ".join(sorted(outros)))}.</div>')
+    if municipais:
+        linhas_pendentes.append(
+            f'<div class="note"><b>Municípios cadastrados sem coletor habilitado:</b> '
+            f'{esc(", ".join(sorted(municipais)))}.</div>')
+    if not (estaduais or outros or municipais):
+        linhas_pendentes.append('<div class="note"><b>Sem pendências cadastradas.</b></div>')
+
+    return f'''
+<section class="block"><div class="wrap">
+  <h2 class="section-title">Diários Oficiais — cobertura real</h2>
+  <p class="section-sub">A ingestão mudou de "busca por tema" para <b>edição integral</b>: o DOU é
+  coletado por inteiro na fonte oficial (XML do INLABS quando disponível; página oficial de leitura
+  do jornal, seção por seção, no caminho padrão) e só depois classificado por tema. A busca temática
+  continua existindo como <i>fallback</i> e verificação complementar.
+  <b>O percentual abaixo mede fontes cadastradas com coletor implementado — não é cobertura de todas
+  as publicações existentes.</b></p>
+  <div class="grid cols-4" style="margin-bottom:16px">
+    {kpi(metricas.get("fontes_totais", "—"), "Fontes cadastradas")}
+    {kpi(metricas.get("fontes_implementadas", "—"), "Com coletor implementado", "green")}
+    {kpi(metricas.get("fontes_nao_implementadas", "—"), "Sem coletor (pendentes)", "yellow")}
+    {kpi(f'{metricas.get("cobertura_tecnica_pct", 0)}%', "Cobertura técnica", "green")}
+  </div>
+  <div class="table-wrap" style="overflow-x:auto">
+  <table class="table"><thead><tr>
+    <th>Nível</th><th>Cadastradas</th><th>Implementadas</th><th>Funcionando</th>
+    <th>Parciais</th><th>Falha</th><th>Sem execução</th><th>Não implementadas</th>
+    <th>Cobertura técnica</th>
+  </tr></thead><tbody>
+  {"".join(linhas_nivel) or "<tr><td colspan='9'>—</td></tr>"}
+  </tbody></table></div>
+  <div class="table-wrap" style="overflow-x:auto;margin-top:14px">
+  <table class="table"><thead><tr>
+    <th>Fonte implementada</th><th>Status</th><th>Modo de ingestão</th><th>Edição integral</th>
+    <th>Última tentativa</th><th>Itens coletados</th><th>Relevantes/revisão</th>
+    <th>Última publicação</th><th>Layout alterado</th>
+  </tr></thead><tbody>
+  {"".join(linhas_fontes) or "<tr><td colspan='9'>Nenhuma fonte implementada executou ainda.</td></tr>"}
+  </tbody></table></div>
+  <div style="margin-top:14px">{"".join(linhas_pendentes)}</div>
+  <p class="disclaimer" style="margin-top:10px">Regra de leitura: <b>nao_implementado</b> = fonte
+  cadastrada, sem coletor (não coberta); <b>implementado</b> = coletor existe, ainda sem execução
+  verificada; <b>funcionando</b> = última execução leu a edição (integral ou por fallback
+  registrado); <b>parcial</b> = coletou com cobertura reduzida ou layout não reconhecido;
+  <b>falha</b> = não houve resposta verificável. Quebra de layout nunca é publicada como
+  "não houve publicação". Detalhe por fonte em
+  <a href="{SITE_URL}/data/diarios.json">diarios.json</a>.</p>
+</div></section>
+'''
+
+
 def build_monitoramento(props, laws, events, updates, met):
     exs = met["execucoes"]
     ultima = met["ultima"] or {}
@@ -1745,6 +1888,7 @@ def build_monitoramento(props, laws, events, updates, met):
             f'<td>{f.get("itens_consultados", "—")}</td>'
             f'<td>{novidades if novidades is not None else "—"}</td>'
             f'<td>{f.get("erros", 0)}</td><td style="font-size:12px">{ep_txt}</td></tr>')
+    setor_diarios = build_cobertura_diarios(load_diarios())
     total_fontes = len([f for f in fontes_ult.values() if f])
     status_global_txt = (ultima.get("status_global") or "—")
     cor_global = {"OK": "green", "PARCIAL": "yellow", "FALHA": "red"}.get(
@@ -1894,6 +2038,7 @@ def build_monitoramento(props, laws, events, updates, met):
   seu navegador a cada visita — se o painel ficar vermelho, o cron parou.</p>
 </div></section>
 {quadro_fontes}
+{setor_diarios}
 
 <section class="block"><div class="wrap">
   <h2 class="section-title">Evolução por execução</h2>
@@ -2044,6 +2189,7 @@ def main():
     os.makedirs(OUT)
     shutil.copytree(os.path.join(BASE, "data", "legislation"), os.path.join(OUT, "data"))
     shutil.copytree(ASSETS, os.path.join(OUT, "assets"))
+    _copiar_docs_fonte()
 
     build_home(props, laws, events, updates, timeline, cats, artigos=_ARTIGOS)
     build_propositions(props, cats)
@@ -2082,6 +2228,27 @@ def main():
     n_pages = 10 + len(props) + (n_artigos or 0)
     print(f"OK: site gerado em docs/ — {n_pages} páginas, {len(paths)} URLs no sitemap"
           + (f" ({len(_ARTIGOS.get('artigos', []))} artigo(s) editorial(ais))" if n_artigos else "") + ".")
+
+
+DOCS_FONTE = ("reports/architecture-diarios.md",)
+
+
+def _copiar_docs_fonte():
+    """Copia documentação de arquitetura (fonte em reports/) para `docs/`.
+
+    `docs/` é saída gerada (`shutil.rmtree` a cada build): manter a fonte em
+    `reports/` evita que um documento editado à mão seja apagado no próximo
+    build, e ainda assim publica a mesma versão em `docs/`.
+    """
+    for relativo in DOCS_FONTE:
+        origem = os.path.join(BASE, relativo)
+        if not os.path.isfile(origem):
+            continue
+        destino = os.path.join(OUT, os.path.basename(relativo))
+        try:
+            shutil.copyfile(origem, destino)
+        except OSError as e:  # documentação não derruba o build
+            print(f"[aviso] não copiei {relativo}: {e}")
 
 
 def self_module():

@@ -16,8 +16,13 @@ on:
     paths:
       - 'scripts/update_legislation.py'
       - 'scripts/update_sources.py'
+      - 'scripts/update_diarios.py'
       - 'scripts/check_collection.py'
       - 'scripts/sources/**'
+      - 'scripts/diarios/**'
+      - 'scripts/storage/**'
+      - 'scripts/visual_fallback/**'
+      - 'config/diarios_municipios.json'
       - '.github/workflows/update-legislation.yml'
   schedule:
     # SLA alvo de 2 horas exige coleta mais frequente do que quatro vezes/dia.

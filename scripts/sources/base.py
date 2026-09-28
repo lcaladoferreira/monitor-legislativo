@@ -54,9 +54,20 @@ class OrcamentoEsgotado(RuntimeError):
     """O tempo reservado para a fonte (ou para a coleta inteira) acabou."""
 
 
-# Termos de busca usados nas consultas por assunto das fontes oficiais.
-# São termos temáticos (o filtro fino é aplicado item a item, depois).
-TOPICOS_BUSCA = [
+# ------------------------------------------------------------------ FASE 3
+# Descoberta (na origem) x classificação (depois da ingestão).
+#
+# `DISCOVERY_TERMS` são os termos enviados à *consulta por assunto* das fontes
+# oficiais (in.gov.br, ANPD, TSE…). Eles servem para descobrir material — não
+# definem cobertura: um ato relevante que não contenha nenhum destes termos não
+# é encontrado por essa via. Por isso a ingestão integral dos Diários Oficiais
+# (scripts/diarios/) não usa termos de busca na origem: ela coleta a edição
+# inteira e só então classifica (ver `CLASSIFICATION_PATTERNS`).
+#
+# `TOPICOS_BUSCA` é o nome histórico deste mesmo conjunto, mantido por
+# compatibilidade retroativa com os coletores já publicados (anpd, dou, mcti,
+# planalto, tse). Não é um alias novo: é a mesma lista.
+DISCOVERY_TERMS = [
     "inteligência artificial",
     "algoritmo",
     "proteção de dados",
@@ -68,11 +79,97 @@ TOPICOS_BUSCA = [
     "computação em nuvem",
     "data center",
 ]
+TOPICOS_BUSCA = DISCOVERY_TERMS  # compatibilidade: nome usado pelos coletores existentes
 
 
 # --------------------------------------------------------------- tema/filtro
+# CLASSIFICATION_PATTERNS: padrões avaliados sobre texto normalizado (minúsculo,
+# sem acento) — aplicados item a item, sempre DEPOIS da coleta. Cada grupo tem
+# um rótulo legível para auditoria (o item registra em `grupos_tematicos` quais
+# grupos dispararam), e o conjunto de padrões é o mesmo que decide "forte" em
+# `classificar_relevancia` — não existe segundo classificador divergente.
+CLASSIFICATION_GROUPS = {
+    "inteligência artificial": [
+        r"inteligencia artificial", r"\bia\b", r"artificial intelligence",
+    ],
+    "IA generativa": [
+        r"ia generativa", r"inteligencia artificial generativa", r"generative ai",
+    ],
+    "machine learning": [
+        r"aprendizado de maquina", r"machine learning",
+    ],
+    "deep learning": [
+        r"aprendizado profundo", r"deep learning",
+    ],
+    "modelo de linguagem": [
+        r"modelo de linguagem", r"modelos? de linguagem", r"modelo[s]? fundaciona",
+        r"large language model",
+    ],
+    "LLM": [r"\bllms?\b"],
+    "redes neurais": [r"rede[s]? neural", r"redes neurais", r"neural network"],
+    "decisão automatizada": [
+        r"decisao automatizada", r"decisoes automatizadas", r"tomada de decisao automat",
+        r"sistema de decisao automat", r"sistemas de decisao automat",
+    ],
+    "decisão algorítmica": [
+        r"decisao algoritmica", r"decisoes algoritmicas",
+    ],
+    "governança de IA": [
+        r"governanca de ia", r"governanca da ia", r"regulacao de ia", r"regulamentacao da ia",
+    ],
+    "governança algorítmica": [
+        r"governanca algoritmica", r"governanca de dados",
+    ],
+    "proteção de dados": [
+        r"protecao de dados", r"dados pessoais", r"titular de dados",
+    ],
+    "LGPD": [r"\blgpd\b"],
+    "ANPD": [
+        r"\banpd\b", r"autoridade nacional de protecao de dados",
+    ],
+    "biometria": [r"biometria", r"biometric", r"reconhecimento biometrico"],
+    "reconhecimento facial": [r"reconhecimento facial"],
+    "deepfake": [r"deepfake"],
+    "conteúdo sintético": [
+        r"conteudo sintetico", r"midia sintetica", r"midia gerada",
+    ],
+    "plataformas digitais": [
+        r"plataformas digitais", r"rede social", r"redes sociais",
+    ],
+    "big tech": [r"big tech"],
+    "moderação algorítmica": [
+        r"moderacao algoritmica", r"moderacao de conteudo", r"curadoria algoritmica",
+        r"algoritmic", r"algoritmo[s]?",
+    ],
+    "sandbox regulatório": [r"sandbox regulatorio"],
+    "soberania digital": [
+        r"soberania digital", r"soberania de dados",
+    ],
+    "data center": [
+        r"data cent(er|re)", r"datacent", r"centro de dados",
+    ],
+    "computação em nuvem": [
+        r"computacao em nuvem", r"nuvem computacional", r"\bcloud\b",
+    ],
+    "semicondutores": [
+        r"semicondutor", r"microchip", r"litografia",
+    ],
+    "infraestrutura digital": [
+        r"infraestrutura digital", r"transformacao digital",
+        r"computacao de alto desempenho", r"supercomputa", r"exascale",
+    ],
+    "cibersegurança": [
+        r"ciberseguranca", r"seguranca cibernetica",
+    ],
+    "IoT": [r"internet das coisas", r"\biot\b"],
+    "automação": [r"automacao", r"robotic"],
+}
+
 # Padrões avaliados sobre texto normalizado (minúsculo, sem acento).
-FORTE_PATTERNS = [
+# `FORTE_PATTERNS` preserva integralmente a lista histórica do projeto e recebe,
+# ao final, os padrões de grupo que ainda não estavam nela (mesma semântica:
+# qualquer correspondência → "forte"). Nenhum padrão foi removido ou afrouxado.
+FORTE_PATTERNS_LEGADO = [
     r"inteligencia artificial", r"\bia\b", r"ia generativa", r"inteligencia artificial generativa",
     r"modelo de linguagem", r"modelos? fundaciona", r"large language model", r"\bllms?\b",
     r"aprendizado de maquina", r"machine learning", r"aprendizado profundo", r"deep learning",
@@ -103,8 +200,21 @@ REVISAR_PATTERNS = [
     r"software", r"startup", r"plataforma", r"internet", r"escaneamento",
 ]
 
+# Lista efetiva: legado (ordem histórica preservada) + padrões de grupo ainda
+# ausentes. A ordem importa apenas para a auditoria (`padroes_detectados`).
+FORTE_PATTERNS = list(FORTE_PATTERNS_LEGADO) + [
+    p for grupo in CLASSIFICATION_GROUPS.values() for p in grupo
+    if p not in FORTE_PATTERNS_LEGADO
+]
+
+# CLASSIFICATION_PATTERNS: visão achatada e auditável (grupo, padrão).
+CLASSIFICATION_PATTERNS = [
+    (grupo, p) for grupo, padroes in CLASSIFICATION_GROUPS.items() for p in padroes
+]
+
 _FORTE_RE = [re.compile(p) for p in FORTE_PATTERNS]
 _REVISAR_RE = [re.compile(p) for p in REVISAR_PATTERNS]
+_CLASSIFICACAO_RE = [(grupo, re.compile(p)) for grupo, p in CLASSIFICATION_PATTERNS]
 
 
 def normalizar(texto):
@@ -125,6 +235,39 @@ def classificar_relevancia(*textos):
     if any(r.search(txt) for r in _REVISAR_RE):
         return "revisar"
     return None
+
+
+def classificar_detalhado(*textos):
+    """Classificação com trilha de auditoria (mesma decisão de `classificar_relevancia`).
+
+    Devolve {'relevancia': 'forte'|'revisar'|None, 'grupos_tematicos': [...],
+    'padroes_detectados': [...], 'texto_normalizado': bool}.
+
+    Usado pela camada de Diários Oficiais (scripts/diarios/) para registrar *por
+    que* um item foi classificado — sem criar um segundo classificador, com
+    regras diferentes das já publicadas.
+    """
+    txt = normalizar(" ".join(str(t or "") for t in textos))
+    if not txt:
+        return {"relevancia": None, "grupos_tematicos": [], "padroes_detectados": [],
+                "texto_normalizado": False}
+    grupos, padroes = [], []
+    for grupo, rx in _CLASSIFICACAO_RE:
+        if rx.search(txt):
+            if grupo not in grupos:
+                grupos.append(grupo)
+            if rx.pattern not in padroes:
+                padroes.append(rx.pattern)
+    if not grupos:
+        padroes = [r.pattern for r in _FORTE_RE if r.search(txt)] or \
+                  [r.pattern for r in _REVISAR_RE if r.search(txt)]
+    return {
+        "relevancia": ("forte" if any(r.search(txt) for r in _FORTE_RE)
+                       else ("revisar" if any(r.search(txt) for r in _REVISAR_RE) else None)),
+        "grupos_tematicos": grupos,
+        "padroes_detectados": padroes[:12],
+        "texto_normalizado": True,
+    }
 
 
 def limpar_texto(valor, limite=600):
