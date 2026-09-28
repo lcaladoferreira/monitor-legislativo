@@ -133,6 +133,24 @@ class ExecutarDiariosFonteTests(unittest.TestCase):
             us.executar_diarios_fonte("dou", timeout_s=5, logger=lambda *_: None, dry_run=True)
         self.assertIn("--dry-run", falso.chamadas[0])
 
+    def test_timeout_da_ingestao_integral_tem_piso_proprio(self):
+        """A edição integral é mais cara que uma listagem: não herda timeout curto.
+
+        Sem piso, um `MONITOR_FONTES_TIMEOUT_S` baixo estrangulava a ingestão
+        integral e a fonte caía sempre no fallback (mesmo com a integral sadia).
+        """
+        falso = _SubprocessoFalso(_payload())
+        with mock.patch.object(us, "_executar_cmd", falso):
+            us.executar_diarios_fonte("dou", timeout_s=30, logger=lambda *_: None)
+        cmd = falso.chamadas[0]
+        self.assertEqual(int(cmd[cmd.index("--timeout") + 1]), us.DIARIOS_TIMEOUT_S)
+        # um timeout maior pedido pelo chamador é respeitado
+        with mock.patch.object(us, "_executar_cmd", falso):
+            us.executar_diarios_fonte("dou", timeout_s=us.DIARIOS_TIMEOUT_S + 60,
+                                      logger=lambda *_: None)
+        cmd = falso.chamadas[1]
+        self.assertEqual(int(cmd[cmd.index("--timeout") + 1]), us.DIARIOS_TIMEOUT_S + 60)
+
     def test_coletor_historico_roda_sem_reentrar_no_pipeline_de_diarios(self):
         """O subprocesso do fallback não pode reexecutar a ingestão integral.
 

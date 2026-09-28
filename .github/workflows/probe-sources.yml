@@ -38,10 +38,22 @@ jobs:
         with:
           python-version: "3.13"
       - name: Ensaio real dos coletores multiórgão (sem gravar dados)
+        # O ensaio é diagnóstico: ele nunca derruba o job (os passos seguintes
+        # publicam o log). O `timeout` do comando e as anotações `::error::` com
+        # o rabo do log existem porque o log do job pode não estar acessível
+        # (bloqueio de rede/sandbox) — a anotação é o canal que sempre chega.
         run: |
-          python3 scripts/update_sources.py --todas --dry-run \
-            --relatorio out/fontes_reais.json --limite-amostras 8 \
-            > out/fontes_reais.log 2>&1 || true
+          set +e
+          timeout --signal=TERM --kill-after=30 1500 \
+            python3 scripts/update_sources.py --todas --dry-run \
+              --relatorio out/fontes_reais.json --limite-amostras 8 \
+              > out/fontes_reais.log 2>&1
+          CODIGO=$?
+          echo "ensaio terminou com código ${CODIGO}"
+          if [ "${CODIGO}" -ne 0 ]; then
+            RABO=$(tail -c 300 out/fontes_reais.log | tr '\n' ' ' | tr -s ' ')
+            echo "::error title=ensaio multiórgão (codigo ${CODIGO})::${RABO}"
+          fi
           tail -c 6000 out/fontes_reais.log
           python3 - <<'PYEOF' >> "$GITHUB_STEP_SUMMARY" || true
           import json, os
@@ -74,8 +86,14 @@ jobs:
           # Prova de ponta a ponta: roda update_legislation.py inteiro (Câmara e
           # Senado + fase 3.5 multiórgão) em modo --dry-run — consulta tudo,
           # monta o resumo por órgão e não grava o dataset.
-          MONITOR_MAX_NOVAS=5 python3 scripts/update_legislation.py --dry-run \
-            --budget-min 12 > out/execucao_dry_run.log 2>&1 || true
+          timeout --signal=TERM --kill-after=30 1500 \
+            env MONITOR_MAX_NOVAS=5 python3 scripts/update_legislation.py --dry-run \
+            --budget-min 12 > out/execucao_dry_run.log 2>&1
+          CODIGO=$?
+          if [ "${CODIGO}" -ne 0 ]; then
+            RABO=$(tail -c 300 out/execucao_dry_run.log | tr '\n' ' ' | tr -s ' ')
+            echo "::warning title=execução completa (codigo ${CODIGO})::${RABO}"
+          fi
           tail -c 4000 out/execucao_dry_run.log
           python3 - <<'PYEOF' >> "$GITHUB_STEP_SUMMARY" || true
           import re

@@ -65,6 +65,11 @@ LIMITE_MUDANCAS = _env_int("MONITOR_LIMITE_MUDANCAS", 800)
 RETENCAO_DIAS = _env_int("MONITOR_RETENCAO_DIAS", 180)
 # Janela de datas da ingestão integral dos diários (0/ausente = padrão do coletor).
 DIARIOS_DIAS = _env_int("MONITOR_DOU_DIAS", 0) or None
+# A ingestão integral de uma edição do DOU (três seções + captura de texto) é
+# mais cara que a leitura de uma listagem: ela tem teto próprio, para não ser
+# estrangulada pelo timeout padrão das fontes — e para caber no orçamento da
+# execução sem deixar as demais fontes sem tempo.
+DIARIOS_TIMEOUT_S = _env_int("MONITOR_DIARIOS_TIMEOUT_S", 120)
 
 # Fontes obrigatórias da execução (as demais entram via update_legislation).
 FONTES_NOVAS = ["anpd", "cnj", "tse", "dou", "planalto", "mcti"]
@@ -291,7 +296,7 @@ def executar_diarios_fonte(orgao, timeout_s=None, dias=None, logger=print, dry_r
     saúde e telemetria HTTP. Qualquer falha aqui é **registrada** e devolvida
     como resultado de falha; quem decide acionar o coletor legado é o chamador.
     """
-    timeout_s = timeout_s or TIMEOUT_FONTE_S
+    timeout_s = max(int(timeout_s or 0), DIARIOS_TIMEOUT_S)
     fd_rel, caminho_rel = tempfile.mkstemp(prefix=f"diarios_{orgao}_", suffix=".json")
     fd_leg, caminho_leg = tempfile.mkstemp(prefix=f"diarios_legado_{orgao}_", suffix=".json")
     os.close(fd_rel)
