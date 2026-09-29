@@ -4043,6 +4043,36 @@
       "selection_reason": "tipo=sanção peso=18 score_prop=85 → registro de protocolo sem valor editorial",
       "processed_at": "2026-09-28T19:04:22-03:00",
       "run_id": null
+    },
+    "chg_e8ad7e365a475b82": {
+      "change_id": "chg_e8ad7e365a475b82",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mjsp-no-1-312-de-24-de-setembro-de-2026-c6dd1082",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-09-28T22:59:20-03:00",
+      "run_id": null
+    },
+    "chg_f14787290a6ce8c0": {
+      "change_id": "chg_f14787290a6ce8c0",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-28T22:59:20-03:00",
+      "run_id": null
+    },
+    "chg_3b71907dac6230d6": {
+      "change_id": "chg_3b71907dac6230d6",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-28T22:59:20-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -4788,19 +4818,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-09-18T12:07:40-03:00",
-      "dia": "2026-09-18",
-      "mudancas_novas": 311,
-      "novos_artigos": 9,
-      "artigos_atualizados": 21,
-      "ignoradas": 168,
-      "adiadas": 112,
-      "stale": 0,
-      "aguardando_curadoria": 72,
-      "run_id": "bootstrap_2026-09-18",
-      "bootstrap": true
-    },
-    {
       "executado_em": "2026-09-18T12:13:34-03:00",
       "dia": "2026-09-18",
       "mudancas_novas": 111,
@@ -5430,6 +5447,19 @@
       "mudancas_novas": 110,
       "novos_artigos": 0,
       "artigos_atualizados": 1,
+      "ignoradas": 3,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 118,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-28T22:59:20-03:00",
+      "dia": "2026-09-28",
+      "mudancas_novas": 109,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
       "ignoradas": 3,
       "adiadas": 0,
       "stale": 0,
