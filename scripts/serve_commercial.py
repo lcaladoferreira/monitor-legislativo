@@ -15,7 +15,8 @@ class Local(API,SimpleHTTPRequestHandler):
         return SimpleHTTPRequestHandler.do_GET(self)
 
 if __name__=='__main__':
-    if os.environ.get('MONITOR_DEV')!='1':raise SystemExit('Use MONITOR_DEV=1 only for local development.')
+    if os.environ.get('MONITOR_DEV')!='1' or os.environ.get('VERCEL') or os.environ.get('DATABASE_URL'):
+        raise SystemExit('Use MONITOR_DEV=1 with local SQLite only; Vercel and DATABASE_URL are refused.')
     migrate()
-    print('Preview: http://127.0.0.1:8765',flush=True)
-    ThreadingHTTPServer(('127.0.0.1',8765),Local).serve_forever()
+    print('Local development server listening on 0.0.0.0:8765',flush=True)
+    ThreadingHTTPServer(('0.0.0.0',8765),Local).serve_forever()

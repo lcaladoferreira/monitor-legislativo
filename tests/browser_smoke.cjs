@@ -17,7 +17,7 @@ fs.mkdirSync('reports/screenshots',{recursive:true});
    await route.fulfill({status:200,contentType:types[pathUtil.extname(file)]||'application/octet-stream',body:fs.readFileSync(file)});
  });
  const page=await ctx.newPage();page.on('pageerror',e=>errors.push(e.message));
- for(const path of ['/','/solucoes/','/diagnostico/','/briefing-executivo/','/alto-impacto/','/setores/fintech/','/casos-de-uso/compliance/','/alertas/','/login/']){
+ for(const path of ['/','/solucoes/','/diagnostico/','/briefing-executivo/','/alto-impacto/','/setores/fintech/','/casos-de-uso/compliance/','/alertas/','/login/','/cadastro/']){
    const response=await page.goto('http://127.0.0.1:8765'+path);await page.locator('h1').waitFor({state:'visible'});await page.evaluate(()=>document.fonts.ready);
    if(response.status()!==200)throw Error(path+' HTTP '+response.status());
    const overflow=await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth);
@@ -47,7 +47,7 @@ fs.mkdirSync('reports/screenshots',{recursive:true});
  results.push({test:'503 preserves input, never displays success',passed:true});
  await page.unroute('**/api/leads');
  await page.setViewportSize({width:390,height:844});
- for(const path of ['/','/solucoes/','/diagnostico/','/briefing-executivo/','/alto-impacto/','/setores/fintech/','/alertas/']){
+ for(const path of ['/','/solucoes/','/diagnostico/','/briefing-executivo/','/alto-impacto/','/setores/fintech/','/alertas/','/cadastro/']){
    await page.goto('http://127.0.0.1:8765'+path);await page.locator('h1').waitFor({state:'visible'});await page.evaluate(()=>document.fonts.ready);
    if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))throw Error(path+' mobile overflow');
    results.push({path,viewport:'390x844',overflow:false});

@@ -24,7 +24,7 @@ def provision(s,account_id,name,status,ends_on,limit,themes,address,password):
     if old and old['account_id']!=account_id:raise ValueError('User already belongs to another account')
     if len(existing)+(0 if old else 1)>limit:raise ValueError('User limit exceeded')
     s.put('account',account_id,{'name':name,'status':status,'ends_on':ends_on,'user_limit':limit,'themes':themes},account_id)
-    s.put('user',uid,{'id':uid,'email':address,'account_id':account_id,'password_hash':svc.password_hash(password)},account_id)
+    s.put('user',uid,{'id':uid,'email':address,'account_id':account_id,'password_hash':svc.password_hash(password),'status':'active'},account_id)
     # Provision/reset revokes all existing sessions for this user.
     for key,session in s.list('session',account_id):
         if session['user_id']==uid:s.delete('session',key)
@@ -36,8 +36,9 @@ def main():
     sub.add_parser('migrate')
     a=sub.add_parser('provision');a.add_argument('--account',required=True);a.add_argument('--name',required=True);a.add_argument('--email',required=True);a.add_argument('--status',choices=['trial','pilot','active','inactive'],default='pilot');a.add_argument('--ends-on');a.add_argument('--users',type=int,default=5);a.add_argument('--themes',type=int,nargs='*',default=[])
     sub.add_parser('leads')
+    a=sub.add_parser('accounts');a.add_argument('--status',choices=['pending','trial','pilot','active','inactive'])
     a=sub.add_parser('lead-stage');a.add_argument('id');a.add_argument('stage',choices=['lead','diagnostic','demo','pilot','contract','lost'])
-    a=sub.add_parser('account-status');a.add_argument('id');a.add_argument('status',choices=['trial','pilot','active','inactive'])
+    a=sub.add_parser('account-status');a.add_argument('id');a.add_argument('status',choices=['trial','pilot','active','inactive']);a.add_argument('--ends-on',help='End date in YYYY-MM-DD format (required for trial/pilot unless already set).')
     sub.add_parser('purge')
     args=p.parse_args()
     if args.command=='migrate':migrate();print('Private schema ready.');return
@@ -45,15 +46,17 @@ def main():
         if args.command=='provision':provision(s,args.account,args.name,args.status,args.ends_on,args.users,args.themes,args.email,getpass.getpass('Password (12+ characters): '));print('Account/user provisioned. No e-mail sent.')
         elif args.command=='leads':
             for key,v in s.list('lead'):print(json.dumps({'id':key,**v},ensure_ascii=False))
+        elif args.command=='accounts':
+            for account in svc.list_accounts(s,args.status):
+                account['users']=[{'email':user.get('email'),'status':user.get('status','active')} for _,user in s.list('user',account['account_id'])]
+                print(json.dumps(account,ensure_ascii=False))
         elif args.command=='lead-stage':
             lead=s.get('lead',args.id)
             if not lead:raise SystemExit('Lead not found')
             lead['stage']=args.stage;lead['stage_updated_at']=int(time.time());s.put('lead',args.id,lead)
         elif args.command=='account-status':
-            account=s.get('account',args.id)
-            if not account:raise SystemExit('Account not found')
-            if args.status in {'trial','pilot'} and not account.get('ends_on'):raise SystemExit('Trial/pilot needs an end date; use provision.')
-            account['status']=args.status;s.put('account',args.id,account,args.id)
+            svc.activate_account(s,args.id,args.status,args.ends_on)
+            print(f'Account {args.id} set to {args.status}; pending users activated when applicable.')
         elif args.command=='purge':
             now=time.time()
             for kind in ('rate','session','confirm','unsubscribe'):

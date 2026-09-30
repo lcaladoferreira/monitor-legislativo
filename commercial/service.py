@@ -170,6 +170,8 @@ def login(s,d):
     salt=stored.split(':')[0]
     computed=salt+':'+hashlib.pbkdf2_hmac('sha256',password.encode(),salt.encode(),600000).hex()
     if not user or not hmac.compare_digest(stored,computed):raise Problem(401,'E-mail ou senha inválidos.')
+    if user.get('status') not in (None,'active'):
+        raise Problem(403,'Sua conta aguarda ativação pela equipe da LCF Consulting.')
     account=s.get('account',user['account_id'])
     check_account(account)
     token=token_record(s,'session','',{'user_id':user['id'],'account_id':user['account_id']},user['account_id'],days=1)
@@ -178,7 +180,12 @@ def login(s,d):
 
 
 def check_account(account):
-    if not account or account['status']=='inactive' or (account.get('ends_on') and account['ends_on']<str(date.today())):raise Problem(403,'Acesso ao piloto indisponível ou encerrado. Solicite revisão do escopo.')
+    if not account:
+        raise Problem(403,'Acesso ao piloto indisponível ou encerrado. Solicite revisão do escopo.')
+    if account.get('status') == 'pending':
+        raise Problem(403,'Sua conta aguarda ativação pela equipe da LCF Consulting.')
+    if account.get('status') not in {'trial','pilot','active'} or (account.get('ends_on') and account['ends_on']<str(date.today())):
+        raise Problem(403,'Acesso ao piloto indisponível ou encerrado. Solicite revisão do escopo.')
 
 
 def authenticated(s,token):
@@ -186,6 +193,7 @@ def authenticated(s,token):
     if not session or session['expires']<time.time():raise Problem(401,'Acesse sua conta para continuar.')
     user=s.get('user',session['user_id'])
     if not user or user['account_id']!=session['account_id']:raise Problem(401,'Sessão inválida.')
+    if user.get('status') not in (None,'active'):raise Problem(403,'Sua conta aguarda ativação pela equipe da LCF Consulting.')
     account=s.get('account',user['account_id']);check_account(account)
     return user,account
 
@@ -196,3 +204,119 @@ def pilot(s,user,account):
     public_top=[{'id':p['id'],'title':f'{p["tipo"]} {p["numero"]}/{p["ano"]} — {p["titulo"]}','score':score(p),'fact':official_fact(p),'analysis':business_impact(p)} for p in model['top']]
     s.insert('usage',secrets.token_hex(16),{'event':'dashboard_view','user_id':user['id'],'timestamp':int(time.time())},user['account_id'])
     return {'account':{k:account.get(k) for k in ('name','status','ends_on','user_limit')},'email':user['email'],'preferences':prefs,'briefing':{**model,'top':public_top},'subscriptions':[{'id':key,**{k:v.get(k) for k in ('active','frequencia','score_min')}} for key,v in s.list('subscription',user['account_id']) if v.get('user_id')==user['id']]}
+
+
+def create_account(s,d):
+    """Create a client account in pending state; only an operator can activate it."""
+    if d.get('website'):
+        raise Problem(400,'Não foi possível enviar este formulário.')
+    if d.get('consent') is not True:
+        raise Problem(400,'É necessário autorizar o uso dos dados para esta solicitação.')
+
+    nome=clean(d.get('nome',''),256)
+    email_addr=email(d.get('email'))
+    empresa=clean(d.get('empresa',''),256)
+    cnpj=clean(d.get('cnpj',''),18)
+    cargo=clean(d.get('cargo',''),256)
+    telefone=clean(d.get('telefone',''),64)
+    setor=clean(d.get('setor',''),64)
+    tamanho=clean(d.get('tamanho',''),32)
+    uso_ia=clean(d.get('uso_ia',''),32)
+    area_controle=clean(d.get('area_controle',''),32)
+    urgencia=clean(d.get('urgencia',''),32)
+    preocupacao=clean(d.get('preocupacao',''),2000)
+    interesse=clean(d.get('interesse',''),64)
+    password=clean(d.get('password',''),128)
+    confirmation=clean(d.get('confirm_password',password),128)
+    if confirmation != password:
+        raise Problem(400,'As senhas informadas não coincidem.')
+    if not all([nome,email_addr,empresa,cargo,preocupacao,interesse,password]):
+        raise Problem(400,'Preencha os campos obrigatórios.')
+    if cnpj:
+        if not re.fullmatch(r'[0-9./ -]+',cnpj) or len(re.sub(r'\D','',cnpj)) != 14:
+            raise Problem(400,'Informe um CNPJ válido ou deixe o campo em branco.')
+        cnpj=re.sub(r'\D','',cnpj)
+    allowed={
+        'setor':SECTORS,
+        'tamanho':{'1-10','11-100','101-500','501+'},
+        'uso_ia':{'nao','apoio','critico'},
+        'area_controle':{'sim','nao'},
+        'urgencia':{'imediata','trimestre','exploratoria'},
+        'interesse':{'diagnostico','radar-executivo','monitor-ia','institucional','briefing-setorial','demo'},
+    }
+    if any(v and v not in options for v,options in [
+        (setor,allowed['setor']),(tamanho,allowed['tamanho']),(uso_ia,allowed['uso_ia']),
+        (area_controle,allowed['area_controle']),(urgencia,allowed['urgencia']),
+        (interesse,allowed['interesse']),
+    ]):
+        raise Problem(400,'Selecione opções válidas.')
+    # Validate the password before writing any records.
+    pw_hash=password_hash(password)
+    user_id=digest(email_addr)
+    s.lock('registration:'+user_id)
+    if s.get('user',user_id):
+        raise Problem(409,'Este e-mail já possui cadastro.')
+
+    account_id=secrets.token_urlsafe(16)
+    now=int(time.time())
+    account={'name':empresa,'status':'pending','created_at':now,'user_limit':5,'themes':[]}
+    if cnpj:
+        account['cnpj']=cnpj
+    s.put('account',account_id,account,account_id)
+    user={'id':user_id,'email':email_addr,'account_id':account_id,'password_hash':pw_hash,'created_at':now,'status':'pending'}
+    if not s.insert('user',user_id,user,account_id):
+        raise Problem(409,'Este e-mail já possui cadastro.')
+
+    lead_data={
+        'nome':nome,'empresa':empresa,'cargo':cargo,'telefone':telefone,'setor':setor,
+        'tamanho':tamanho,'uso_ia':uso_ia,'area_controle':area_controle,'urgencia':urgencia,
+        'preocupacao':preocupacao,'interesse':interesse,'email':email_addr,
+        'attribution':attribution(d.get('attribution')),'consent_at':now,
+        'consent_version':'2026-09-v1','stage':'lead','created_at':now,
+    }
+    lead_data.update(lead_score(lead_data))
+    stable={k:lead_data[k] for k in ('nome','empresa','cargo','telefone','email','setor','tamanho','uso_ia','area_controle','urgencia','preocupacao','interesse')}
+    lead_data['fingerprint']=digest(json.dumps(stable,sort_keys=True,ensure_ascii=False))
+    s.insert('lead',secrets.token_hex(16),lead_data,account_id)
+    s.insert('usage',secrets.token_hex(16),{'event':'registration','user_id':user_id,'timestamp':now},account_id)
+    notify=os.environ.get('LEAD_NOTIFY_EMAIL')
+    if notify:
+        queue(s,'registration-'+account_id,email(notify),'Solicitação de acesso ao piloto',json.dumps(lead_data,ensure_ascii=False,indent=2),account_id)
+    return {'ok':True,'message':'Cadastro recebido. Sua conta está pendente de ativação pela equipe da LCF Consulting. Você só poderá entrar após a aprovação.'}
+
+
+def activate_account(s,account_id,status='active',ends_on=None):
+    if status not in {'trial','pilot','active','inactive'}:
+        raise Problem(400,'Status de conta inválido.')
+    if ends_on:
+        try:
+            date.fromisoformat(ends_on)
+        except (TypeError,ValueError):
+            raise Problem(400,'Informe uma data de encerramento válida (AAAA-MM-DD).')
+    account=s.get('account',account_id)
+    if not account:
+        raise Problem(404,'Conta não encontrada.')
+    if status in {'trial','pilot'} and not (ends_on or account.get('ends_on')):
+        raise Problem(400,'Contas de teste ou piloto precisam de uma data de encerramento.')
+    account['status']=status
+    if ends_on:
+        account['ends_on']=ends_on
+    s.put('account',account_id,account,account_id)
+    if status in {'trial','pilot','active'}:
+        for uid,usr in s.list('user',account_id):
+            if usr.get('status')=='pending':
+                usr['status']='active'
+                s.put('user',uid,usr,account_id)
+    return {'ok':True,'message':f'Conta {status}.'}
+
+
+def list_accounts(s,status=None):
+    results=[]
+    for key,account in s.list('account',limit=1000):
+        if status is None or account.get('status')==status:
+            results.append({'account_id':key,**account})
+    return results
+
+
+def get_account(s,account_id):
+    return s.get('account',account_id)
