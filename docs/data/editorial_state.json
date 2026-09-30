@@ -4573,6 +4573,46 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-09-30T16:25:06-03:00",
       "run_id": null
+    },
+    "chg_54c7850081132a6d": {
+      "change_id": "chg_54c7850081132a6d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-pre-no-321-de-29-de-setembro-de-2026-fd0ed2ad",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-09-30T20:51:23-03:00",
+      "run_id": null
+    },
+    "chg_caab349177da75cf": {
+      "change_id": "chg_caab349177da75cf",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-681-de-28-de-setembro-de-2026-1a0cc0bb",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=13 → sem valor editorial independente",
+      "processed_at": "2026-09-30T20:51:23-03:00",
+      "run_id": null
+    },
+    "chg_c14af5790ee92149": {
+      "change_id": "chg_c14af5790ee92149",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-30T20:51:23-03:00",
+      "run_id": null
+    },
+    "chg_0972abc6aa5e4c18": {
+      "change_id": "chg_0972abc6aa5e4c18",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-30T20:51:23-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -5310,19 +5350,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-09-20T15:44:29-03:00",
-      "dia": "2026-09-20",
-      "mudancas_novas": 113,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 0,
-      "adiadas": 3,
-      "stale": 0,
-      "aguardando_curadoria": 73,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-09-20T15:53:12-03:00",
       "dia": "2026-09-20",
       "mudancas_novas": 115,
@@ -5956,6 +5983,19 @@
       "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 124,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-30T20:51:23-03:00",
+      "dia": "2026-09-30",
+      "mudancas_novas": 109,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 4,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 125,
       "run_id": null,
       "bootstrap": false
     }
