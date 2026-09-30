@@ -4553,6 +4553,26 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-09-30T13:15:04-03:00",
       "run_id": null
+    },
+    "chg_dd1ebb8a2e9a08b2": {
+      "change_id": "chg_dd1ebb8a2e9a08b2",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-30T16:25:06-03:00",
+      "run_id": null
+    },
+    "chg_599c9644d06404d4": {
+      "change_id": "chg_599c9644d06404d4",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-09-30T16:25:06-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -5280,22 +5300,15 @@
       "since": "2026-09-25",
       "editorial_topic_id": "ato-cnj-portaria-cnj-no-119-f44b02f2",
       "prioridade": 12
+    },
+    "chg_f95524510333b4d3": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-09-30",
+      "editorial_topic_id": "pl-5500-2026-altera-a-lei-no-10-703-de-18-de-julho-de-2003-para-dispor-so",
+      "prioridade": 14
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-09-20T14:02:36-03:00",
-      "dia": "2026-09-20",
-      "mudancas_novas": 112,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 73,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-09-20T15:44:29-03:00",
       "dia": "2026-09-20",
@@ -5928,6 +5941,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 24,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 124,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-09-30T16:25:06-03:00",
+      "dia": "2026-09-30",
+      "mudancas_novas": 107,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 124,
       "run_id": null,
