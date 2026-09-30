@@ -4,11 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Painel de monitoramento — métricas do cron e da coleta de IA</title>
-<meta name="description" content="Métricas do monitoramento legislativo de IA no Brasil: frescor da última execução, cobertura da verificação, mudanças detectadas, chamadas às APIs oficiais da Câmara e do Senado e histórico auditável do cron diário.">
+<meta name="description" content="Métricas do monitoramento legislativo de IA no Brasil: frescor da última execução, cobertura da verificação, mudanças detectadas, chamadas às APIs oficiais da Câmara e do Senado e histórico auditável das execuções da coleta.">
 <link rel="canonical" href="https://monitor.lcfconsulting.com.br/monitoramento/">
 <meta property="og:site_name" content="Monitor Legislativo de IA">
 <meta property="og:title" content="Painel de monitoramento — métricas do cron e da coleta de IA">
-<meta property="og:description" content="Métricas do monitoramento legislativo de IA no Brasil: frescor da última execução, cobertura da verificação, mudanças detectadas, chamadas às APIs oficiais da Câmara e do Senado e histórico auditável do cron diário.">
+<meta property="og:description" content="Métricas do monitoramento legislativo de IA no Brasil: frescor da última execução, cobertura da verificação, mudanças detectadas, chamadas às APIs oficiais da Câmara e do Senado e histórico auditável das execuções da coleta.">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://monitor.lcfconsulting.com.br/monitoramento/">
@@ -28,7 +28,7 @@
       <small>Inteligência Artificial · Brasil</small>
     </div>
     <nav class="links" aria-label="Principal"><a href="https://monitor.lcfconsulting.com.br/">Início</a><a href="https://monitor.lcfconsulting.com.br/proposicoes/">Proposições</a><a href="https://monitor.lcfconsulting.com.br/atualizacoes/">Atualizações</a><a href="https://monitor.lcfconsulting.com.br/artigos/">Artigos</a><a href="https://monitor.lcfconsulting.com.br/leis/">Leis e normas</a><a href="https://monitor.lcfconsulting.com.br/timeline/">Timeline</a><a href="https://monitor.lcfconsulting.com.br/parlamentares/">Parlamentares</a><a href="https://monitor.lcfconsulting.com.br/agenda/">Agenda</a><a href="https://monitor.lcfconsulting.com.br/monitoramento/" class="active">Monitoramento</a><a href="https://monitor.lcfconsulting.com.br/metodologia/">Metodologia</a><a href="https://monitor.lcfconsulting.com.br/relatorio/">Relatório</a></nav>
-    <a class="fresh" href="https://monitor.lcfconsulting.com.br/monitoramento/" data-freshness="2026-09-29T12:54:10-03:00" data-estado="ok" title="Idade da última execução do monitoramento (recalculada agora)"><span class="dot"></span><span data-fresh-label>Última verificação: 29/09/2026 12:54</span></a>
+    <a class="fresh" href="https://monitor.lcfconsulting.com.br/monitoramento/" data-freshness="2026-09-29T12:54:10-03:00" data-fresh-abs="29/09/2026 12:54 BRT" data-fresh-ok="3.0" data-fresh-warn="8.0" data-fresh-cron="a cada hora, no minuto 17 (UTC e BRT)" data-estado="critico" title="Idade da última execução do monitoramento (recalculada agora)"><span class="dot"></span><span data-fresh-label>Última verificação: 29/09/2026 12:54</span></a>
   </div>
 <nav class="commercial-nav wrap" aria-label="Soluções empresariais"><a href="/para-empresas/">Para empresas</a><a href="/solucoes/">Soluções</a><a href="/briefing-executivo/">Briefing executivo</a><a href="/alto-impacto/">Alto impacto</a><a href="/casos-de-uso/">Casos de uso</a><a href="/alertas/">Alertas</a><a href="/watchlist/">Watchlist</a><a href="/login/">Área do cliente</a></nav></header><aside class="commercial-strip"><div class="wrap"><div><strong>Regulação de IA, dados e infraestrutura digital.</strong><p>Saiba o que mudou, por que isso importa para sua operação, quem precisa agir e qual evidência oficial sustenta a conclusão.</p></div><div class="commercial-actions"><a class="commercial-button" href="/diagnostico/?setor=&interesse=diagnostico" data-commercial-cta="diagnostico" data-sector="">Solicitar diagnóstico regulatório</a><a href="/briefing-executivo/" data-commercial-cta="briefing">Ver exemplo de briefing executivo</a></div></div></aside>
 <main>
@@ -37,30 +37,35 @@
   <div class="crumbs"><a href="https://monitor.lcfconsulting.com.br/">Início</a> › Monitoramento</div>
   <h1>Painel de monitoramento</h1>
   <p class="sub">Métricas operacionais do monitoramento legislativo — atualizadas automaticamente
-  a cada rebuild do site (cron diário às 07:17, 10:43, 14:43, 18:43 BRT / 10:17, 13:43, 17:43, 21:43 UTC).
-  Serve para auditar se a coleta está rodando, quanto do banco foi verificado, o que mudou e
-  quanto custou em consultas às APIs oficiais.</p>
+  a cada execução da coleta, agendada a cada hora, no minuto 17 (UTC e BRT) (GitHub Actions;
+  <code>17 * * * *</code>). Serve para auditar se a coleta está rodando, quanto do banco
+  foi verificado, o que mudou e quanto custou em consultas às APIs oficiais.</p>
 </div></div>
 
 <section class="block"><div class="wrap">
   <h2 class="section-title">Saúde do monitoramento</h2>
   <p class="section-sub">Sinais automáticos calculados a partir do histórico de execuções
   (<code>data/legislation/updates.json</code>).</p>
-  <div data-freshness-panel="2026-09-29T12:54:10-03:00">
-  <div class="alert ok"><b>Monitoramento em dia</b><span>Última execução há 0h.</span></div><div class="alert ok"><b>Todas as fontes obrigatórias foram consultadas</b><span>Câmara, Senado, ANPD, CNJ, TSE, DOU, Planalto e MCTI.</span></div><div class="alert atencao"><b>107 proposições aguardam curadoria</b><span>Registros automáticos têm score preliminar e categorias incompletas.</span></div>
+  <div data-freshness-panel="2026-09-29T12:54:10-03:00"
+       data-fresh-ok="3.0" data-fresh-warn="8.0"
+       data-fresh-cron="a cada hora, no minuto 17 (UTC e BRT)">
+  <div class="alert critico"><b>Monitoramento desatualizado</b><span>Última execução há 23.5 h; o limite para esta cadência (a cada hora, no minuto 17 (UTC e BRT)) é 8 h. Verifique a aba Actions do repositório: ou o cron parou, ou a coleta falhou antes do commit e nada foi publicado.</span></div><div class="alert ok"><b>Todas as fontes obrigatórias foram consultadas</b><span>Câmara, Senado, ANPD, CNJ, TSE, DOU, Planalto e MCTI.</span></div><div class="alert atencao"><b>107 proposições aguardam curadoria</b><span>Registros automáticos têm score preliminar e categorias incompletas.</span></div>
   </div>
   <div class="grid cols-4" style="margin-top:16px">
-    <div class="metric green"><div class="num">0.0 h</div><div class="lbl">Desde a última execução</div></div>
+    <div class="metric red" data-age-from="2026-09-29T12:54:10-03:00" data-age-ok="3.0" data-age-warn="8.0" data-age-estado="critico"><div class="num" data-age-num>23.5 h</div><div class="lbl">Desde a última execução</div></div>
     <div class="metric"><div class="num">100.0%</div><div class="lbl">Cobertura da última execução</div></div>
     <div class="metric"><div class="num">0</div><div class="lbl">Proposições pendentes</div></div>
     <div class="metric"><div class="num">81.6</div><div class="lbl">Cobertura média (histórico)</div></div>
     <div class="metric"><div class="num">70</div><div class="lbl">Execuções registradas</div></div>
     <div class="metric"><div class="num">Concluida</div><div class="lbl">Status da última execução</div></div>
-    <div class="metric"><div class="num">329</div><div class="lbl">Mudanças (30 dias)</div></div>
+    <div class="metric"><div class="num">348</div><div class="lbl">Mudanças (30 dias)</div></div>
     <div class="metric"><div class="num">107</div><div class="lbl">Aguardando curadoria</div></div>
   </div>
   <p class="disclaimer" style="margin-top:12px">A idade desde a última execução é recalculada no
-  seu navegador a cada visita — se o painel ficar vermelho, o cron parou.</p>
+  seu navegador a cada visita, com os mesmos limiares usados no build: até 3 h
+  em dia, até 8 h em atenção, acima disso crítico. Com a coleta
+  a cada hora, no minuto 17 (UTC e BRT), um site vermelho significa que a coleta não publica há mais de
+  8 h — ou que a execução falhou antes do commit.</p>
 </div></section>
 
 <section class="block"><div class="wrap">

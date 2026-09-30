@@ -1,8 +1,19 @@
-"""Fail the scheduled run when the latest collection is stale or incomplete."""
+"""Fail the scheduled run when the latest collection is stale or incomplete.
+
+A regra de defasagem é derivada do agendamento real (scripts/frescor.py), não de
+um "precisa ser de hoje" fixo: com o cron horário, uma coleta das 23:17 de
+ontem está Perfectamente em dia às 00:30 de hoje, e era reprovada. O que reprova
+é passar do limite de atenção da cadência — que é a mesma régua que o selo de
+frescor do site usa, para que painel e gate nunca discordem.
+"""
 import json
+import os
 import sys
 from datetime import datetime, timezone, timedelta
 from pathlib import Path
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from frescor import descricao as _cron_descricao, estado as _estado_frescor, limiares as _limiares
 
 BRT = timezone(timedelta(hours=-3))
 
@@ -29,15 +40,22 @@ def audit_coverage(props):
 
 def problems(record, now=None):
     now = now or datetime.now(BRT)
+    ok_h, warn_h = _limiares()
     errors = []
     try:
         finished = datetime.fromisoformat(record.get("fim") or record["data_hora"])
         if finished.tzinfo is None:
             raise ValueError("timestamp without timezone")
-        if finished.astimezone(BRT).date() != now.astimezone(BRT).date():
-            errors.append("A última coleta não é do dia corrente em Brasília.")
         if finished > now:
             errors.append("A coleta possui data futura.")
+        else:
+            idade_h = (now - finished).total_seconds() / 3600
+            if _estado_frescor(idade_h, (ok_h, warn_h)) == "critico":
+                errors.append(
+                    f"A última coleta publicada tem {idade_h:.1f} h; o limite para o "
+                    f"agendamento atual ({_cron_descricao()}) é {warn_h:g} h. "
+                    "O selo de frescor do site também entra em crítico neste estado."
+                )
     except (KeyError, TypeError, ValueError):
         errors.append("Data da coleta ausente ou inválida.")
     if record.get("status") != "concluida":

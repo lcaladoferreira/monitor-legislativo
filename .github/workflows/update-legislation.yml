@@ -63,6 +63,9 @@ jobs:
           python-version: "3.13"
 
       - name: Recuperar lacuna histórica verificada na fonte do Senado
+        # Não pode derrubar a coleta: a exigência do registro é garantida
+        # adiante por tests/test_audit_watchlist.py.
+        continue-on-error: true
         run: python3 scripts/recover_audit_history.py
 
       - name: Coletar dados oficiais
@@ -215,5 +218,16 @@ jobs:
         if: steps.coleta.outcome == 'failure'
         run: |
           echo "::error::A coleta não terminou com sucesso. Consulte as etapas de build e commit para confirmar a publicação — verifique o painel /monitoramento/ e os logs da etapa 'Coletar dados oficiais'."
+          exit 1
+
+      - name: Sinalizar publicação bloqueada (após tentativa de publicação)
+        # Sem esta etapa, uma falha de validação/build/auditoria apenas pulava o
+        # commit em silêncio: o cron continuava verde no histórico, coletando e
+        # descartando, e o site ficava congelado por horas (incidente
+        # 2026-09-30). Falhar aqui torna o bloqueio de publicação visível.
+        if: always() && (steps.validate.outcome == 'failure' || steps.build.outcome == 'failure' || steps.audit.outcome == 'failure')
+        run: |
+          echo "::error::PUBLICAÇÃO BLOQUEADA — o dataset e o site foram reconstruídos, mas nada foi commitado porque uma etapa de verificação falhou (build=${{ steps.build.outcome }}, validate=${{ steps.validate.outcome }}, audit=${{ steps.audit.outcome }})."
+          echo "::error::Enquanto isso o site publicado continua com o último estado verificado, e o selo de frescor passa a crítico. Leia o log de 'Validar dataset e páginas' e corrija antes da próxima janela."
           exit 1
 

@@ -12,10 +12,16 @@ Detecta:
   - páginas HTML sem <title> ou sem canonical
   - canonical/sitemap/robots apontando para domínio errado
   - links internos quebrados (hrefs do SITE_URL sem arquivo correspondente)
-  - referências remanescentes ao domínio antigo do GitHub Pages
+  - referências remanescentes ao domínio antigo do GitHub Pages (erro em código
+    e artefatos; aviso em documentação .md — ver comentário em main())
   - área editorial /artigos/: esquema dos artigos, datas, canonical,
     sitemap (1 URL por artigo com lastmod = modified_at), JSON-LD NewsArticle,
     preservação de published_at, feed público espelhado em docs/data
+
+ATENÇÃO: este script é gate de publicação no workflow. Qualquer ERRO aqui
+impede o commit e, portanto, congela o site publicado mesmo com a coleta
+funcionando (incidente 2026-09-30). Erro só para o que de fato quebra o
+artefato publicado; documentação e texto de apoio vão para avisos.
 
 Uso: python3 scripts/validate_site.py
 Saída: exit 0 se OK (avisos permitidos), exit 1 se houver erros.
@@ -371,6 +377,12 @@ def main():
     # varredura geral do domínio antigo em arquivos-fonte (exceto histórico git).
     # Ignora a linha de definição da constante OLD_DOMAIN (usada por esta checagem);
     # qualquer outro uso (ex.: SITE_URL regressivo) é erro.
+    #
+    # Documentação (.md) é tratada como AVISO, nunca como erro: em 2026-09-30 o
+    # README citava o domínio legado para explicar a regra, a checagem acusou o
+    # próprio README e `validate_site.py` reprovou — o que impede o commit no
+    # workflow, ou seja, congelou o site inteiro enquanto o cron horário
+    # continuava coletando. Menção em prosa não pode derrubar a publicação.
     for root, dirs, files in os.walk(BASE):
         dirs[:] = [d for d in dirs if d != ".git"]
         for fn in files:
@@ -379,11 +391,15 @@ def main():
                 rel = os.path.relpath(p, BASE)
                 if rel.startswith("docs/"):
                     continue  # docs/ já reportado acima, arquivo a arquivo
+                apenas_doc = fn.endswith(".md")
                 try:
                     with open(p, encoding="utf-8", errors="replace") as f:
                         for i, line in enumerate(f, 1):
                             if OLD_DOMAIN in line and "OLD_DOMAIN" not in line:
-                                rep.err(f"{rel}:{i}: contém referência ao domínio antigo")
+                                msg = f"{rel}:{i}: contém referência ao domínio antigo"
+                                (rep.warn if apenas_doc else rep.err)(
+                                    msg + (" (documentação: sem impacto no build)"
+                                           if apenas_doc else ""))
                                 break
                 except OSError:
                     pass

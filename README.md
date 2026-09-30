@@ -7,7 +7,7 @@ O ativo principal é o **dataset legislativo histórico** (`/data/legislation`),
 - **Site oficial:** https://monitor.lcfconsulting.com.br (publicado a partir de `/docs`, compatível com GitHub Pages *e* Vercel)
 - **Dados:** `/data/legislation/*.json` (fonte única da verdade, versionada no Git)
 - **Build:** `python3 scripts/build_site.py` (stdlib apenas)
-- **Domínio legado bloqueado no build:** `lcaladoferreira.github.io/monitor-legislativo` e `monitor-legislativo-five.vercel.app` — o build falha se qualquer artefato crítico ainda contiver o domínio antigo.
+- **Domínio legado bloqueado no build:** o build e a validação reprovam qualquer artefato crítico (HTML, JSON, XML, `robots.txt`, sitemap) que ainda aponte para o antigo domínio do GitHub Pages ou para a app Vercel legada. Os endereços exatos ficam na constante `OLD_DOMAIN` de `scripts/validate_site.py` e em `OLD_SITE_URL` de `scripts/build_site.py` — não são reescritos aqui de propósito, porque qualquer menção literal ao domínio antigo em `.md` derrubava a validação e, com ela, a publicação automática (incidente 2026-09-30).
 
 ---
 
@@ -28,6 +28,7 @@ O ativo principal é o **dataset legislativo histórico** (`/data/legislation`),
   - [data/articles/](#dataarticles)
 - [Pipeline de execução (ciclo completo)](#pipeline-de-execução-ciclo-completo)
 - [Orçamento de tempo e robustez](#orçamento-de-tempo-e-robustez)
+- [Módulo frescor.py — cadência e limiares de frescor](#módulo-frescorpy--cadência-e-limiares-de-frescor-fonte-única)
 - [Módulo scoring.py — AI Legislative Impact Score](#módulo-scoringpy--ai-legislative-impact-score)
 - [Módulo update_legislation.py — Coletor Câmara/Senado](#módulo-update_legislationpy--coletor-câmarasenado)
 - [Módulo sources/ — Coletores multiórgão](#módulo-sources--coletores-multiórgão)
@@ -259,6 +260,45 @@ Campo chave: `id` = `casa_tipo_numero_ano` (ex.: `camara_pl_2338_2023`). Nunca d
 10. **Commit** — somente se `docs/` ou `data/` mudaram e validações passaram; mensagem inclui status (`concluida|parcial|falha`) e resumo editorial.
 
 Se nada relevante mudou, apenas registra-se a verificação — **nada de conteúdo artificial**.
+
+---
+
+## Módulo frescor.py — cadência e limiares de frescor (fonte única)
+
+**Problema de 2026-09-30:** o site congelou com o último estado verificado de 29/09 12:54 BRT, enquanto o cron horário (`17 * * * *`) continuava rodando e coletando. Duas falhas independentes se somaram:
+
+1. **Publicação bloqueada.** `validate_site.py` reprovava com `README.md:10: contém referência ao domínio antigo` — o README explicava a regra do domínio legado citando o domínio legado, e a varredura tratava a documentação como artefato crítico. Como o workflow só commita com `steps.validate.outcome == 'success'`, nenhuma execução publicava. O commit era pulado **em silêncio**: o histórico do Actions mostrava a coleta terminando em poucos minutos e nenhuma data nova no dataset.
+2. **Frescor mentiroso.** Limiares fixos de 30 h (ok) e 54 h (atenção) — pensados para 4 coletas/dia — classificavam 23 h de silêncio como "Monitoramento em dia", enquanto o painel e o `site.js` anunciavam um "cron diário às 07:17 BRT" que não existe. O cartão "Desde a última execução" mostrava o valor congelado do build (`0.0 h`) ao lado do selo, recalculado ao vivo (`há 23 h`).
+
+**O que o módulo faz** (`scripts/frescor.py`, stdlib):
+
+| Função | Retorna |
+|---|---|
+| `crons()` | expressões `cron` do bloco `schedule:` de `.github/workflows/update-legislation.yml` |
+| `intervalo_horas()` | menor intervalo entre execuções, em horas (`17 * * * *` → `1.0`) |
+| `descricao()` | texto do agendamento em português, com horários UTC e BRT |
+| `limiares()` | `(ok_h, atencao_h)` derivados do intervalo (piso 3 h / 8 h) |
+| `estado(idade_h)` | `"ok"` / `"atencao"` / `"critico"` / `"sem_dados"` |
+
+**Contrato:** nenhum número de frescor é fixado à mão em página alguma. O build lê `frescor.resumo()` uma vez e:
+
+- escreve os limiares em `data-fresh-ok` / `data-fresh-warn` (selo e painel) e `data-age-ok` / `data-age-warn` (cartões) — o `site.js` classifica com **os mesmos números**, em vez de manter uma cópia;
+- escreve a cadência em `data-fresh-cron`, usada no texto do alerta do painel;
+- usa `estado()` em Python (`build_site_core.metricas_monitoramento`, faixa de saúde da home) **e** em `check_collection.problems()`, para que o gate do workflow e o selo do site nunca discordem;
+- joga a descrição nos textos de `/monitoramento/` e `/metodologia/`.
+
+Com o cron horário os limiares ficam em **3 h / 8 h**: 23 h parado é crítico, e o selo aparece vermelho mesmo sem JavaScript (`data-estado` inicial sai correto do build).
+
+**Demais correções do mesmo incidente:**
+
+- `build_site_core._ultima_execucao()` escolhe a execução mais nova **por timestamp**, não por posição na lista (o selo usava `execucoes[0]`).
+- `run_summary()` e `/relatorio/` usam `fim` (e não `data_hora`) — a hora anunciada é a mesma do selo, sem divergência de até 25 min.
+- `ref_date()` usa o **dia real em Brasília** para "Hoje"/"Ontem"/"N dias atrás" e para os filtros `data-days`. Com o dataset parado, um item de hoje continua sendo "hoje"; quem avisa que ele ainda não foi coletado é o selo.
+- O cartão "Desde a última execução" carrega `data-age-from` e é recalculado no navegador a cada visita (número e cor), igual ao selo.
+- O bloco "Últimas 24 horas" vazio diz a verdade: com o dataset atrasado, a mensagem explica que a janela **ainda não foi coletada** em vez de "o monitoramento segue ativo".
+- `validate_site.py`: menção ao domínio legado em `.md` é **aviso**; em código e artefatos continua **erro**. `README.md` não cita mais o endereço literal.
+- Workflow: nova etapa "Sinalizar publicação bloqueada" falha o job com `::error::PUBLICAÇÃO BLOQUEADA` quando build/validação/auditoria reprovam, para que o congelamento nunca mais seja silencioso; `recover_audit_history.py` ganhou `continue-on-error` para não abortar a coleta.
+- `tests/test_frescor.py` (16 casos) trava o contrato: cadência lida do workflow, `estado(23 h) == "critico"`, monoticidade dos estados, limiares iguais entre build e navegador, instante único no painel, ausência de números fixos no código do site, `.md` como aviso e validação verde na árvore atual.
 
 ---
 
