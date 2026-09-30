@@ -16,6 +16,7 @@ import shutil
 from datetime import datetime, timedelta, timezone
 
 import dataviz as dv
+import frescor
 from commercial_pages import business_html
 
 BASE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -44,21 +45,39 @@ EXECUTION_DATE = "2026-09-08"  # atualizado dinamicamente a partir de updates.js
 EXECUTION_RUN = {}
 EXECUTION_TS = None  # fim (ou início) da última execução, em ISO — usado no selo de frescor
 
+# Agendamento e limiares de frescor: lidos do workflow (scripts/frescor.py) para
+# que nenhuma página anuncie uma cadência que o cron não tem.
+CRON = frescor.resumo()
+LIM_FRESCOR = (CRON["ok_horas"], CRON["atencao_horas"])
+
+# Dia de referência dos rótulos relativos. None = dia real em Brasília; existe
+# como gancho determinístico para os testes (o build nunca o altera).
+REF_DATE = None
+
 
 def _freshness_badge():
     """Selo no topo de todas as páginas: idade real da última execução.
 
     O valor absoluto é renderizado no build; o texto relativo (e o semáforo) é
     recalculado no navegador a cada visita — assim uma parada do cron aparece
-    para o visitante, mesmo sem rebuild.
+    para o visitante, mesmo sem rebuild. Os limiares vão em data-* para que o
+    JS classifique com exatamente os mesmos números usados no build.
     """
     if not EXECUTION_TS:
         return ""
-    rotulo = fmt_date(EXECUTION_TS) + " " + (re.search(r"T(\d{2}:\d{2})", EXECUTION_TS).group(1)
-                                            if re.search(r"T(\d{2}:\d{2})", EXECUTION_TS) else "")
+    m = re.search(r"T(\d{2}:\d{2})", EXECUTION_TS)
+    rotulo = (fmt_date(EXECUTION_TS) + " " + m.group(1)).strip() if m else fmt_date(EXECUTION_TS)
+    ts = _parse_ts(EXECUTION_TS)
+    # Estado inicial já sai correto do build: sem JavaScript (ou antes dele
+    # rodar), um dataset parado precisa aparecer vermelho, não verde.
+    inicial = frescor.estado(round((datetime.now(timezone.utc) - ts).total_seconds() / 3600, 1)
+                            if ts else None)
     return (f'<a class="fresh" href="{SITE_URL}/monitoramento/" data-freshness="{esc(EXECUTION_TS)}" '
-            f'data-estado="ok" title="Idade da última execução do monitoramento (recalculada agora)">'
-            f'<span class="dot"></span><span data-fresh-label>Última verificação: {esc(rotulo.strip())}</span>'
+            f'data-fresh-abs="{esc(fmt_date(EXECUTION_TS) + " " + (m.group(1) if m else "") + " BRT")}" '
+            f'data-fresh-ok="{CRON["ok_horas"]}" data-fresh-warn="{CRON["atencao_horas"]}" '
+            f'data-fresh-cron="{esc(CRON["descricao"])}" '
+            f'data-estado="{inicial}" title="Idade da última execução do monitoramento (recalculada agora)">'
+            f'<span class="dot"></span><span data-fresh-label>Última verificação: {esc(rotulo)}</span>'
             f'</a>')
 
 
@@ -114,10 +133,22 @@ def fmt_date(d):
 
 
 def ref_date():
+    """Data de referência dos rótulos relativos ("Hoje", "3 dias atrás").
+
+    É o dia real em Brasília, não o dia da última execução: se o dataset estiver
+    parado, um item datado de hoje continua sendo "hoje" — quem avisa que ele
+    ainda não foi coletado é o selo de frescor. Se o dataset vier com data
+    futura (relógio da fonte adiantado), usa a data da execução para não gerar
+    rótulos negativos.
+    """
+    if REF_DATE is not None:
+        return REF_DATE
+    hoje = datetime.now(timezone(timedelta(hours=-3))).date()
     try:
-        return datetime.strptime(EXECUTION_DATE[:10], "%Y-%m-%d").date()
+        exec_d = datetime.strptime(EXECUTION_DATE[:10], "%Y-%m-%d").date()
     except (ValueError, TypeError):
-        return datetime(2026, 9, 8).date()
+        return hoje
+    return max(hoje, exec_d)
 
 
 def days_ago(d):
@@ -456,7 +487,10 @@ def run_summary():
     hardcode de órgãos adicionais no HTML.
     """
     run = EXECUTION_RUN or {}
-    dh = run.get("data_hora", EXECUTION_DATE)
+    # `fim` (e não `data_hora`) é o instante em que o dataset ficou completo —
+    # o mesmo que o selo de frescor usa. Mostrar o horário de início fazia a
+    # home e o cabeçalho divergirem em até 25 minutos.
+    dh = run.get("fim") or run.get("data_hora") or EXECUTION_DATE
     data = fmt_date(dh)
     hora = ""
     m = re.search(r"T(\d{2}:\d{2})", str(dh))
@@ -491,6 +525,25 @@ def run_summary():
     }
 
 
+def _msg_sem_mudancas(horas):
+    """Texto quando um recorte de mudanças vem vazio.
+
+    Com o dataset parado, a resposta honesta não é "o monitoramento segue
+    ativo": é dizer que o estado publicado ainda não cobre a janela.
+    """
+    base = (f"Nenhuma mudança detectada nas últimas {horas} horas. "
+            "O monitoramento segue ativo — veja o histórico completo em Atualizações.")
+    ts = _parse_ts(EXECUTION_TS) if EXECUTION_TS else None
+    if ts is None or frescor.estado((datetime.now(timezone.utc) - ts).total_seconds() / 3600) == "ok":
+        return base
+    return (f"Nenhuma mudança registrada nas últimas {horas} horas — atenção: o último estado "
+            f"verificado é de {fmt_date(EXECUTION_TS)} e já passou do limite de "
+            f"{CRON['atencao_horas']:g} h para o agendamento atual ({CRON['descricao']}). "
+            "Ou seja, a janela acima ainda não foi coletada: a lista fica vazia porque a "
+            "coleta está atrasada, não porque nada mudou. Veja o histórico completo em "
+            "Atualizações e a saúde do monitoramento no painel.")
+
+
 # ---------------------------------------------------------------- páginas
 def build_home(props, laws, events, updates, timeline, cats, artigos=None):
     by_id = {p["id"]: p for p in props}
@@ -508,7 +561,7 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
 
     changes_24 = section_changes(
         "Últimas 24 horas", "Mudanças com data de evento nas últimas 24 horas.",
-        last24, "Nenhuma mudança detectada nas últimas 24 horas. O monitoramento segue ativo — veja o histórico completo em Atualizações.")
+        last24, _msg_sem_mudancas(24))
     changes_7 = section_changes(
         "Últimos 7 dias", "Movimentações com data de evento nos últimos 7 dias.",
         [m for m in last7 if m not in last24],
@@ -601,11 +654,8 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
     ts_ult = _parse_ts((EXECUTION_RUN or {}).get("fim") or (EXECUTION_RUN or {}).get("data_hora")) \
         if EXECUTION_RUN else None
     idade_h = round((agora - ts_ult).total_seconds() / 3600, 1) if ts_ult else None
-    estado_h = ("ok" if (idade_h is not None and idade_h <= 30) else
-                "atencao" if (idade_h is not None and idade_h <= 54) else
-                "critico" if idade_h is not None else "atencao")
-    idade_txt = ("—" if idade_h is None else
-                 f"{idade_h:.1f} h" if idade_h < 48 else f"{idade_h / 24:.1f} dias")
+    estado_h = frescor.estado(idade_h)
+    idade_txt = _idade_txt(idade_h)
     cob = (EXECUTION_RUN or {}).get("cobertura_pct")
     pend = (EXECUTION_RUN or {}).get("proposicoes_pendentes")
     status_run = (EXECUTION_RUN or {}).get("status", "—")
@@ -615,13 +665,14 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
   <p class="section-sub">Como está a automação do monitoramento: frescor, cobertura e volume.
   <a href="{SITE_URL}/monitoramento/">Ver o painel completo de métricas →</a></p>
   <div class="grid cols-4">
-    <div class="metric {'green' if estado_h == 'ok' else 'yellow' if estado_h == 'atencao' else 'red'}"><div class="num">{idade_txt}</div><div class="lbl">Desde a última execução</div></div>
+    {_metric_idade(idade_txt, estado_h, EXECUTION_TS)}
     <div class="metric blue"><div class="num">{f"{cob}%" if cob is not None else "—"}</div><div class="lbl">Cobertura da verificação</div></div>
     <div class="metric"><div class="num">{pend if pend is not None else "—"}</div><div class="lbl">Proposições pendentes</div></div>
     <div class="metric"><div class="num">{status_run.capitalize() if status_run else "—"}</div><div class="lbl">Status da última execução</div></div>
   </div>
   <p class="disclaimer" style="margin-top:10px">Métricas geradas a partir do log auditável do cron
-  (<code>updates.json</code>) — reconstruídas a cada execução do site.</p>
+  (<code>updates.json</code>) — reconstruídas a cada execução do site. A idade da última execução
+  é recalculada no seu navegador a cada visita; a coleta roda {esc(CRON["descricao"])}.</p>
 </div></section>"""
 
     fontes_lista = "".join(f"<li>{esc(f)}</li>" for f in rs["fontes"][:8])
@@ -647,7 +698,7 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
   <div class="kicker">Sistema de inteligência legislativa · Execução de {fmt_date(EXECUTION_DATE)}</div>
   <h1>Inteligência Artificial — Monitoramento Legislativo Brasileiro</h1>
   <p class="lead">Central pública de acompanhamento de projetos de lei, leis, resoluções e atos regulatórios federais sobre inteligência artificial no Brasil — com AI Legislative Impact Score, timeline histórica, mapa de relações entre proposições e registro auditável de mudanças.</p>
-  <div class="updated">Última verificação das fontes oficiais: <b>{fmt_date(EXECUTION_DATE)}</b> · {len(props)} proposições monitoradas · {len(laws)} normas mapeadas · <a href="#o-que-mudou">veja o que mudou recentemente</a></div>
+  <div class="updated">Última verificação das fontes oficiais: <b>{rs["data"]}{" às " + rs["hora"] if rs.get("hora") and rs["hora"] != "—" else ""}</b> · {len(props)} proposições monitoradas · {len(laws)} normas mapeadas · <a href="#o-que-mudou">veja o que mudou recentemente</a></div>
 </div></div>
 
 {verify_block}
@@ -1098,7 +1149,13 @@ def build_metodologia(props, laws, updates):
     <li>▸ <b>Imprensa</b> — apenas para descoberta e contexto; fatos legislativos são confirmados em fonte oficial.</li>
   </ul>
   <h2 class="section-title" style="margin-top:26px">Frequência de atualização</h2>
-  <p>Coleta automática <b>diária</b> (GitHub Action às 07:00 BRT) com rebuild e validação do site. Última execução: <b>{rs["data"]}</b> às <b>{rs["hora"]}</b> — {rs["verificadas"]} proposições verificadas, {rs["mudancas"]} mudanças detectadas. Execuções sem mudança relevante registram apenas a verificação.</p>
+  <p>Coleta automática por GitHub Actions <b>{esc(CRON["descricao"])}</b> (<code>{esc(CRON["cron"])}</code>,
+  disparada é best effort pela plataforma), com rebuild e validação do site a cada execução.
+  Última execução concluída: <b>{rs["data"]}</b> às <b>{rs["hora"]}</b> — {rs["verificadas"]} proposições
+  verificadas, {rs["mudancas"]} mudanças detectadas. Execuções sem mudança relevante registram apenas a
+  verificação. O selo no topo de cada página mostra a idade real desse estado, recalculada no navegador:
+  até {CRON["ok_horas"]:g} h em dia, até {CRON["atencao_horas"]:g} h em atenção, acima disso crítico.
+  Os limiares são derivados do próprio agendamento (<code>scripts/frescor.py</code>), nunca fixados à mão.</p>
   <h2 class="section-title" style="margin-top:26px">Critérios de inclusão</h2>
   <ul class="plain facts">
     <li>▸ Proposições federais (PL, PLP, PEC, PDL, PLN, MP, requerimentos e pareceres) sobre IA e temas correlatos: IA generativa, algoritmos, sistemas autônomos, agentes de IA, deepfakes, conteúdo sintético, decisão automatizada, reconhecimento facial, modelos fundacionais, governança algorítmica, data centers de IA e impactos setoriais (trabalho, direitos autorais, educação, saúde, defesa, segurança, eleições).</li>
@@ -1122,7 +1179,8 @@ def build_metodologia(props, laws, updates):
   <h2 class="section-title" style="margin-top:26px">Política de correção</h2>
   <p>Erros são corrigidos no dataset com registro da correção em <code>updates.json</code> (nunca sobrescrita silenciosa). O histórico versionado no Git permite auditar qualquer alteração. <b>{DISCLAIMER}</b></p>
   <h2 class="section-title" style="margin-top:26px">Automação, orçamento de tempo e auditoria</h2>
-  <p>A coleta roda <b>diariamente</b> (agendamentos às 07:17, 10:43, 14:43 e 18:43 BRT; sujeitos a atraso do GitHub) com <b>orçamento de tempo</b> declarado:
+  <p>A coleta roda <b>{esc(CRON["descricao"])}</b> (GitHub Actions, <code>{esc(CRON["cron"])}</code>; o
+  agendamento da plataforma é best effort e pode atrasar) com <b>orçamento de tempo</b> declarado:
   ao se aproximar do teto, o coletor para de iniciar novas consultas, grava o que já verificou e
   registra a execução como <b>parcial</b> — a cobertura de cada execução fica visível no
   <a href="{SITE_URL}/monitoramento/">painel de monitoramento</a>. A verificação segue ordem de
@@ -1317,7 +1375,7 @@ def build_agenda(events):
 
 
 def build_report(props, laws, updates, events):
-    run = updates["execucoes"][0]
+    run = _ultima_execucao(updates.get("execucoes") or [{}]) or {}
     top5 = [
         ("Redata aprovado pelo Congresso e à sanção presidencial",
          "O Senado aprovou o PL 278/2026 em 01/09/2026, sem alteração de mérito. É a matéria de infraestrutura de IA mais próxima de virar lei no Brasil, com renúncia estimada em bilhões de reais e contrapartidas de P&D, energia e capacidade para o mercado interno."),
@@ -1350,8 +1408,11 @@ def build_report(props, laws, updates, events):
         "A infraestrutura (Redata + PBIA + data centers) ganhou prioridade política concreta em 2026, enquanto a regulação material (riscos, direitos, direitos autorais) segue como o ponto mais sensível e retardatário.",
         "O debate de direitos autorais e treinamento de modelos permanece sem consenso documentado entre Casa, mercado e setor criativo — é a variável com maior potencial de alteração de última hora no substitutivo.",
     ]
+    # Mesmo instante do selo de frescor (fim da execução): o relatório não pode
+    # anunciar uma hora diferente da que está no cabeçalho da página.
+    run_stamp = run.get("fim") or run.get("data_hora") or EXECUTION_DATE
     run_hour = ""
-    m = re.search(r"T(\d{2}:\d{2})", str(run.get("data_hora", "")))
+    m = re.search(r"T(\d{2}:\d{2})", str(run_stamp))
     if m:
         run_hour = f" às {m.group(1)} (BRT)"
 
@@ -1359,7 +1420,7 @@ def build_report(props, laws, updates, events):
 <div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Relatório</div>
   <h1>Relatório da execução e Estado da Regulação</h1>
-  <p class="sub">LEGISLATIVE MONITORING REPORT da execução de {fmt_date(run["data_hora"])}{run_hour} e síntese editorial do cenário regulatório. Metodologia completa em <a href="{SITE_URL}/metodologia/">/metodologia/</a>.</p>
+  <p class="sub">LEGISLATIVE MONITORING REPORT da execução concluída em {fmt_date(run_stamp)}{run_hour} e síntese editorial do cenário regulatório. Metodologia completa em <a href="{SITE_URL}/metodologia/">/metodologia/</a>.</p>
 </div></div>
 
 <section class="block"><div class="wrap">
@@ -1379,9 +1440,9 @@ def build_report(props, laws, updates, events):
 </div></section>
 
 <section class="block"><div class="wrap">
-  <h2 class="section-title">LEGISLATIVE MONITORING REPORT — execução de {fmt_date(run["data_hora"])}{run_hour}</h2>
+  <h2 class="section-title">LEGISLATIVE MONITORING REPORT — execução concluída em {fmt_date(run_stamp)}{run_hour}</h2>
   <div class="dl-grid" style="grid-template-columns:repeat(auto-fit,minmax(300px,1fr))">
-    <div class="kv"><dt>Data/hora da execução</dt><dd>{fmt_date(run["data_hora"])}{run_hour}</dd></div>
+    <div class="kv"><dt>Execução concluída em</dt><dd>{fmt_date(run_stamp)}{run_hour}</dd></div>
     <div class="kv"><dt>Proposições verificadas</dt><dd>{run.get("proposicoes_verificadas", "—")} (fichas oficiais e APIs de dados abertos)</dd></div>
     <div class="kv"><dt>Proposições atualizadas</dt><dd>{run.get("proposicoes_atualizadas", run.get("novas_proposicoes", "—"))}</dd></div>
     <div class="kv"><dt>Novas proposições cadastradas</dt><dd>{run.get("novas_proposicoes", "—")}</dd></div>
@@ -1438,6 +1499,45 @@ def _parse_ts(s):
             dt = dt.replace(tzinfo=timezone(timedelta(hours=-3)))  # BRT
         return dt.astimezone(timezone.utc)
     return None
+
+
+def _idade_txt(idade_h):
+    """Idade de uma execução em texto curto ("2.3 h", "1.4 dias")."""
+    if idade_h is None:
+        return "—"
+    return f"{idade_h:.1f} h" if idade_h < 48 else f"{idade_h / 24:.1f} dias"
+
+
+def _metric_idade(idade_txt, estado, ts, lbl="Desde a última execução"):
+    """Cartão de idade da última execução.
+
+    Carrega data-age-from + os limiares em data-*, para que o navegador
+    recalcule o número e a cor a cada visita. Sem isso o cartão fica congelado
+    com o valor do build enquanto o selo do topo já mostra a idade real — foi
+    exatamente essa contradição que denunciou o cron parado.
+    """
+    cor = {"ok": "green", "atencao": "yellow", "critico": "red"}.get(estado, "")
+    return (f'<div class="metric {cor}" data-age-from="{esc(ts or "")}" '
+            f'data-age-ok="{CRON["ok_horas"]}" data-age-warn="{CRON["atencao_horas"]}" '
+            f'data-age-estado="{esc(estado)}">'
+            f'<div class="num" data-age-num>{esc(idade_txt)}</div>'
+            f'<div class="lbl">{esc(lbl)}</div></div>')
+
+
+def _ultima_execucao(execucoes):
+    """Execução mais recente por timestamp.
+
+    O coletor empilha o registro novo no topo, mas a posição não é contrato
+    (edições manuais, `recover_audit_history.py` e datasets antigos podem
+    inverter). O selo de frescor precisa da Executionão de verdade, não da
+    primeira da lista.
+    """
+    floor = datetime.min.replace(tzinfo=timezone.utc)
+
+    def _chave(ex):
+        return _parse_ts(ex.get("fim") or ex.get("data_hora")) or floor
+
+    return max(execucoes, key=_chave)
 
 
 def _status_run(ex, agora):
@@ -1576,30 +1676,31 @@ def metricas_monitoramento(props, laws, events, updates):
     rotulos = [(e["data_hora"] or "")[5:10].replace("-", "/") for e in base_rot]
 
     frescor_h = ultima.get("idade_horas")
-    if frescor_h is None:
-        estado_frescor = "sem_dados"
-    elif frescor_h <= 30:
-        estado_frescor = "ok"
-    elif frescor_h <= 54:
-        estado_frescor = "atencao"
-    else:
-        estado_frescor = "critico"
+    estado_frescor = "sem_dados" if frescor_h is None else frescor.estado(frescor_h)
 
     alertas = []
 
     def alerta(nivel, titulo, detalhe):
         alertas.append({"nivel": nivel, "titulo": titulo, "detalhe": detalhe})
 
-    if estado_frescor == "critico":
+    if estado_frescor == "sem_dados":
+        alerta("atencao", "Frescor desconhecido",
+               "Nenhuma execução com timestamp válido no log — o selo de frescor "
+               "não pode ser calculado.")
+    elif estado_frescor == "critico":
         alerta("critico", "Monitoramento desatualizado",
-               f"Última execução há {frescor_h:.0f} horas (limite esperado: 24h). "
-               "Verifique a aba Actions do repositório.")
+               f"Última execução há {_idade_txt(frescor_h)}; o limite para esta cadência "
+               f"({CRON['descricao']}) é {LIM_FRESCOR[1]:g} h. "
+               "Verifique a aba Actions do repositório: ou o cron parou, ou a coleta "
+               "falhou antes do commit e nada foi publicado.")
     elif estado_frescor == "atencao":
         alerta("atencao", "Execução atrasada",
-               f"Última execução há {frescor_h:.0f} horas. Há quatro agendamentos diários; confira o histórico de execuções.")
+               f"Última execução há {_idade_txt(frescor_h)} (limite: {LIM_FRESCOR[1]:g} h). "
+               f"A coleta é agendada {CRON['descricao']}; confira o histórico de execuções.")
     else:
         alerta("ok", "Monitoramento em dia",
-               f"Última execução há {frescor_h:.0f}h." if frescor_h is not None else "—")
+               f"Última execução há {_idade_txt(frescor_h)}."
+               if frescor_h is not None else "—")
     if ultima.get("status") == "interrompida":
         alerta("critico", "Última execução interrompida",
                "A coleta começou mas não fechou (provável estouro de tempo do job). "
@@ -1644,7 +1745,9 @@ def metricas_monitoramento(props, laws, events, updates):
         "execucoes": execs,
         "ultima": ultima,
         "frescor": {"horas": frescor_h, "estado": estado_frescor,
-                    "cron_utc": "10:17, 13:43, 17:43, 21:43", "cron_brt": "07:17, 10:43, 14:43, 18:43"},
+                    "ok_horas": LIM_FRESCOR[0], "atencao_horas": LIM_FRESCOR[1],
+                    "cron": CRON["cron"], "intervalo_horas": CRON["intervalo_horas"],
+                    "descricao": CRON["descricao"]},
         "kpis": {
             "execucoes_registradas": len(execs),
             "execucoes_com_metricas": len(com_metricas),
@@ -1702,10 +1805,10 @@ def build_monitoramento(props, laws, events, updates, met):
         cls = f"metric {cor}".strip()
         return f'<div class="{cls}"><div class="num">{num}</div><div class="lbl">{lbl}</div></div>'
 
-    frescor = met["frescor"]
-    cor_frescor = {"ok": "green", "atencao": "yellow", "critico": "red"}.get(frescor["estado"], "")
-    idade = frescor["horas"]
-    idade_txt = "—" if idade is None else (f"{idade:.1f} h" if idade < 48 else f"{idade / 24:.1f} dias")
+    # `fresc` e não `frescor`: a variável local não pode sombrear o módulo.
+    fresc = met["frescor"]
+    idade = fresc["horas"]
+    idade_txt = _idade_txt(idade)
 
     alertas_html = "".join(
         f'<div class="alert {a["nivel"]}"><b>{esc(a["titulo"])}</b><span>{esc(a["detalhe"])}</span></div>'
@@ -1866,20 +1969,22 @@ def build_monitoramento(props, laws, events, updates, met):
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Monitoramento</div>
   <h1>Painel de monitoramento</h1>
   <p class="sub">Métricas operacionais do monitoramento legislativo — atualizadas automaticamente
-  a cada rebuild do site (cron diário às {frescor['cron_brt']} BRT / {frescor['cron_utc']} UTC).
-  Serve para auditar se a coleta está rodando, quanto do banco foi verificado, o que mudou e
-  quanto custou em consultas às APIs oficiais.</p>
+  a cada execução da coleta, agendada {esc(CRON['descricao'])} (GitHub Actions;
+  <code>{esc(CRON['cron'])}</code>). Serve para auditar se a coleta está rodando, quanto do banco
+  foi verificado, o que mudou e quanto custou em consultas às APIs oficiais.</p>
 </div></div>
 
 <section class="block"><div class="wrap">
   <h2 class="section-title">Saúde do monitoramento</h2>
   <p class="section-sub">Sinais automáticos calculados a partir do histórico de execuções
   (<code>data/legislation/updates.json</code>).</p>
-  <div data-freshness-panel="{esc((ultima.get('fim') or ultima.get('data_hora')) or '')}">
+  <div data-freshness-panel="{esc((ultima.get('fim') or ultima.get('data_hora')) or '')}"
+       data-fresh-ok="{CRON['ok_horas']}" data-fresh-warn="{CRON['atencao_horas']}"
+       data-fresh-cron="{esc(CRON['descricao'])}">
   {alertas_html}
   </div>
   <div class="grid cols-4" style="margin-top:16px">
-    {kpi(idade_txt, "Desde a última execução", cor_frescor)}
+    {_metric_idade(idade_txt, fresc["estado"], (ultima.get("fim") or ultima.get("data_hora")) or "")}
     {kpi(f'{ultima.get("cobertura_pct")}%' if ultima.get("cobertura_pct") is not None else "—",
          "Cobertura da última execução", "")}
     {kpi(ultima.get("pendentes", "—"), "Proposições pendentes", "")}
@@ -1891,7 +1996,10 @@ def build_monitoramento(props, laws, events, updates, met):
     {kpi(kpis["curadoria_pendente"], "Aguardando curadoria")}
   </div>
   <p class="disclaimer" style="margin-top:12px">A idade desde a última execução é recalculada no
-  seu navegador a cada visita — se o painel ficar vermelho, o cron parou.</p>
+  seu navegador a cada visita, com os mesmos limiares usados no build: até {CRON['ok_horas']:g} h
+  em dia, até {CRON['atencao_horas']:g} h em atenção, acima disso crítico. Com a coleta
+  {esc(CRON['descricao'])}, um site vermelho significa que a coleta não publica há mais de
+  {CRON['atencao_horas']:g} h — ou que a execução falhou antes do commit.</p>
 </div></section>
 {quadro_fontes}
 
@@ -1991,7 +2099,7 @@ def build_monitoramento(props, laws, events, updates, met):
         "Painel de monitoramento — métricas do cron e da coleta de IA",
         "Métricas do monitoramento legislativo de IA no Brasil: frescor da última execução, cobertura "
         "da verificação, mudanças detectadas, chamadas às APIs oficiais da Câmara e do Senado e "
-        "histórico auditável do cron diário.",
+        "histórico auditável das execuções da coleta.",
         "monitoramento/", body, jsonld=jsonld))
     return met
 
@@ -2034,8 +2142,10 @@ def main():
 
     EXECUTION_DATE = updates.get("meta", {}).get("execucao", EXECUTION_DATE) or EXECUTION_DATE
     if updates.get("execucoes"):
-        EXECUTION_RUN = updates["execucoes"][0]
+        EXECUTION_RUN = _ultima_execucao(updates["execucoes"])
     EXECUTION_TS = EXECUTION_RUN.get("fim") or EXECUTION_RUN.get("data_hora")
+    for _aviso in frescor.AVISOS:
+        print(f"[frescor] {_aviso}")
 
     build_slugs(props)
 

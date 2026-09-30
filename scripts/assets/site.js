@@ -70,52 +70,99 @@
   apply('7');
 })();
 
-// Selo de frescor do monitoramento (presente em todas as páginas) e alertas do painel.
-// Recalcula no navegador a idade da última execução: se o cron parar, o próprio
-// site avisa o visitante mesmo sem rebuild.
+// Frescor do monitoramento (selo no topo de todas as páginas, cartões de idade e
+// alertas do painel). Recalcula no navegador a idade da última execução: se o
+// cron parar, o próprio site avisa o visitante mesmo sem rebuild.
+//
+// Os limiares NÃO são fixados aqui: o build os deriva do agendamento real
+// (scripts/frescor.py) e os entrega em data-fresh-ok / data-fresh-warn. A
+// versão anterior trazia limites fixos pensados para quatro coletas diárias e
+// descrevia um agendamento que já não existia — com o cron horário, um dataset
+// 23 h parado continuava classificado como "em dia".
 (function () {
-  function estadoHoras(h) {
-    if (h === null) return 'atencao';
-    if (h <= 30) return 'ok';
-    if (h <= 54) return 'atencao';
+  var CORES = { ok: 'green', atencao: 'yellow', critico: 'red' };
+
+  function num(el, attr, padrao) {
+    var v = parseFloat(el.getAttribute(attr));
+    return isNaN(v) ? padrao : v;
+  }
+
+  function estadoHoras(h, ok, warn) {
+    if (h === null || isNaN(h)) return 'atencao';
+    if (h <= ok) return 'ok';
+    if (h <= warn) return 'atencao';
     return 'critico';
   }
+
   function rel(h) {
-    if (h === null) return 'idade desconhecida';
+    if (h === null || isNaN(h)) return 'idade desconhecida';
     if (h < 1) return 'há ' + Math.round(h * 60) + ' min';
     if (h < 48) return 'há ' + h.toFixed(h < 10 ? 1 : 0) + ' h';
     return 'há ' + Math.round(h / 24) + ' dias';
   }
+
+  // Mesmo formato de `_idade_txt` no build, para número e texto não divergirem.
+  function idadeTxt(h) {
+    if (h === null || isNaN(h)) return '—';
+    return h < 48 ? h.toFixed(1) + ' h' : (h / 24).toFixed(1) + ' dias';
+  }
+
+  function idadeDe(el, attr) {
+    var ts = Date.parse(el.getAttribute(attr) || '');
+    return isNaN(ts) ? null : (Date.now() - ts) / 3600000;
+  }
+
+  // --- selo do cabeçalho
   var badges = Array.prototype.slice.call(document.querySelectorAll('[data-freshness]'));
   badges.forEach(function (b) {
-    var ts = Date.parse(b.getAttribute('data-freshness'));
-    if (isNaN(ts)) return;
-    var h = (Date.now() - ts) / 3600000;
-    var estado = estadoHoras(h);
+    var h = idadeDe(b, 'data-freshness');
+    if (h === null) return;
+    var ok = num(b, 'data-fresh-ok', 3);
+    var warn = num(b, 'data-fresh-warn', 8);
+    var estado = estadoHoras(h, ok, warn);
     b.setAttribute('data-estado', estado);
     var lbl = b.querySelector('[data-fresh-label]');
     if (lbl) {
-      var base = lbl.textContent.replace(/^Última verificação:\s*/, '').split('·')[0].trim();
       lbl.textContent = 'Última verificação: ' + rel(h) +
         (estado === 'critico' ? ' · verifique o cron' : '');
-      b.title = 'Última verificação registrada: ' + base + ' (' + rel(h) + ')';
+      b.title = 'Última verificação registrada: ' +
+        (b.getAttribute('data-fresh-abs') || '') + ' (' + rel(h) + ')';
     }
   });
-  // Faixa de aviso no painel quando a execução está velha
+
+  // --- cartões de idade (home e /monitoramento/): o valor impresso no build
+  // envelhece a cada minuto; aqui ele é corrigido para a hora real da visita.
+  Array.prototype.slice.call(document.querySelectorAll('[data-age-from]'))
+    .forEach(function (c) {
+      var h = idadeDe(c, 'data-age-from');
+      if (h === null) return;
+      var estado = estadoHoras(h, num(c, 'data-age-ok', 3), num(c, 'data-age-warn', 8));
+      c.setAttribute('data-age-estado', estado);
+      var numEl = c.querySelector('[data-age-num]');
+      if (numEl) numEl.textContent = idadeTxt(h);
+      Object.keys(CORES).forEach(function (k) { c.classList.remove(k); });
+      if (CORES[estado]) c.classList.add(CORES[estado]);
+    });
+
+  // --- faixa de aviso no painel quando a execução está velha
   var painel = document.querySelector('[data-freshness-panel]');
-  if (painel) {
-    var ts2 = Date.parse(painel.getAttribute('data-freshness-panel'));
-    if (!isNaN(ts2)) {
-      var h2 = (Date.now() - ts2) / 3600000;
-      if (h2 > 30) {
+  if (painel && !painel.querySelector('[data-fresh-aviso]')) {
+    var h2 = idadeDe(painel, 'data-freshness-panel');
+    if (h2 !== null) {
+      var ok2 = num(painel, 'data-fresh-ok', 3);
+      var warn2 = num(painel, 'data-fresh-warn', 8);
+      var estado2 = estadoHoras(h2, ok2, warn2);
+      if (estado2 !== 'ok') {
+        var cron = painel.getAttribute('data-fresh-cron') || 'conforme o agendamento do repositório';
         var aviso = document.createElement('div');
-        aviso.className = 'alert ' + (h2 > 54 ? 'critico' : 'atencao');
+        aviso.className = 'alert ' + (estado2 === 'critico' ? 'critico' : 'atencao');
+        aviso.setAttribute('data-fresh-aviso', estado2);
         aviso.innerHTML = '<b>Painel visto ' + rel(h2) + ' depois da última execução registrada.</b>' +
-          '<span>O cron diário deve rodar às 07:17 (BRT). Verifique a aba Actions do repositório ' +
-          'para saber se a coleta automática está falhando.</span>';
+          '<span>A coleta está agendada ' + cron + ' (limite: ' + warn2 +
+          ' h). Ou o cron parou, ou a execução falhou antes do commit e nada foi ' +
+          'publicado — verifique a aba Actions do repositório.</span>';
         painel.parentNode.insertBefore(aviso, painel);
       }
     }
   }
 })();
-
