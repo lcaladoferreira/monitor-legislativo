@@ -29,6 +29,18 @@ class SiteTests(unittest.TestCase):
                 dest=OUT/path.lstrip('/')
                 self.assertTrue(dest.exists() or (dest/'index.html').exists(),f'{file}: {link}')
             for ld in re.findall(r'<script type="application/ld\+json">(.*?)</script>',html,re.S):json.loads(ld)
+    def test_pilot_registration_page_is_linked_and_pending_access_is_explained(self):
+        login=(OUT/'login/index.html').read_text()
+        registration=(OUT/'cadastro/index.html').read_text()
+        script=(OUT/'assets/commercial.js').read_text()
+        self.assertIn('href="/cadastro/"',login)
+        self.assertIn('id="register-form"',registration)
+        self.assertIn('name="password"',registration)
+        self.assertIn('name="confirm_password"',registration)
+        self.assertIn('pendente',registration.lower())
+        self.assertIn("api('register'",script)
+        self.assertIn("register-form",script)
+
     def test_sitemap_preserves_monitor_and_excludes_private_shells(self):
         root=ET.fromstring((OUT/'sitemap.xml').read_text());ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9'}
         urls=[e.text for e in root.findall('s:url/s:loc',ns)]

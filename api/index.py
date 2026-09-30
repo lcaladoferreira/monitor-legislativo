@@ -1,6 +1,7 @@
 """Vercel Python function. Same-origin JSON API; no public data/PII export."""
 import json
 import os
+import re
 import sys
 from pathlib import Path
 from http.server import BaseHTTPRequestHandler
@@ -45,7 +46,13 @@ class handler(BaseHTTPRequestHandler):
                 origins={site}
                 if os.environ.get('VERCEL_URL'):origins.add('https://'+os.environ['VERCEL_URL'])
                 if os.environ.get('MONITOR_DEV')=='1' and not os.environ.get('VERCEL'):origins.update({'http://127.0.0.1:8765','http://localhost:8765'})
-                if self.headers.get('Origin') not in origins:raise svc.Problem(403,'Origem não autorizada.')
+                origin=self.headers.get('Origin')
+                if origin not in origins and os.environ.get('MONITOR_DEV')=='1' and not os.environ.get('VERCEL'):
+                    preview=urlsplit(origin or '')
+                    host=preview.hostname or ''
+                    if preview.scheme=='https' and preview.netloc==host and re.fullmatch(r'\d+-[a-z0-9-]+\.e2b\.app',host) and not preview.path and not preview.query and not preview.fragment:
+                        origins.add(origin)
+                if origin not in origins:raise svc.Problem(403,'Origem não autorizada.')
                 if self.headers.get_content_type()!='application/json':raise svc.Problem(415,'Envie JSON.')
                 try:length=int(self.headers.get('Content-Length','0'))
                 except ValueError:raise svc.Problem(400,'Corpo inválido.')
@@ -58,9 +65,11 @@ class handler(BaseHTTPRequestHandler):
                 if method=='POST':
                     # Only Vercel's trusted forwarding header; local clients cannot choose rate keys.
                     identity=self.headers.get('x-vercel-forwarded-for','unknown') if os.environ.get('VERCEL') else self.client_address[0]
-                    svc.rate_limit(s,identity,route,300 if route=='/api/events' else 20)
+                    maximum={'/api/events':300,'/api/register':5}.get(route,20)
+                    svc.rate_limit(s,identity,route,maximum)
                 result=None;new_cookie=None
                 if route=='/api/leads' and method=='POST':result=svc.capture_lead(s,data)
+                elif route=='/api/register' and method=='POST':result=svc.create_account(s,data)
                 elif route=='/api/events' and method=='POST':
                     if data.get('name') not in svc.EVENTS or data['name'] in {'diagnostic_submitted','alert_signup','demo_request'}:raise svc.Problem(400,'Evento inválido.')
                     s.insert('event',svc.secrets.token_hex(16),{'name':data['name'],**svc.attribution(data)})

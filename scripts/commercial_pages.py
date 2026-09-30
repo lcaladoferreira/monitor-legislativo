@@ -21,15 +21,16 @@ def strip():
     return '<aside class="commercial-strip"><div class="wrap"><div><strong>Regulação de IA, dados e infraestrutura digital.</strong><p>Saiba o que mudou, por que isso importa para sua operação, quem precisa agir e qual evidência oficial sustenta a conclusão.</p></div><div class="commercial-actions">' + cta() + '<a href="/briefing-executivo/" data-commercial-cta="briefing">Ver exemplo de briefing executivo</a></div></div></aside>'
 
 
-def input_field(name,label,kind='text',required=True,options=None):
+def input_field(name,label,kind='text',required=True,options=None,autocomplete=None):
     attrs=f'name="{name}" id="{name}"' + (' required' if required else '')
     if options is not None:
         control=f'<select {attrs}><option value="">Selecione</option>'+''.join(f'<option value="{esc(str(v))}">{esc(str(t))}</option>' for v,t in options)+'</select>'
     elif kind=='textarea':
         control=f'<textarea {attrs} rows="3" maxlength="2000"></textarea>'
     else:
-        auto={'email':'email','nome':'name','empresa':'organization','cargo':'organization-title','telefone':'tel'}.get(name,'off')
-        control=f'<input {attrs} type="{kind}" maxlength="{256 if kind != "password" else 128}" autocomplete="{auto}">'
+        auto=autocomplete or {'email':'email','nome':'name','empresa':'organization','cargo':'organization-title','telefone':'tel','password':'current-password'}.get(name,'off')
+        maximum=18 if name=='cnpj' else 64 if name=='telefone' else 128 if kind=='password' else 256
+        control=f'<input {attrs} type="{kind}" maxlength="{maximum}" autocomplete="{auto}">'
     return f'<label for="{name}">{esc(label)}'+(' *' if required else '')+control+'</label>'
 
 
@@ -43,6 +44,31 @@ def diagnostics():
     fields += input_field('preocupacao','Principal preocupação regulatória','textarea')
     fields += input_field('interesse','Assunto de interesse',options=[('diagnostico','Diagnóstico de exposição'),('radar-executivo','Radar executivo'),('monitor-ia','Monitor IA'),('institucional','Inteligência institucional'),('briefing-setorial','Briefing setorial'),('demo','Demonstração contextualizada')])
     return '<div class="commercial-grid"><article class="commercial-card"><h2>Uma conversa com contexto</h2><p>Descubra quais projetos, normas e mudanças regulatórias relacionadas à IA podem afetar sua organização.</p><ol><li>Conte como sua organização usa IA.</li><li>Identificamos temas e evidências para a conversa inicial.</li><li>Você recebe uma proposta de diagnóstico, piloto ou assinatura adequada ao escopo.</li></ol><p>O envio solicita uma avaliação comercial. Workshop e relatório de diagnóstico são entregas contratadas separadamente.</p><a href="/briefing-executivo/">Ver exemplo de briefing executivo</a></article><form id="diagnostic-form" class="commercial-card"><p>Campos com * são obrigatórios.</p><div class="form-grid">'+fields+'</div><div class="honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><label class="check"><input type="checkbox" name="consent" required> Autorizo o uso destas informações pela LCF Consulting para responder à solicitação e conduzir esta conversa comercial. <a href="/privacidade/">Como os dados são usados</a>.</label><button class="commercial-button" type="submit">Solicitar diagnóstico</button><p role="status" aria-live="polite" id="diagnostic-status"></p><noscript>Ative JavaScript para enviar a solicitação. Você também pode acessar <a href="https://lcfconsulting.com.br/">LCF Consulting</a>.</noscript></form></div>'
+
+
+def registration_form():
+    fields=''.join(input_field(*args) for args in [
+        ('nome','Nome completo'),
+        ('email','E-mail corporativo','email'),
+        ('empresa','Empresa'),
+        ('cnpj','CNPJ (opcional)','text',False),
+        ('cargo','Cargo'),
+        ('telefone','Telefone / WhatsApp (opcional)','tel',False),
+    ])
+    fields+=input_field('setor','Setor de atuação',options=[(sector,sector) for sector in SECTORS])
+    fields+=input_field('tamanho','Tamanho da organização',options=[('1-10','1–10 pessoas'),('11-100','11–100 pessoas'),('101-500','101–500 pessoas'),('501+','Mais de 500 pessoas')])
+    fields+=input_field('uso_ia','Uso de IA',options=[('nao','Ainda não utiliza'),('apoio','Apoio a atividades internas'),('critico','Processo crítico do negócio')])
+    fields+=input_field('area_controle','Possui área de compliance, relações institucionais ou jurídico?',options=[('sim','Sim'),('nao','Não')])
+    fields+=input_field('urgencia','Horizonte da preocupação',options=[('imediata','Imediata / próximos 30 dias'),('trimestre','Próximos 3 meses'),('exploratoria','Exploratória')])
+    fields+=input_field('interesse','Assunto de interesse',options=[
+        ('diagnostico','Diagnóstico de exposição'),('radar-executivo','Radar executivo'),
+        ('monitor-ia','Monitor IA'),('institucional','Inteligência institucional'),
+        ('briefing-setorial','Briefing setorial'),('demo','Demonstração contextualizada'),
+    ])
+    fields+=input_field('preocupacao','Por que deseja acessar o piloto?','textarea')
+    fields+=input_field('password','Senha (mínimo 12 caracteres)','password',autocomplete='new-password')
+    fields+=input_field('confirm_password','Confirmar senha','password',autocomplete='new-password')
+    return '<p>Preencha os dados para solicitar acesso. Seu cadastro ficará pendente até a equipe analisar o pedido e fazer a ativação administrativa.</p><form id="register-form" class="commercial-card"><p>Campos com * são obrigatórios.</p><div class="form-grid">'+fields+'</div><div class="honeypot" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><label class="check"><input type="checkbox" name="consent" required> Autorizo o uso destas informações para avaliar e responder à solicitação. <a href="/privacidade/">Veja como os dados são usados</a>.</label><button class="commercial-button" type="submit">Criar conta e solicitar acesso</button><p role="status" aria-live="polite" id="register-status"></p><noscript>Ative JavaScript para enviar a solicitação.</noscript></form><p>Já tem conta? <a href="/login/">Acessar o piloto</a>.</p>'
 
 
 def business_html(p):
@@ -119,7 +145,8 @@ def build(core):
         emit('casos-de-uso/'+slug,v['name']+' — regulação de IA',v['value'],'<h2>Da evidência à sua rotina</h2><ol><li>Defina temas e processos que exigem acompanhamento.</li><li>Priorize por score, estágio e exposição potencial.</li><li>Distribua fontes e análise aos responsáveis internos.</li><li>Revise a watchlist e as decisões na reunião executiva.</li></ol><a href="/briefing-executivo/">Examinar um briefing executivo</a><div class="commercial-actions">'+cta('Solicitar demonstração contextualizada',kind='demo')+'</div>')
     emit('alertas','Alertas regulatórios por e-mail','Acompanhe mudanças legislativas, novas proposições, votações, pauta, relatoria, normas, eventos e mudanças relevantes de score.','<p>“Imediato” significa após a detecção pelo monitor. A coleta atual é diária; não há promessa de monitoramento em tempo real.</p>'+alert_form(core)+'<div id="subscription-action" role="status"></div>')
     emit('watchlist','Sua watchlist','Salve matérias para preparar uma conversa contextualizada.','<p>Os itens públicos ficam neste navegador. Em um piloto autenticado, você pode sincronizar sua lista com sua conta.</p><div id="watchlist-items"></div><button class="watch-button" id="watch-sync">Sincronizar com minha conta</button><p role="status" id="watch-status"></p>'+cta())
-    emit('login','Acesso ao piloto','Entre com o e-mail e a senha definidos para seu piloto.','<form id="login-form" class="commercial-card">'+input_field('email','E-mail','email')+input_field('password','Senha','password')+'<button class="commercial-button">Acessar piloto</button><p role="status" id="login-status"></p></form><p>O acesso é provisionado pela equipe após definição do escopo. Para obter ou recuperar acesso, solicite uma conversa.</p>'+cta(),True)
+    emit('cadastro','Solicitar acesso ao piloto','Crie suas credenciais e solicite uma conta. O acesso depende de aprovação administrativa.',registration_form())
+    emit('login','Acesso ao piloto','Entre com o e-mail e a senha definidos para seu piloto.','<form id="login-form" class="commercial-card">'+input_field('email','E-mail','email')+input_field('password','Senha','password')+'<button class="commercial-button">Acessar piloto</button><p role="status" id="login-status"></p></form><p>Ainda não tem uma conta? <a href="/cadastro/">Solicite acesso ao piloto</a>. Novos cadastros ficam pendentes até a ativação pela equipe.</p>'+cta(),True)
     emit('app','Área do cliente','Dashboard do piloto e preferências de acompanhamento.','<div id="client-app"><p>Verificando acesso…</p></div><button id="logout" class="watch-button">Sair</button>',True)
     emit('privacidade','Privacidade e uso de dados','Transparência na solicitação de diagnóstico e de alertas.','<h2>Responsável e finalidade</h2><p>A LCF Consulting usa nome, contato profissional, empresa, cargo e informações de exposição para responder à solicitação, priorizar a conversa comercial e preparar proposta. Alertas exigem solicitação específica e confirmação por e-mail.</p><h2>Registro e acesso</h2><p>Contatos e preferências ficam no serviço comercial privado. Eventos de navegação registram página, CTA, setor e campanha, sem incluir campos do formulário. A atribuição de campanha usa armazenamento da sessão no navegador; não fazemos rastreamento entre sites.</p><h2>Retenção e direitos</h2><p>Leads sem evolução são previstos para exclusão após 180 dias, sujeitos à necessidade documentada de continuidade da relação. Eventos comerciais são retidos por até 90 dias. Solicite acesso, correção, exclusão ou revogação pela <a href="https://lcfconsulting.com.br/">LCF Consulting</a>, identificando a solicitação feita neste monitor. Cancelar alertas não elimina automaticamente uma relação comercial existente.</p><p>Provedores de hospedagem, banco e e-mail processam dados necessários à operação. A configuração de produção deve ser revisada antes da ativação.</p>')
     return paths
@@ -133,7 +160,7 @@ def install(core):
         assets='<link rel="stylesheet" href="/assets/commercial.css"><script src="/assets/commercial.js" defer></script>'
         html=html.replace('</head>',assets+'</head>',1)
         nav='<nav class="commercial-nav wrap" aria-label="Soluções empresariais"><a href="/para-empresas/">Para empresas</a><a href="/solucoes/">Soluções</a><a href="/briefing-executivo/">Briefing executivo</a><a href="/alto-impacto/">Alto impacto</a><a href="/casos-de-uso/">Casos de uso</a><a href="/alertas/">Alertas</a><a href="/watchlist/">Watchlist</a><a href="/login/">Área do cliente</a></nav>'
-        html=html.replace('</header>',nav+'</header>'+('' if path in ('login/','app/') else strip()),1)
+        html=html.replace('</header>',nav+'</header>'+('' if path in ('login/','app/','cadastro/') else strip()),1)
         sector_links='<div class="wrap sector-links"><strong>Inteligência por setor</strong> '+''.join(f'<a href="/setores/{slug}/">{esc(s["name"])}</a> ' for slug,s in CONFIG['sectors'].items())+'<a href="/privacidade/">Privacidade</a></div>'
         html=html.replace('</footer>',sector_links+'</footer>',1)
         return "\n".join(line.rstrip() for line in html.splitlines()) + "\n"

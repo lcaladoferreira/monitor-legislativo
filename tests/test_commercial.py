@@ -19,6 +19,7 @@ from commercial_admin import provision
 from api.index import handler
 
 LEAD={'nome':'Pessoa Teste','empresa':'Organização Exemplo','cargo':'Diretora de Dados','email':'test@example.test','telefone':'','setor':'Bancos','tamanho':'501+','uso_ia':'critico','area_controle':'sim','urgencia':'imediata','preocupacao':'Processo de crédito automatizado','interesse':'diagnostico','consent':True,'request_id':'12345678-1234-1234-1234-123456789012','attribution':{'utm_campaign':'piloto','page':'/diagnostico/','email':'do-not-collect@example.test'}}
+REGISTRATION={'nome':'Pessoa Piloto','email':'pending@example.test','empresa':'Empresa Piloto','cnpj':'12.345.678/0001-90','cargo':'Head de Dados','telefone':'','setor':'Tecnologia','tamanho':'101-500','uso_ia':'critico','area_controle':'sim','urgencia':'trimestre','preocupacao':'Acompanhar impactos regulatórios de IA.','interesse':'diagnostico','password':'senha-segura-teste','confirm_password':'senha-segura-teste','consent':True}
 PREFS={'temas':[],'proposicoes':[],'orgaos':[],'score_min':0,'frequencia':'imediato'}
 
 class CommercialTests(unittest.TestCase):
@@ -64,6 +65,43 @@ class CommercialTests(unittest.TestCase):
             self.assertTrue(all(p['score']>=80 for p in s.pilot(db,user,account)['briefing']['top']))
             a=db.get('account','a');a['ends_on']='2000-01-01';db.put('account','a',a,'a')
             with self.assertRaises(s.Problem):s.authenticated(db,token)
+    def test_registration_requires_admin_activation(self):
+        with connect() as db:
+            result=s.create_account(db,REGISTRATION)
+            self.assertTrue(result['ok'])
+            user_id=s.digest(REGISTRATION['email'])
+            user=db.get('user',user_id)
+            account_id=user['account_id']
+            self.assertEqual(user['status'],'pending')
+            self.assertEqual(db.get('account',account_id)['status'],'pending')
+            self.assertEqual(db.get('account',account_id)['cnpj'],'12345678000190')
+            self.assertNotIn(REGISTRATION['password'],json.dumps(user))
+            with self.assertRaises(s.Problem) as blocked:
+                s.login(db,{'email':REGISTRATION['email'],'password':REGISTRATION['password']})
+            self.assertEqual(blocked.exception.status,403)
+        with connect() as db:
+            with self.assertRaises(s.Problem):s.activate_account(db,account_id,'pilot')
+            s.activate_account(db,account_id,'pilot','2099-12-31')
+            self.assertEqual(db.get('user',user_id)['status'],'active')
+            token=s.login(db,{'email':REGISTRATION['email'],'password':REGISTRATION['password']})
+            user,account=s.authenticated(db,token)
+            self.assertEqual(account['status'],'pilot')
+            self.assertNotIn('password_hash',json.dumps(s.pilot(db,user,account)))
+        with connect() as db:
+            with self.assertRaises(s.Problem):s.create_account(db,REGISTRATION)
+            self.assertEqual(len(s.list_accounts(db,'pending')),0)
+
+    def test_registration_rejects_bad_consent_password_confirmation_and_cnpj(self):
+        for changes in [
+            {'consent':False},
+            {'confirm_password':'a-different-password'},
+            {'password':'short'},
+            {'cnpj':'not-a-cnpj'},
+        ]:
+            with connect() as db:
+                with self.assertRaises(s.Problem):s.create_account(db,{**REGISTRATION,**changes})
+                self.assertEqual(db.list('account'),[])
+
     def test_rate_limit_survives_failed_request(self):
         with connect() as db:s.rate_limit(db,'ip','login',1)
         with connect() as db:
@@ -121,7 +159,12 @@ class CommercialTests(unittest.TestCase):
             response=conn.getresponse();result=(response.status,json.loads(response.read()));conn.close();return result
         try:
             self.assertEqual(request('/api/leads',LEAD,origin='https://evil.example')[0],403)
+            self.assertEqual(request('/api/events',{'name':'commercial_cta_click'},origin='https://8765-sandbox123.e2b.app')[0],200)
+            self.assertEqual(request('/api/events',{'name':'commercial_cta_click'},origin='https://evil.e2b.app')[0],403)
             self.assertEqual(request('/api/leads',LEAD)[0],200)
+            registration={**REGISTRATION,'email':'http-pending@example.test'}
+            self.assertEqual(request('/api/register',registration)[0],200)
+            self.assertEqual(request('/api/login',{'email':registration['email'],'password':registration['password']})[0],403)
             self.assertEqual(request('/api/app',method='GET')[0],401)
             self.assertEqual(request('/api/events',{'name':'diagnostic_submitted'})[0],400)
             with patch.dict(os.environ,{'VERCEL':'1'}):self.assertEqual(request('/api/leads',LEAD)[0],503)

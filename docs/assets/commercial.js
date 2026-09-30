@@ -125,6 +125,17 @@
     try {const me=await api('app',null,'GET');await api('preferences',{...me.preferences,proposicoes:watch});$('#watch-status').textContent='Watchlist sincronizada com sua conta.';}
     catch(err){$('#watch-status').textContent=err.message;}
   });
+  if ($('#register-form')) $('#register-form').addEventListener('submit', async e => {
+    e.preventDefault();const form=e.currentTarget,button=$('button[type=submit]',form),status=$('#register-status');
+    const values=Object.fromEntries(new FormData(form));
+    if(values.password!==values.confirm_password){status.textContent='As senhas informadas não coincidem.';return;}
+    if(values.password.length<12){status.textContent='A senha deve ter ao menos 12 caracteres.';return;}
+    values.email=values.email.trim();values.consent=form.elements.consent.checked;values.attribution=context('pilot_registration');
+    button.disabled=true;status.textContent='Enviando sua solicitação…';
+    try {const result=await api('register',values);status.textContent=result.message;form.reset();}
+    catch(err){status.textContent=err.message;}
+    finally{button.disabled=false;}
+  });
   if ($('#login-form')) $('#login-form').addEventListener('submit', async e => {
     e.preventDefault();const login=e.currentTarget, button=$('button',login);button.disabled=true;
     try {await api('login',Object.fromEntries(new FormData(login)));location.assign('/app/');}
