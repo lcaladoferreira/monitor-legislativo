@@ -1,6 +1,6 @@
 import unittest
 from datetime import datetime, timezone, timedelta
-from scripts.check_collection import problems
+from scripts.check_collection import problems, warnings
 
 class CollectionHealthTests(unittest.TestCase):
     def setUp(self):
@@ -23,6 +23,25 @@ class CollectionHealthTests(unittest.TestCase):
     def test_date_uses_brasilia_not_utc(self):
         self.record["fim"] = "2026-09-15T01:00:00+00:00"
         self.assertEqual(problems(self.record, datetime.fromisoformat("2026-09-14T23:00:00-03:00")), [])
+    def test_ok_source_with_auxiliary_channel_failure_is_warning_only(self):
+        self.record["status_global"] = "ok"
+        self.record["fontes_monitoradas"] = {
+            "tse": {
+                "status": "ok",
+                "erros": 3,
+                "canais_falhos": ["atos normativos", "notícias oficiais"],
+            }
+        }
+        self.assertEqual(problems(self.record, self.now), [])
+        self.assertTrue(warnings(self.record))
+
+    def test_non_ok_source_remains_fatal(self):
+        self.record["status_global"] = "parcial"
+        self.record["fontes_monitoradas"] = {
+            "dou": {"status": "falha", "erros": 1, "canais_falhos": ["busca por tema"]}
+        }
+        self.assertTrue(problems(self.record, self.now))
+
     def test_partial_and_pending_fail(self):
         self.record["status"] = "parcial"
         self.assertTrue(problems(self.record, self.now))
