@@ -617,6 +617,29 @@ def _slug_unico(base, artigos_f):
     return slug
 
 
+def _article_id_unico(slug, topic_id, artigos_f):
+    """ID estável e realmente único, mesmo quando slugs longos só divergem após
+    o limite histórico de 60 caracteres usado no prefixo do ID.
+
+    Mantém o formato legado quando não há colisão. Em colisão, acrescenta um
+    hash determinístico do tópico + slug; fallback numérico cobre inclusive
+    datasets legados já inconsistentes.
+    """
+    usados = {a.get("id") for a in artigos_f["artigos"] if a.get("id")}
+    base = f"art-{slug[:60]}"
+    if base not in usados:
+        return base
+
+    digest = hashlib.sha1(f"{topic_id}|{slug}".encode("utf-8")).hexdigest()[:8]
+    stem = slug[:50].rstrip("-") or "artigo"
+    candidato = f"art-{stem}-{digest}"
+    i = 2
+    while candidato in usados:
+        candidato = f"art-{stem}-{digest}-{i}"
+        i += 1
+    return candidato
+
+
 def create_article(topico, mudancas_topico, ctx, artigos_f, cfg, dia,
                    decisao, change_ids, motivo=""):
     """Cria um NOVO artigo (uma URL nova, justificada e registrada)."""
@@ -666,7 +689,7 @@ def create_article(topico, mudancas_topico, ctx, artigos_f, cfg, dia,
     selection_reason = (f"{decisao} | gatilho: {_trim(_titulo_limpo(mudancas_topico[0]), 120)} | "
                         f"critério: {motivo}")
     artigo = {
-        "id": f"art-{slug[:60]}",
+        "id": _article_id_unico(slug, topic_id, artigos_f),
         "editorial_topic_id": topic_id,
         "slug": slug,
         "title": titulo,
