@@ -197,6 +197,30 @@ class TesteAcoesEditoriais(Base):
         self.assertEqual(len(cids), len(set(cids)))
         self.assertEqual(len(cids), len(self.fx.mudancas))
 
+    def test_03b_ids_de_artigos_longos_permanecem_unicos(self):
+        prefixo = "Regulamentacao de inteligencia artificial para sistemas criticos com requisitos extensos "
+        p1 = _prop(pid="camara_pl_1101_2026", numero=1101,
+                   titulo=prefixo + "alpha", score=90)
+        p2 = _prop(pid="camara_pl_1102_2026", numero=1102,
+                   titulo=prefixo + "beta", score=90)
+        self.fx.props = [p1, p2]
+        self.fx.mudancas = [
+            _mud("Nova proposição: PL 1101/2026", tipo="nova proposição",
+                 prop=p1["id"], deteccao="2026-03-01", run="run_long_1"),
+            _mud("Nova proposição: PL 1102/2026", tipo="nova proposição",
+                 prop=p2["id"], deteccao="2026-03-02", run="run_long_2"),
+        ]
+        self.fx.gravar()
+
+        r = self.fx.rodar(bootstrap=True)
+        arts = self.fx.artigos()["artigos"]
+
+        self.assertEqual(r["novos_artigos"], 2)
+        self.assertEqual(len(arts), 2)
+        self.assertEqual(len({a["slug"] for a in arts}), 2)
+        self.assertEqual(len({a["id"] for a in arts}), 2,
+                         "slugs distintos que divergem após 60 caracteres colidiram no id")
+
     def test_04_duas_candidatas_mesmo_dia_so_a_mais_relevante(self):
         # duas proposições fortes, mudanças 'nova proposição' no mesmo dia
         p1 = _prop(pid="camara_pl_2001_2026", numero=2001,
