@@ -77,26 +77,49 @@ def problems(record, now=None):
     if record.get("fontes_parciais"):
         errors.append("Fontes parciais: " + ", ".join(map(str, record["fontes_parciais"])))
     for orgao, fonte in (record.get("fontes_monitoradas") or {}).items():
-        if fonte.get("status") not in ("ok",):
+        status_fonte = str(fonte.get("status") or "").lower()
+        if status_fonte not in ("ok",):
             errors.append(f"Fonte {orgao} não íntegra: {fonte.get('status', 'sem status')}")
-        if fonte.get("erros", 0):
-            errors.append(f"Fonte {orgao} com {fonte['erros']} erro(s) de coleta.")
-        if fonte.get("canais_falhos"):
-            errors.append(f"Fonte {orgao}: canais com falha: " + ", ".join(fonte["canais_falhos"]))
+            if fonte.get("erros", 0):
+                errors.append(f"Fonte {orgao} com {fonte['erros']} erro(s) de coleta.")
+            if fonte.get("canais_falhos"):
+                errors.append(f"Fonte {orgao}: canais com falha: " + ", ".join(fonte["canais_falhos"]))
     return errors
+
+
+def warnings(record):
+    """Degradações não fatais: a fonte cumpriu o contrato mínimo, mas algum
+    canal auxiliar/fallback falhou. O problema continua visível no Actions e no
+    painel, sem transformar uma coleta publicada e íntegra em job vermelho.
+    """
+    avisos = []
+    for orgao, fonte in (record.get("fontes_monitoradas") or {}).items():
+        status_fonte = str(fonte.get("status") or "").lower()
+        if status_fonte == "ok":
+            if fonte.get("erros", 0):
+                avisos.append(f"Fonte {orgao}: {fonte['erros']} erro(s) em canal(is) auxiliar(es).")
+            if fonte.get("canais_falhos"):
+                avisos.append(f"Fonte {orgao}: canais degradados: " + ", ".join(fonte["canais_falhos"]))
+    return avisos
+
 
 def main():
     try:
         data = json.loads(Path("data/legislation/updates.json").read_text())
-        found = problems((data.get("execucoes") or [{}])[0])
+        latest = (data.get("execucoes") or [{}])[0]
+        found = problems(latest)
+        avisos = warnings(latest)
         props = json.loads(Path("data/legislation/propositions.json").read_text())
         found.extend(audit_coverage(props.get("proposicoes") or []))
     except (OSError, ValueError, TypeError, AttributeError):
         found = ["Não foi possível verificar o registro da coleta."]
+        avisos = []
+    for message in avisos:
+        print("::warning::" + message)
     for message in found:
         print("::error::" + message)
     if not found:
-        print("Coleta do dia concluída, cobertura integral e sem erros.")
+        print("Coleta concluída e publicável; degradações de canais auxiliares, quando houver, foram sinalizadas como aviso.")
     return int(bool(found))
 
 if __name__ == "__main__":
