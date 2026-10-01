@@ -17,6 +17,9 @@ on:
       - 'scripts/update_legislation.py'
       - 'scripts/update_sources.py'
       - 'scripts/check_collection.py'
+      - 'scripts/generate_articles.py'
+      - 'scripts/build_site.py'
+      - 'scripts/validate_site.py'
       - 'scripts/sources/**'
       - '.github/workflows/update-legislation.yml'
   schedule:
