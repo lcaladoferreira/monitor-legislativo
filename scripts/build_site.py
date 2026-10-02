@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-"""Entry point do build com domínio oficial e camada de visibilidade SEO/AEO/agentic."""
+"""Entry point do build com domínio oficial, autoridade institucional e visibilidade SEO/AEO/agentic."""
 import os
 
 import build_site_core as _core
