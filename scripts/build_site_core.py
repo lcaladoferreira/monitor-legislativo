@@ -24,22 +24,22 @@ DATA = os.path.join(BASE, "data", "legislation")
 ASSETS = os.path.join(BASE, "scripts", "assets")
 OUT = os.path.join(BASE, "docs")
 
-# Domínio oficial (Vercel). Usado em canonical/OG/sitemap/navegação.
-SITE_URL = "https://monitor-legislativo-five.vercel.app"
+# Domínio canônico público. Usado em canonical/OG/sitemap/navegação.
+SITE_URL = "https://monitor.lcfconsulting.com.br"
 OLD_DOMAIN = "lcaladoferreira.github.io/monitor-legislativo"
-SITE_NAME = "Monitor Legislativo de IA"
-TAGLINE = "Monitoramento público, documentado e auditável da legislação brasileira de Inteligência Artificial"
+SITE_NAME = "Monitor Legislativo e Regulatório de IA"
+TAGLINE = "Produto público de Inteligência Regulatória da LCF Consulting, com dados estruturados e fontes oficiais sobre a regulação brasileira de Inteligência Artificial"
 
-AUTHOR_NAME = "Leandro Calado"
+AUTHOR_NAME = "Leandro Calado Ferreira"
 AUTHOR_ORG = "LCF Consulting"
 AUTHOR_URLS = [
-    ("https://leandrocaladoferreira.com/", "Leandro Calado"),
-    ("https://lcfconsulting.com.br/", "LCF Consulting"),
+    ("https://www.lcfconsulting.com.br/", "LCF Consulting"),
+    ("https://www.lcfconsulting.com.br/autor/", "Leandro Calado Ferreira"),
 ]
-CONSULTING_URL = "https://lcfconsulting.com.br/"
+CONSULTING_URL = "https://www.lcfconsulting.com.br/inteligencia-institucional/"
 DISCLAIMER = "Dados legislativos devem sempre ser conferidos nas fontes oficiais."
 CTA_TEXT = "Precisa acompanhar impactos regulatórios de IA para sua empresa?"
-CTA_SUB = "Inteligência regulatória, alertas legislativos e briefings para Public Affairs."
+CTA_SUB = "Regulatory Monitoring, Regulatory Data, governança de IA e alertas para decisão."
 
 EXECUTION_DATE = "2026-09-08"  # atualizado dinamicamente a partir de updates.json
 EXECUTION_RUN = {}
@@ -301,6 +301,11 @@ def ld_website():
         "alternateName": "Monitor Legislativo de Inteligência Artificial no Brasil",
         "url": SITE_URL + "/",
         "description": TAGLINE,
+        "publisher": {"@type": "Organization", "name": AUTHOR_ORG,
+                      "url": "https://www.lcfconsulting.com.br/"},
+        "creator": {"@type": "Person", "name": AUTHOR_NAME,
+                    "url": "https://www.lcfconsulting.com.br/autor/",
+                    "affiliation": {"@type": "Organization", "name": AUTHOR_ORG}},
         "inLanguage": "pt-BR",
     }
 
@@ -398,7 +403,7 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
   <div class="wrap nav">
     <div class="brand">
       <a href="{SITE_URL}/">{SITE_NAME}</a>
-      <small>Inteligência Artificial · Brasil</small>
+      <small>Regulatory Monitoring · Regulatory Data · Brasil</small>
     </div>
     <nav class="links" aria-label="Principal">{nav}</nav>
     {_freshness_badge()}
@@ -410,9 +415,9 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
 <footer class="site">
   <div class="wrap cols">
     <div>
-      <h4>Monitor Legislativo de IA</h4>
-      <p>{TAGLINE}. Dados estruturados, fontes oficiais e histórico de alterações versionados no repositório.</p>
-      <p class="author-line">Projeto desenvolvido por {AUTHOR_NAME} / {AUTHOR_ORG} — {author_links}</p>
+      <h4>{SITE_NAME}</h4>
+      <p>{TAGLINE}. Histórico de alterações versionado e verificável.</p>
+      <p class="author-line">Produto da {AUTHOR_ORG}. Responsável técnico: {AUTHOR_NAME} — {author_links}</p>
       <p class="disclaimer">{DISCLAIMER}</p>
     </div>
     <div>
@@ -695,9 +700,9 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
 
     body = f"""
 <div class="hero"><div class="wrap">
-  <div class="kicker">Sistema de inteligência legislativa · Execução de {fmt_date(EXECUTION_DATE)}</div>
-  <h1>Inteligência Artificial — Monitoramento Legislativo Brasileiro</h1>
-  <p class="lead">Central pública de acompanhamento de projetos de lei, leis, resoluções e atos regulatórios federais sobre inteligência artificial no Brasil — com AI Legislative Impact Score, timeline histórica, mapa de relações entre proposições e registro auditável de mudanças.</p>
+  <div class="kicker">Produto de Inteligência Regulatória da {AUTHOR_ORG} · Responsável técnico: {AUTHOR_NAME}</div>
+  <h1>Monitor Legislativo e Regulatório de Inteligência Artificial no Brasil</h1>
+  <p class="lead">Regulatory Monitoring com dados estruturados sobre projetos, leis e atos federais de IA — incluindo score de impacto, timeline, relações normativas e histórico auditável de mudanças.</p>
   <div class="updated">Última verificação das fontes oficiais: <b>{rs["data"]}{" às " + rs["hora"] if rs.get("hora") and rs["hora"] != "—" else ""}</b> · {len(props)} proposições monitoradas · {len(laws)} normas mapeadas · <a href="#o-que-mudou">veja o que mudou recentemente</a></div>
 </div></div>
 
@@ -772,7 +777,7 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
 <section class="block"><div class="wrap">
   <div class="cta-box">
     <div><h3>{CTA_TEXT}</h3><p>{CTA_SUB}</p></div>
-    <a class="cta-btn" href="{CONSULTING_URL}">Falar com a {AUTHOR_ORG}</a>
+    <a class="cta-btn" href="{CONSULTING_URL}">Inteligência Regulatória da {AUTHOR_ORG}</a>
   </div>
 </div></section>
 """
@@ -784,13 +789,15 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
         "keywords": ["regulação inteligência artificial Brasil", "PL 2338/2023", "marco legal da IA", "lei de IA", "Brazil AI law"],
         "temporalCoverage": "2019/2026",
         "dateModified": EXECUTION_DATE,
-        "creator": {"@type": "Organization", "name": SITE_NAME,
-                    "url": SITE_URL + "/"},
+        "creator": {"@type": "Organization", "name": AUTHOR_ORG,
+                    "url": "https://www.lcfconsulting.com.br/"},
+        "author": {"@type": "Person", "name": AUTHOR_NAME,
+                   "url": "https://www.lcfconsulting.com.br/autor/"},
     }
     jsonld = combine_ld(ld_website(), dataset_ld)
     write("index.html", page(
-        "Legislação de Inteligência Artificial no Brasil — Regulação de IA: acompanhamento legislativo",
-        "Acompanhe a regulação de IA no Brasil: PL 2338/2023 (Marco Legal da IA), Redata, projetos de lei sobre inteligência artificial, leis vigentes, timeline, agenda e parlamentares. Dados com fonte oficial.",
+        "Monitor Legislativo e Regulatório de IA | LCF Consulting",
+        "Inteligência Regulatória da LCF Consulting sobre IA no Brasil: projetos, leis, atos, agenda, Regulatory Data e histórico auditável com fontes oficiais.",
         "", body, jsonld=jsonld))
 
 
