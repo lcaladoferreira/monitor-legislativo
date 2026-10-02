@@ -1,0 +1,19 @@
+config {
+  type: "table",
+  schema: "monitor_marts",
+  name: "mart_high_impact_propositions"
+}
+
+SELECT
+  proposition_id,
+  proposition_label,
+  titulo,
+  casa_atual,
+  situacao,
+  impact_score,
+  impact_classification,
+  last_movement_date,
+  official_url
+FROM ${ref("core_propositions")}
+WHERE impact_score >= 60
+ORDER BY impact_score DESC, last_movement_date DESC

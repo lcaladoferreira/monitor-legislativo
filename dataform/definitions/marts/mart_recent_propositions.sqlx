@@ -1,0 +1,19 @@
+config {
+  type: "table",
+  schema: "monitor_marts",
+  name: "mart_recent_propositions"
+}
+
+SELECT
+  proposition_id,
+  proposition_label,
+  titulo,
+  casa_atual,
+  situacao,
+  impact_score,
+  impact_classification,
+  last_movement_date,
+  official_url
+FROM ${ref("core_propositions")}
+WHERE last_movement_date >= DATE_SUB(CURRENT_DATE("America/Sao_Paulo"), INTERVAL 30 DAY)
+ORDER BY last_movement_date DESC, impact_score DESC

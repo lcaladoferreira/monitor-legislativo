@@ -1,0 +1,15 @@
+config {
+  type: "table",
+  schema: "monitor_marts",
+  name: "mart_monitor_dashboard"
+}
+
+SELECT
+  COUNT(*) AS total_propositions,
+  COUNTIF(impact_score >= 90) AS critical_count,
+  COUNTIF(impact_score BETWEEN 75 AND 89) AS very_relevant_count,
+  COUNTIF(impact_score BETWEEN 60 AND 74) AS relevant_count,
+  COUNTIF(last_movement_date >= DATE_SUB(CURRENT_DATE("America/Sao_Paulo"), INTERVAL 7 DAY)) AS changed_last_7d,
+  COUNTIF(last_movement_date >= DATE_SUB(CURRENT_DATE("America/Sao_Paulo"), INTERVAL 1 DAY)) AS changed_last_24h,
+  MAX(last_movement_date) AS latest_movement_date
+FROM ${ref("core_propositions")}

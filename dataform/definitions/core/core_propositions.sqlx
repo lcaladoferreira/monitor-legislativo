@@ -1,0 +1,56 @@
+config {
+  type: "table",
+  schema: "monitor_core",
+  name: "core_propositions",
+  description: "Entidade canônica de proposições legislativas do Monitor.",
+  assertions: {
+    uniqueKey: ["proposition_id"],
+    nonNull: ["proposition_id", "tipo", "numero", "ano", "titulo"]
+  }
+}
+
+SELECT
+  proposition_id,
+  tipo,
+  numero,
+  ano,
+
+  CONCAT(tipo, ' ', CAST(numero AS STRING), '/', CAST(ano AS STRING)) AS proposition_label,
+
+  titulo,
+  ementa,
+
+  casa_origem,
+  casa_atual,
+
+  situacao,
+  comissao_atual,
+
+  data_apresentacao,
+
+  regime_tramitacao,
+  forma_apreciacao,
+
+  relator_nome,
+  relator_partido,
+  relator_uf,
+
+  impact_score,
+  impact_classification,
+
+  official_url,
+
+  SAFE_CAST(last_movement_date_raw AS DATE) AS last_movement_date,
+  last_movement_description,
+
+  camara_proposition_id,
+  camara_status,
+  camara_last_action,
+
+  senado_codigo,
+
+  payload_hash,
+  source,
+  ingested_at
+
+FROM ${ref("stg_propositions")}

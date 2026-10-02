@@ -1,0 +1,13 @@
+dataformCoreVersion: 3.0.71
+defaultProject: lcf-monitor-legislativo
+defaultLocation: southamerica-east1
+defaultDataset: monitor_staging
+defaultAssertionDataset: monitor_assertions
+
+vars:
+  raw_dataset: monitor_raw
+  staging_dataset: monitor_staging
+  core_dataset: monitor_core
+  marts_dataset: monitor_marts
+  monitoring_dataset: monitor_monitoring
+  agent_analytics_dataset: monitor_agent_analytics

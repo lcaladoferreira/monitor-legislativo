@@ -1,0 +1,69 @@
+config {
+  type: "table",
+  schema: "monitor_staging",
+  name: "stg_propositions",
+  description: "Proposições legislativas normalizadas a partir da camada RAW.",
+  assertions: {
+    uniqueKey: ["proposition_id"],
+    nonNull: ["proposition_id", "tipo", "numero", "ano"]
+  }
+}
+
+SELECT
+  JSON_VALUE(payload, '$.id') AS proposition_id,
+  JSON_VALUE(payload, '$.tipo') AS tipo,
+  SAFE_CAST(JSON_VALUE(payload, '$.numero') AS INT64) AS numero,
+  SAFE_CAST(JSON_VALUE(payload, '$.ano') AS INT64) AS ano,
+
+  JSON_VALUE(payload, '$.titulo') AS titulo,
+  JSON_VALUE(payload, '$.ementa') AS ementa,
+
+  JSON_VALUE(payload, '$.casa_origem') AS casa_origem,
+  JSON_VALUE(payload, '$.casa_atual') AS casa_atual,
+
+  JSON_VALUE(payload, '$.situacao') AS situacao,
+  JSON_VALUE(payload, '$.comissao_atual') AS comissao_atual,
+
+  SAFE_CAST(
+    JSON_VALUE(payload, '$.data_apresentacao')
+    AS DATE
+  ) AS data_apresentacao,
+
+  JSON_VALUE(payload, '$.regime_tramitacao') AS regime_tramitacao,
+  JSON_VALUE(payload, '$.forma_apreciacao') AS forma_apreciacao,
+
+  JSON_VALUE(payload, '$.relator.nome') AS relator_nome,
+  JSON_VALUE(payload, '$.relator.partido') AS relator_partido,
+  JSON_VALUE(payload, '$.relator.estado') AS relator_uf,
+
+  SAFE_CAST(
+    JSON_VALUE(payload, '$.impacto.score')
+    AS INT64
+  ) AS impact_score,
+
+  JSON_VALUE(payload, '$.impacto.classificacao') AS impact_classification,
+
+  JSON_VALUE(payload, '$.url_oficial') AS official_url,
+
+  JSON_VALUE(payload, '$.ultima_movimentacao.data') AS last_movement_date_raw,
+  JSON_VALUE(payload, '$.ultima_movimentacao.descricao') AS last_movement_description,
+
+  JSON_VALUE(payload, '$.api_camara.id_proposicao') AS camara_proposition_id,
+  JSON_VALUE(payload, '$.api_camara.descricao_situacao') AS camara_status,
+  JSON_VALUE(payload, '$.api_camara.descricao_tramitacao') AS camara_last_action,
+
+  JSON_VALUE(payload, '$.api_senado.codigo') AS senado_codigo,
+
+  payload_hash,
+  source,
+  ingested_at,
+
+  payload AS raw_payload
+
+FROM
+  `lcf-monitor-legislativo.monitor_raw.propositions_raw`
+
+QUALIFY ROW_NUMBER() OVER (
+  PARTITION BY JSON_VALUE(payload, '$.id')
+  ORDER BY ingested_at DESC
+) = 1
