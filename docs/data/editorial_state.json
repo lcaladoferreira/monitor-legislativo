@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-02"
+    "atualizado_em": "2026-10-03"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -5183,6 +5183,46 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-10-02T21:33:17-03:00",
       "run_id": null
+    },
+    "chg_3fedf4146ad30967": {
+      "change_id": "chg_3fedf4146ad30967",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
+      "editorial_topic_id": "pl-2451-2026-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-03T03:35:53-03:00",
+      "run_id": null
+    },
+    "chg_35e5b42b44300e9d": {
+      "change_id": "chg_35e5b42b44300e9d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-sdr-mapa-no-885-de-1o-de-outubro-de-2026-1685fed1",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-03T03:35:53-03:00",
+      "run_id": null
+    },
+    "chg_9fcc557953337d5c": {
+      "change_id": "chg_9fcc557953337d5c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-03T03:35:53-03:00",
+      "run_id": null
+    },
+    "chg_82cf5dd980df6cca": {
+      "change_id": "chg_82cf5dd980df6cca",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-03T03:35:53-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -5435,13 +5475,6 @@
       "reason": "sem_cota_no_dia",
       "since": "2026-09-18",
       "editorial_topic_id": "req-39-2026-requer-a-inclusao-do-senhor-carlos-baigorri-presidente-da-an",
-      "prioridade": 25,
-      "attempts": 3
-    },
-    "chg_3fedf4146ad30967": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "pl-2451-2026-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
       "prioridade": 25,
       "attempts": 3
     },
@@ -5905,19 +5938,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-09-22T10:27:22-03:00",
-      "dia": "2026-09-22",
-      "mudancas_novas": 113,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 94,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-09-22T15:07:05-03:00",
       "dia": "2026-09-22",
@@ -6547,6 +6567,19 @@
       "dia": "2026-10-02",
       "mudancas_novas": 106,
       "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 3,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 134,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-03T03:35:53-03:00",
+      "dia": "2026-10-03",
+      "mudancas_novas": 106,
+      "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 3,
       "adiadas": 0,
