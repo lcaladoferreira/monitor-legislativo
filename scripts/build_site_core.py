@@ -441,6 +441,11 @@ def page(title, desc, path, body, extra_head="", og_type="website", jsonld=None)
     </div>
     <div>
       <h4>Aviso</h4>
+      <p><strong>Ecossistema LCF:</strong><br>
+      <a href="https://www.lcfconsulting.com.br/">LCF Consulting</a> ·
+      <a href="https://www.lcfconsulting.com.br/inteligencia-institucional/">Inteligência Institucional</a> ·
+      <a href="https://regtech.lcfconsulting.com.br/">LCF RegTech</a> ·
+      <a href="https://radar-retrofit-sp.vercel.app/">Radar Retrofit SP</a></p>
       <p>Conteúdo informativo baseado em fontes oficiais. Não substitui os textos legais e as fichas de tramitação das Casas do Congresso Nacional.</p>
       <p class="cta-mini">{CTA_TEXT} <a href="{CONSULTING_URL}">Fale com a {AUTHOR_ORG} →</a></p>
     </div>
