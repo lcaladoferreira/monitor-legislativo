@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-03"
+    "atualizado_em": "2026-10-04"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -5323,6 +5323,36 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-10-03T23:41:59-03:00",
       "run_id": null
+    },
+    "chg_45057d005763a352": {
+      "change_id": "chg_45057d005763a352",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-a-inclusao-do-senhor-alan-patrick-cavalcante-da-silve",
+      "editorial_topic_id": "req-85-2026-requer-a-inclusao-do-senhor-alan-patrick-cavalcante-da-silve",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-04T06:49:12-03:00",
+      "run_id": null
+    },
+    "chg_575c19c546ad6a80": {
+      "change_id": "chg_575c19c546ad6a80",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-04T06:49:12-03:00",
+      "run_id": null
+    },
+    "chg_e85fb549a787a46e": {
+      "change_id": "chg_e85fb549a787a46e",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-04T06:49:12-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -5331,13 +5361,6 @@
       "since": "2026-09-18",
       "editorial_topic_id": "ric-2595-2026-requer-informacoes-do-ministerio-da-justica-e-seguranca-publ",
       "prioridade": 18,
-      "attempts": 3
-    },
-    "chg_45057d005763a352": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "req-85-2026-requer-a-inclusao-do-senhor-alan-patrick-cavalcante-da-silve",
-      "prioridade": 25,
       "attempts": 3
     },
     "chg_e359b41b8d38d33c": {
@@ -6039,19 +6062,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-09-23T14:01:37-03:00",
-      "dia": "2026-09-23",
-      "mudancas_novas": 113,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 3,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 98,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-09-23T17:24:54-03:00",
       "dia": "2026-09-23",
       "mudancas_novas": 112,
@@ -6680,6 +6690,19 @@
       "dia": "2026-10-03",
       "mudancas_novas": 104,
       "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 134,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-04T06:49:12-03:00",
+      "dia": "2026-10-04",
+      "mudancas_novas": 104,
+      "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 2,
       "adiadas": 0,
