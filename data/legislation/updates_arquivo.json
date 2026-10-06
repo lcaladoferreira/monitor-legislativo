@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Histórico arquivado de mudanças (auditoria; nada é descartado, apenas rotacionado de updates.json)",
-    "total": 51,
+    "total": 53,
     "execucao": "2026-10-06"
   },
   "mudancas": [
@@ -863,6 +863,38 @@
       "data_deteccao": "2026-09-09",
       "fonte": "Câmara dos Deputados — API de Dados Abertos",
       "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2419443",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2025-12-22",
+      "titulo": "Nova proposição: PL 7135/2025",
+      "descricao": "Altera a Lei nº 8.248, de 23 de outubro de 1991 (Lei de Informática), para estabelecer critérios de inclusão social e digital em Inteligência Artificial como contrapartida obrigatória para a fruição de incentivos fiscais. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_7135_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2599744",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2599744",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2025-12-22",
+      "titulo": "Nova proposição: PL 6706/2025",
+      "descricao": "Altera a Lei nº 13.709, de 14 de agosto de 2018 (Lei Geral de Proteção de Dados Pessoais - LGPD), para dispor sobre a Auditoria Algorítmica Preventiva em sistemas de Inteligência Artificial que afetam decisões de alto impacto social. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_6706_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2599299",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2599299",
       "timestamp_execucao": "2026-09-09T23:58:22-03:00",
       "id_execucao": "run_2026_09_09_2358"
     }
