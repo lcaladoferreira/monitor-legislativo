@@ -5723,6 +5723,46 @@
       "selection_reason": "tipo=atualização cadastral peso=7 score_prop=27 → abaixo do limiar de novo artigo",
       "processed_at": "2026-10-05T15:30:51-03:00",
       "run_id": null
+    },
+    "chg_4d174653e95b4671": {
+      "change_id": "chg_4d174653e95b4671",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gm-ms-no-12-263-de-1o-de-outubro-de-2026-adf4e09b",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-10-05T21:52:08-03:00",
+      "run_id": null
+    },
+    "chg_e4226a355875dba9": {
+      "change_id": "chg_e4226a355875dba9",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-anpd-celebra-memorando-de-entendimento-com-a-autoridade-de-p-8b1962fc",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-05T21:52:08-03:00",
+      "run_id": null
+    },
+    "chg_2f071e6e6a2ec0a7": {
+      "change_id": "chg_2f071e6e6a2ec0a7",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-05T21:52:08-03:00",
+      "run_id": null
+    },
+    "chg_62432bfca6747ca6": {
+      "change_id": "chg_62432bfca6747ca6",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-05T21:52:08-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -6425,19 +6465,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-09-24T19:26:05-03:00",
-      "dia": "2026-09-24",
-      "mudancas_novas": 111,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 105,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-09-24T22:33:24-03:00",
       "dia": "2026-09-24",
       "mudancas_novas": 115,
@@ -7068,6 +7095,19 @@
       "novos_artigos": 0,
       "artigos_atualizados": 0,
       "ignoradas": 5,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 142,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-05T21:52:08-03:00",
+      "dia": "2026-10-05",
+      "mudancas_novas": 93,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 4,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 142,
