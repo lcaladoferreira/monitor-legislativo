@@ -224,6 +224,44 @@ def prop_link(p):
     return f'{SITE_URL}/proposicoes/{slugify_prop(p["id"])}/'
 
 
+def prop_lastmod(p, updates=None):
+    """Última alteração substantiva da ficha, sem usar a mera data de verificação do cron.
+
+    O Google recomenda que <lastmod> represente mudança real de conteúdo. As APIs são
+    verificadas a cada execução, mas isso não significa que a proposição mudou.
+    """
+    candidates = []
+
+    def add(value):
+        if value is None:
+            return
+        m = re.match(r"^(\\d{4}-\\d{2}-\\d{2})", str(value))
+        if m:
+            candidates.append(m.group(1))
+
+    add(p.get("data_apresentacao"))
+    add((p.get("ultima_movimentacao") or {}).get("data"))
+
+    api_camara = p.get("api_camara") or {}
+    add(api_camara.get("status_datahora"))
+    add((api_camara.get("ultima_tramitacao") or {}).get("data"))
+
+    api_senado = p.get("api_senado") or {}
+    add((api_senado.get("situacao_senado") or {}).get("data"))
+    add((api_senado.get("ultimo_informe_senado") or {}).get("data"))
+    add(api_senado.get("decisao_data"))
+
+    for item in p.get("timeline", []) or []:
+        add(item.get("data"))
+
+    if updates:
+        for item in updates.get("mudancas", []) or []:
+            if item.get("proposicao") == p.get("id"):
+                add(item.get("data"))
+
+    return max(candidates) if candidates else EXECUTION_DATE
+
+
 def prop_link_by_id(pid, by_id):
     p = by_id.get(pid)
     if p:
@@ -1066,7 +1104,7 @@ def build_prop_pages(props, cats, updates, artigos=None):
             "headline": f'{p["tipo"]} {p["numero"]}/{p["ano"]} — {p["titulo"]}',
             "description": p["ementa"][:300],
             "url": prop_link(p),
-            "dateModified": EXECUTION_DATE,
+            "dateModified": prop_lastmod(p, updates),
             "inLanguage": "pt-BR",
             "about": "Regulação de inteligência artificial no Brasil",
             "author": {"@type": "Organization", "name": SITE_NAME, "url": SITE_URL + "/"},
@@ -2124,6 +2162,10 @@ def build_sitemap(paths):
     for item in paths:
         if isinstance(item, (tuple, list)):
             p, lastmod = (tuple(item) + (today,))[:2]
+            lastmod = lastmod or today
+            # Registra o valor para sobreviver a camadas posteriores que reescrevem
+            # o sitemap passando apenas os paths (ex.: camada comercial).
+            reg[p] = lastmod
         else:
             p, lastmod = item, reg.get(item) or today
         urls += f"<url><loc>{SITE_URL}/{p}</loc><lastmod>{lastmod}</lastmod></url>"
@@ -2198,7 +2240,10 @@ def main():
         paths.append("artigos/")
         paths += [f"artigos/{a['slug']}/" for a in _ARTIGOS.get("artigos", [])
                   if a.get("status") == "published"]
-    paths += [prop_fs_path(p["id"]).replace("index.html", "") for p in props]
+    # Fichas de proposições: <lastmod> = última mudança legislativa/editorial real.
+    # Não usar EXECUTION_DATE aqui: o cron roda frequentemente mesmo quando nada muda.
+    paths += [(prop_fs_path(p["id"]).replace("index.html", ""), prop_lastmod(p, updates))
+              for p in props]
     build_sitemap(paths)
 
     n_pages = 10 + len(props) + (n_artigos or 0)
