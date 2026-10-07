@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Histórico arquivado de mudanças (auditoria; nada é descartado, apenas rotacionado de updates.json)",
-    "total": 93,
+    "total": 96,
     "execucao": "2026-10-07"
   },
   "mudancas": [
@@ -1549,6 +1549,54 @@
       "data_deteccao": "2026-09-17",
       "timestamp_execucao": "2026-09-17T20:41:49-03:00",
       "id_execucao": "run_2026_09_17_2041"
+    },
+    {
+      "data": "2026-05-19",
+      "titulo": "Nova proposição: REQ 39/2026 (Senado)",
+      "descricao": "Requer a inclusão do Senhor Carlos Baigorri, Presidente da Anatel, na audiência pública objeto do REQ 6/2026-CCT, destinada a instruir o Projeto de Lei nº 3018, de 2024, que dispõe sobre a regulamentação dos data centers de inteligência artificial. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "senado_req_39_2026",
+      "fonte_url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174212",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Senado Federal — API de Dados Abertos",
+      "url_oficial": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174212",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-05-18",
+      "titulo": "Nova proposição: PL 2451/2026",
+      "descricao": "Dispõe sobre medidas de prevenção, combate e responsabilização relacionadas à criação e disseminação de manipulação digital de conteúdo sexual (deepfakes), coibindo também o uso indevido de outros recursos tecnológicos contra a dignidade sexual de crianças e adolescentes. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_2451_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-05-18",
+      "titulo": "Nova proposição: PL 2435/2026",
+      "descricao": "Institui o Sistema Nacional de Prevenção e Enfrentamento à Violência Digital contra Mulheres e Meninas, altera o Código Penal e o Código de Processo Penal para tipificar e disciplinar a prova de crimes envolvendo conteúdo íntimo não consensual gerado por inteligência artificial ou manipulação digital, e dá outras providências. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_2435_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625435",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625435",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
     }
   ]
 }
