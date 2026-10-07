@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Histórico arquivado de mudanças (auditoria; nada é descartado, apenas rotacionado de updates.json)",
-    "total": 90,
+    "total": 93,
     "execucao": "2026-10-07"
   },
   "mudancas": [
@@ -1498,6 +1498,57 @@
       "url_oficial": "https://www25.senado.leg.br/web/atividade/materias/-/materia/172838",
       "timestamp_execucao": "2026-09-09T23:58:22-03:00",
       "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-05-16",
+      "titulo": "Nova proposição: PL 2426/2026",
+      "descricao": "Altera o art. 171 do Decreto-Lei nº 2.848, de 7 de dezembro de 1940 (Código Penal), para prever causa de aumento de pena no crime de estelionato quando praticado com uso de Inteligência Artificial (IA). (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_2426_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625204",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625204",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-05-14",
+      "titulo": "Nova proposição: PL 2397/2026 (Senado)",
+      "descricao": "Estabelece os parâmetros de ética nacional para o uso da inteligência artificial nas instituições de ensino públicas e privadas e dá outras providências. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "senado_pl_2397_2026",
+      "fonte_url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174154",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Senado Federal — API de Dados Abertos",
+      "url_oficial": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174154",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-05-13",
+      "titulo": "ANPD debate os desafios do ECA Digital na Comissão Permanente da Infância e Juventude",
+      "descricao": "Encontro reúne membros dos Ministérios Públicos de todo o País para discutir estratégias nacionais de proteção de crianças e adolescentes no ambiente digital",
+      "tipo": "nova notícia oficial",
+      "orgao": "anpd",
+      "item": "anpd_gov_br_anpd_pt_br_anpd_copeij_eca_digital",
+      "fonte": "ANPD — Autoridade Nacional de Proteção de Dados — notícias recentes",
+      "fonte_url": "https://www.gov.br/anpd/pt-br/anpd-copeij-eca-digital",
+      "url_oficial": "https://www.gov.br/anpd/pt-br/anpd-copeij-eca-digital",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "relevancia": "revisar",
+      "revisao_pendente": true,
+      "data_deteccao": "2026-09-17",
+      "timestamp_execucao": "2026-09-17T20:41:49-03:00",
+      "id_execucao": "run_2026_09_17_2041"
     }
   ]
 }
