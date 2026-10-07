@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Histórico arquivado de mudanças (auditoria; nada é descartado, apenas rotacionado de updates.json)",
-    "total": 57,
+    "total": 59,
     "execucao": "2026-10-06"
   },
   "mudancas": [
@@ -964,6 +964,38 @@
       "data_deteccao": "2026-09-17",
       "timestamp_execucao": "2026-09-17T20:41:49-03:00",
       "id_execucao": "run_2026_09_17_2041"
+    },
+    {
+      "data": "2026-02-25",
+      "titulo": "Nova proposição: PL 750/2026 (Senado)",
+      "descricao": "Institui o Programa Nacional de Monitoramento de Agressores com Uso de Tecnologia por Inteligência Artificial (PNM-IA), com a finalidade de prevenir a violência doméstica; assegurar a efetividade das medidas protetivas de urgência; ampliar a proteção das vítimas por meio do uso de tecnologias digitais e de inteligência artificial; e subsidiar a atuação preventiva e repressiva dos órgãos de seguran (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "senado_pl_750_2026",
+      "fonte_url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/172783",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Senado Federal — API de Dados Abertos",
+      "url_oficial": "https://www25.senado.leg.br/web/atividade/materias/-/materia/172783",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-02-12",
+      "titulo": "Nova proposição: REQ 17/2026 (Senado)",
+      "descricao": "Requer licença para desempenhar missão oficial, a fim de participar de Missão Parlamentar sobre Inteligência Artificial, em Nova Delhi, Índia, e em Seul, Coreia do Sul. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "senado_req_17_2026",
+      "fonte_url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/172683",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Senado Federal — API de Dados Abertos",
+      "url_oficial": "https://www25.senado.leg.br/web/atividade/materias/-/materia/172683",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
     }
   ]
 }
