@@ -1319,20 +1319,20 @@ def build_timeline(timeline):
     body = f"""
 <div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Timeline</div>
-  <h1>Timeline da regulamentação de IA no Brasil</h1>
-  <p class="sub">Histórico cronológico documentado — dos primeiros projetos de 2019 ao cenário de 2026. Cada evento traz casa, ator e fonte.</p>
+  <h1>Regulação de IA no Brasil: timeline do PL 2338/2023 e principais normas</h1>
+  <p class="sub">Linha do tempo da regulação de inteligência artificial no Brasil, com a tramitação do <a href="/proposicoes/pl-2338-2023/">PL 2338/2023 (Marco Legal da IA)</a>, leis, atos da ANPD, TSE e CNJ e fontes verificáveis.</p>
 </div></div>
 <section class="block"><div class="wrap">
   <div class="timeline">{tl}</div>
 </div></section>"""
     jsonld = combine_ld(
-        ld_collection("Timeline da regulamentação de IA no Brasil (2019–2026)",
-                      "Linha do tempo documentada da legislação brasileira de inteligência artificial.",
+        ld_collection("Regulação de IA no Brasil: timeline do PL 2338/2023 e normas (2019–2026)",
+                      "Linha do tempo documentada da regulação de inteligência artificial no Brasil, com PL 2338/2023, leis e atos regulatórios.",
                       "timeline/"),
         ld_breadcrumbs([("Início", ""), ("Timeline", None)]))
     write("timeline/index.html", page(
-        "Timeline da regulamentação de IA no Brasil (2019–2026)",
-        "Linha do tempo documentada da legislação brasileira de inteligência artificial: comissão de juristas, CTIA, PL 2338/2023, leis sancionadas e atos regulatórios.",
+        "Regulação de IA no Brasil: PL 2338/2023 e timeline (2019–2026)",
+        "Acompanhe a regulação de IA no Brasil em ordem cronológica: PL 2338/2023, Marco Legal da IA, leis sancionadas, ANPD, TSE, CNJ e fontes oficiais.",
         "timeline/", body, jsonld=jsonld))
 
 
