@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Histórico arquivado de mudanças (auditoria; nada é descartado, apenas rotacionado de updates.json)",
-    "total": 122,
+    "total": 125,
     "execucao": "2026-10-08"
   },
   "mudancas": [
@@ -2041,6 +2041,54 @@
       "data_deteccao": "2026-09-09",
       "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
       "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2543191",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-07-01",
+      "titulo": "Nova proposição: PLP 193/2026",
+      "descricao": "Altera a Lei Complementar nº 182, de 1º de junho de 2021, para ampliar o marco legal das startups e do empreendedorismo inovador de modo a abranger a economia digital, a inteligência artificial, a bioeconomia e as compras públicas inovadoras, nos termos que especifica. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_plp_193_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2636431",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2636431",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-07-01",
+      "titulo": "Nova proposição: PL 3399/2026 (Senado)",
+      "descricao": "Altera a Lei nº 14.533, de 11 de janeiro de 2023, que institui a Política Nacional de Educação Digital, para incluir o letramento em inteligência artificial e o enfrentamento da desinformação sintética entre as competências do eixo Educação Digital Escolar. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "senado_pl_3399_2026",
+      "fonte_url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174923",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Senado Federal — API de Dados Abertos",
+      "url_oficial": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174923",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-07-01",
+      "titulo": "Nova proposição: PL 3394/2026",
+      "descricao": "Dispõe sobre a transparência, deveres de verificação, guarda de evidências e responsabilização no uso de sistemas de inteligência artificial na prática forense; impõe obrigação de declaração nos autos da utilização de IA e identificação do fornecedor; exige conservação de prompts, resultados e documentos auxiliares por prazo mínimo; prevê sanções processuais, civis e disciplinares escalonadas para (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_3394_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2636065",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2636065",
       "timestamp_execucao": "2026-09-09T23:58:22-03:00",
       "id_execucao": "run_2026_09_09_2358"
     }
