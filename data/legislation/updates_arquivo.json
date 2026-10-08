@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Histórico arquivado de mudanças (auditoria; nada é descartado, apenas rotacionado de updates.json)",
-    "total": 125,
+    "total": 127,
     "execucao": "2026-10-08"
   },
   "mudancas": [
@@ -2089,6 +2089,41 @@
       "data_deteccao": "2026-09-09",
       "fonte": "Câmara dos Deputados — API de Dados Abertos",
       "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2636065",
+      "timestamp_execucao": "2026-09-09T23:58:22-03:00",
+      "id_execucao": "run_2026_09_09_2358"
+    },
+    {
+      "data": "2026-07-02",
+      "titulo": "Publicados primeiros resultados do Sandbox Regulatório em Inteligência Artificial",
+      "descricao": "Projeto-piloto da ANPD acompanha três empresas de tecnologia para testar projetos inovadores em ambiente regulado",
+      "tipo": "nova notícia oficial",
+      "orgao": "anpd",
+      "item": "anpd_gov_br_anpd_pt_br_assuntos_noticias_publicados_primeiros_resultados_do_sandbox_regulatorio_em_inteligencia_art",
+      "fonte": "ANPD — Autoridade Nacional de Proteção de Dados — notícias recentes",
+      "fonte_url": "https://www.gov.br/anpd/pt-br/assuntos/noticias/publicados-primeiros-resultados-do-sandbox-regulatorio-em-inteligencia-artificial",
+      "url_oficial": "https://www.gov.br/anpd/pt-br/assuntos/noticias/publicados-primeiros-resultados-do-sandbox-regulatorio-em-inteligencia-artificial",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "data_deteccao": "2026-09-17",
+      "timestamp_execucao": "2026-09-17T20:41:49-03:00",
+      "id_execucao": "run_2026_09_17_2041"
+    },
+    {
+      "data": "2026-07-01",
+      "titulo": "Nova proposição: REQ 52/2026 (Senado)",
+      "descricao": "Requer urgência para o PRS 38/2025, que \"institui, no âmbito do Senado Federal, a Frente Parlamentar de Inteligência Artificial, Proteção de Dados e Segurança Digital\". (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "senado_req_52_2026",
+      "fonte_url": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174922",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-09-09",
+      "fonte": "Senado Federal — API de Dados Abertos",
+      "url_oficial": "https://www25.senado.leg.br/web/atividade/materias/-/materia/174922",
       "timestamp_execucao": "2026-09-09T23:58:22-03:00",
       "id_execucao": "run_2026_09_09_2358"
     }
