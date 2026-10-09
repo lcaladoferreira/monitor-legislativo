@@ -59,8 +59,50 @@ def _assert_domain_migration():
         raise RuntimeError("Build bloqueado: sitemap.xml não usa o domínio oficial")
 
 
+
+def _optimize_monitor_home():
+    """GSC 09/10/2026: home 148 impressões/3 cliques em 28 dias;
+    query 'monitor legislativo' 11 impressões/0 cliques. Intervenção
+    restrita ao snippet e à primeira dobra, sem mudar dados ou rotas.
+    """
+    home = os.path.join(_core.OUT, "index.html")
+    with open(home, encoding="utf-8") as f:
+        html = f.read()
+    edits = [
+        (
+            "<title>Monitor Legislativo e Regulatório de IA | LCF Consulting</title>",
+            "<title>Monitor Legislativo de IA no Brasil | PLs, Leis e Tramitação</title>",
+        ),
+        (
+            '<meta name="description" content="Inteligência Regulatória da LCF Consulting sobre IA no Brasil: projetos, leis, atos, agenda, Regulatory Data e histórico auditável com fontes oficiais.">',
+            '<meta name="description" content="Acompanhe o PL 2338/2023 e outros projetos de lei sobre IA no Brasil. Consulte tramitação, leis, atos e atualizações com links para fontes oficiais.">',
+        ),
+        (
+            '<meta property="og:title" content="Monitor Legislativo e Regulatório de IA | LCF Consulting">',
+            '<meta property="og:title" content="Monitor Legislativo de IA no Brasil | PLs, Leis e Tramitação">',
+        ),
+        (
+            '<meta property="og:description" content="Inteligência Regulatória da LCF Consulting sobre IA no Brasil: projetos, leis, atos, agenda, Regulatory Data e histórico auditável com fontes oficiais.">',
+            '<meta property="og:description" content="Acompanhe o PL 2338/2023 e outros projetos de lei sobre IA no Brasil. Consulte tramitação, leis, atos e atualizações com links para fontes oficiais.">',
+        ),
+        (
+            '<p class="lead">Regulatory Monitoring com dados estruturados sobre projetos, leis e atos federais de IA — incluindo score de impacto, timeline, relações normativas e histórico auditável de mudanças.</p>',
+            '<p class="lead">Acompanhe projetos de lei sobre inteligência artificial no Brasil, incluindo o PL 2338/2023, além de leis e atos regulatórios. Consulte tramitação, mudanças, histórico e fontes oficiais verificáveis.</p>'
+            '<p class="hero-links"><a href="/proposicoes/">Projetos de lei e tramitação</a> · '
+            '<a href="/atualizacoes/">Atualizações recentes</a> · '
+            '<a href="/timeline/">Linha do tempo da regulação de IA</a></p>',
+        ),
+    ]
+    for before, after in edits:
+        if html.count(before) != 1:
+            raise RuntimeError("SEO home: trecho esperado ausente ou duplicado")
+        html = html.replace(before, after, 1)
+    with open(home, "w", encoding="utf-8") as f:
+        f.write(html)
+
 if __name__ == "__main__":
     _core.main()
+    _optimize_monitor_home()
     _assert_domain_migration()
     print(f"OK: sitemap e arquivos críticos validados em {SITE_URL}")
 
