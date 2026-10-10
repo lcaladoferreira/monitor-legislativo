@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-09"
+    "atualizado_em": "2026-10-10"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -7023,6 +7023,36 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-10-09T21:52:44-03:00",
       "run_id": null
+    },
+    "chg_100f11ea4e76dd43": {
+      "change_id": "chg_100f11ea4e76dd43",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-nos-termos-regimentais-a-revisao-do-despacho-ao-proje",
+      "editorial_topic_id": "req-4222-2026-requer-nos-termos-regimentais-a-revisao-do-despacho-ao-proje",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-10T04:09:40-03:00",
+      "run_id": null
+    },
+    "chg_5c6422b86d566ccd": {
+      "change_id": "chg_5c6422b86d566ccd",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-10T04:09:40-03:00",
+      "run_id": null
+    },
+    "chg_282735f342777152": {
+      "change_id": "chg_282735f342777152",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-10T04:09:40-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -7579,13 +7609,6 @@
       "prioridade": 23,
       "attempts": 3
     },
-    "chg_100f11ea4e76dd43": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "req-4222-2026-requer-nos-termos-regimentais-a-revisao-do-despacho-ao-proje",
-      "prioridade": 19,
-      "attempts": 3
-    },
     "chg_56bc19de8a8c4318": {
       "reason": "sem_cota_no_dia",
       "since": "2026-09-18",
@@ -7708,19 +7731,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-09-28T03:55:52-03:00",
-      "dia": "2026-09-28",
-      "mudancas_novas": 122,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 15,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 117,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-09-28T12:30:22-03:00",
       "dia": "2026-09-28",
@@ -8350,6 +8360,19 @@
       "dia": "2026-10-09",
       "mudancas_novas": 15,
       "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 163,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-10T04:09:40-03:00",
+      "dia": "2026-10-10",
+      "mudancas_novas": 15,
+      "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 2,
       "adiadas": 0,
