@@ -7413,6 +7413,66 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-10-13T16:20:03-03:00",
       "run_id": null
+    },
+    "chg_c36357c622f95214": {
+      "change_id": "chg_c36357c622f95214",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-mcti-plano-brasileiro-de-ia-pbia-ac10786f",
+      "selection_reason": "ato tipo=programa órgão=mcti peso=7 → sem valor editorial independente",
+      "processed_at": "2026-10-13T20:21:58-03:00",
+      "run_id": null
+    },
+    "chg_336238777594c739": {
+      "change_id": "chg_336238777594c739",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-mcti-noticias-julho-outubro-2026-85c312e2",
+      "selection_reason": "ato tipo=noticia órgão=mcti peso=7 → sem valor editorial independente",
+      "processed_at": "2026-10-13T20:21:58-03:00",
+      "run_id": null
+    },
+    "chg_f2d2b6e73e371086": {
+      "change_id": "chg_f2d2b6e73e371086",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-mcti-internet-das-coisas-iot-9f5d120e",
+      "selection_reason": "ato tipo=programa órgão=mcti peso=7 → sem valor editorial independente",
+      "processed_at": "2026-10-13T20:21:58-03:00",
+      "run_id": null
+    },
+    "chg_4e7b8d221b261f58": {
+      "change_id": "chg_4e7b8d221b261f58",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-mcti-estrategia-brasileira-para-a-transformacao-digital-e-digital-0f368d47",
+      "selection_reason": "ato tipo=programa órgão=mcti peso=7 → sem valor editorial independente",
+      "processed_at": "2026-10-13T20:21:58-03:00",
+      "run_id": null
+    },
+    "chg_5e4fb4033ca08581": {
+      "change_id": "chg_5e4fb4033ca08581",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-mcti-arquivos-internet-das-coisas-053935a3",
+      "selection_reason": "ato tipo=programa órgão=mcti peso=7 → sem valor editorial independente",
+      "processed_at": "2026-10-13T20:21:58-03:00",
+      "run_id": null
+    },
+    "chg_332516b3865024d5": {
+      "change_id": "chg_332516b3865024d5",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-13T20:21:58-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8077,19 +8137,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-10-02T12:51:47-03:00",
-      "dia": "2026-10-02",
-      "mudancas_novas": 105,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 133,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-10-02T17:47:20-03:00",
       "dia": "2026-10-02",
       "mudancas_novas": 106,
@@ -8723,6 +8770,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 171,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-13T20:21:58-03:00",
+      "dia": "2026-10-13",
+      "mudancas_novas": 16,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 6,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 172,
       "run_id": null,
       "bootstrap": false
     }
