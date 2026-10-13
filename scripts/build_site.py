@@ -100,9 +100,52 @@ def _optimize_monitor_home():
     with open(home, "w", encoding="utf-8") as f:
         f.write(html)
 
+def _optimize_pl_2338_search_result():
+    """Ajuste GSC específico da ficha do PL 2338/2023; não altera outras URLs."""
+    import json
+    import re
+    from html import escape as html_escape
+
+    path = os.path.join(_core.OUT, "proposicoes", "pl-2338-2023", "index.html")
+    source = os.path.join(_core.BASE, "data", "legislation", "propositions.json")
+    with open(source, encoding="utf-8") as f:
+        propositions = json.load(f).get("proposicoes", [])
+    prop = next((p for p in propositions if p.get("tipo") == "PL"
+                 and p.get("numero") == 2338 and p.get("ano") == 2023), None)
+    if not prop:
+        raise RuntimeError("SEO PL 2338: registro oficial não encontrado no dataset")
+    with open(path, encoding="utf-8") as f:
+        page_html = f.read()
+
+    desc = ("PL 2338/2023: veja a situação atual do Marco Legal da IA na Câmara, "
+            "relator, comissão, tramitação, apensados e fontes oficiais.")
+    for attribute in ('name="description"', 'property="og:description"'):
+        pattern = r'(<meta ' + re.escape(attribute) + r' content=")[^"]*(">)'
+        page_html, count = re.subn(pattern, lambda m: m.group(1) + desc + m.group(2),
+                                   page_html, count=1)
+        if count != 1:
+            raise RuntimeError("SEO PL 2338: meta description não localizada")
+
+    status = prop.get("situacao") or "Situação não confirmada nesta atualização"
+    anchor = '      <div style="margin-top:10px"><span class="tag '
+    if page_html.count(anchor) != 1:
+        raise RuntimeError("SEO PL 2338: âncora da primeira dobra não localizada")
+    snippet = (
+        '      <p class="sub" style="font-size:14px;margin-top:12px">'
+        '<strong>Situação atual na Câmara:</strong> ' + html_escape(status)
+        + ' · <a href="' + html_escape(prop["url_oficial"], quote=True)
+        + '" target="_blank" rel="noopener">Ficha oficial ↗</a>'
+        + ' · <a href="/timeline/">Linha do tempo da regulação de IA</a></p>\n'
+    )
+    page_html = page_html.replace(anchor, snippet + anchor, 1)
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(page_html)
+
+
 if __name__ == "__main__":
     _core.main()
     _optimize_monitor_home()
+    _optimize_pl_2338_search_result()
     _assert_domain_migration()
     print(f"OK: sitemap e arquivos críticos validados em {SITE_URL}")
 
