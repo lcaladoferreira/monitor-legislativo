@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-12"
+    "atualizado_em": "2026-10-13"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -7183,6 +7183,26 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-10-12T20:02:08-03:00",
       "run_id": null
+    },
+    "chg_655879444e6c01f7": {
+      "change_id": "chg_655879444e6c01f7",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-lei-no-15-504-de-15-de-setembro-de-2026",
+      "editorial_topic_id": "ato-planalto-lei-no-15-504-de-15-de-setembro-de-2026-63a95502",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-13T00:37:38-03:00",
+      "run_id": null
+    },
+    "chg_a3097d0738d8ed72": {
+      "change_id": "chg_a3097d0738d8ed72",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-13T00:37:38-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -7767,13 +7787,6 @@
       "prioridade": 13,
       "attempts": 3
     },
-    "chg_655879444e6c01f7": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "ato-planalto-lei-no-15-504-de-15-de-setembro-de-2026-63a95502",
-      "prioridade": 17,
-      "attempts": 3
-    },
     "chg_a0ad03e510d7ad66": {
       "reason": "sem_cota_no_dia",
       "since": "2026-09-18",
@@ -7847,19 +7860,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-01T20:15:21-03:00",
-      "dia": "2026-10-01",
-      "mudancas_novas": 107,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 3,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 128,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-01T23:18:03-03:00",
       "dia": "2026-10-01",
@@ -8489,6 +8489,19 @@
       "dia": "2026-10-12",
       "mudancas_novas": 11,
       "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 163,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-13T00:37:38-03:00",
+      "dia": "2026-10-13",
+      "mudancas_novas": 11,
+      "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 1,
       "adiadas": 0,
