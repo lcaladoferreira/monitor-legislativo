@@ -3,19 +3,427 @@
     "descricao": "Atos, publicações e consultas dos órgãos monitorados (ANPD, CNJ, TSE, DOU, Planalto e MCTI), coletados automaticamente de fontes oficiais.",
     "chave_primaria": "id estável derivado da URL oficial",
     "nota": "Todo item traz URL oficial, órgão, fonte e as datas de detecção. Registros com relevância 'revisar' aguardam curadoria editorial. Nada é estimado.",
-    "total": 645,
+    "total": 662,
     "por_orgao": {
       "anpd": 63,
-      "cnj": 30,
-      "dou": 478,
-      "mcti": 60,
+      "cnj": 31,
+      "dou": 493,
+      "mcti": 61,
       "planalto": 12,
       "tse": 2
     },
-    "indice_total": 645,
-    "execucao": "2026-10-13"
+    "indice_total": 662,
+    "execucao": "2026-10-14"
   },
   "atos": [
+    {
+      "id": "dou_in_gov_br_web_dou_despacho_de_13_de_outubro_de_2026_738087538",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "DESPACHO DE 13 DE OUTUBRO DE 2026",
+      "descricao": "como objetivo intervir na sessão da Assembleia Geral dedicada à Ação Estratégica em Supercomputação e Inteligência ... Artificial , contribuindo para a reflexão sobre o desenvolvimento dessa iniciativa e sobre as oportunidadeso das atribuições que lhe confere o inciso I do parágrafo único... (Despacho — Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/despacho-de-13-de-outubro-de-2026-738087538",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Despacho",
+      "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
+      "texto_hash": "sha1:b16650cdf1feb11c",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_702_de_9_de_outubro_de_2026_738106523",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "Portaria GABPR/ANPD Nº 702, DE 9 DE OUTUBRO DE 2026",
+      "descricao": "Portaria GABPR/ANPD Nº 702, DE 9 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊNCIA NACIONAL DE PROTEÇÃO ... DE DADOS - ANPD, no uso das atribuições que lhe são conferidas pelo art. 20 do Anexo I do Decreto nºPortaria GABPR/ANPD Nº 702, DE 9 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊ... (Portaria — Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-gabpr/anpd-n-702-de-9-de-outubro-de-2026-738106523",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
+      "texto_hash": "sha1:dda7d25df1c1a40e",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_cref26_ac_n_2_de_8_de_novembro_de_2026_738105123",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA CREF26/AC Nº 2, DE 8 DE NOVEMBRO DE 2026",
+      "descricao": "registros relativos ao processo seletivo, observadas as regras institucionais de arquivamento, sigilo e proteção ... de dados pessoais; XV - Exercer outras atividades necessárias à regular condução do certame, desde que suas atribuições normativas, conforme dispõe o inciso X, do art. 5º ... (Portaria — Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-cref26/ac-n-2-de-8-de-novembro-de-2026-738105123",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
+      "texto_hash": "sha1:e094195bf7e07985",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_705_de_9_de_outubro_de_2026_738101641",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA GABPR/ANPD N° 705, DE 9 DE OUTUBRO DE 2026",
+      "descricao": "PORTARIA GABPR/ANPD N° 705, DE 9 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊNCIA NACIONAL DE PROTEÇÃO ... DE DADOS - ANPD, considerando o disposto na Lei nº 15.352, de 25 de fevereiro de 2026, no inciso II, ... com ônus, da servidora LORENA GIUBERTI COUTINHO, Diretora do Conselho Diretor da Agência Nacional de Proteção ... de Dados , com o objetivo de participar do evento com o objetivo de participar do evento \"48ª Conferência (Portaria — Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-gabpr/anpd-n-705-de-9-de-outubro-de-2026-738101641",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
+      "texto_hash": "sha1:6658ba87fcecf146",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_709_de_13_de_outubro_de_2026_738098549",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA GABPR/ANPD N° 709, DE 13 DE OUTUBRO DE 2026",
+      "descricao": "PORTARIA GABPR/ANPD N° 709, DE 13 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊNCIA NACIONAL DE PROTEÇÃO ... DE DADOS - ANPD, no uso de suas atribuições e tendo em vista o disposto no art. 38 da Lei nº 8.112, de 11 de dezembro de 1990, resolve: Designar PAULO SEIKISHI HIGA para exercer o encargo de substituto eventual no Cargo Comissionado Executivo de Gerente de Projeto, código CCE 3.14, no âmbito do Gabinete da Diretoria 2 - GABDIR2/ANPD, nos afastamentos, impedimentos legais ou regulamentares da titular e na vacância do cargo. WALDEMAR GONÇALVES ORTUNHO JUNIOR (Portaria — Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-gabpr/anpd-n-709-de-13-de-outubro-de-2026-738098549",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
+      "texto_hash": "sha1:8451dfc6566bec15",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_cref23_ro_n_2_de_8_de_novembro_de_2026_738097945",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA CREF23/RO Nº 2, DE 8 DE NOVEMBRO DE 2026",
+      "descricao": "registros relativos ao processo seletivo, observadas as regras institucionais de arquivamento, sigilo e proteção ... de dados pessoais; XV - exercer outras atividades necessárias à regular condução do certame, desde que suas atribuições normativas, conforme dispõe o inciso X, do art. 5º ... (Portaria — Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-cref23/ro-n-2-de-8-de-novembro-de-2026-738097945",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
+      "texto_hash": "sha1:5ed66302d28c259a",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_707_de_13_de_outubro_de_2026_738095414",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA GABPR/ANPD N° 707, DE 13 DE OUTUBRO DE 2026",
+      "descricao": "PORTARIA GABPR/ANPD N° 707, DE 13 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊNCIA NACIONAL DE PROTEÇÃO ... DE DADOS - ANPD, considerando o disposto na Lei nº 15.352, de 25 de fevereiro de 2026, no inciso II, § 2º, art. 3º da Lei nº 13.848, de 25 de junho de 2019, no art. 2º do Decreto... (Portaria — Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-gabpr/anpd-n-707-de-13-de-outubro-de-2026-738095414",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
+      "texto_hash": "sha1:493d8359c21ad0b9",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_706_de_13_de_outubro_de_2026_738088494",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA GABPR/ANPD N° 706, DE 13 DE OUTUBRO DE 2026",
+      "descricao": "PORTARIA GABPR/ANPD N° 706, DE 13 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊNCIA NACIONAL DE PROTEÇÃO ... DE DADOS - ANPD, considerando o disposto na Lei nº 15.352, de 25 de fevereiro de 2026, no inciso II, § 2º, art. 3º da Lei nº 13.848, de 25 de junho de 2019, no art. 2º do Decreto... (Portaria — Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-gabpr/anpd-n-706-de-13-de-outubro-de-2026-738088494",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
+      "texto_hash": "sha1:261a9c33e5a2389f",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_cref25_ap_n_2_de_8_de_novembro_de_2026_738084519",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA CREF25/AP Nº 2, DE 8 DE NOVEMBRO DE 2026",
+      "descricao": "registros relativos ao processo seletivo, observadas as regras institucionais de arquivamento, sigilo e proteção ... de dados pessoais; XV - Exercer outras atividades necessárias à regular condução do certame, desde que suas atribuições normativas, conforme dispõe o inciso X, do art. 5º ... (Portaria — Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-cref25/ap-n-2-de-8-de-novembro-de-2026-738084519",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
+      "texto_hash": "sha1:6e76aee629ed5db1",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_704_de_9_de_outubro_de_2026_738073744",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA GABPR/ANPD N° 704, DE 9 DE OUTUBRO DE 2026",
+      "descricao": "PORTARIA GABPR/ANPD N° 704, DE 9 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊNCIA NACIONAL DE PROTEÇÃO ... DE DADOS - ANPD, considerando o disposto na Lei nº 15.352, de 25 de fevereiro de 2026, no inciso IIPORTARIA GABPR/ANPD N° 704, DE 9 DE OUTUBRO DE 2026 O DIRETOR-PRESIDENTE DA AGÊN... (Portaria — Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-gabpr/anpd-n-704-de-9-de-outubro-de-2026-738073744",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
+      "texto_hash": "sha1:ed36c7a308799547",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_cref24_to_n_2_de_8_de_novembro_de_2026_738071820",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA CREF24/TO Nº 2, DE 8 DE NOVEMBRO DE 2026",
+      "descricao": "registros relativos ao processo seletivo, observadas as regras institucionais de arquivamento, sigilo e proteção ... de dados pessoais; XV - Exercer outras atividades necessárias à regular condução do certame, desde que suas atribuições normativas, conforme dispõe o inciso X, do art. 5º ... (Portaria — Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-cref24/to-n-2-de-8-de-novembro-de-2026-738071820",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
+      "texto_hash": "sha1:19643d152df58747",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_sefic_minc_n_694_de_13_de_outubro_de_2026_738071133",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "PORTARIA SEFIC/MINC Nº 694, DE 13 DE OUTUBRO DE 2026",
+      "descricao": "abertura com artistas da nova cena musical carioca e registro audiovisual para difusão gratuita em plataformas ... digitais .PORTARIA SEFIC/MINC Nº 694, DE 13 DE OUTUBRO DE 2026 O SECRETÁRIO DE FOMENTO E INCENTIVO À CULTURA, no uso de suas atribuições legais, que lhe confere a Portaria nº... (Portaria — Ministério da Cultura/Secretaria de Fomento e Incentivo à Cultura)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-sefic/minc-n-694-de-13-de-outubro-de-2026-738071133",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "revisar",
+      "revisao_pendente": true,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Cultura/Secretaria de Fomento e Incentivo à Cultura",
+      "texto_hash": "sha1:4a908137bf7420a6",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_atos_de_6_de_outubro_de_2026_738049723",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "ATOS DE 6 DE OUTUBRO DE 2026",
+      "descricao": "Expede autorização à NWI DATA CENTER E TECNOLOGIA DA INFORMACAO LTDA, CNPJ/MF nº 48.059.527/0001-18, para explorar Serviços de Telecomunicações de Interesse Coletivo e de Interesse Restrito, por prazo indeterminado, em todo o território nacional. Nº 12.775 - Processo nº 53500.141765/2026-71. Expede autorização à JOSEFA OLIVEIRA TAVARES LTDA, ... (Ato — Ministério das Comunicações/Superintendência de Outorga e Recursos à Prestação/Gerência de Outorga e Licenciamento de Estações)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/atos-de-6-de-outubro-de-2026-738049723",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Ato",
+      "hierarquia": "Ministério das Comunicações/Superintendência de Outorga e Recursos à Prestação/Gerência de Outorga e Licenciamento de Estações",
+      "texto_hash": "sha1:e067437cdc7875b9",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "mcti_in_gov_br_web_dou_despacho_de_13_de_outubro_de_2026_738087538",
+      "orgao": "mcti",
+      "tipo": "portaria",
+      "titulo": "DESPACHO DE 13 DE OUTUBRO DE 2026",
+      "descricao": "como objetivo intervir na sessão da Assembleia Geral dedicada à Ação Estratégica em Supercomputação e Inteligência ... Artificial , contribuindo para a reflexão sobre o desenvolvimento dessa iniciativa e sobre as oportunidadeso das atribuições que lhe confere o inciso I do parágrafo único... (Despacho — Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra)",
+      "data": "2026-10-14",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/despacho-de-13-de-outubro-de-2026-738087538",
+      "fonte": "MCTI — Ministério da Ciência, Tecnologia e Inovação — atos do MCTI por tema (DOU)",
+      "canais": [
+        "atos do MCTI por tema (DOU)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Despacho",
+      "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
+      "texto_hash": "sha1:b16650cdf1feb11c",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "cnj_cnj_jus_br_conexao_auditoria_apresenta_ferramenta_de_gestao_e_fiscalizacao_de_contratos_de_terceirizacao_na_se",
+      "orgao": "cnj",
+      "tipo": "noticia",
+      "titulo": "Conexão Auditoria apresenta ferramenta de gestão e fiscalização de contratos de terceirização na sexta (23/10)",
+      "descricao": "Padronização de procedimentos, automação de rotinas e aprimoramento do controle das obrigações contratuais, trabalhistas e fiscais de empresas terceirizadas serão os principais temas debatidos na próxima reunião do Conexão Auditoria. Promovido pelo Conselho Nacional de Justiça (CNJ), o encontro será realizado virtualmente em 23 de outubro, a partir das 14h, e poderá ser acompanhado por […]",
+      "data": "2026-10-13",
+      "url_oficial": "https://www.cnj.jus.br/conexao-auditoria-apresenta-ferramenta-de-gestao-e-fiscalizacao-de-contratos-de-terceirizacao-na-sexta-23-10/",
+      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
+      "canais": [
+        "notícias oficiais"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "post",
+      "hierarquia": null,
+      "texto_hash": "sha1:b0333f2166cf5dc4",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_an_mgi_n_297_de_8_de_outubro_de_2026_738043052",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "Portaria AN/MGI Nº 297, DE 8 DE outubro DE 2026",
+      "descricao": "A Direção-Geral do Arquivo Nacional poderá editar diretriz específica sobre o uso de ferramentas de inteligência ... artificial na elaboração das obras, com apoio do Conselho Editorial e das unidades competentes, inclusive: Art. 1º Esta Portaria institui a Política Editorial do Arquivo N... (Portaria — Ministério da Gestão e da Inovação em Serviços Públicos/Arquivo Nacional)",
+      "data": "2026-10-13",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-an/mgi-n-297-de-8-de-outubro-de-2026-738043052",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "revisar",
+      "revisao_pendente": true,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Gestão e da Inovação em Serviços Públicos/Arquivo Nacional",
+      "texto_hash": "sha1:122c5f6893215a8b",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
+    {
+      "id": "dou_in_gov_br_web_dou_portaria_spu_mgi_n_6_906_de_24_de_agosto_de_2026_738043075",
+      "orgao": "dou",
+      "tipo": "publicacao",
+      "titulo": "Portaria SPU/MGI Nº 6.906, DE 24 DE AGOSTO DE 2026",
+      "descricao": "O tratamento de dados, documentos e informações no âmbito do SPUnet observará a legislação de proteção ... de dados pessoais e segurança da informação aplicável à Administração Pública Federal, tais como a Lei ... preservação do histórico operacional; IV - continuidade dos serviços; V - segurança da informação e proteção ... dos dados institucionais; VI - compatibilidade com sistemas estruturantes federais; e VII - preservação (Portaria — Ministério da Gestão e da Inovação em Serviços Públicos/Secretaria do Patrimônio da União)",
+      "data": "2026-10-13",
+      "url_oficial": "https://www.in.gov.br/web/dou/-/portaria-spu/mgi-n-6.906-de-24-de-agosto-de-2026-738043075",
+      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
+      "canais": [
+        "busca por tema (7 dias)"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "Portaria",
+      "hierarquia": "Ministério da Gestão e da Inovação em Serviços Públicos/Secretaria do Patrimônio da União",
+      "texto_hash": "sha1:507323452a3b809c",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
+      "primeira_deteccao": "2026-10-14T01:52:01-03:00",
+      "id_execucao_primeira": "run_2026_10_14_0152",
+      "historico": []
+    },
     {
       "id": "dou_in_gov_br_web_dou_portaria_gm_md_n_5_154_de_7_de_outubro_de_2026_737977138",
       "orgao": "dou",
@@ -34,8 +442,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Defesa/Gabinete do Ministro",
       "texto_hash": "sha1:bb498e33982c2891",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T16:16:20-03:00",
       "id_execucao_primeira": "run_2026_10_13_1616",
       "historico": []
@@ -58,8 +466,8 @@
       "tipo_ato": "Aviso de Licitação-Pregão",
       "hierarquia": "Ministério da Educação/Instituto Federal de Educação, Ciência e Tecnologia de São Paulo/Campus Catanduva",
       "texto_hash": "sha1:7265083f0d914caf",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -82,8 +490,8 @@
       "tipo_ato": "Retificação (de Edital)",
       "hierarquia": "Ministério da Educação/Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais",
       "texto_hash": "sha1:561377b9b840b9ad",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -106,8 +514,8 @@
       "tipo_ato": "Extrato de Contrato",
       "hierarquia": "Ministério da Educação/Universidade Federal de Goiás",
       "texto_hash": "sha1:b27d606b045bfe2f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -130,8 +538,8 @@
       "tipo_ato": "Retificação (de Edital)",
       "hierarquia": "Ministério da Educação/Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais",
       "texto_hash": "sha1:e7963395f7ba955d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -154,8 +562,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério do Planejamento e Orçamento/Fundação Instituto Brasileiro de Geografia e Estatística",
       "texto_hash": "sha1:e260838fe50007fd",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -178,8 +586,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:87009129dba8a922",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -202,8 +610,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério Público da União/Ministério Público do Distrito Federal e Territórios/Procuradoria-Geral de Justiça",
       "texto_hash": "sha1:d2d8c6497e71bc9a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -226,8 +634,8 @@
       "tipo_ato": "Ato",
       "hierarquia": "Poder Judiciário/Tribunal Superior do Trabalho/Secretaria",
       "texto_hash": "sha1:2b228d7e358206a5",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -250,8 +658,8 @@
       "tipo_ato": "Decreto numerado",
       "hierarquia": "Atos do Poder Judiciário/Supremo Tribunal Federal/Plenário",
       "texto_hash": "sha1:024f47b0e4f23aa2",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -274,8 +682,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Previdência Social/Gabinete do Ministro",
       "texto_hash": "sha1:7ee9b99ca08d70bb",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -298,8 +706,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Conselho Nacional de Desenvolvimento Científico e Tecnológico",
       "texto_hash": "sha1:ca1c0281436ba77d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -322,8 +730,8 @@
       "tipo_ato": "Termo de Autorização",
       "hierarquia": "Prefeituras/Estado de Mato Grosso/Prefeitura Municipal de Planalto da Serra",
       "texto_hash": "sha1:43964a6c5cedb9c8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -346,8 +754,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Gestão e da Inovação em Serviços Públicos/Secretaria Executiva/Diretoria de Carreiras Transversais",
       "texto_hash": "sha1:437a3c75545d496f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -370,8 +778,8 @@
       "tipo_ato": "Pauta",
       "hierarquia": "Ministério da Fazenda/Conselho de Recursos do Sistema Nacional de Seguros Privados, de Previdência Privada Aberta e de Capitalização",
       "texto_hash": "sha1:6f20e3d954d4776f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -394,8 +802,8 @@
       "tipo_ato": "Ata",
       "hierarquia": "Ministério Público da União/Ministério Público do Trabalho/Procuradoria-Geral/Câmara de Coordenação e Revisão",
       "texto_hash": "sha1:048cd67351fd0e9c",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -418,8 +826,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Gabinete do Ministro",
       "texto_hash": "sha1:048ac7c1fac7d378",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -442,8 +850,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Ministério da Cultura/Fundação Cultural Palmares",
       "texto_hash": "sha1:66840743e6d74363",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -466,8 +874,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Farmácia",
       "texto_hash": "sha1:13361172b5177ece",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -490,8 +898,8 @@
       "tipo_ato": "Decreto numerado",
       "hierarquia": "Atos do Poder Judiciário/Supremo Tribunal Federal/Plenário",
       "texto_hash": "sha1:25a7a57cc27f2c3d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -514,8 +922,8 @@
       "tipo_ato": "Aviso de Licitação",
       "hierarquia": "Prefeituras/Estado do Ceará/Prefeitura Municipal de Eusébio",
       "texto_hash": "sha1:73b5319a1b601cb0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -538,8 +946,8 @@
       "tipo_ato": "Extrato",
       "hierarquia": "Ministério da Cultura/Instituto do Patrimônio Histórico e Artístico Nacional",
       "texto_hash": "sha1:4b4169649b4a826a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -562,8 +970,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Gestão e da Inovação em Serviços Públicos/Secretaria de Governo Digital",
       "texto_hash": "sha1:ef0399eec7d21d02",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -586,8 +994,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério do Planejamento e Orçamento/Secretaria de Orçamento Federal/Subsecretaria de Gestão Orçamentária",
       "texto_hash": "sha1:935395e085d6b88e",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -610,8 +1018,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério de Minas e Energia/Agência Nacional de Energia Elétrica/Superintendência de Concessões, Permissões e Autorizações dos Serviços de Energia Elétrica/Gerência de Outorga de Transmissão e Distribuição de Energia Elétrica",
       "texto_hash": "sha1:6177c8cea2b610f3",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -634,8 +1042,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:87009129dba8a922",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -658,8 +1066,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Conselho Nacional de Desenvolvimento Científico e Tecnológico",
       "texto_hash": "sha1:ca1c0281436ba77d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T08:34:31-03:00",
       "id_execucao_primeira": "run_2026_10_13_0834",
       "historico": []
@@ -682,8 +1090,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:fdfee74a2ab6f4a3",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T17:53:31-03:00",
       "id_execucao_primeira": "run_2026_10_09_1753",
       "historico": []
@@ -706,8 +1114,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:b4c05cd59d1bc4fa",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T17:53:31-03:00",
       "id_execucao_primeira": "run_2026_10_09_1753",
       "historico": []
@@ -730,8 +1138,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:9727d70ededfdfdf",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T13:11:40-03:00",
       "id_execucao_primeira": "run_2026_10_09_1311",
       "historico": [
@@ -762,8 +1170,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:c02a826b0beaff6c",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T13:11:40-03:00",
       "id_execucao_primeira": "run_2026_10_09_1311",
       "historico": []
@@ -786,8 +1194,8 @@
       "tipo_ato": "Extrato de Termo de Cooperação Técnica",
       "hierarquia": "Poder Judiciário/Tribunal Regional Eleitoral de São Paulo/Diretoria-Geral/Secretaria de Administração/COORDENADORIA DE CONTRATOS/Seção de Gestão de Contratos de Locação e Aquisição",
       "texto_hash": "sha1:8147b7173b0f9765",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -810,8 +1218,8 @@
       "tipo_ato": "Edital de Concurso Público",
       "hierarquia": "Controladoria-Geral da União/Secretaria Executiva",
       "texto_hash": "sha1:1d5645ae3a618300",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -834,8 +1242,8 @@
       "tipo_ato": "Extrato de Parceria",
       "hierarquia": "Ministério da Educação/Universidade Federal de Goiás",
       "texto_hash": "sha1:7f5b4dcc9e710d40",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -858,8 +1266,8 @@
       "tipo_ato": "Extrato de Termo Aditivo",
       "hierarquia": "Ministério da Educação/Universidade Federal de Goiás",
       "texto_hash": "sha1:a540fe9393944578",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -882,8 +1290,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacional de Energia Nuclear/Gabinete",
       "texto_hash": "sha1:a6d60b3f69501bf8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -906,8 +1314,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Educação/Universidade Federal do Rio Grande do Sul",
       "texto_hash": "sha1:285b44ba10d986e9",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -930,8 +1338,8 @@
       "tipo_ato": "Ata",
       "hierarquia": "Tribunal de Contas da União/Plenário",
       "texto_hash": "sha1:d18ab6f0f6b988f8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -954,8 +1362,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Educação/Instituto Federal de Educação, Ciência e Tecnologia do Ceará",
       "texto_hash": "sha1:677cc323afa7e251",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -978,8 +1386,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Educação/Universidade Federal do Rio Grande do Norte",
       "texto_hash": "sha1:1b66adca41744b85",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1002,8 +1410,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério de Portos e Aeroportos/Secretaria Nacional de Portos",
       "texto_hash": "sha1:0c802138bad8d1fc",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1026,8 +1434,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Cultura/Secretaria do Audiovisual",
       "texto_hash": "sha1:1b0dcc09fbb15715",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1050,8 +1458,8 @@
       "tipo_ato": "Comunicado",
       "hierarquia": "Ministério da Educação/Universidade Federal do Rio de Janeiro",
       "texto_hash": "sha1:1be180503c9a6d35",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1074,8 +1482,8 @@
       "tipo_ato": "Edital de Concurso Público",
       "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
       "texto_hash": "sha1:94c0db4dc106a199",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1098,8 +1506,8 @@
       "tipo_ato": "Edital de Concurso Público",
       "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
       "texto_hash": "sha1:1d2c5092f5b6ce86",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1122,8 +1530,8 @@
       "tipo_ato": "Edital de Concurso Público",
       "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
       "texto_hash": "sha1:239e06d014c2797d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1146,8 +1554,8 @@
       "tipo_ato": "Edital de Concurso Público",
       "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
       "texto_hash": "sha1:bda858e3a78670af",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1170,8 +1578,8 @@
       "tipo_ato": "Extrato de Contrato",
       "hierarquia": "Ministério da Educação/Hospital de Clínicas de Porto Alegre",
       "texto_hash": "sha1:ee06b954d08aefcd",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1194,8 +1602,8 @@
       "tipo_ato": "Edital de Concurso Público",
       "hierarquia": "Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Educação Física",
       "texto_hash": "sha1:6d608c531fd27ffc",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1218,8 +1626,8 @@
       "tipo_ato": "Extrato de Termo Aditivo",
       "hierarquia": "Ministério da Educação/Hospital de Clínicas de Porto Alegre",
       "texto_hash": "sha1:126aa74cd15a0f31",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1242,8 +1650,8 @@
       "tipo_ato": "Extrato de Memorando de Entendimento",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
       "texto_hash": "sha1:5a93f0da7744b0c9",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1266,8 +1674,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
       "texto_hash": "sha1:83ca8e33d61728c5",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1290,8 +1698,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
       "texto_hash": "sha1:cdaebe6db0668a3e",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1314,8 +1722,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
       "texto_hash": "sha1:aef1770c23c09ed6",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1338,8 +1746,8 @@
       "tipo_ato": "Ato Declaratório",
       "hierarquia": "Ministério da Fazenda/Secretaria Especial da Receita Federal do Brasil/Secretaria-Adjunta/Superintendência Regional da Receita Federal do Brasil 8ª Região Fiscal/Alfândega da Receita Federal do Brasil em São Paulo",
       "texto_hash": "sha1:060356dec691141f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1362,8 +1770,8 @@
       "tipo_ato": "Aviso",
       "hierarquia": "Prefeituras/Estado da Bahia/Prefeitura Municipal de Paulo Afonso",
       "texto_hash": "sha1:092cdf7d04cb69f3",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1386,8 +1794,8 @@
       "tipo_ato": "Aviso de Licitação-Pregão",
       "hierarquia": "Poder Judiciário/Tribunal Regional Eleitoral de Pernambuco",
       "texto_hash": "sha1:f62d20d95ea977c0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1410,8 +1818,8 @@
       "tipo_ato": "Edital de Convocação",
       "hierarquia": "Ineditoriais/SINDICATO DOS TRABALHADORES EM RADIODIFUSÃO E COMUNICAÇÃO SOCIAL DO ESTADO DE MATO GROSSO DO SUL",
       "texto_hash": "sha1:2b2163c3c3a842ba",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1434,8 +1842,8 @@
       "tipo_ato": "Aviso",
       "hierarquia": "Prefeituras/Estado do Paraná/Prefeitura Municipal de Pinhal de São Bento",
       "texto_hash": "sha1:b70be4045e11b307",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1458,8 +1866,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacional de Energia Nuclear/Gabinete",
       "texto_hash": "sha1:a6d60b3f69501bf8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-09T06:02:35-03:00",
       "id_execucao_primeira": "run_2026_10_09_0602",
       "historico": []
@@ -1482,8 +1890,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:3936e0c5e0029121",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T12:35:59-03:00",
       "id_execucao_primeira": "run_2026_10_08_1235",
       "historico": []
@@ -1506,8 +1914,8 @@
       "tipo_ato": "Extrato de Termo de Fomento",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Secretaria de Desenvolvimento Tecnológico e Inovação",
       "texto_hash": "sha1:c185e2b885829add",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1530,8 +1938,8 @@
       "tipo_ato": "Extrato de Acordo de Cooperação Técnica",
       "hierarquia": "Ministério da Educação/Instituto Federal de Educação, Ciência e Tecnologia do Pará",
       "texto_hash": "sha1:533e99dc061621a3",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1554,8 +1962,8 @@
       "tipo_ato": "Extrato",
       "hierarquia": "Presidência da República/Advocacia-Geral da União/Secretaria-Geral de Consultoria/Secretaria de Governança e Gestão Estratégica",
       "texto_hash": "sha1:422f4b5bbead12e6",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1578,8 +1986,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Educação/Instituto Federal de Educação, Ciência e Tecnologia do Paraná",
       "texto_hash": "sha1:498afb1f4a8897f4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1602,8 +2010,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:bbe9d5c794692118",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1626,8 +2034,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:522e7f12703de1c0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1650,8 +2058,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Banco Central do Brasil/Conselho de Controle de Atividades Financeiras",
       "texto_hash": "sha1:33b71b469bf12a99",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1674,8 +2082,8 @@
       "tipo_ato": "Extrato de Contrato",
       "hierarquia": "Ministério da Educação/Hospital de Clínicas de Porto Alegre",
       "texto_hash": "sha1:44811805573ec315",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1698,8 +2106,8 @@
       "tipo_ato": "Extrato de Termo Aditivo",
       "hierarquia": "Ministério da Educação/Hospital de Clínicas de Porto Alegre",
       "texto_hash": "sha1:a825b58e69984e1f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1722,8 +2130,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Agência Nacional de Proteção de Dados",
       "texto_hash": "sha1:aa30967076920233",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1746,8 +2154,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério de Minas e Energia/Agência Nacional do Petróleo, Gás Natural e Biocombustíveis",
       "texto_hash": "sha1:d43fcea690305472",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1770,8 +2178,8 @@
       "tipo_ato": "Ata",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Secretaria Nacional do Consumidor/Conselho Federal Gestor do Fundo de Defesa dos Direitos Difusos",
       "texto_hash": "sha1:38888bf455fc7421",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1794,8 +2202,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério do Planejamento e Orçamento/Secretaria de Orçamento Federal/Subsecretaria de Gestão Orçamentária",
       "texto_hash": "sha1:4ec0cb9e5b121ee2",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1818,8 +2226,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Presidência da República/Casa Civil/Comitê Interministerial sobre a Mudança do Clima e o Crescimento Verde",
       "texto_hash": "sha1:716af7910c296713",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1842,8 +2250,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Presidência da República/Casa Civil/Comitê Interministerial sobre a Mudança do Clima e o Crescimento Verde",
       "texto_hash": "sha1:0843af1132cc86d8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1890,8 +2298,8 @@
       "tipo_ato": "Aviso",
       "hierarquia": "Prefeituras/Estado da Bahia/Prefeitura Municipal de Capim Grosso",
       "texto_hash": "sha1:d943412746cd5365",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1914,8 +2322,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Cultura/Secretaria de Fomento e Incentivo à Cultura",
       "texto_hash": "sha1:2ee0a84bab33f48f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1938,8 +2346,8 @@
       "tipo_ato": "Extrato de Termo de Fomento",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Secretaria de Desenvolvimento Tecnológico e Inovação",
       "texto_hash": "sha1:c185e2b885829add",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1962,8 +2370,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:bbe9d5c794692118",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -1986,8 +2394,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:522e7f12703de1c0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-08T04:23:48-03:00",
       "id_execucao_primeira": "run_2026_10_08_0423",
       "historico": []
@@ -2010,8 +2418,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:5cb03a99e7590e2a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T21:59:41-03:00",
       "id_execucao_primeira": "run_2026_10_07_2159",
       "historico": []
@@ -2034,8 +2442,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:83d67a4fea27239f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T17:37:06-03:00",
       "id_execucao_primeira": "run_2026_10_07_1737",
       "historico": []
@@ -2082,8 +2490,8 @@
       "tipo_ato": "Edital",
       "hierarquia": "Ministério da Educação/Fundação Universidade Federal de Mato Grosso do Sul",
       "texto_hash": "sha1:956515cd2c3051a6",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2106,8 +2514,8 @@
       "tipo_ato": "Edital de Concurso Público",
       "hierarquia": "Ministério da Educação/Instituto Federal de Educação, Ciência e Tecnologia de Minas Gerais",
       "texto_hash": "sha1:025194744b17c4da",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2130,8 +2538,8 @@
       "tipo_ato": "Edital de Convocação",
       "hierarquia": "Ineditoriais/SINDICATO DOS EMPREGADOS EM EMPRESAS DE ASSEIO, CONSERVAÇÃO, LIMPEZA URBANA, AMBIENTAL, AREAS VERDES, VIAS RODOFERROVIARIAS E SIMILARES DE CASCAVEL E REGIÃO",
       "texto_hash": "sha1:f4d13fa0929cd599",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2154,8 +2562,8 @@
       "tipo_ato": "Extrato de Registro de Preços",
       "hierarquia": "Ineditoriais/Fundação de Previdência Complementar do Servidor Público Federal do Poder Judiciário",
       "texto_hash": "sha1:fb43ff8bd96439f9",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2178,8 +2586,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Educação/Universidade Federal do Cariri",
       "texto_hash": "sha1:fbf8430364185b2e",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2202,8 +2610,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Presidência da República/Câmara de Comércio Exterior/Comitê-Executivo de Gestão",
       "texto_hash": "sha1:8b492c0fcb192b88",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2226,8 +2634,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Presidência da República/Câmara de Comércio Exterior/Comitê-Executivo de Gestão",
       "texto_hash": "sha1:e33c6e3b6f0edfb7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2250,8 +2658,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério do Desenvolvimento, Indústria, Comércio e Serviços/Instituto Nacional de Metrologia, Qualidade e Tecnologia",
       "texto_hash": "sha1:cd880555c4bbc557",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2274,8 +2682,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Ministério da Gestão e da Inovação em Serviços Públicos/Fundação Escola Nacional de Administração Pública",
       "texto_hash": "sha1:491df64f2b2b2c75",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2538,8 +2946,8 @@
       "tipo_ato": "Aviso de Licitação-Pregão",
       "hierarquia": "Ministério da Agricultura e Pecuária/Empresa Brasileira de Pesquisa Agropecuária/Embrapa Meio-Norte",
       "texto_hash": "sha1:762d5380b2a5ae40",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2562,8 +2970,8 @@
       "tipo_ato": "Aviso de Licitação",
       "hierarquia": "Prefeituras/Estado de Pernambuco/Prefeitura Municipal de João Alfredo",
       "texto_hash": "sha1:70198b4185d31f2a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2586,8 +2994,8 @@
       "tipo_ato": "Extrato de Contrato",
       "hierarquia": "Presidência da República/Secretaria de Comunicação Social/Empresa Brasil de Comunicação S.A.",
       "texto_hash": "sha1:706ab3e13372e798",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2610,8 +3018,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério das Relações Exteriores/Secretaria-Geral das Relações Exteriores/Secretaria de Comunidades Brasileiras e Assuntos Consulares e Jurídico/Departamento de Imigração e Cooperação Jurídica/Divisão de Atos Internacionais",
       "texto_hash": "sha1:43a6597ecf3bbd97",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2634,8 +3042,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": "Presidência da República/Câmara de Comércio Exterior/Comitê-Executivo de Gestão",
       "texto_hash": "sha1:e1e286a8a44d2e27",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2658,8 +3066,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Justiça e Segurança Pública/Secretaria Nacional de Justiça/Departamento de Migrações/Coordenação-Geral de Imigração Laboral",
       "texto_hash": "sha1:cea8a052d4c1d0cf",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2682,8 +3090,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:92e3cca572bc37c0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2706,8 +3114,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:92e3cca572bc37c0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-07T04:13:47-03:00",
       "id_execucao_primeira": "run_2026_10_07_0413",
       "historico": []
@@ -2730,8 +3138,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:7691c2de91d3a7f4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-06T17:19:00-03:00",
       "id_execucao_primeira": "run_2026_10_06_1719",
       "historico": []
@@ -2754,8 +3162,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:8acd8dd70a8f874a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-06T17:19:00-03:00",
       "id_execucao_primeira": "run_2026_10_06_1719",
       "historico": []
@@ -3442,8 +3850,8 @@
       "tipo_ato": "Extrato de Protocolo de Intenção",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Instituto Nacional de Pesquisas da Amazônia",
       "texto_hash": "sha1:66bd3884371f0be8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-06T04:33:58-03:00",
       "id_execucao_primeira": "run_2026_10_06_0433",
       "historico": []
@@ -3466,8 +3874,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:f237ac746ef1ec39",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-05T21:48:34-03:00",
       "id_execucao_primeira": "run_2026_10_05_2148",
       "historico": []
@@ -3514,8 +3922,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:226f50fbdec2c82b",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-05T15:26:50-03:00",
       "id_execucao_primeira": "run_2026_10_05_1526",
       "historico": []
@@ -4256,9 +4664,10 @@
       "descricao": "Soluções tecnológicas que automatizam processos, simplificam tarefas, otimizam cálculos e aceleram a entrega de serviços da Justiça: desde 2025, o Programa Conecta já nacionalizou 14 ferramentas desenvolvidas por tribunais brasileiros. A iniciativa foi instituída pelo Conselho Nacional de Justiça (CNJ) e funciona como uma incubadora de inovação que amplia o acesso a tecnologias locais para […]",
       "data": "2026-10-02",
       "url_oficial": "https://www.cnj.jus.br/saiba-como-os-tribunais-podem-utilizar-solucoes-tecnologicas-nacionalizadas-pelo-conecta/",
-      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
+      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais (página 2)",
       "canais": [
-        "notícias oficiais"
+        "notícias oficiais",
+        "notícias oficiais (página 2)"
       ],
       "relevancia": "revisar",
       "revisao_pendente": true,
@@ -4266,8 +4675,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:bc7bb2ad6b95fb14",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-02T17:44:04-03:00",
       "id_execucao_primeira": "run_2026_10_02_1744",
       "historico": []
@@ -4290,8 +4699,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:d02e99d64d412e4a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-02T17:44:04-03:00",
       "id_execucao_primeira": "run_2026_10_02_1744",
       "historico": [
@@ -4842,8 +5251,8 @@
       "tipo_ato": "Extrato de Termo de Fomento",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Secretaria de Ciência e Tecnologia para Transformação Digital",
       "texto_hash": "sha1:042778bc09b876a7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-02T05:34:48-03:00",
       "id_execucao_primeira": "run_2026_10_02_0534",
       "historico": []
@@ -4866,8 +5275,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:e36759b649fb02a6",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-02T05:34:48-03:00",
       "id_execucao_primeira": "run_2026_10_02_0534",
       "historico": []
@@ -4890,8 +5299,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Agência Espacial Brasileira",
       "texto_hash": "sha1:a1fdc0e6606247d7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-02T05:34:48-03:00",
       "id_execucao_primeira": "run_2026_10_02_0534",
       "historico": []
@@ -4914,8 +5323,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Agência Espacial Brasileira",
       "texto_hash": "sha1:b6de49b1f2bdd4e8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-02T05:34:48-03:00",
       "id_execucao_primeira": "run_2026_10_02_0534",
       "historico": []
@@ -4963,8 +5372,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:2bf3b2d60612bb71",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-01T20:11:54-03:00",
       "id_execucao_primeira": "run_2026_10_01_2011",
       "historico": []
@@ -5995,8 +6404,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Secretaria Executiva",
       "texto_hash": "sha1:7106966d6f1471e9",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-30T13:10:57-03:00",
       "id_execucao_primeira": "run_2026_09_30_1310",
       "historico": []
@@ -6043,8 +6452,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:72d9eb2e046fd102",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-30T13:10:57-03:00",
       "id_execucao_primeira": "run_2026_09_30_1310",
       "historico": []
@@ -7051,8 +7460,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:d426c4b046601dd9",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-25T10:46:34-03:00",
       "id_execucao_primeira": "run_2026_09_25_1046",
       "historico": []
@@ -7075,8 +7484,8 @@
       "tipo_ato": "Extrato de Acordo de Cooperação Técnica",
       "hierarquia": "Poder Judiciário/Tribunal Superior Eleitoral/Secretaria do Tribunal/Secretaria de Administração/Coordenadoria de Aquisições/Seção de Contratos",
       "texto_hash": "sha1:80489054be1d641e",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-25T04:47:27-03:00",
       "id_execucao_primeira": "run_2026_09_25_0447",
       "historico": []
@@ -7507,8 +7916,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacional de Energia Nuclear/Gabinete",
       "texto_hash": "sha1:431f5eca50eb9e3a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-25T04:47:27-03:00",
       "id_execucao_primeira": "run_2026_09_25_0447",
       "historico": []
@@ -7604,8 +8013,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:54b93ddccf2868bd",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-24T19:23:34-03:00",
       "id_execucao_primeira": "run_2026_09_24_1923",
       "historico": []
@@ -7628,8 +8037,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:091403ee40bae904",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-24T19:23:34-03:00",
       "id_execucao_primeira": "run_2026_09_24_1923",
       "historico": []
@@ -8141,8 +8550,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:7055830e5afe5808",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-23T20:41:28-03:00",
       "id_execucao_primeira": "run_2026_09_23_2041",
       "historico": []
@@ -8165,8 +8574,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:0c79fdb293c5cd6d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-23T17:21:24-03:00",
       "id_execucao_primeira": "run_2026_09_23_1721",
       "historico": []
@@ -8190,8 +8599,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:141e4f8627fccac5",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-23T13:57:14-03:00",
       "id_execucao_primeira": "run_2026_09_23_1357",
       "historico": []
@@ -8622,8 +9031,8 @@
       "tipo_ato": "Mensagem",
       "hierarquia": "Presidência da República",
       "texto_hash": "sha1:7bebaab02b2a33d5",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-23T02:57:50-03:00",
       "id_execucao_primeira": "run_2026_09_23_0257",
       "historico": []
@@ -9256,8 +9665,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:8a8bf0427d772ba7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-21T20:16:35-03:00",
       "id_execucao_primeira": "run_2026_09_21_2016",
       "historico": []
@@ -9305,8 +9714,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:ee435534e45d134a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-21T20:16:35-03:00",
       "id_execucao_primeira": "run_2026_09_21_2016",
       "historico": []
@@ -9858,8 +10267,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:d69ccb3a787c21fa",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-21T03:19:58-03:00",
       "id_execucao_primeira": "run_2026_09_21_0319",
       "historico": []
@@ -9882,8 +10291,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacional de Energia Nuclear/Gabinete",
       "texto_hash": "sha1:a6cd2d9ce27ca89b",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-21T03:19:58-03:00",
       "id_execucao_primeira": "run_2026_09_21_0319",
       "historico": []
@@ -10267,8 +10676,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:3776ed40f1f841b7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -10820,8 +11229,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:94089c526fbd5d78",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -10844,8 +11253,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:62731b46e5584831",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -11428,8 +11837,8 @@
       "tipo_ato": "Lei",
       "hierarquia": "Atos do Poder Legislativo",
       "texto_hash": "sha1:91f731aeb48fde8a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -11868,8 +12277,8 @@
       "tipo_ato": "Lei",
       "hierarquia": "Atos do Poder Legislativo",
       "texto_hash": "sha1:b7725eab2780c77c",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -11892,8 +12301,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:468bb9d676437396",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -11916,8 +12325,8 @@
       "tipo_ato": "Despacho",
       "hierarquia": "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra",
       "texto_hash": "sha1:7876d1895769abfe",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -12695,8 +13104,8 @@
       "tipo_ato": "Lei",
       "hierarquia": "Atos do Poder Legislativo",
       "texto_hash": "sha1:847b91d3d3dbc8ba",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -13492,8 +13901,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:7828d51144d2cccd",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13732,8 +14141,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:4a9f3eeb11b8c5ab",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13756,8 +14165,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:d0bee3fa3794a9ac",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13780,8 +14189,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:bab51f73f0467590",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13900,8 +14309,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:6f80e0b6aa15e818",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13924,8 +14333,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:e48c0be615f2e929",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13948,8 +14357,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:9c4674da3784164c",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13972,8 +14381,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:79e3b275d679da0b",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -13996,8 +14405,8 @@
       "tipo_ato": "File",
       "hierarquia": null,
       "texto_hash": "sha1:7d220283884aa270",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14020,26 +14429,12 @@
       "tipo_ato": "File",
       "hierarquia": null,
       "texto_hash": "sha1:f2ac7bab07f85cd6",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": [
         {
-          "data_deteccao": "2026-10-11T17:15:59-03:00",
-          "id_execucao": "run_2026_10_11_1715",
-          "campo": "texto",
-          "anterior": "sha1:f2ac7bab07f85cd6",
-          "novo": "sha1:814ff6683b8082fb"
-        },
-        {
-          "data_deteccao": "2026-10-11T17:15:59-03:00",
-          "id_execucao": "run_2026_10_11_1715",
-          "campo": "texto",
-          "anterior": "sha1:814ff6683b8082fb",
-          "novo": "sha1:f2ac7bab07f85cd6"
-        },
-        {
           "data_deteccao": "2026-10-11T20:42:28-03:00",
           "id_execucao": "run_2026_10_11_2042",
           "campo": "texto",
@@ -14161,6 +14556,20 @@
         {
           "data_deteccao": "2026-10-13T20:18:08-03:00",
           "id_execucao": "run_2026_10_13_2018",
+          "campo": "texto",
+          "anterior": "sha1:814ff6683b8082fb",
+          "novo": "sha1:f2ac7bab07f85cd6"
+        },
+        {
+          "data_deteccao": "2026-10-14T01:52:01-03:00",
+          "id_execucao": "run_2026_10_14_0152",
+          "campo": "texto",
+          "anterior": "sha1:f2ac7bab07f85cd6",
+          "novo": "sha1:814ff6683b8082fb"
+        },
+        {
+          "data_deteccao": "2026-10-14T01:52:01-03:00",
+          "id_execucao": "run_2026_10_14_0152",
           "campo": "texto",
           "anterior": "sha1:814ff6683b8082fb",
           "novo": "sha1:f2ac7bab07f85cd6"
@@ -14185,8 +14594,8 @@
       "tipo_ato": "File",
       "hierarquia": null,
       "texto_hash": "sha1:f1c212dc98bb4d46",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14209,8 +14618,8 @@
       "tipo_ato": "File",
       "hierarquia": null,
       "texto_hash": "sha1:f8bd6e78548ae0dc",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14233,8 +14642,8 @@
       "tipo_ato": "File",
       "hierarquia": null,
       "texto_hash": "sha1:a66811b3a2fdeffb",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14257,8 +14666,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:366535dfbefe487a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14281,8 +14690,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:8feef0db8220b106",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14305,8 +14714,8 @@
       "tipo_ato": "Lei",
       "hierarquia": "Atos do Poder Legislativo",
       "texto_hash": "sha1:3ec4d4c8c5875c43",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -14329,8 +14738,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:30f73689fcdf414c",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14353,8 +14762,8 @@
       "tipo_ato": "Lei",
       "hierarquia": "Atos do Poder Legislativo",
       "texto_hash": "sha1:89066cfd73c289c0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -14377,8 +14786,8 @@
       "tipo_ato": "Mensagem",
       "hierarquia": "Presidência da República",
       "texto_hash": "sha1:d9984106a1d6938a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -14401,8 +14810,8 @@
       "tipo_ato": "Lei",
       "hierarquia": "Atos do Poder Legislativo",
       "texto_hash": "sha1:ffdc351de339d6d7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -14425,8 +14834,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:17b0cfe54a147dd4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14449,8 +14858,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:7c75f2261eb70117",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14473,8 +14882,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:ddd66a0c1b067bd2",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14497,8 +14906,8 @@
       "tipo_ato": "Lei",
       "hierarquia": "Atos do Poder Legislativo",
       "texto_hash": "sha1:e5158886ae93396c",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-18T11:31:05-03:00",
       "id_execucao_primeira": "run_2026_09_18_1131",
       "historico": []
@@ -14521,8 +14930,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:f6a03779b0118cf5",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14545,8 +14954,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:3b877d11a05c65d7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14569,8 +14978,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:fa9fd282fe5302c1",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14617,8 +15026,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:738764ad4919c30d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14641,8 +15050,8 @@
       "tipo_ato": "Document",
       "hierarquia": null,
       "texto_hash": "sha1:f78006bf01e609ee",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14665,8 +15074,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:e00775e83b8168bb",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14689,8 +15098,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:263838fea127ce6a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14713,8 +15122,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:05946213a03ac0bc",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14737,8 +15146,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:6d1a32dde04c1503",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14761,8 +15170,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:8d21ecbe55e3fbee",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14785,8 +15194,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:24ec54c462f324ac",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14809,8 +15218,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:86a6f1738143a28f",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14833,8 +15242,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:8a4936d5349ec274",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14857,8 +15266,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:5bc96fccbdb49582",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14881,8 +15290,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:f682f7a7a221adf6",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14905,8 +15314,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:e96a9cc5effb40ff",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14929,8 +15338,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:e6c72b21e7b2f6e4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14953,8 +15362,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:2d3a3ba094bd3ee4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -14978,8 +15387,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:e2d9aa889a9220f3",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15003,8 +15412,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:c30df7638f27e350",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15028,8 +15437,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:075119b5411bcdac",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15053,8 +15462,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:82e39068e5fea998",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15077,8 +15486,8 @@
       "tipo_ato": "Document",
       "hierarquia": null,
       "texto_hash": "sha1:65c670aa98efa03d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15125,8 +15534,8 @@
       "tipo_ato": "Link",
       "hierarquia": null,
       "texto_hash": "sha1:dba04867a45f76b4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15173,8 +15582,8 @@
       "tipo_ato": "Link",
       "hierarquia": null,
       "texto_hash": "sha1:d7f47ba29ebe13fe",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15197,8 +15606,8 @@
       "tipo_ato": "Link",
       "hierarquia": null,
       "texto_hash": "sha1:d7f47ba29ebe13fe",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15221,8 +15630,8 @@
       "tipo_ato": "Link",
       "hierarquia": null,
       "texto_hash": "sha1:64f6f17e174dc0d7",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15245,8 +15654,8 @@
       "tipo_ato": "Link",
       "hierarquia": null,
       "texto_hash": "sha1:2bcfdd0768bc5f05",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15269,8 +15678,8 @@
       "tipo_ato": "Document",
       "hierarquia": null,
       "texto_hash": "sha1:e328e1fe7c50d887",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15293,8 +15702,8 @@
       "tipo_ato": "Link",
       "hierarquia": null,
       "texto_hash": "sha1:3c14b03d389ca257",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15317,8 +15726,8 @@
       "tipo_ato": "Document",
       "hierarquia": null,
       "texto_hash": "sha1:bfa768adaf32a6a4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15341,8 +15750,8 @@
       "tipo_ato": "Document",
       "hierarquia": null,
       "texto_hash": "sha1:bfa768adaf32a6a4",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15365,8 +15774,8 @@
       "tipo_ato": "Document",
       "hierarquia": null,
       "texto_hash": "sha1:edceed81ee7965ba",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15437,8 +15846,8 @@
       "tipo_ato": "News Item",
       "hierarquia": null,
       "texto_hash": "sha1:597bc6bcd292124a",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15461,8 +15870,8 @@
       "tipo_ato": "File",
       "hierarquia": null,
       "texto_hash": "sha1:937ac5cbf7798203",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15485,8 +15894,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:d49f28bff4b89a6d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T20:18:08-03:00",
       "id_execucao_primeira": "run_2026_10_13_2018",
       "historico": []
@@ -15509,8 +15918,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:b99ba20e1a53b636",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-10-13T20:18:08-03:00",
       "id_execucao_primeira": "run_2026_10_13_2018",
       "historico": []
@@ -15533,8 +15942,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:999018efbf2bb88e",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15557,8 +15966,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:f8774dad424f1808",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15581,8 +15990,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:1a8930e106f4bf3b",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15605,8 +16014,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:671823c462334c96",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": [
@@ -15637,8 +16046,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:e346d0d4c0564cb8",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15661,8 +16070,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:a3e16149ae38013e",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15685,8 +16094,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:ab125b0d9d737be0",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": [
@@ -15717,8 +16126,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:eab3249936053b85",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": [
@@ -15749,8 +16158,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:f5c28484f5093c04",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": [
@@ -15781,8 +16190,8 @@
       "tipo_ato": null,
       "hierarquia": null,
       "texto_hash": "sha1:89e41f884c9b5c2d",
-      "ultima_verificacao": "2026-10-13T20:18:08-03:00",
-      "ultima_execucao": "run_2026_10_13_2018",
+      "ultima_verificacao": "2026-10-14T01:52:01-03:00",
+      "ultima_execucao": "run_2026_10_14_0152",
       "primeira_deteccao": "2026-09-17T20:41:49-03:00",
       "id_execucao_primeira": "run_2026_09_17_2041",
       "historico": []
@@ -15818,205 +16227,205 @@
         "h": "sha1:94089c526fbd5d78",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_projeto_sandbox_regulatorio_de_ia_da_anpd_e_finalista_de_premio_internacio": {
         "h": "sha1:62731b46e5584831",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_abre_ts_agenda_regulatoria_e_avaliacao_de_resultado_regulatorio": {
         "h": "sha1:7828d51144d2cccd",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_multa_tiktok_em_r_153_7_milhoes_por_falhas_na_protecao_de_dados_de_cr": {
         "h": "sha1:4a9f3eeb11b8c5ab",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_avalia_como_plataformas_digitais_atuam_para_prevenir_conteudos_crimin": {
         "h": "sha1:d0bee3fa3794a9ac",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_resultado_da_selecao_para_consultores_que_vao_elaborar_relato": {
         "h": "sha1:bab51f73f0467590",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_metodologia_de_testagem_do_sandbox_regulatorio_em_inteligenci": {
         "h": "sha1:6f80e0b6aa15e818",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_relatorio_de_acompanhamento_e_execucao_da_agenda_regulatoria_": {
         "h": "sha1:e48c0be615f2e929",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_realiza_consulta_multissetorial_sobre_sandbox_regulatorio_de_intelige": {
         "h": "sha1:79e3b275d679da0b",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_realiza_encontro_anpd_de_encarregados_na_proxima_quarta": {
         "h": "sha1:366535dfbefe487a",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_plataformas_digitais_acessadas_por_criancas_e_adolescentes_precisam_public": {
         "h": "sha1:8feef0db8220b106",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_instaura_processo_de_fiscalizacao_contra_o_discord_para_apurar_falhas": {
         "h": "sha1:30f73689fcdf414c",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_radar_tecnologico_sobre_deepfakes": {
         "h": "sha1:17b0cfe54a147dd4",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_e_ana_assinam_acordo_de_cooperacao_tecnica_para_protecao_de_dados_pes": {
         "h": "sha1:7c75f2261eb70117",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_brasil_se_torna_membro_de_rede_global_de_reguladores_de_seguranca_no_ambie": {
         "h": "sha1:ddd66a0c1b067bd2",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_lanca_versao_ingles_rt_ingles": {
         "h": "sha1:f6a03779b0118cf5",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_dia_nacional_da_protecao_de_dados_e_comemorado_nesta_sexta_feira_17": {
         "h": "sha1:fa9fd282fe5302c1",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_versao_em_ingles_do_glossario_de_protecao_de_dados_pessoais_e": {
         "h": "sha1:738764ad4919c30d",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_instaura_processo_de_sancao_contra_organizacao_social_por_falha_na_pr": {
         "h": "sha1:263838fea127ce6a",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_e_pnud_selecionam_consultores_para_realizacao_de_estudos_sobre_ia_pro": {
         "h": "sha1:05946213a03ac0bc",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_site_e_redes_sociais_da_anpd_ficarao_restritos_no_periodo_do_defeso_eleito": {
         "h": "sha1:6d1a32dde04c1503",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_publicados_primeiros_resultados_do_sandbox_regulatorio_em_inteligencia_art": {
         "h": "sha1:8d21ecbe55e3fbee",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_copy_of_anpd_abre_tomada_de_subsidios_sobre_novas_regras_aplicaveis_as_pla": {
         "h": "sha1:24ec54c462f324ac",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_consulta_publica_contribuicoes_guia_transparencia_protecao_de_dados_pessoa": {
         "h": "sha1:86a6f1738143a28f",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_sediara_encontros_lusofono_e_internacional_de_protecao_de_dados_em_ju": {
         "h": "sha1:8a4936d5349ec274",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_copy_of_primeiro_concurso_publico_para_carreira_propria_da_anpd_e_autoriza": {
         "h": "sha1:5bc96fccbdb49582",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_copy_of_anpd_monitoramento_lojas_de_aplicativos_sistemas_operacionais": {
         "h": "sha1:f682f7a7a221adf6",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_copy_of_anpd_inicia_processo_para_sancionar_claro_por_irregularidades_no_c": {
         "h": "sha1:e96a9cc5effb40ff",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_copy_of_anpd_lanca_canal_exclusivo_para_denuncias_de_descumprimento_do_eca": {
         "h": "sha1:e6c72b21e7b2f6e4",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_cnpd_audiencia_publica_contribuicoes_para_politica_nacional_de_protecao_de_dados_e_privacida": {
         "h": "sha1:2d3a3ba094bd3ee4",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_copy_of_anpd_tomada_de_subsidios_afericao_idade": {
         "h": "sha1:e2d9aa889a9220f3",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_anpd_debate_protecao_de_dados_na_educacao_municipal_durante_marcha_dos_prefeitos": {
         "h": "sha1:c30df7638f27e350",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_anpd_copeij_eca_digital": {
         "h": "sha1:075119b5411bcdac",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_orientacoes_preliminares_e_cronograma_para_afericao_de_idade_": {
         "h": "sha1:82e39068e5fea998",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_mapa_de_temas_prioritarios_para_o_bienio_2026_2027_e_atualiza": {
         "h": "sha1:9df6f550395db30c",
@@ -16034,115 +16443,115 @@
         "h": "sha1:65c670aa98efa03d",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_acesso_a_informacao_convenios_e_transferencias_repasses_e_transferencias_de_recursos_finance": {
         "h": "sha1:e328e1fe7c50d887",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_projetos_acoes_iniciativas_sandbox_para_quem_e_o_sandbox_regulatorio": {
         "h": "sha1:bfa768adaf32a6a4",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_acesso_a_informacao_institucional_atos_normativos_regulamentacoes_anpd_resolucao_cd_anpd_no1": {
         "h": "sha1:edceed81ee7965ba",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_periodo_eleitoral_aberta_consulta_publica_sobre_norma_de_dosimetria": {
         "h": "sha1:597bc6bcd292124a",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_centrais_de_conteudo_materiais_educativos_e_publicacoes_processo_guia_orientativo_tratamento": {
         "h": "sha1:937ac5cbf7798203",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_acesso_a_informacao_participacao_social_backup_outras_acoes_documentos_despacho_cgn_prorroga": {
         "h": "sha1:7d220283884aa270",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_acesso_a_informacao_participacao_social_backup_outras_acoes_documentos_despacho_cgn_tomada_d": {
         "h": "sha1:f2ac7bab07f85cd6",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_acesso_a_informacao_participacao_social_backup_outras_acoes_documentos_despacho_cgtp_prorrog": {
         "h": "sha1:f1c212dc98bb4d46",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_acesso_a_informacao_participacao_social_backup_outras_acoes_documentos_despacho_cgtp_tomada_": {
         "h": "sha1:f8bd6e78548ae0dc",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_acesso_a_informacao_participacao_social_backup_outras_acoes_documentos_despacho_tomada_de_su": {
         "h": "sha1:a66811b3a2fdeffb",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_marco_civil_da_internet": {
         "h": "sha1:f78006bf01e609ee",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_conteudo_externo_anpd_lanca_tomada_de_subsidios_para_esclarecer_conceitos_do_eca_di": {
         "h": "sha1:dba04867a45f76b4",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_anpd_apresenta_resultados_da_tomada_de_subsidios_sobre_tratamento_automatizado_de_dados_pess": {
         "h": "sha1:d7f47ba29ebe13fe",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_conteudo_externo_anpd_apresenta_resultados_da_tomada_de_subsidios_sobre_tratamento_": {
         "h": "sha1:d7f47ba29ebe13fe",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_conteudo_externo_tomada_de_subsidios_sobre_inteligencia_artificial_e_prorrogada_ate": {
         "h": "sha1:64f6f17e174dc0d7",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_conteudo_externo_anpd_abre_tomada_de_subsidios_sobre_ia": {
         "h": "sha1:2bcfdd0768bc5f05",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_conteudo_externo_anpd_abre_tomada_de_subsidios_para_norma_sobre_direitos_dos_titula": {
         "h": "sha1:3c14b03d389ca257",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_sandbox_para_quem_e_o_sandbox_regulatorio": {
         "h": "sha1:bfa768adaf32a6a4",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_cnpd_nota_cnpd_contribui_com_a_autoridade_na_tomada_de_subsidios_sobre_tratamento_de_dados_p": {
         "h": "sha1:672d1fdc59ddbd72",
@@ -16160,37 +16569,37 @@
         "h": "sha1:8a8bf0427d772ba7",
         "s": null,
         "d": "2026-09-21T20:16:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_lanca_pagina_especifica_para_denuncias_de_infracoes_aos_novos_decreto": {
         "h": "sha1:226f50fbdec2c82b",
         "s": null,
         "d": "2026-10-05T15:26:50-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_celebra_memorando_de_entendimento_com_a_autoridade_de_protecao_de_dad": {
         "h": "sha1:f237ac746ef1ec39",
         "s": null,
         "d": "2026-10-05T21:48:34-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_divulga_resultado_final_do_4o_premio_danilo_doneda": {
         "h": "sha1:7691c2de91d3a7f4",
         "s": null,
         "d": "2026-10-06T17:19:00-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_promove_webinario_sobre_o_eca_digital_para_marcar_o_mes_das_criancas": {
         "h": "sha1:3936e0c5e0029121",
         "s": null,
         "d": "2026-10-08T12:35:59-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_2o_relatorio_parcial_de_monitoramento_do_sandbox_regulatorio_": {
         "h": "sha1:fdfee74a2ab6f4a3",
         "s": null,
         "d": "2026-10-09T17:53:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       }
     },
     "cnj": {
@@ -16312,19 +16721,19 @@
         "h": "sha1:141e4f8627fccac5",
         "s": null,
         "d": "2026-09-23T13:57:14-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_cnj_jus_br_saude_judiciario_debatera_inovacoes_e_judicializacao_em_novembro": {
         "h": "sha1:7055830e5afe5808",
         "s": null,
         "d": "2026-09-23T20:41:28-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_cnj_jus_br_concurso_de_desenho_sobre_direitos_no_eca_digital_tem_inscricoes_prorrogadas_ate_30_11428386_2": {
         "h": "sha1:54b93ddccf2868bd",
         "s": null,
         "d": "2026-09-24T19:23:34-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_atos_cnj_jus_br_atos_detalhar_7066": {
         "h": "sha1:8392bebc471296e5",
@@ -16342,37 +16751,43 @@
         "h": "sha1:2bf3b2d60612bb71",
         "s": null,
         "d": "2026-10-01T20:11:54-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_cnj_jus_br_saiba_como_os_tribunais_podem_utilizar_solucoes_tecnologicas_nacionalizadas_pelo_conecta": {
         "h": "sha1:bc7bb2ad6b95fb14",
         "s": null,
         "d": "2026-10-02T17:44:04-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_cnj_jus_br_webinario_apresenta_novidades_em_ferramenta_que_otimiza_rotina_em_gabinetes": {
         "h": "sha1:8acd8dd70a8f874a",
         "s": null,
         "d": "2026-10-06T17:19:00-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_cnj_jus_br_novas_tecnologias_estao_mudando_atuacao_do_judiciario_na_area_penal_e_socioeducativa": {
         "h": "sha1:83d67a4fea27239f",
         "s": null,
         "d": "2026-10-07T17:37:06-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_cnj_jus_br_visita_de_juizes_da_corte_suprema_do_peru_promove_troca_de_experiencias_sobre_inovacao_no_judiciari": {
         "h": "sha1:9727d70ededfdfdf",
         "s": null,
         "d": "2026-10-09T13:11:40-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "cnj_cnj_jus_br_trf4_e_finalista_com_pratica_que_transforma_cannabis_apreendida_em_instrumento_de_politica_de_saude": {
         "h": "sha1:c02a826b0beaff6c",
         "s": null,
         "d": "2026-10-09T13:11:40-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
+      },
+      "cnj_cnj_jus_br_conexao_auditoria_apresenta_ferramenta_de_gestao_e_fiscalizacao_de_contratos_de_terceirizacao_na_se": {
+        "h": "sha1:b0333f2166cf5dc4",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
       }
     },
     "tse": {
@@ -16386,7 +16801,7 @@
         "h": "sha1:80489054be1d641e",
         "s": null,
         "d": "2026-09-25T04:47:27-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       }
     },
     "dou": {
@@ -18674,55 +19089,55 @@
         "h": "sha1:956515cd2c3051a6",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_n_1_077_de_6_de_outubro_de_2026_737184646": {
         "h": "sha1:025194744b17c4da",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_de_convocacao_737130564": {
         "h": "sha1:f4d13fa0929cd599",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_registro_de_precos_737048121": {
         "h": "sha1:fb43ff8bd96439f9",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_de_pessoal_gr_ufca_n_324_de_1_de_outubro_de_2026_737011909": {
         "h": "sha1:fbf8430364185b2e",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_gecex_n_970_de_6_de_outubro_de_2026_736963386": {
         "h": "sha1:8b492c0fcb192b88",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_gecex_n_971_de_6_de_outubro_de_2026_736952867": {
         "h": "sha1:e33c6e3b6f0edfb7",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_n_611_de_6_de_outubro_de_2026_736937157": {
         "h": "sha1:cd880555c4bbc557",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_enap_n_101_de_5_de_outubro_de_2026_736947851": {
         "h": "sha1:491df64f2b2b2c75",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_aviso_de_alteracao_de_edital_737151793": {
         "h": "sha1:1917128d7704c80f",
@@ -18788,43 +19203,43 @@
         "h": "sha1:762d5380b2a5ae40",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_aviso_737175506": {
         "h": "sha1:70198b4185d31f2a",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_contrato_737133443": {
         "h": "sha1:706ab3e13372e798",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despacho_de_6_de_outubro_de_2026_736963409": {
         "h": "sha1:43a6597ecf3bbd97",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_gecex_n_974_de_6_de_outubro_de_2026_736959522": {
         "h": "sha1:e1e286a8a44d2e27",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despachos_de_6_de_outubro_de_2026_736956094": {
         "h": "sha1:cea8a052d4c1d0cf",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_mcti_n_10_465_de_5_de_outubro_de_2026_736947164": {
         "h": "sha1:92e3cca572bc37c0",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_mec_n_745_de_5_de_outubro_de_2026_737185732": {
         "h": "sha1:236a70b4a3b157cb",
@@ -18836,91 +19251,91 @@
         "h": "sha1:c185e2b885829add",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_acordo_de_cooperacao_tecnica_737323665": {
         "h": "sha1:533e99dc061621a3",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_sge_agu_n_1_de_6_de_outubro_de_2026_737293277": {
         "h": "sha1:422f4b5bbead12e6",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_n_10_210_ifpr_de_7_de_outubro_de_2026_737262486": {
         "h": "sha1:498afb1f4a8897f4",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despacho_de_5_de_outubro_de_2026_737227836": {
         "h": "sha1:bbe9d5c794692118",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_mcti_n_10_476_de_7_de_outubro_de_2026_737223756": {
         "h": "sha1:522e7f12703de1c0",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_coaf_n_51_de_1_de_setembro_de_2026_737221713": {
         "h": "sha1:33b71b469bf12a99",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_contrato_737341809": {
         "h": "sha1:44811805573ec315",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_termo_aditivo_737302090": {
         "h": "sha1:a825b58e69984e1f",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_695_de_5_de_outubro_de_2026_737228316": {
         "h": "sha1:aa30967076920233",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_anp_n_379_de_7_de_outubro_de_2026_737222591": {
         "h": "sha1:d43fcea690305472",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_ata_da_300_reuniao_ordinaria_737220501": {
         "h": "sha1:38888bf455fc7421",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_sof_mpo_n_442_de_7_de_outubro_de_2026_737217615": {
         "h": "sha1:4ec0cb9e5b121ee2",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_subex_cim_n_9_de_1_de_outubro_de_2026_737213749": {
         "h": "sha1:716af7910c296713",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_subex_cim_n_11_de_1_de_outubro_de_2026_737210183": {
         "h": "sha1:0843af1132cc86d8",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_subex_cim_n_10_de_1_de_outubro_de_2026_737209260": {
         "h": "sha1:6dd505084df235a3",
@@ -18932,331 +19347,421 @@
         "h": "sha1:d943412746cd5365",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_sefic_minc_n_681_de_7_de_outubro_de_2026_737217638": {
         "h": "sha1:2ee0a84bab33f48f",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_termo_de_cooperacao_tecnica_737691023": {
         "h": "sha1:8147b7173b0f9765",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_cgu_n_1_de_8_de_outubro_de_2026_737675154": {
         "h": "sha1:1d5645ae3a618300",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_acordo_737652186": {
         "h": "sha1:7f5b4dcc9e710d40",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_termo_aditivo_737574654": {
         "h": "sha1:a540fe9393944578",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despacho_de_7_de_outubro_de_2026_737535705": {
         "h": "sha1:a6d60b3f69501bf8",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_n_7_431_de_7_de_outubro_de_2026_737532677": {
         "h": "sha1:285b44ba10d986e9",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_ata_n_38_de_30_de_setembro_de_2026_737505288": {
         "h": "sha1:d18ab6f0f6b988f8",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despacho_n_76_de_7_de_outubro_de_2026_737502045": {
         "h": "sha1:677cc323afa7e251",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portarias_de_8_de_outubro_de_2026_737493461": {
         "h": "sha1:1b66adca41744b85",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_n_461_de_2_de_outubro_de_2026_737485295": {
         "h": "sha1:0c802138bad8d1fc",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_sav_minc_n_53_de_7_de_outubro_de_2026_737470294": {
         "h": "sha1:1b0dcc09fbb15715",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_acordo_de_parceria_737728532": {
         "h": "sha1:1be180503c9a6d35",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_n_1_2026_737739547": {
         "h": "sha1:94c0db4dc106a199",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_n_1_2026_737736705": {
         "h": "sha1:1d2c5092f5b6ce86",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_n_1_2026_737721426": {
         "h": "sha1:239e06d014c2797d",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_n_1_2026_737721354": {
         "h": "sha1:bda858e3a78670af",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_contrato_737719238": {
         "h": "sha1:ee06b954d08aefcd",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_n_1_2026_737675342": {
         "h": "sha1:6d608c531fd27ffc",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_termo_aditivo_737655166": {
         "h": "sha1:126aa74cd15a0f31",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_memorando_de_entendimento_737586736": {
         "h": "sha1:5a93f0da7744b0c9",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_699_de_7_de_outubro_de_2026_737541360": {
         "h": "sha1:83ca8e33d61728c5",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_698_de_7_de_outubro_de_2026_737529857": {
         "h": "sha1:cdaebe6db0668a3e",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_700_de_8_de_outubro_de_2026_737486062": {
         "h": "sha1:aef1770c23c09ed6",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_ato_declaratorio_executivo_alf_spo_n_43_de_8_de_outubro_de_2026_737457623": {
         "h": "sha1:060356dec691141f",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_avisos_de_licitacao_737567268": {
         "h": "sha1:092cdf7d04cb69f3",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_aviso_de_licitacao_737734895": {
         "h": "sha1:f62d20d95ea977c0",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_de_convocacao_737550219": {
         "h": "sha1:2b2163c3c3a842ba",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_aviso_de_licitacao_737673261": {
         "h": "sha1:b70be4045e11b307",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_aviso_de_licitacao_738016095": {
         "h": "sha1:7265083f0d914caf",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_de_9_de_outubro_de_2026_737991973": {
         "h": "sha1:561377b9b840b9ad",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_contrato_n_465_2026_uasg_153052_737945299": {
         "h": "sha1:b27d606b045bfe2f",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_edital_de_9_de_outubro_de_2026_737902498": {
         "h": "sha1:e7963395f7ba955d",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despacho_de_8_de_outubro_de_2026_737842921": {
         "h": "sha1:e260838fe50007fd",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despacho_de_7_de_outubro_de_2026_737841418": {
         "h": "sha1:87009129dba8a922",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_pgj_n_791_de_9_de_outubro_de_2026_737834412": {
         "h": "sha1:d2d8c6497e71bc9a",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_ato_n_621_de_24_de_setembro_de_2026_737811069": {
         "h": "sha1:2b228d7e358206a5",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_decreto_n_13_135_de_9_de_outubro_de_2026_737787837": {
         "h": "sha1:024f47b0e4f23aa2",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_mps_n_1_455_de_9_de_outubro_de_2026_737760585": {
         "h": "sha1:7ee9b99ca08d70bb",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_cnpq_n_2_853_de_8_de_julho_de_2026_737838337": {
         "h": "sha1:ca1c0281436ba77d",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_aviso_de_dispensa_de_licitacao_n_4_2026_737946274": {
         "h": "sha1:43964a6c5cedb9c8",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_de_pessoal_dicat_se_mgi_n_12_341_de_7_de_outubro_de_2026_737829585": {
         "h": "sha1:437a3c75545d496f",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_pauta_da_339_sessao_de_julgamento_737793358": {
         "h": "sha1:6f20e3d954d4776f",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_ata_da_93_sessao_ordinaria_737785874": {
         "h": "sha1:048cd67351fd0e9c",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_mjsp_n_1_325_de_9_de_outubro_de_2026_737785795": {
         "h": "sha1:048ac7c1fac7d378",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_fcp_n_32_de_9_de_outubro_de_2026_737783152": {
         "h": "sha1:66840743e6d74363",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_resolucao_cff_n_12_de_30_de_julho_de_2026_737763475": {
         "h": "sha1:13361172b5177ece",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_decreto_n_13_136_de_9_de_outubro_de_2026_737763424": {
         "h": "sha1:25a7a57cc27f2c3d",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_aviso_de_licitacao_737863003": {
         "h": "sha1:73b5319a1b601cb0",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_extrato_de_contrato_738006124": {
         "h": "sha1:4b4169649b4a826a",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_de_pessoal_sgd_mgi_n_12_320_de_8_de_outubro_de_2026_737830706": {
         "h": "sha1:ef0399eec7d21d02",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_sof_mpo_n_449_de_9_de_outubro_de_2026_737785698": {
         "h": "sha1:935395e085d6b88e",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_despacho_n_3_917_de_7_de_outubro_de_2026_737770887": {
         "h": "sha1:6177c8cea2b610f3",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "dou_in_gov_br_web_dou_portaria_gm_md_n_5_154_de_7_de_outubro_de_2026_737977138": {
         "h": "sha1:bb498e33982c2891",
         "s": null,
         "d": "2026-10-13T16:16:20-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_despacho_de_13_de_outubro_de_2026_738087538": {
+        "h": "sha1:b16650cdf1feb11c",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_an_mgi_n_297_de_8_de_outubro_de_2026_738043052": {
+        "h": "sha1:122c5f6893215a8b",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_702_de_9_de_outubro_de_2026_738106523": {
+        "h": "sha1:dda7d25df1c1a40e",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_cref26_ac_n_2_de_8_de_novembro_de_2026_738105123": {
+        "h": "sha1:e094195bf7e07985",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_705_de_9_de_outubro_de_2026_738101641": {
+        "h": "sha1:6658ba87fcecf146",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_709_de_13_de_outubro_de_2026_738098549": {
+        "h": "sha1:8451dfc6566bec15",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_cref23_ro_n_2_de_8_de_novembro_de_2026_738097945": {
+        "h": "sha1:5ed66302d28c259a",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_707_de_13_de_outubro_de_2026_738095414": {
+        "h": "sha1:493d8359c21ad0b9",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_706_de_13_de_outubro_de_2026_738088494": {
+        "h": "sha1:261a9c33e5a2389f",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_cref25_ap_n_2_de_8_de_novembro_de_2026_738084519": {
+        "h": "sha1:6e76aee629ed5db1",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_gabpr_anpd_n_704_de_9_de_outubro_de_2026_738073744": {
+        "h": "sha1:ed36c7a308799547",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_cref24_to_n_2_de_8_de_novembro_de_2026_738071820": {
+        "h": "sha1:19643d152df58747",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_spu_mgi_n_6_906_de_24_de_agosto_de_2026_738043075": {
+        "h": "sha1:507323452a3b809c",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_portaria_sefic_minc_n_694_de_13_de_outubro_de_2026_738071133": {
+        "h": "sha1:4a908137bf7420a6",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
+      },
+      "dou_in_gov_br_web_dou_atos_de_6_de_outubro_de_2026_738049723": {
+        "h": "sha1:e067437cdc7875b9",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
       }
     },
     "planalto": {
@@ -19264,73 +19769,73 @@
         "h": "sha1:e00775e83b8168bb",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_gov_br_planalto_pt_br_acompanhe_o_planalto_noticias_visita_presidencial_ao_parque_tecnologico_de_macaiba_e_anu": {
         "h": "sha1:9c4674da3784164c",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_gov_br_planalto_pt_br_acompanhe_o_planalto_noticias_presidente_da_republica_participa_de_encontro_com_lideranc": {
         "h": "sha1:3b877d11a05c65d7",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_lei_n_15_504_de_15_de_setembro_de_2026_731892072": {
         "h": "sha1:91f731aeb48fde8a",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_lei_n_15_487_de_6_de_agosto_de_2026_724081324": {
         "h": "sha1:3ec4d4c8c5875c43",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_lei_n_15_503_de_14_de_setembro_de_2026_731640068": {
         "h": "sha1:b7725eab2780c77c",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_lei_n_15_485_de_5_de_agosto_de_2026_723789887": {
         "h": "sha1:89066cfd73c289c0",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_lei_n_15_479_de_29_de_julho_de_2026_722121785": {
         "h": "sha1:ffdc351de339d6d7",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_lei_n_15_474_de_23_de_julho_de_2026_722990031": {
         "h": "sha1:e5158886ae93396c",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_lei_n_15_502_de_10_de_setembro_de_2026_730982911": {
         "h": "sha1:847b91d3d3dbc8ba",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_despacho_do_presidente_da_republica_723734376": {
         "h": "sha1:d9984106a1d6938a",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "planalto_in_gov_br_web_dou_despachos_do_vice_presidente_da_republica_no_exercicio_do_cargo_de_presidente_da_republica_7": {
         "h": "sha1:7bebaab02b2a33d5",
         "s": null,
         "d": "2026-09-23T02:57:50-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       }
     },
     "mcti": {
@@ -19386,61 +19891,61 @@
         "h": "sha1:999018efbf2bb88e",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_tecnologias_convergentes_e_habilitadoras_nanotecnologia": {
         "h": "sha1:f8774dad424f1808",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital": {
         "h": "sha1:1a8930e106f4bf3b",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_estrategia_brasileira_de_inteligencia_artificial": {
         "h": "sha1:671823c462334c96",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_seguranca_cibernetica": {
         "h": "sha1:e346d0d4c0564cb8",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_internet_das_coisas_2": {
         "h": "sha1:a3e16149ae38013e",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_observatorio_de_tecnologias_digitais": {
         "h": "sha1:ab125b0d9d737be0",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_plano_brasileiro_de_inteligencia_artificial": {
         "h": "sha1:eab3249936053b85",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_internet_20das_20coisas": {
         "h": "sha1:f5c28484f5093c04",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_semicondutores": {
         "h": "sha1:89e41f884c9b5c2d",
         "s": null,
         "d": "2026-09-17T20:41:49-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_indicadores": {
         "h": "sha1:2514d6bfd2cffa4f",
@@ -19452,13 +19957,13 @@
         "h": "sha1:468bb9d676437396",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_10_de_setembro_de_2026_731410875": {
         "h": "sha1:7876d1895769abfe",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_4_de_setembro_de_2026_730752779": {
         "h": "sha1:dbd6cc42e3ce11c4",
@@ -19530,7 +20035,7 @@
         "h": "sha1:3776ed40f1f841b7",
         "s": null,
         "d": "2026-09-18T11:31:05-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_aviso_de_licitacao_730693458": {
         "h": "sha1:c9c191037a580f17",
@@ -19542,157 +20047,163 @@
         "h": "sha1:d69ccb3a787c21fa",
         "s": null,
         "d": "2026-09-21T03:19:58-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_16_de_setembro_de_2026_732985411": {
         "h": "sha1:a6cd2d9ce27ca89b",
         "s": null,
         "d": "2026-09-21T03:19:58-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_consulta_publica_sobre_plano_de_dados_": {
         "h": "sha1:ee435534e45d134a",
         "s": null,
         "d": "2026-09-21T20:16:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_residuos_da_producao_do_oleo_de_palma_": {
         "h": "sha1:0c79fdb293c5cd6d",
         "s": null,
         "d": "2026-09-23T17:21:24-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_chamada_para_projetos_de_transformacao": {
         "h": "sha1:091403ee40bae904",
         "s": null,
         "d": "2026-09-24T19:23:34-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_22_de_setembro_de_2026_734460090": {
         "h": "sha1:431f5eca50eb9e3a",
         "s": null,
         "d": "2026-09-25T04:47:27-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_testes_com_b20_e_b25_avancam_para_etap": {
         "h": "sha1:d426c4b046601dd9",
         "s": null,
         "d": "2026-09-25T10:46:34-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_portaria_sexec_mcti_n_10_386_de_10_de_setembro_de_2026_735446117": {
         "h": "sha1:7106966d6f1471e9",
         "s": null,
         "d": "2026-09-30T13:10:57-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_capacitacao_em_inteligencia_artificial": {
         "h": "sha1:72d9eb2e046fd102",
         "s": null,
         "d": "2026-09-30T13:10:57-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_extrato_de_fomento_736214724": {
         "h": "sha1:042778bc09b876a7",
         "s": null,
         "d": "2026-10-02T05:34:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_30_de_setembro_de_2026_736068545": {
         "h": "sha1:e36759b649fb02a6",
         "s": null,
         "d": "2026-10-02T05:34:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_portaria_pre_aeb_n_2_152_de_30_de_setembro_de_2026_736021666": {
         "h": "sha1:a1fdc0e6606247d7",
         "s": null,
         "d": "2026-10-02T05:34:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_portaria_pre_aeb_n_2151_de_29_de_setembro_de_2026_736034752": {
         "h": "sha1:b6de49b1f2bdd4e8",
         "s": null,
         "d": "2026-10-02T05:34:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_chamada_recursos_humanos_em_areas_estr": {
         "h": "sha1:d02e99d64d412e4a",
         "s": null,
         "d": "2026-10-02T17:44:04-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_extrato_de_protocolo_de_intencoes_736613052": {
         "h": "sha1:66bd3884371f0be8",
         "s": null,
         "d": "2026-10-06T04:33:58-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_portaria_mcti_n_10_465_de_5_de_outubro_de_2026_736947164": {
         "h": "sha1:92e3cca572bc37c0",
         "s": null,
         "d": "2026-10-07T04:13:47-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_escola_supercomputador_santos_dumont_r": {
         "h": "sha1:5cb03a99e7590e2a",
         "s": null,
         "d": "2026-10-07T21:59:41-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_extrato_de_fomento_737396407": {
         "h": "sha1:c185e2b885829add",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_5_de_outubro_de_2026_737227836": {
         "h": "sha1:bbe9d5c794692118",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_portaria_mcti_n_10_476_de_7_de_outubro_de_2026_737223756": {
         "h": "sha1:522e7f12703de1c0",
         "s": null,
         "d": "2026-10-08T04:23:48-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_7_de_outubro_de_2026_737535705": {
         "h": "sha1:a6d60b3f69501bf8",
         "s": null,
         "d": "2026-10-09T06:02:35-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026_rnp_abre_selecao_para_23_bolsas_de_pes": {
         "h": "sha1:b4c05cd59d1bc4fa",
         "s": null,
         "d": "2026-10-09T17:53:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_despacho_de_7_de_outubro_de_2026_737841418": {
         "h": "sha1:87009129dba8a922",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_in_gov_br_web_dou_portaria_cnpq_n_2_853_de_8_de_julho_de_2026_737838337": {
         "h": "sha1:ca1c0281436ba77d",
         "s": null,
         "d": "2026-10-13T08:34:31-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_noticias_noticias_julho_outubro_2026": {
         "h": "sha1:d49f28bff4b89a6d",
         "s": null,
         "d": "2026-10-13T20:18:08-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
       },
       "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_internet_das_coisas": {
         "h": "sha1:b99ba20e1a53b636",
         "s": null,
         "d": "2026-10-13T20:18:08-03:00",
-        "v": "2026-10-13"
+        "v": "2026-10-14"
+      },
+      "mcti_in_gov_br_web_dou_despacho_de_13_de_outubro_de_2026_738087538": {
+        "h": "sha1:b16650cdf1feb11c",
+        "s": null,
+        "d": "2026-10-14T01:52:01-03:00",
+        "v": "2026-10-14"
       }
     }
   }
