@@ -7803,6 +7803,16 @@
       "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-10-14T16:26:28-03:00",
       "run_id": null
+    },
+    "chg_20dc1406071d57f0": {
+      "change_id": "chg_20dc1406071d57f0",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-despacho-cgn-tomada-de-subsidios-direitos-dos-titulares-de-d-1fb3017b",
+      "selection_reason": "ato tipo=File órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-14T20:17:31-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8467,19 +8477,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-10-03T14:18:51-03:00",
-      "dia": "2026-10-03",
-      "mudancas_novas": 104,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 134,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-10-03T17:00:23-03:00",
       "dia": "2026-10-03",
       "mudancas_novas": 104,
@@ -9105,6 +9102,19 @@
     },
     {
       "executado_em": "2026-10-14T16:26:28-03:00",
+      "dia": "2026-10-14",
+      "mudancas_novas": 11,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 176,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-14T20:17:31-03:00",
       "dia": "2026-10-14",
       "mudancas_novas": 11,
       "novos_artigos": 0,
