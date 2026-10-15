@@ -36,7 +36,10 @@ jobs:
             echo "ready=true" >> "$GITHUB_OUTPUT"
           else
             echo "ready=false" >> "$GITHUB_OUTPUT"
-            echo "::warning::GSC_SERVICE_ACCOUNT_JSON não configurado. API gratuita disponível; falta autorização da propriedade."
+            echo "::error::GSC_SERVICE_ACCOUNT_JSON ausente. Consulta GSC não executada; não interpretar este job como coleta concluída."
+            echo "### GSC não coletado: autorização pendente" >> "$GITHUB_STEP_SUMMARY"
+            echo "Configure o secret GSC_SERVICE_ACCOUNT_JSON com JSON de conta de serviço autorizada na propriedade sc-domain:lcfconsulting.com.br (permissão restrita). Não há assinatura paga." >> "$GITHUB_STEP_SUMMARY"
+            exit 1
           fi
       - name: Instalar cliente OAuth Google
         if: steps.auth.outputs.ready == 'true'
