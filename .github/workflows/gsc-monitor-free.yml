@@ -1,0 +1,48 @@
+name: GSC gratuito — Monitor LCF
+
+# Usa diretamente a API gratuita do Google Search Console.
+# Não publica alterações SEO sem métricas. Nunca commita credenciais.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "42 10 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  monitor-gsc:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GSC_SERVICE_ACCOUNT_JSON: ${{ secrets.GSC_SERVICE_ACCOUNT_JSON }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verificar autorização GSC
+        id: auth
+        shell: bash
+        run: |
+          if [ -n "$GSC_SERVICE_ACCOUNT_JSON" ]; then
+            echo "ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "ready=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::GSC_SERVICE_ACCOUNT_JSON não configurado. API gratuita disponível; falta autorização da propriedade."
+          fi
+      - name: Instalar cliente OAuth Google
+        if: steps.auth.outputs.ready == 'true'
+        run: python -m pip install --disable-pip-version-check 'google-auth>=2.30,<3' 'requests>=2.31,<3'
+      - name: Consultar Search Console — somente Monitor
+        if: steps.auth.outputs.ready == 'true'
+        run: python scripts/gsc_monitor_free.py
+      - name: Arquivar relatório (28d, 7d, queries e páginas)
+        if: steps.auth.outputs.ready == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: gsc-monitor-${{ github.run_number }}
+          path: reports/gsc_monitor_latest.json
+          retention-days: 30
