@@ -7993,6 +7993,16 @@
       "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → abaixo do limiar de novo artigo",
       "processed_at": "2026-10-15T15:23:03-03:00",
       "run_id": null
+    },
+    "chg_40569139ac07d132": {
+      "change_id": "chg_40569139ac07d132",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mds-no-1-219-de-14-de-outubro-de-2026-9a8fb206",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-15T21:31:31-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8650,19 +8660,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-10-04T06:49:12-03:00",
-      "dia": "2026-10-04",
-      "mudancas_novas": 104,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 134,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-10-04T12:25:06-03:00",
       "dia": "2026-10-04",
       "mudancas_novas": 103,
@@ -9296,6 +9293,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 180,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-15T21:31:31-03:00",
+      "dia": "2026-10-15",
+      "mudancas_novas": 10,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 181,
       "run_id": null,
       "bootstrap": false
     }
