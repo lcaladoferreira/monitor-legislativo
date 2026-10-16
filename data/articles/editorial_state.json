@@ -8163,6 +8163,16 @@
       "selection_reason": "ato tipo=noticia órgão=mcti peso=7 → sem valor editorial independente",
       "processed_at": "2026-10-16T13:42:15-03:00",
       "run_id": null
+    },
+    "chg_78d32bbf65c2e3ce": {
+      "change_id": "chg_78d32bbf65c2e3ce",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-cnj-servico-do-cnj-acelera-cumprimento-de-decisoes-previdenciari-b407881a",
+      "selection_reason": "ato tipo=post órgão=cnj peso=9 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-10-16T17:01:30-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8820,19 +8830,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-10-04T23:02:28-03:00",
-      "dia": "2026-10-04",
-      "mudancas_novas": 103,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 134,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-10-05T06:05:54-03:00",
       "dia": "2026-10-05",
       "mudancas_novas": 119,
@@ -9458,6 +9455,19 @@
     },
     {
       "executado_em": "2026-10-16T13:42:15-03:00",
+      "dia": "2026-10-16",
+      "mudancas_novas": 10,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 185,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-16T17:01:30-03:00",
       "dia": "2026-10-16",
       "mudancas_novas": 10,
       "novos_artigos": 0,
