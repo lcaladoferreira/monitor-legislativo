@@ -8173,6 +8173,16 @@
       "selection_reason": "ato tipo=post órgão=cnj peso=9 → abaixo do limiar de novo artigo",
       "processed_at": "2026-10-16T17:01:30-03:00",
       "run_id": null
+    },
+    "chg_570611066f73ac89": {
+      "change_id": "chg_570611066f73ac89",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-anpd-publica-3o-relatorio-parcial-de-monitoramento-do-sandbo-ce3fef6d",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-16T19:54:22-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8830,19 +8840,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-10-05T06:05:54-03:00",
-      "dia": "2026-10-05",
-      "mudancas_novas": 119,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 23,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 142,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-10-05T15:30:51-03:00",
       "dia": "2026-10-05",
       "mudancas_novas": 99,
@@ -9468,6 +9465,19 @@
     },
     {
       "executado_em": "2026-10-16T17:01:30-03:00",
+      "dia": "2026-10-16",
+      "mudancas_novas": 10,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 185,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-16T19:54:21-03:00",
       "dia": "2026-10-16",
       "mudancas_novas": 10,
       "novos_artigos": 0,
