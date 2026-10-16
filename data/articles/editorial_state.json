@@ -8113,6 +8113,46 @@
       "selection_reason": "ato tipo=Ata órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-10-16T02:54:41-03:00",
       "run_id": null
+    },
+    "chg_8300db0d9e18702b": {
+      "change_id": "chg_8300db0d9e18702b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-termo-aditivo-no-1-2026-uasg-158516-2c934301",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-16T08:26:08-03:00",
+      "run_id": null
+    },
+    "chg_df595fb72fe48cbe": {
+      "change_id": "chg_df595fb72fe48cbe",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-rescisao-do-contrato-no-201-2023-uasg-153173-ba676a81",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-16T08:26:08-03:00",
+      "run_id": null
+    },
+    "chg_469c7eed378e6b41": {
+      "change_id": "chg_469c7eed378e6b41",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-no-397-2026-uasg-153173-4c26ddc2",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-16T08:26:08-03:00",
+      "run_id": null
+    },
+    "chg_4f8be329804ed575": {
+      "change_id": "chg_4f8be329804ed575",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-fcp-no-32-de-9-de-outubro-de-2026-2a89b1d1",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
+      "processed_at": "2026-10-16T08:26:08-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8770,19 +8810,6 @@
   },
   "execucoes": [
     {
-      "executado_em": "2026-10-04T16:39:51-03:00",
-      "dia": "2026-10-04",
-      "mudancas_novas": 103,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 134,
-      "run_id": null,
-      "bootstrap": false
-    },
-    {
       "executado_em": "2026-10-04T20:14:34-03:00",
       "dia": "2026-10-04",
       "mudancas_novas": 103,
@@ -9416,6 +9443,19 @@
       "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 183,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-16T08:26:08-03:00",
+      "dia": "2026-10-16",
+      "mudancas_novas": 13,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 4,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 185,
       "run_id": null,
       "bootstrap": false
     }
