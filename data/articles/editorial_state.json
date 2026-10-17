@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-16"
+    "atualizado_em": "2026-10-17"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -8233,6 +8233,16 @@
       "selection_reason": "ato tipo=Edital órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-10-16T22:21:42-03:00",
       "run_id": null
+    },
+    "chg_2714f6b13bbb71e2": {
+      "change_id": "chg_2714f6b13bbb71e2",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-portaria-gabpr-anpd-no-625-de-10-de-setembro-de-2026",
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-625-de-10-de-setembro-de-2026-642e85d2",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-17T04:00:13-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8803,13 +8813,6 @@
       "prioridade": 13,
       "attempts": 3
     },
-    "chg_2714f6b13bbb71e2": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-18",
-      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-625-de-10-de-setembro-de-2026-642e85d2",
-      "prioridade": 13,
-      "attempts": 3
-    },
     "chg_a0ad03e510d7ad66": {
       "reason": "sem_cota_no_dia",
       "since": "2026-09-18",
@@ -8889,19 +8892,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-05T21:52:08-03:00",
-      "dia": "2026-10-05",
-      "mudancas_novas": 93,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 4,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 142,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-06T04:36:58-03:00",
       "dia": "2026-10-06",
@@ -9533,6 +9523,19 @@
       "novos_artigos": 0,
       "artigos_atualizados": 0,
       "ignoradas": 5,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 185,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-17T04:00:13-03:00",
+      "dia": "2026-10-17",
+      "mudancas_novas": 9,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 185,
