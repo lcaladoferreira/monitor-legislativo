@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-17"
+    "atualizado_em": "2026-10-18"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -8243,6 +8243,16 @@
       "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
       "processed_at": "2026-10-17T04:00:13-03:00",
       "run_id": null
+    },
+    "chg_29aa3ba7b18fbebe": {
+      "change_id": "chg_29aa3ba7b18fbebe",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-portaria-gabpr-anpd-n-695-de-5-de-outubro-de-2026",
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-695-de-5-de-outubro-de-2026-715c503b",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-18T01:34:43-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -8872,12 +8882,6 @@
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-694-de-5-de-outubro-de-2026-fbd8f634",
       "prioridade": 13
     },
-    "chg_29aa3ba7b18fbebe": {
-      "reason": "cota_diaria_atingida",
-      "since": "2026-10-08",
-      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-695-de-5-de-outubro-de-2026-715c503b",
-      "prioridade": 13
-    },
     "chg_ba52a556d220271a": {
       "reason": "cota_diaria_atingida",
       "since": "2026-10-14",
@@ -8892,19 +8896,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-06T04:36:58-03:00",
-      "dia": "2026-10-06",
-      "mudancas_novas": 99,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 28,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 144,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-06T12:15:07-03:00",
       "dia": "2026-10-06",
@@ -9533,6 +9524,19 @@
       "executado_em": "2026-10-17T04:00:13-03:00",
       "dia": "2026-10-17",
       "mudancas_novas": 9,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 185,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-18T01:34:43-03:00",
+      "dia": "2026-10-18",
+      "mudancas_novas": 8,
       "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 0,
