@@ -9243,6 +9243,26 @@
       "selection_reason": "ato tipo=Aviso órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-10-19T03:19:00-03:00",
       "run_id": null
+    },
+    "chg_9a0c2c38e95ac06d": {
+      "change_id": "chg_9a0c2c38e95ac06d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-no-53-2026-uasg-250059-4a3abc10",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-19T10:27:56-03:00",
+      "run_id": null
+    },
+    "chg_221d76967c0655cf": {
+      "change_id": "chg_221d76967c0655cf",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-licitacao-156f80ff",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-19T10:27:56-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -9278,19 +9298,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-06T17:23:22-03:00",
-      "dia": "2026-10-06",
-      "mudancas_novas": 70,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 3,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 144,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-06T21:45:09-03:00",
       "dia": "2026-10-06",
@@ -9925,6 +9932,19 @@
       "adiadas": 0,
       "stale": 86,
       "aguardando_curadoria": 185,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-19T10:27:56-03:00",
+      "dia": "2026-10-19",
+      "mudancas_novas": 5,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 188,
       "run_id": null,
       "bootstrap": false
     }
