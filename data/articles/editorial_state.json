@@ -9333,6 +9333,86 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=13 → sem valor editorial independente",
       "processed_at": "2026-10-20T01:52:38-03:00",
       "run_id": null
+    },
+    "chg_2345eeb82db6acda": {
+      "change_id": "chg_2345eeb82db6acda",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-718-de-19-de-outubro-de-2026-590c7045",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=13 → sem valor editorial independente",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
+    },
+    "chg_afff8d223e842651": {
+      "change_id": "chg_afff8d223e842651",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-do-contrato-no-77-2026-92e74dc5",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
+    },
+    "chg_51aee67aa1c3dfc8": {
+      "change_id": "chg_51aee67aa1c3dfc8",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-rescisao-6ab527b7",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
+    },
+    "chg_0112078dcbfe3c12": {
+      "change_id": "chg_0112078dcbfe3c12",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-844c61b0",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
+    },
+    "chg_0a11727ef74e75fc": {
+      "change_id": "chg_0a11727ef74e75fc",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-no-4-de-16-de-outubro-de-2026-9ffac89f",
+      "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
+    },
+    "chg_5098e39de408eb42": {
+      "change_id": "chg_5098e39de408eb42",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-registro-de-diplomas-5d6d331b",
+      "selection_reason": "ato tipo=Aviso órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
+    },
+    "chg_31c32f840343723c": {
+      "change_id": "chg_31c32f840343723c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-alteracao-de-edital-b77d77af",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
+    },
+    "chg_50faa5d267f49359": {
+      "change_id": "chg_50faa5d267f49359",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-ato-no-671-de-19-de-outubro-de-2026-f860b9ab",
+      "selection_reason": "ato tipo=Ato órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-20T07:07:51-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -9362,19 +9442,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-07T04:16:47-03:00",
-      "dia": "2026-10-07",
-      "mudancas_novas": 76,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 23,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 150,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-07T11:35:12-03:00",
       "dia": "2026-10-07",
@@ -10009,6 +10076,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 192,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-20T07:07:51-03:00",
+      "dia": "2026-10-20",
+      "mudancas_novas": 10,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 8,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 195,
       "run_id": null,
       "bootstrap": false
     }
