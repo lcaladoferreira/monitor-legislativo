@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-19"
+    "atualizado_em": "2026-10-20"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -9263,6 +9263,76 @@
       "selection_reason": "ruido_administrativo",
       "processed_at": "2026-10-19T10:27:56-03:00",
       "run_id": null
+    },
+    "chg_bc5afd73638ee19e": {
+      "change_id": "chg_bc5afd73638ee19e",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-portaria-gabpr-anpd-n-694-de-5-de-outubro-de-2026",
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-694-de-5-de-outubro-de-2026-fbd8f634",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-20T01:52:38-03:00",
+      "run_id": null
+    },
+    "chg_3d58ee78e9c5bd81": {
+      "change_id": "chg_3d58ee78e9c5bd81",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-subex-cim-no-11-de-1o-de-outubro-de-2026-31d9e5f9",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=16 → sem valor editorial independente",
+      "processed_at": "2026-10-20T01:52:38-03:00",
+      "run_id": null
+    },
+    "chg_e164eef06de90d0b": {
+      "change_id": "chg_e164eef06de90d0b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-subex-cim-no-10-de-1o-de-outubro-de-2026-36b8aeb3",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=16 → sem valor editorial independente",
+      "processed_at": "2026-10-20T01:52:38-03:00",
+      "run_id": null
+    },
+    "chg_dfde26f5d328972f": {
+      "change_id": "chg_dfde26f5d328972f",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-no-102-de-19-de-outubro-de-2026-1368f20d",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-20T01:52:38-03:00",
+      "run_id": null
+    },
+    "chg_e6562931e651d0cc": {
+      "change_id": "chg_e6562931e651d0cc",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-sav-minc-no-54-de-19-de-outubro-de-2026-85440b18",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-20T01:52:38-03:00",
+      "run_id": null
+    },
+    "chg_3c626d4f184b4791": {
+      "change_id": "chg_3c626d4f184b4791",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gm-mpi-no-270-de-13-de-outubro-de-2026-21713c85",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-20T01:52:38-03:00",
+      "run_id": null
+    },
+    "chg_e7b88b1606a4565f": {
+      "change_id": "chg_e7b88b1606a4565f",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-723-de-19-de-outubro-de-2026-607c63f3",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=13 → sem valor editorial independente",
+      "processed_at": "2026-10-20T01:52:38-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -9284,12 +9354,6 @@
       "editorial_topic_id": "ato-cnj-portaria-cnj-no-119-f44b02f2",
       "prioridade": 12
     },
-    "chg_bc5afd73638ee19e": {
-      "reason": "cota_diaria_atingida",
-      "since": "2026-10-06",
-      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-694-de-5-de-outubro-de-2026-fbd8f634",
-      "prioridade": 13
-    },
     "chg_c682af9e6312f2a7": {
       "reason": "cota_diaria_atingida",
       "since": "2026-10-16",
@@ -9298,19 +9362,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-06T21:45:09-03:00",
-      "dia": "2026-10-06",
-      "mudancas_novas": 67,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 144,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-07T04:16:47-03:00",
       "dia": "2026-10-07",
@@ -9945,6 +9996,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 188,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-20T01:52:38-03:00",
+      "dia": "2026-10-20",
+      "mudancas_novas": 9,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 6,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 192,
       "run_id": null,
       "bootstrap": false
     }
