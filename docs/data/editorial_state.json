@@ -9413,6 +9413,16 @@
       "selection_reason": "ato tipo=Ato órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-10-20T07:07:51-03:00",
       "run_id": null
+    },
+    "chg_9544b9079c501e6c": {
+      "change_id": "chg_9544b9079c501e6c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mds-no-1-215-de-19-de-outubro-de-2026-a33a2ae8",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-20T22:38:46-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -9442,19 +9452,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-07T11:35:12-03:00",
-      "dia": "2026-10-07",
-      "mudancas_novas": 53,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 3,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 149,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-07T17:40:06-03:00",
       "dia": "2026-10-07",
@@ -10089,6 +10086,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 195,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-20T22:38:46-03:00",
+      "dia": "2026-10-20",
+      "mudancas_novas": 3,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 196,
       "run_id": null,
       "bootstrap": false
     }
