@@ -9533,6 +9533,16 @@
       "selection_reason": "ruido_administrativo",
       "processed_at": "2026-10-21T04:41:42-03:00",
       "run_id": null
+    },
+    "chg_f8f6eb9bc7be0b41": {
+      "change_id": "chg_f8f6eb9bc7be0b41",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-icmbio-no-4-687-de-20-de-outubro-de-2026-f2255e8d",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-21T22:35:03-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -9544,19 +9554,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-07T22:03:16-03:00",
-      "dia": "2026-10-07",
-      "mudancas_novas": 52,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 3,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 149,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-08T04:27:22-03:00",
       "dia": "2026-10-08",
@@ -10191,6 +10188,19 @@
       "adiadas": 0,
       "stale": 2,
       "aguardando_curadoria": 200,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-21T22:35:03-03:00",
+      "dia": "2026-10-21",
+      "mudancas_novas": 2,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 203,
       "run_id": null,
       "bootstrap": false
     }
