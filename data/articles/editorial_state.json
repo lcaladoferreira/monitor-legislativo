@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-21"
+    "atualizado_em": "2026-10-22"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -9543,30 +9543,130 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-10-21T22:35:03-03:00",
       "run_id": null
-    }
-  },
-  "pendentes": {
-    "chg_8934c490dcb41e5f": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-09-25",
-      "editorial_topic_id": "ato-cnj-portaria-cnj-no-119-f44b02f2",
-      "prioridade": 12
-    }
-  },
-  "execucoes": [
-    {
-      "executado_em": "2026-10-08T04:27:22-03:00",
-      "dia": "2026-10-08",
-      "mudancas_novas": 59,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 15,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 154,
-      "run_id": null,
-      "bootstrap": false
     },
+    "chg_8934c490dcb41e5f": {
+      "change_id": "chg_8934c490dcb41e5f",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-portaria-cnj-no-119",
+      "editorial_topic_id": "ato-cnj-portaria-cnj-no-119-f44b02f2",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_56039035a46027f5": {
+      "change_id": "chg_56039035a46027f5",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-seres-mec-no-544-de-21-de-outubro-de-2026-0be165fe",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_c89d784f0dde96a2": {
+      "change_id": "chg_c89d784f0dde96a2",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-acordo-de-parceria-1b2755d8",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_57c1f69d7a6d8657": {
+      "change_id": "chg_57c1f69d7a6d8657",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extratos-de-termo-aditivo-da24e30f",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_523d268a4ecedd20": {
+      "change_id": "chg_523d268a4ecedd20",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-4e8b9343",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_6b86779c6c37f86a": {
+      "change_id": "chg_6b86779c6c37f86a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-0ac79459",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_effccbb26bbbb7e8": {
+      "change_id": "chg_effccbb26bbbb7e8",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-aa5f0803",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_fb0519e1e8362399": {
+      "change_id": "chg_fb0519e1e8362399",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-no-9-2026-114780a4",
+      "selection_reason": "ato tipo=Edital órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_cd656542e1417f2a": {
+      "change_id": "chg_cd656542e1417f2a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-no-1-2026-3a947371",
+      "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_7d491046d2bc5858": {
+      "change_id": "chg_7d491046d2bc5858",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-despachos-de-21-de-outubro-de-2026-09c42b75",
+      "selection_reason": "ato tipo=Despacho órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_6ca7fc803f0d492d": {
+      "change_id": "chg_6ca7fc803f0d492d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-licitacao-53b98ac6",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    },
+    "chg_dfd7fc0291b5f314": {
+      "change_id": "chg_dfd7fc0291b5f314",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-alteracao-de-edital-438a2322",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-22T04:37:36-03:00",
+      "run_id": null
+    }
+  },
+  "pendentes": {},
+  "execucoes": [
     {
       "executado_em": "2026-10-08T12:39:45-03:00",
       "dia": "2026-10-08",
@@ -10201,6 +10301,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 203,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-22T04:37:36-03:00",
+      "dia": "2026-10-22",
+      "mudancas_novas": 12,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 11,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 205,
       "run_id": null,
       "bootstrap": false
     }
