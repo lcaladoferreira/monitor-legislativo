@@ -1319,20 +1319,20 @@ def build_timeline(timeline):
     body = f"""
 <div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Timeline</div>
-  <h1>Regulação de IA no Brasil: timeline do PL 2338/2023 e principais normas</h1>
-  <p class="sub">Linha do tempo da regulação de inteligência artificial no Brasil, com a tramitação do <a href="/proposicoes/pl-2338-2023/">PL 2338/2023 (Marco Legal da IA)</a>, leis, atos da ANPD, TSE e CNJ e fontes verificáveis.</p>
+  <h1>Regulamentação da inteligência artificial no Brasil em 2026: linha do tempo</h1>
+  <p class="sub">Entenda a regulamentação da inteligência artificial no Brasil: o <a href="/proposicoes/pl-2338-2023/">PL 2338/2023 (Marco Legal da IA)</a> ainda é uma proposta em tramitação, não uma lei vigente. Consulte a cronologia de projetos, leis sancionadas e atos da ANPD, TSE e CNJ, com fontes verificáveis.</p>
 </div></div>
 <section class="block"><div class="wrap">
   <div class="timeline">{tl}</div>
 </div></section>"""
     jsonld = combine_ld(
-        ld_collection("Regulação de IA no Brasil: timeline do PL 2338/2023 e normas (2019–2026)",
-                      "Linha do tempo documentada da regulação de inteligência artificial no Brasil, com PL 2338/2023, leis e atos regulatórios.",
+        ld_collection("Regulamentação da IA no Brasil: linha do tempo e PL 2338 (2019–2026)",
+                      "Cronologia da regulamentação da inteligência artificial no Brasil: PL 2338/2023 em tramitação, leis vigentes e atos oficiais.",
                       "timeline/"),
         ld_breadcrumbs([("Início", ""), ("Timeline", None)]))
     write("timeline/index.html", page(
-        "Regulação de IA no Brasil: PL 2338/2023 e timeline (2019–2026)",
-        "Acompanhe a regulação de IA no Brasil em ordem cronológica: PL 2338/2023, Marco Legal da IA, leis sancionadas, ANPD, TSE, CNJ e fontes oficiais.",
+        "Regulamentação da IA no Brasil em 2026: PL 2338 e Leis",
+        "Linha do tempo da regulamentação da IA no Brasil em 2026: PL 2338/2023 em tramitação, leis vigentes, ANPD, TSE e CNJ, com fontes oficiais.",
         "timeline/", body, jsonld=jsonld))
 
 
