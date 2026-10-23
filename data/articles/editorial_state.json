@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-22"
+    "atualizado_em": "2026-10-23"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -9673,23 +9673,100 @@
       "selection_reason": "ato tipo=post órgão=cnj peso=9 → sem valor editorial independente",
       "processed_at": "2026-10-22T19:24:47-03:00",
       "run_id": null
+    },
+    "chg_6f73aef88471408b": {
+      "change_id": "chg_6f73aef88471408b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-de-22-de-outubro-2026-c0892808",
+      "selection_reason": "ato tipo=Retificação (de Edital) órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_ac5afa2eb9e3c76a": {
+      "change_id": "chg_ac5afa2eb9e3c76a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-sefic-minc-no-724-de-22-de-outubro-de-2026-6db05b56",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_bc181af72413c0b3": {
+      "change_id": "chg_bc181af72413c0b3",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-sav-minc-no-55-de-22-de-outubro-de-2026-3080958d",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_9c9dc6f65236f453": {
+      "change_id": "chg_9c9dc6f65236f453",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-no-528-de-22-de-outubro-de-2026-793aeb7a",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_29a047877ac46d7c": {
+      "change_id": "chg_29a047877ac46d7c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-725-de-21-de-outubro-de-2026-ba838c24",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=13 → sem valor editorial independente",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_efe484ecca682c5e": {
+      "change_id": "chg_efe484ecca682c5e",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-enap-no-99-de-22-de-outubro-de-2026-a1901294",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_66ddeae64823789b": {
+      "change_id": "chg_66ddeae64823789b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-no-15-2026-c9b18a0d",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_dadffbf8441168c4": {
+      "change_id": "chg_dadffbf8441168c4",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-ac489890",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
+    },
+    "chg_0e37e136bd0652f9": {
+      "change_id": "chg_0e37e136bd0652f9",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-no-1-cref16-rn-de-22-de-outubro-de-2026-efcb154a",
+      "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-23T04:34:34-03:00",
+      "run_id": null
     }
   },
   "pendentes": {},
   "execucoes": [
-    {
-      "executado_em": "2026-10-08T18:22:49-03:00",
-      "dia": "2026-10-08",
-      "mudancas_novas": 43,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 155,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-08T23:12:30-03:00",
       "dia": "2026-10-08",
@@ -10324,6 +10401,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 205,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-23T04:34:34-03:00",
+      "dia": "2026-10-23",
+      "mudancas_novas": 9,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 9,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 208,
       "run_id": null,
       "bootstrap": false
     }
