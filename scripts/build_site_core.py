@@ -1138,8 +1138,8 @@ def build_updates(props, updates):
     body = f"""
 <div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Atualizações</div>
-  <h1>O que mudou na regulação de IA</h1>
-  <p class="sub">Histórico cronológico das mudanças detectadas pelo monitoramento — relator, situação, parecer, pauta, votação, apensação, sanção e novas proposições. Ordenado pela data do evento (registros incorporados trazem a data original). Cada item aponta para a proposição e para a fonte oficial.</p>
+  <h1>Atualizações da regulação de IA: tramitação e normas</h1>
+  <p class="sub">Histórico cronológico das mudanças detectadas pelo monitoramento — relator, situação, parecer, pauta, votação, apensação, sanção e novas proposições. Ordenado pela data do evento (registros incorporados trazem a data original). Cada item aponta para a proposição e para a fonte oficial. Consulte também as fichas do <a href="/proposicoes/pl-2338-2023/">PL 2338/2023</a> e do <a href="/proposicoes/pl-3060-2026/">PL 3060/2026</a>, além da <a href="/timeline/">linha do tempo da regulação de IA</a>.</p>
 </div></div>
 <section class="block"><div class="wrap">
   <div class="update-filters" role="group" aria-label="Filtrar por período">
@@ -1158,8 +1158,8 @@ def build_updates(props, updates):
                       "atualizacoes/"),
         ld_breadcrumbs([("Início", ""), ("Atualizações", None)]))
     write("atualizacoes/index.html", page(
-        "Atualizações da regulação de IA no Brasil — o que mudou",
-        "Histórico cronológico do monitoramento legislativo de IA: mudanças de hoje, dos últimos 7 e 30 dias — relator, parecer, pauta, votação, sanção e novas proposições, com fonte oficial.",
+        "Regulação de IA: atualizações de PLs e normas no Brasil",
+        "Veja mudanças na tramitação de projetos como PL 2338/2023 e PL 3060/2026, além de atos regulatórios. Histórico datado com fontes oficiais.",
         "atualizacoes/", body, jsonld=jsonld))
 
 
