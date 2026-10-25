@@ -882,7 +882,7 @@ def build_propositions(props, cats):
 <div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Proposições</div>
   <h1>Projetos de Lei sobre Inteligência Artificial no Brasil</h1>
-  <p class="sub">Todas as matérias monitoradas, com filtros por casa, ano, situação, categoria e score. Cada ficha traz ementa oficial, autoria, tramitação, relatoria, relações e fontes primárias.</p>
+  <p class="sub">Consulte projetos de lei sobre inteligência artificial na Câmara e no Senado. Filtre por casa, ano, situação e tema; cada ficha reúne ementa, autoria, tramitação e fontes oficiais. Comece pelo <a href="https://monitor.lcfconsulting.com.br/proposicoes/pl-2338-2023/">PL 2338/2023 (Marco Legal da IA)</a> ou veja a <a href="https://monitor.lcfconsulting.com.br/timeline/">linha do tempo da regulação de IA</a>.</p>
 </div></div>
 <section class="block"><div class="wrap">
   <div class="filters">
@@ -898,12 +898,12 @@ def build_propositions(props, cats):
 </div></section>"""
     jsonld = combine_ld(
         ld_collection("Proposições legislativas sobre IA no Brasil",
-                      "Lista completa e filtrável de projetos de lei sobre inteligência artificial no Congresso Nacional.",
+                      "Projetos de lei sobre inteligência artificial no Brasil, com tramitação, situação e fontes oficiais da Câmara e do Senado.",
                       "proposicoes/"),
         ld_breadcrumbs([("Início", ""), ("Proposições", None)]))
     write("proposicoes/index.html", page(
-        "Projetos de Lei sobre Inteligência Artificial no Brasil — Proposições e tramitação",
-        "Lista completa e filtrável de projetos de lei sobre inteligência artificial no Congresso Nacional, com AI Legislative Impact Score, situação atual e fontes oficiais.",
+        "Projetos de Lei sobre IA: tramitação na Câmara e Senado",
+        "Projetos de lei sobre inteligência artificial no Brasil: consulte tramitação, situação, autoria e fontes oficiais. Veja o PL 2338/2023 e filtre as propostas.",
         "proposicoes/", body, jsonld=jsonld))
 
 
