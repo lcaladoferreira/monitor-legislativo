@@ -1288,8 +1288,9 @@ def build_laws(laws):
     body = f"""
 <div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Leis e normas</div>
-  <h1>Leis e normas vigentes relacionadas à IA</h1>
-  <p class="sub">Legislação federal em vigor que já disciplina sistemas de IA, decisões automatizadas e conteúdo sintético — além de atos caducos mantidos por valor documental.</p>
+  <h1>Leis e normas sobre inteligência artificial no Brasil</h1>
+  <p class="sub">Consulte leis, decretos e atos relacionados à IA, proteção de dados e plataformas digitais. A tabela identifica a situação de cada norma, inclui registros históricos e aponta as fontes oficiais.</p>
+  <p class="sub" style="font-size:14px;margin-top:12px">Procurando o Marco Legal da IA? O <a href="/proposicoes/pl-2338-2023/">PL 2338/2023</a> ainda é uma proposta em tramitação, não uma lei vigente. Veja também a <a href="/timeline/">linha do tempo da regulação de IA</a>.</p>
 </div></div>
 <section class="block"><div class="wrap" style="overflow-x:auto">
   <table class="tbl">
@@ -1304,8 +1305,8 @@ def build_laws(laws):
                       "leis/"),
         ld_breadcrumbs([("Início", ""), ("Leis e normas", None)]))
     write("leis/index.html", page(
-        "Leis e normas vigentes sobre IA no Brasil — LGPD, ECA Digital, Lei 15.487/2026 e mais",
-        "Legislação federal brasileira vigente relacionada à inteligência artificial: leis, decretos, resoluções do TSE e CNJ e atos da ANPD, com fonte oficial.",
+        "Leis sobre IA no Brasil: normas vigentes e fontes oficiais",
+        "Consulte leis e normas relacionadas à IA no Brasil: LGPD, ECA Digital, decretos e atos regulatórios, com situação, contexto e fontes oficiais.",
         "leis/", body, jsonld=jsonld))
 
 
