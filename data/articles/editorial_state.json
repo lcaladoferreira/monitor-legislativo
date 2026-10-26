@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-23"
+    "atualizado_em": "2026-10-26"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -9763,23 +9763,100 @@
       "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-10-23T04:34:34-03:00",
       "run_id": null
+    },
+    "chg_8b3b01a3569b54e1": {
+      "change_id": "chg_8b3b01a3569b54e1",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-conjunta-no-21-de-22-de-outubro-de-2026-727711b6",
+      "selection_reason": "ato tipo=Resolução Conjunta órgão=dou peso=8 → sem valor editorial independente",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_670c878f95135f8b": {
+      "change_id": "chg_670c878f95135f8b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extratos-de-termos-aditivos-3959af16",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_ce3042e6cca45ded": {
+      "change_id": "chg_ce3042e6cca45ded",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-termo-aditivo-cb5f83db",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_1d569e11582c6712": {
+      "change_id": "chg_1d569e11582c6712",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-progesp-no-118-de-21-de-novembro-de-2026-c45a2a7a",
+      "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_a3e6758f2d6d25c3": {
+      "change_id": "chg_a3e6758f2d6d25c3",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-progep-no-187-2026-b7f05b6e",
+      "selection_reason": "ato tipo=Retificação (de Edital) órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_1c806f7642920358": {
+      "change_id": "chg_1c806f7642920358",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-no-59-de-23-de-outubro-de-2026-ac137d28",
+      "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_b7c174aa5ddc2a58": {
+      "change_id": "chg_b7c174aa5ddc2a58",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-no-1-de-23-de-outubro-de-2026-3281a73f",
+      "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_227b86e6f94df461": {
+      "change_id": "chg_227b86e6f94df461",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-anpd-participa-do-ii-ciclo-de-debates-do-cnmp-sobre-trabalho-f8ebd0c2",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
+    },
+    "chg_d954feb3d6322fca": {
+      "change_id": "chg_d954feb3d6322fca",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-anpd-debate-governanca-de-dados-e-soberania-digital-durante-9e5b2f06",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-10-26T10:03:37-03:00",
+      "run_id": null
     }
   },
   "pendentes": {},
   "execucoes": [
-    {
-      "executado_em": "2026-10-08T23:12:30-03:00",
-      "dia": "2026-10-08",
-      "mudancas_novas": 43,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 2,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 155,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-09T06:06:50-03:00",
       "dia": "2026-10-09",
@@ -10414,6 +10491,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 208,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-26T10:03:37-03:00",
+      "dia": "2026-10-26",
+      "mudancas_novas": 9,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 9,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 209,
       "run_id": null,
       "bootstrap": false
     }
