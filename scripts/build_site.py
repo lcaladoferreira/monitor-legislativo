@@ -157,7 +157,7 @@ def _optimize_pl_2338_search_result():
         '      <p class="sub" style="font-size:14px;margin-top:8px">'
         '<strong>O PL 2338/2023 já é lei?</strong> Não. O projeto aprovado '
         'pelo Senado está em análise na Câmara dos Deputados e ainda não '
-        'estabelece obrigações legais vigentes.</p>\\n'
+        'estabelece obrigações legais vigentes.</p>\n'
     )
     page_html = page_html.replace(anchor, snippet + anchor, 1)
     # Distinguir regras propostas de obrigações já vigentes na síntese editorial.
