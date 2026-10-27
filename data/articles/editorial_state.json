@@ -10473,6 +10473,76 @@
       "selection_reason": "ato tipo=Aviso de Consulta Pública órgão=dou peso=2 → abaixo do limiar de novo artigo",
       "processed_at": "2026-10-27T02:06:59-03:00",
       "run_id": null
+    },
+    "chg_146af67b06ebadd9": {
+      "change_id": "chg_146af67b06ebadd9",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-edital-no-5-de-26-de-outubro-de-2026-1b05d1f8",
+      "selection_reason": "ato tipo=Edital de Concurso Público órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-27T07:37:54-03:00",
+      "run_id": null
+    },
+    "chg_77343e5f79f85bd3": {
+      "change_id": "chg_77343e5f79f85bd3",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-no-6-2026-uasg-302122-444fdeb1",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-27T07:37:54-03:00",
+      "run_id": null
+    },
+    "chg_8aa2a57f95292716": {
+      "change_id": "chg_8aa2a57f95292716",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-no-6-2026-uasg-302122-f8c6de6c",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-27T07:37:54-03:00",
+      "run_id": null
+    },
+    "chg_223d212544f42f2c": {
+      "change_id": "chg_223d212544f42f2c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-apostilamento-no-2-2026-uasg-302122-d499c082",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-27T07:37:54-03:00",
+      "run_id": null
+    },
+    "chg_fea9040c67a858b7": {
+      "change_id": "chg_fea9040c67a858b7",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-retificacao-no-5-cabe920c",
+      "selection_reason": "ato tipo=Retificação (de Edital) órgão=dou peso=2 → sem valor editorial independente",
+      "processed_at": "2026-10-27T07:37:54-03:00",
+      "run_id": null
+    },
+    "chg_1fb39dde68a33d5a": {
+      "change_id": "chg_1fb39dde68a33d5a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-licitacao-f84e7b3f",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-27T07:37:54-03:00",
+      "run_id": null
+    },
+    "chg_ea69e3ed576f2835": {
+      "change_id": "chg_ea69e3ed576f2835",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-licitacao-d3404bd4",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-10-27T07:37:54-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -10484,19 +10554,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-09T17:57:27-03:00",
-      "dia": "2026-10-09",
-      "mudancas_novas": 16,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 3,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 163,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-09T21:52:44-03:00",
       "dia": "2026-10-09",
@@ -11131,6 +11188,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 192,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-27T07:37:54-03:00",
+      "dia": "2026-10-27",
+      "mudancas_novas": 7,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 7,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 198,
       "run_id": null,
       "bootstrap": false
     }
