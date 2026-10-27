@@ -117,8 +117,24 @@ def _optimize_pl_2338_search_result():
     with open(path, encoding="utf-8") as f:
         page_html = f.read()
 
-    desc = ("PL 2338/2023: veja a situação atual do Marco Legal da IA na Câmara, "
-            "relator, comissão, tramitação, apensados e fontes oficiais.")
+    title = "PL 2338/2023: tramitação na Câmara e situação atual"
+    desc = ("PL 2338/2023 na Câmara: situação, relator, tramitação e propostas "
+            "do Marco Legal da IA. Ainda não é lei; consulte fontes oficiais.")
+    page_html, title_count = re.subn(r"<title>[^<]*</title>",
+                                      "<title>" + title + "</title>",
+                                      page_html, count=1)
+    if title_count != 1:
+        raise RuntimeError("SEO PL 2338: title não localizado")
+    page_html, og_count = re.subn(
+        r'(<meta property="og:title" content=")[^"]*(">)',
+        lambda m: m.group(1) + title + m.group(2), page_html, count=1)
+    if og_count != 1:
+        raise RuntimeError("SEO PL 2338: OG title não localizado")
+    old_h1 = "<h1>PL 2338/2023</h1>"
+    if page_html.count(old_h1) != 1:
+        raise RuntimeError("SEO PL 2338: H1 não localizado")
+    page_html = page_html.replace(old_h1,
+                                  "<h1>PL 2338/2023: tramitação na Câmara</h1>", 1)
     for attribute in ('name="description"', 'property="og:description"'):
         pattern = r'(<meta ' + re.escape(attribute) + r' content=")[^"]*(">)'
         page_html, count = re.subn(pattern, lambda m: m.group(1) + desc + m.group(2),
@@ -137,7 +153,23 @@ def _optimize_pl_2338_search_result():
         + '" target="_blank" rel="noopener">Ficha oficial ↗</a>'
         + ' · <a href="/timeline/">Linha do tempo da regulação de IA</a></p>\n'
     )
+    snippet += (
+        '      <p class="sub" style="font-size:14px;margin-top:8px">'
+        '<strong>O PL 2338/2023 já é lei?</strong> Não. O projeto aprovado '
+        'pelo Senado está em análise na Câmara dos Deputados e ainda não '
+        'estabelece obrigações legais vigentes.</p>\\n'
+    )
     page_html = page_html.replace(anchor, snippet + anchor, 1)
+    # Distinguir regras propostas de obrigações já vigentes na síntese editorial.
+    for original, correto in (
+        (">Obrigações criadas</dt>", ">Obrigações previstas no projeto</dt>"),
+        (">Proibições</dt>", ">Proibições propostas</dt>"),
+        (">Órgãos responsáveis pela fiscalização</dt>",
+         ">Autoridades de fiscalização previstas no projeto</dt>"),
+        ("Estabelece o marco regulatório geral da IA no Brasil",
+         "O projeto propõe um marco regulatório geral da IA no Brasil"),
+    ):
+        page_html = page_html.replace(original, correto, 1)
     with open(path, "w", encoding="utf-8") as f:
         f.write(page_html)
 
