@@ -178,6 +178,86 @@
     },
     {
       "data": "2026-10-28",
+      "titulo": "PL 4177/2026: regime tramitacao atualizado",
+      "descricao": "Regime tramitacao passou de “.” para “Ordinário (Art. 151, III, RICD)”, conforme ficha oficial.",
+      "tipo": "atualização cadastral",
+      "proposicao": "camara_pl_4177_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "campo_alterado": "regime_tramitacao",
+      "valor_anterior": ".",
+      "valor_novo": "Ordinário (Art. 151, III, RICD)",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
+      "id_execucao": "run_2026_10_28_1301"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4177/2026: forma apreciacao atualizado",
+      "descricao": "Forma apreciacao passou de “Indefinida” para “Proposição Sujeita à Apreciação do Plenário”, conforme ficha oficial.",
+      "tipo": "atualização cadastral",
+      "proposicao": "camara_pl_4177_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "campo_alterado": "forma_apreciacao",
+      "valor_anterior": "Indefinida",
+      "valor_novo": "Proposição Sujeita à Apreciação do Plenário",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
+      "id_execucao": "run_2026_10_28_1301"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4177/2026: Distribuição (registro incorporado)",
+      "descricao": "Em 2026-10-28, MESA: À Comissão deConstituição e Justiça e de Cidadania (Mérito e Art. 54, RICD).Proposição Sujeita à Apreciação do Plenário.Regime de Tramitação: Ordinário (Art. 151, III, RICD). Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "tramitação",
+      "proposicao": "camara_pl_4177_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-07-17 — Apresentação do PL n. 4177/2026 (Projeto de Lei), pelo Deputado Amom Mandel (REPUBLIC/AM -Fdr PSDB-CIDADANIA), que \"Altera o Decreto-Lei nº 2.848, de 7 de dezembro de 1940 (Código Penal), para institu",
+      "valor_novo": "2026-10-28 — À Comissão deConstituição e Justiça e de Cidadania (Mérito e Art. 54, RICD).Proposição Sujeita à Apreciação do Plenário.Regime de Tramitação: Ordinário (Art. 151, III, RICD).",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
+      "id_execucao": "run_2026_10_28_1301"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 2451/2026: situação atualizada",
+      "descricao": "Situação passou de “Pronta para Pauta — Parecer do Relator, Dep. Benes Leocádio (UNIÃO-RN), pela aprovação, com emendas.” para “Aprovação do Parecer (CE): Aprovado o Parecer.”.",
+      "tipo": "parecer",
+      "proposicao": "camara_pl_2451_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
+      "campo_alterado": "situacao",
+      "valor_anterior": "Pronta para Pauta — Parecer do Relator, Dep. Benes Leocádio (UNIÃO-RN), pela aprovação, com emendas.",
+      "valor_novo": "Aprovação do Parecer (CE): Aprovado o Parecer.",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
+      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
+      "id_execucao": "run_2026_10_28_1301"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 2451/2026: Aprovação do Parecer (registro incorporado)",
+      "descricao": "Em 2026-10-28, CE: Aprovado o Parecer. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "parecer",
+      "proposicao": "camara_pl_2451_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-08-19 — Parecer do Relator, Dep. Benes Leocádio (UNIÃO-RN), pela aprovação, com emendas.",
+      "valor_novo": "2026-10-28 — Aprovado o Parecer.",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
+      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
+      "id_execucao": "run_2026_10_28_1301"
+    },
+    {
+      "data": "2026-10-28",
       "titulo": "PAUTA DA 510ª SESSÃO DE JULGAMENTO a ser realizada em 17 e 18 de novembro de 2026",
       "descricao": "servicos/pedido-de-sustentacao-oral-e-de-preferencia. d) ENVIO DE MEMORIAIS - Em atenção a Lei Geral de Proteção ... de Dados Pessoais (LGPD - Lei nº 13.709/2018), informamos que, a partir de 23 de setembro de 2025, ovembro de 2026 A ser realizada nas datas a seguir mencionadas, nos term... (Pauta — Ministério da Fazenda/Conselho de Recursos do Sistema Financeiro Nacional)",
       "tipo": "nova decisão",
@@ -213,6 +293,25 @@
       "data_deteccao": "2026-10-28",
       "timestamp_execucao": "2026-10-28T13:01:02-03:00",
       "id_execucao": "run_2026_10_28_1301"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "Guia esclarece quem deve cumprir o ECA Digital e quais são as responsabilidades das plataformas",
+      "descricao": "Documento explica quais produtos e serviços estão sujeitos ao ECA Digital e quais medidas os fornecedores devem adotar para garantir ambientes digitais mais seguros",
+      "tipo": "alteração de texto",
+      "orgao": "anpd",
+      "item": "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_guia_que_esclarece_quem_deve_cumprir_e_quais_sao_as_responsab",
+      "fonte": "ANPD — Autoridade Nacional de Proteção de Dados — notícias recentes",
+      "fonte_url": "https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-guia-que-esclarece-quem-deve-cumprir-e-quais-sao-as-responsabilidades-das-plataformas-na-protecao-de-criancas-e-adolescentes",
+      "url_oficial": "https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-guia-que-esclarece-quem-deve-cumprir-e-quais-sao-as-responsabilidades-das-plataformas-na-protecao-de-criancas-e-adolescentes",
+      "campo_alterado": "texto",
+      "valor_anterior": "sha1:361df35068029bdb",
+      "valor_novo": "sha1:9ad41a1f42b7590c",
+      "relevancia": "revisar",
+      "revisao_pendente": true,
+      "data_deteccao": "2026-10-28",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
     },
     {
       "data": "2026-10-28",
@@ -460,6 +559,25 @@
       "data_deteccao": "2026-10-28",
       "timestamp_execucao": "2026-10-28T05:28:59-03:00",
       "id_execucao": "run_2026_10_28_0528"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "ANPD publica versões traduzidas para outros idiomas dos Decretos nº 12.975 e nº 12.976 e da LGPD atualizada",
+      "descricao": "Iniciativa disponibiliza os normativos em inglês, espanhol e francês, e a LGPD revisada em inglês e espanhol para dar maior alcance internacional ao sistema regulatório brasileiro relacionado à proteção de dados e proteção de crianças, adolescentes e mulheres no ambiente digital",
+      "tipo": "nova notícia oficial",
+      "orgao": "anpd",
+      "item": "anpd_gov_br_anpd_pt_br_assuntos_noticias_anpd_publica_versoes_traduzidas_para_outros_idiomas_dos_decretos_no_12_975",
+      "fonte": "ANPD — Autoridade Nacional de Proteção de Dados — notícias recentes",
+      "fonte_url": "https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-versoes-traduzidas-para-outros-idiomas-dos-decretos-no-12-975-e-no-12-976-e-da-lgpd-atualizada",
+      "url_oficial": "https://www.gov.br/anpd/pt-br/assuntos/noticias/anpd-publica-versoes-traduzidas-para-outros-idiomas-dos-decretos-no-12-975-e-no-12-976-e-da-lgpd-atualizada",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "data_deteccao": "2026-10-28",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
     },
     {
       "data": "2026-10-27",
@@ -14896,220 +15014,1274 @@
       "id_execucao": "run_2026_09_17_2041"
     },
     {
-      "data": "2026-09-17",
-      "titulo": "DESPACHO DE 15 DE SETEMBRO DE 2026",
-      "descricao": "Sciences\", bem como participar da Reunião do Conselho Consultivo Científico, do \"National Genomics Data ... Center \", ambos realizados no China National Center for Bioinformation, em Pequim/China, de 09/10/2026 A MINISTRA DE ESTADO DA CIÊNCIA, TECNOLOGIA E INOVAÇÃO, no uso das atribuições... (Despacho — Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra)",
-      "tipo": "nova publicação",
-      "orgao": "dou",
-      "item": "dou_in_gov_br_web_dou_despacho_de_15_de_setembro_de_2026_732384451",
-      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
-      "fonte_url": "https://www.in.gov.br/web/dou/-/despacho-de-15-de-setembro-de-2026-732384451",
-      "url_oficial": "https://www.in.gov.br/web/dou/-/despacho-de-15-de-setembro-de-2026-732384451",
-      "campo_alterado": null,
-      "valor_anterior": null,
-      "valor_novo": null,
-      "relevancia": "revisar",
-      "revisao_pendente": true,
-      "data_deteccao": "2026-09-17",
-      "timestamp_execucao": "2026-09-17T20:41:49-03:00",
-      "id_execucao": "run_2026_09_17_2041"
-    },
-    {
-      "data": "2026-09-17",
-      "titulo": "DESPACHO DE 15 DE SETEMBRO DE 2026",
-      "descricao": "Sciences\", bem como participar da Reunião do Conselho Consultivo Científico, do \"National Genomics Data ... Center \", ambos realizados no China National Center for Bioinformation, em Pequim/China, de 09/10/2026 A MINISTRA DE ESTADO DA CIÊNCIA, TECNOLOGIA E INOVAÇÃO, no uso das atribuições... (Despacho — Ministério da Ciência, Tecnologia e Inovação/Gabinete da Ministra)",
-      "tipo": "nova portaria",
-      "orgao": "mcti",
-      "item": "mcti_in_gov_br_web_dou_despacho_de_15_de_setembro_de_2026_732384451",
-      "fonte": "MCTI — Ministério da Ciência, Tecnologia e Inovação — atos do MCTI por tema (DOU)",
-      "fonte_url": "https://www.in.gov.br/web/dou/-/despacho-de-15-de-setembro-de-2026-732384451",
-      "url_oficial": "https://www.in.gov.br/web/dou/-/despacho-de-15-de-setembro-de-2026-732384451",
-      "campo_alterado": null,
-      "valor_anterior": null,
-      "valor_novo": null,
-      "relevancia": "revisar",
-      "revisao_pendente": true,
-      "data_deteccao": "2026-09-18",
-      "timestamp_execucao": "2026-09-18T11:31:05-03:00",
-      "id_execucao": "run_2026_09_18_1131"
-    },
-    {
-      "data": "2026-09-17",
-      "titulo": "CNJ vai ao território Kalunga, em Goiás, para ouvir comunidade e ampliar acesso à Justiça",
-      "descricao": "O território Kalunga, em Cavalcante (GO), receberá, nos dias 21 e 22 de setembro, a visita do Conselho Nacional de Justiça (CNJ), com programação que inclui inauguração de pontos de inclusão digital, articulação com a rede de proteção infantojuvenil e oitiva da comunidade. A ação, realizada em parceria com o Tribunal de Justiça de Goiás […]",
-      "tipo": "nova notícia oficial",
-      "orgao": "cnj",
-      "item": "cnj_cnj_jus_br_cnj_vai_ao_territorio_kalunga_em_goias_para_ouvir_comunidade_e_ampliar_acesso_a_justica",
-      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
-      "fonte_url": "https://www.cnj.jus.br/cnj-vai-ao-territorio-kalunga-em-goias-para-ouvir-comunidade-e-ampliar-acesso-a-justica/",
-      "url_oficial": "https://www.cnj.jus.br/cnj-vai-ao-territorio-kalunga-em-goias-para-ouvir-comunidade-e-ampliar-acesso-a-justica/",
-      "campo_alterado": null,
-      "valor_anterior": null,
-      "valor_novo": null,
-      "relevancia": "revisar",
-      "revisao_pendente": true,
-      "data_deteccao": "2026-09-17",
-      "timestamp_execucao": "2026-09-17T20:41:49-03:00",
-      "id_execucao": "run_2026_09_17_2041"
-    },
-    {
-      "data": "2026-09-17",
-      "titulo": "Aviso de Licitação",
-      "descricao": "prestação de serviços educacionais e fornecimento de solução tecnológica digital integrada, em ambiente de computação ... em nuvem (Software As a Service - SAAS), compreendendo o licenciamento de uso de plataforma educacionalizará as 09:00, do dia 01 de outubro de 2026, no endereço eletr... (Aviso de Licitação — Prefeituras/Estado do Ceará/Prefeitura Municipal de Jucás)",
-      "tipo": "nova publicação",
-      "orgao": "dou",
-      "item": "dou_in_gov_br_web_dou_aviso_de_licitacao_732238355",
-      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
-      "fonte_url": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-732238355",
-      "url_oficial": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-732238355",
-      "campo_alterado": null,
-      "valor_anterior": null,
-      "valor_novo": null,
-      "relevancia": "revisar",
-      "revisao_pendente": true,
-      "data_deteccao": "2026-09-17",
-      "timestamp_execucao": "2026-09-17T20:41:49-03:00",
-      "id_execucao": "run_2026_09_17_2041"
-    },
-    {
-      "data": "2026-09-17",
-      "titulo": "Arquivos Internet das Coisas",
-      "descricao": null,
-      "tipo": "novo programa",
-      "orgao": "mcti",
-      "item": "mcti_gov_br_mcti_pt_br_acompanhe_o_mcti_transformacaodigital_internet_20das_20coisas",
-      "fonte": "MCTI — Ministério da Ciência, Tecnologia e Inovação — planos, programas e políticas",
-      "fonte_url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital/Internet%20das%20Coisas",
-      "url_oficial": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/transformacaodigital/Internet%20das%20Coisas",
-      "campo_alterado": null,
-      "valor_anterior": null,
-      "valor_novo": null,
-      "relevancia": "forte",
-      "revisao_pendente": false,
-      "data_deteccao": "2026-09-17",
-      "timestamp_execucao": "2026-09-17T20:41:49-03:00",
-      "id_execucao": "run_2026_09_17_2041"
-    },
-    {
-      "data": "2026-09-17",
-      "titulo": "AVISO DE LICITAÇÃO",
-      "descricao": "Objeto: Contratação de empresa para o fornecimento de 10 (dez) licenças corporativas de solução de Inteligência ... Artificial Generativa, em regime de Software as a Service (SaaS), na modalidade de assento de uso ampliado processo: 19.00.6400.0003128/2026-63 / Objeto: Contratação de emp... (Aviso de Licitação-Pregão — Conselho Nacional do Ministério Público/Secretaria-Geral)",
-      "tipo": "nova publicação",
-      "orgao": "dou",
-      "item": "dou_in_gov_br_web_dou_aviso_de_licitacao_732207899",
-      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
-      "fonte_url": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-732207899",
-      "url_oficial": "https://www.in.gov.br/web/dou/-/aviso-de-licitacao-732207899",
-      "campo_alterado": null,
-      "valor_anterior": null,
-      "valor_novo": null,
-      "relevancia": "revisar",
-      "revisao_pendente": true,
-      "data_deteccao": "2026-09-17",
-      "timestamp_execucao": "2026-09-17T20:41:49-03:00",
-      "id_execucao": "run_2026_09_17_2041"
-    },
-    {
-      "data": "2026-09-16",
-      "titulo": "Servidores da ANPD participam de curso de formação promovido em parceria com a EGI",
-      "descricao": "Curso presencial reuniu mais de 40 participantes para discutir os desafios técnicos e políticos da Internet e suas relações com a proteção de dados e os direitos fundamentais",
-      "tipo": "nova notícia oficial",
-      "orgao": "anpd",
-      "item": "anpd_gov_br_anpd_pt_br_assuntos_noticias_servidores_anpd_curso_formacao_egi",
-      "fonte": "ANPD — Autoridade Nacional de Proteção de Dados — notícias recentes",
-      "fonte_url": "https://www.gov.br/anpd/pt-br/assuntos/noticias/servidores-anpd-curso-formacao-egi",
-      "url_oficial": "https://www.gov.br/anpd/pt-br/assuntos/noticias/servidores-anpd-curso-formacao-egi",
-      "campo_alterado": null,
-      "valor_anterior": null,
-      "valor_novo": null,
-      "relevancia": "forte",
-      "revisao_pendente": false,
-      "data_deteccao": "2026-10-26",
-      "timestamp_execucao": "2026-10-26T20:52:11-03:00",
-      "id_execucao": "run_2026_10_26_2052"
+      "data": "2026-10-29",
+      "titulo": "PL 4356/2025: Abertura de Prazo",
+      "descricao": "Em 2026-10-29, CSPCCO: Prazo para Emendas ao Projeto (5 sessões a partir de 30/10/2026)",
+      "tipo": "tramitação",
+      "proposicao": "camara_pl_4356_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2555654",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-09-04 — Parecer recebido para publicação.",
+      "valor_novo": "2026-10-29 — Prazo para Emendas ao Projeto (5 sessões a partir de 30/10/2026)",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2555654",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
     },
     {
       "data": "2026-10-28",
-      "titulo": "PL 4177/2026: regime tramitacao atualizado",
+      "titulo": "PL 4548/2026: regime tramitacao atualizado",
       "descricao": "Regime tramitacao passou de “.” para “Ordinário (Art. 151, III, RICD)”, conforme ficha oficial.",
       "tipo": "atualização cadastral",
-      "proposicao": "camara_pl_4177_2026",
-      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "proposicao": "camara_pl_4548_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2641236",
       "campo_alterado": "regime_tramitacao",
       "valor_anterior": ".",
       "valor_novo": "Ordinário (Art. 151, III, RICD)",
       "data_deteccao": "2026-10-28",
       "fonte": "Câmara dos Deputados — API de Dados Abertos",
-      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
-      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
-      "id_execucao": "run_2026_10_28_1301"
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2641236",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
     },
     {
       "data": "2026-10-28",
-      "titulo": "PL 4177/2026: forma apreciacao atualizado",
+      "titulo": "PL 4548/2026: forma apreciacao atualizado",
+      "descricao": "Forma apreciacao passou de “Indefinida” para “Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II”, conforme ficha oficial.",
+      "tipo": "atualização cadastral",
+      "proposicao": "camara_pl_4548_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2641236",
+      "campo_alterado": "forma_apreciacao",
+      "valor_anterior": "Indefinida",
+      "valor_novo": "Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2641236",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4548/2026: Distribuição (registro incorporado)",
+      "descricao": "Em 2026-10-28, MESA: Às Comissões deDefesa do Consumidor;Defesa dos Direitos da Pessoa Idosa eConstituição e Justiça e de Cidadania (Art. 54, RICD).Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II.Regime de Tramitação: Ordinário (Art. 151, III, RICD). Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "tramitação",
+      "proposicao": "camara_pl_4548_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2641236",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-07-17 — Apresentação do PL n. 4548/2026 (Projeto de Lei), pelo Deputado Duda Ramos (PODE/RR), que \"Institui a Política Nacional de Transparência Algorítmica em Serviços Essenciais para Pessoas Idosas, estabel",
+      "valor_novo": "2026-10-28 — Às Comissões deDefesa do Consumidor;Defesa dos Direitos da Pessoa Idosa eConstituição e Justiça e de Cidadania (Art. 54, RICD).Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II.R",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2641236",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4274/2026: regime tramitacao atualizado",
+      "descricao": "Regime tramitacao passou de “.” para “Ordinário (Art. 151, III, RICD)”, conforme ficha oficial.",
+      "tipo": "atualização cadastral",
+      "proposicao": "camara_pl_4274_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640954",
+      "campo_alterado": "regime_tramitacao",
+      "valor_anterior": ".",
+      "valor_novo": "Ordinário (Art. 151, III, RICD)",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640954",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4274/2026: forma apreciacao atualizado",
+      "descricao": "Forma apreciacao passou de “Indefinida” para “Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II”, conforme ficha oficial.",
+      "tipo": "atualização cadastral",
+      "proposicao": "camara_pl_4274_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640954",
+      "campo_alterado": "forma_apreciacao",
+      "valor_anterior": "Indefinida",
+      "valor_novo": "Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640954",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4274/2026: Distribuição (registro incorporado)",
+      "descricao": "Em 2026-10-28, MESA: À Comissão deConstituição e Justiça e de Cidadania (Mérito e Art. 54, RICD).Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II.Regime de Tramitação: Ordinário (Art. 151, III, RICD). Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "tramitação",
+      "proposicao": "camara_pl_4274_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640954",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-07-17 — Apresentação do PL n. 4274/2026 (Projeto de Lei), pelo Deputado Amom Mandel (REPUBLIC/AM -Fdr PSDB-CIDADANIA), que \"Altera a Lei nº 13.105, de 16 de março de 2015, para caracterizar como ato atentatór",
+      "valor_novo": "2026-10-28 — À Comissão deConstituição e Justiça e de Cidadania (Mérito e Art. 54, RICD).Proposição Sujeita à Apreciação Conclusiva pelas Comissões - Art. 24 II.Regime de Tramitação: Ordinário (Art. 151, III, RICD",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640954",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4272/2026: regime tramitacao atualizado",
+      "descricao": "Regime tramitacao passou de “.” para “Ordinário (Art. 151, III, RICD)”, conforme ficha oficial.",
+      "tipo": "atualização cadastral",
+      "proposicao": "camara_pl_4272_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640952",
+      "campo_alterado": "regime_tramitacao",
+      "valor_anterior": ".",
+      "valor_novo": "Ordinário (Art. 151, III, RICD)",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640952",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 4272/2026: forma apreciacao atualizado",
       "descricao": "Forma apreciacao passou de “Indefinida” para “Proposição Sujeita à Apreciação do Plenário”, conforme ficha oficial.",
       "tipo": "atualização cadastral",
-      "proposicao": "camara_pl_4177_2026",
-      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "proposicao": "camara_pl_4272_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640952",
       "campo_alterado": "forma_apreciacao",
       "valor_anterior": "Indefinida",
       "valor_novo": "Proposição Sujeita à Apreciação do Plenário",
       "data_deteccao": "2026-10-28",
       "fonte": "Câmara dos Deputados — API de Dados Abertos",
-      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
-      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
-      "id_execucao": "run_2026_10_28_1301"
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640952",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
     },
     {
       "data": "2026-10-28",
-      "titulo": "PL 4177/2026: Distribuição (registro incorporado)",
+      "titulo": "PL 4272/2026: Distribuição (registro incorporado)",
       "descricao": "Em 2026-10-28, MESA: À Comissão deConstituição e Justiça e de Cidadania (Mérito e Art. 54, RICD).Proposição Sujeita à Apreciação do Plenário.Regime de Tramitação: Ordinário (Art. 151, III, RICD). Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
       "tipo": "tramitação",
-      "proposicao": "camara_pl_4177_2026",
-      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
+      "proposicao": "camara_pl_4272_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640952",
       "campo_alterado": "ultima_movimentacao",
-      "valor_anterior": "2026-07-17 — Apresentação do PL n. 4177/2026 (Projeto de Lei), pelo Deputado Amom Mandel (REPUBLIC/AM -Fdr PSDB-CIDADANIA), que \"Altera o Decreto-Lei nº 2.848, de 7 de dezembro de 1940 (Código Penal), para institu",
+      "valor_anterior": "2026-07-17 — Apresentação do PL n. 4272/2026 (Projeto de Lei), pelo Deputado Amom Mandel (REPUBLIC/AM -Fdr PSDB-CIDADANIA), que \"Altera o Decreto-Lei nº 2.848, de 7 de dezembro de 1940 (Código Penal), para tipific",
       "valor_novo": "2026-10-28 — À Comissão deConstituição e Justiça e de Cidadania (Mérito e Art. 54, RICD).Proposição Sujeita à Apreciação do Plenário.Regime de Tramitação: Ordinário (Art. 151, III, RICD).",
       "data_deteccao": "2026-10-28",
       "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
-      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640857",
-      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
-      "id_execucao": "run_2026_10_28_1301"
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2640952",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
     },
     {
       "data": "2026-10-28",
-      "titulo": "PL 2451/2026: situação atualizada",
-      "descricao": "Situação passou de “Pronta para Pauta — Parecer do Relator, Dep. Benes Leocádio (UNIÃO-RN), pela aprovação, com emendas.” para “Aprovação do Parecer (CE): Aprovado o Parecer.”.",
-      "tipo": "parecer",
-      "proposicao": "camara_pl_2451_2026",
-      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
-      "campo_alterado": "situacao",
-      "valor_anterior": "Pronta para Pauta — Parecer do Relator, Dep. Benes Leocádio (UNIÃO-RN), pela aprovação, com emendas.",
-      "valor_novo": "Aprovação do Parecer (CE): Aprovado o Parecer.",
-      "data_deteccao": "2026-10-28",
-      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
-      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
-      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
-      "id_execucao": "run_2026_10_28_1301"
-    },
-    {
-      "data": "2026-10-28",
-      "titulo": "PL 2451/2026: Aprovação do Parecer (registro incorporado)",
-      "descricao": "Em 2026-10-28, CE: Aprovado o Parecer. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
-      "tipo": "parecer",
-      "proposicao": "camara_pl_2451_2026",
-      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
+      "titulo": "PL 3560/2026: Publicação de Proposição (registro incorporado)",
+      "descricao": "Em 2026-10-28, CCP: Encaminhada à publicação. Publicação Inicial em avulso e no DCD de 29/10/2026. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "publicação",
+      "proposicao": "camara_pl_3560_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2638224",
       "campo_alterado": "ultima_movimentacao",
-      "valor_anterior": "2026-08-19 — Parecer do Relator, Dep. Benes Leocádio (UNIÃO-RN), pela aprovação, com emendas.",
-      "valor_novo": "2026-10-28 — Aprovado o Parecer.",
+      "valor_anterior": "2026-10-27 — Apense-se ao PL 728/2026.Proposição Sujeita à Apreciação do Plenário.Regime de Tramitação: Prioridade (Art. 151, II, RICD).",
+      "valor_novo": "2026-10-28 — Encaminhada à publicação. Publicação Inicial em avulso e no DCD de 29/10/2026.",
       "data_deteccao": "2026-10-28",
       "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
-      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2625561",
-      "timestamp_execucao": "2026-10-28T13:01:02-03:00",
-      "id_execucao": "run_2026_10_28_1301"
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2638224",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 3382/2026: Publicação de Proposição (registro incorporado)",
+      "descricao": "Em 2026-10-28, CCP: Encaminhada à publicação. Publicação Inicial em avulso e no DCD de 29/10/2026. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "publicação",
+      "proposicao": "camara_pl_3382_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2636044",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-10-27 — Apense-se ao PL 904/2026.Proposição Sujeita à Apreciação do Plenário.Regime de Tramitação: Prioridade (Art. 151, II, RICD).",
+      "valor_novo": "2026-10-28 — Encaminhada à publicação. Publicação Inicial em avulso e no DCD de 29/10/2026.",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2636044",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "PL 177/2024: Parecer do(a) Relator(a) (registro incorporado)",
+      "descricao": "Em 2026-10-28, CFT: Parecer do Relator, Dep. Merlong Solano (PT-PI), pela compatibilidade e adequação financeira e orçamentária do PL 177/24, do Substitutivo da Comissão de Educação, e do PL 349/24, apensado. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "apensação",
+      "proposicao": "camara_pl_177_2024",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2417362",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-07-02 — Encerrado o prazo de 5 sessões para apresentação de emendas ao projeto (de 10/06/2026 a 02/07/2026). Não foram apresentadas emendas.",
+      "valor_novo": "2026-10-28 — Parecer do Relator, Dep. Merlong Solano (PT-PI), pela compatibilidade e adequação financeira e orçamentária do PL 177/24, do Substitutivo da Comissão de Educação, e do PL 349/24, apensado.",
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2417362",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2025-12-09",
+      "titulo": "Nova proposição: PL 6248/2025",
+      "descricao": "Dispõe sobre a utilização de sistemas de inteligência artificial nas atividades de análise de inteligência policial, estabelecendo princípios éticos, definições técnicas, limites de uso, diretrizes para supervisão humana e autoriza o uso de IA na análise de comunicações legalmente interceptadas. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_6248_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2594273",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2594273",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
+    },
+    {
+      "data": "2026-10-28",
+      "titulo": "Nova proposição: REQ 47/2026",
+      "descricao": "Requer a realização de audiência pública para debater a integridade algorítmica, a publicidade político-eleitoral e os procedimentos de moderação de conteúdo nas plataformas digitais. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_req_47_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649374",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
+      "data_deteccao": "2026-10-28",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649374",
+      "timestamp_execucao": "2026-10-28T18:02:58-03:00",
+      "id_execucao": "run_2026_10_28_1802"
     }
   ],
   "execucoes": [
+    {
+      "id": "run_2026_10_28_1802",
+      "data_hora": "2026-10-28T18:02:58-03:00",
+      "tipo": "atualizacao",
+      "status": "parcial",
+      "motor": {
+        "orcamento_segundos": 1500,
+        "max_novas": 25,
+        "workers": 5,
+        "http_concorrencia": 4
+      },
+      "proposicoes_monitoradas": 144,
+      "sugestoes_curadoria": [],
+      "resumo": "Verificação automática: 144 fichas consultadas, 7 proposições atualizadas, 2 novas, 15 mudanças detectadas, 0 eventos adicionados.",
+      "proposicoes_verificadas": 144,
+      "proposicoes_atualizadas": 7,
+      "novas_proposicoes": 2,
+      "novas_leis_regulamentos": 0,
+      "mudancas_detectadas": 15,
+      "eventos_adicionados": 0,
+      "fontes_consultadas": [
+        "API de Dados Abertos da Câmara dos Deputados — deputados (relator)",
+        "API de Dados Abertos da Câmara dos Deputados — descoberta (keywords + incremental)",
+        "API de Dados Abertos da Câmara dos Deputados — eventos (agenda)",
+        "API de Dados Abertos da Câmara dos Deputados — proposições (detalhe)",
+        "API de Dados Abertos da Câmara dos Deputados — tramitações",
+        "API de Dados Abertos da Câmara dos Deputados — votações",
+        "API de Dados Abertos do Senado Federal — matérias (detalhe)",
+        "API de Dados Abertos do Senado Federal — movimentações",
+        "API de Dados Abertos do Senado Federal — relatorias"
+      ],
+      "erros": [],
+      "observacao": "Nada foi inventado: todos os registros novos ou alterados citam a URL oficial. Registros automáticos aguardam curadoria editorial. Status global: PARCIAL.",
+      "duracao_segundos": 210,
+      "orcamento_segundos": 1500,
+      "orcamento_restante_segundos": 1289,
+      "fases_segundos": {
+        "agenda_eventos": 1.3,
+        "atualizacao_proposicoes": 101.9,
+        "descoberta_camara": 11.7,
+        "descoberta_senado": 10.7,
+        "fontes_multiorgao": 84.2
+      },
+      "http": {
+        "chamadas": 493,
+        "cache": 47,
+        "falhas": 1,
+        "tempo_total": 361.7,
+        "por_endpoint": {
+          "camara:deputados/{id}": {
+            "chamadas": 34,
+            "falhas": 0,
+            "tempo_total": 17.82
+          },
+          "camara:eventos": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.98
+          },
+          "camara:proposicoes": {
+            "chamadas": 16,
+            "falhas": 0,
+            "tempo_total": 13.59
+          },
+          "camara:proposicoes/{id}": {
+            "chamadas": 121,
+            "falhas": 0,
+            "tempo_total": 68.5
+          },
+          "camara:proposicoes/{id}/autores": {
+            "chamadas": 2,
+            "falhas": 0,
+            "tempo_total": 0.91
+          },
+          "camara:proposicoes/{id}/tramitacoes": {
+            "chamadas": 117,
+            "falhas": 0,
+            "tempo_total": 73.32
+          },
+          "camara:proposicoes/{id}/votacoes": {
+            "chamadas": 115,
+            "falhas": 0,
+            "tempo_total": 71.21
+          },
+          "senado:138790": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:139586": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.93
+          },
+          "senado:147434": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:157233": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.0
+          },
+          "senado:158816": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:164831": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:172683": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.7
+          },
+          "senado:172783": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:172838": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:172856": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:172900": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:172910": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.95
+          },
+          "senado:172996": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:173016": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.24
+          },
+          "senado:173045": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:173133": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.7
+          },
+          "senado:173258": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.7
+          },
+          "senado:173322": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.71
+          },
+          "senado:173474": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:173567": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.05
+          },
+          "senado:173616": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.7
+          },
+          "senado:174154": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.85
+          },
+          "senado:174212": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.34
+          },
+          "senado:174481": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.94
+          },
+          "senado:174521": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.72
+          },
+          "senado:174866": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:174922": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.73
+          },
+          "senado:174923": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.85
+          },
+          "senado:175362": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.23
+          },
+          "senado:movimentacoes/138790": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 3.56
+          },
+          "senado:movimentacoes/139586": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 2.9
+          },
+          "senado:movimentacoes/147434": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 2.68
+          },
+          "senado:movimentacoes/157233": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          },
+          "senado:movimentacoes/158816": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 6.09
+          },
+          "senado:movimentacoes/164831": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.28
+          },
+          "senado:movimentacoes/172683": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.09
+          },
+          "senado:movimentacoes/172783": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.97
+          },
+          "senado:movimentacoes/172838": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.94
+          },
+          "senado:movimentacoes/172856": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.52
+          },
+          "senado:movimentacoes/172900": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:movimentacoes/172910": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 5.98
+          },
+          "senado:movimentacoes/172996": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.29
+          },
+          "senado:movimentacoes/173016": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.88
+          },
+          "senado:movimentacoes/173045": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.91
+          },
+          "senado:movimentacoes/173133": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.46
+          },
+          "senado:movimentacoes/173258": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.16
+          },
+          "senado:movimentacoes/173322": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.87
+          },
+          "senado:movimentacoes/173474": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.52
+          },
+          "senado:movimentacoes/173567": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.06
+          },
+          "senado:movimentacoes/173616": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.4
+          },
+          "senado:movimentacoes/174154": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.29
+          },
+          "senado:movimentacoes/174212": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.55
+          },
+          "senado:movimentacoes/174481": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 2.49
+          },
+          "senado:movimentacoes/174521": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.11
+          },
+          "senado:movimentacoes/174866": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.91
+          },
+          "senado:movimentacoes/174922": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.13
+          },
+          "senado:movimentacoes/174923": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.96
+          },
+          "senado:movimentacoes/175362": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:pesquisa/lista": {
+            "chamadas": 3,
+            "falhas": 0,
+            "tempo_total": 9.76
+          },
+          "senado:relatorias/139586": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:relatorias/147434": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.75
+          },
+          "senado:relatorias/157233": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.0
+          },
+          "senado:relatorias/158816": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:relatorias/164831": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.96
+          },
+          "senado:relatorias/172783": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:relatorias/172838": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:relatorias/172856": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.01
+          },
+          "senado:relatorias/172900": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:relatorias/172910": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.97
+          },
+          "senado:relatorias/173016": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.89
+          },
+          "senado:relatorias/173045": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:relatorias/173133": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:relatorias/173258": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.24
+          },
+          "senado:relatorias/173322": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.89
+          },
+          "senado:relatorias/173474": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.27
+          },
+          "senado:relatorias/173567": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.09
+          },
+          "senado:relatorias/173616": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:relatorias/174154": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:relatorias/174212": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.71
+          },
+          "senado:relatorias/174481": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.9
+          },
+          "senado:relatorias/174521": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:relatorias/174866": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.75
+          },
+          "senado:relatorias/174922": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.23
+          },
+          "senado:relatorias/174923": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.03
+          },
+          "senado:relatorias/175362": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.74
+          }
+        }
+      },
+      "fim": "2026-10-28T18:06:28-03:00",
+      "proposicoes_pendentes": 0,
+      "proposicoes_distintas_verificadas": 142,
+      "cobertura_pct": 98.6,
+      "snapshot_dataset": {
+        "proposicoes_total": 144,
+        "por_situacao": {
+          "aprovada_lei": 2,
+          "arquivada": 7,
+          "em_tramitacao": 135
+        },
+        "normas_total": 15,
+        "eventos_total": 10,
+        "mudancas_registradas": 815
+      },
+      "descoberta_candidatos": 2,
+      "descoberta_adiada": 0,
+      "fontes_monitoradas": {
+        "anpd": {
+          "nome": "ANPD — Autoridade Nacional de Proteção de Dados",
+          "status": "ok",
+          "ultima_tentativa": "2026-10-28T18:02:58-03:00",
+          "ultima_execucao_ok": "2026-10-28T18:04:22-03:00",
+          "itens_consultados": 344,
+          "itens_relevantes": 103,
+          "itens_descartados": 135,
+          "itens_duplicados": 106,
+          "revisao_pendente": 29,
+          "novidades": 1,
+          "erros": 0,
+          "duracao_segundos": 9.7,
+          "endpoints": [
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "notícias recentes",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 40
+            },
+            {
+              "canal": "notícias por tema",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 104,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 25
+            },
+            {
+              "canal": "regulação e normas",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 32,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "consultas públicas",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 47,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 18
+            },
+            {
+              "canal": "tomada de subsídios",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 49,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 20
+            },
+            {
+              "canal": "atos normativos (arquivos)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "fiscalização (pasta oficial)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 12,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "agenda regulatória (pasta oficial)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 0,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "notícias recentes",
+            "notícias por tema",
+            "regulação e normas",
+            "consultas públicas",
+            "tomada de subsídios",
+            "atos normativos (arquivos)",
+            "fiscalização (pasta oficial)",
+            "agenda regulatória (pasta oficial)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 155,
+          "atos_descartados_por_retencao": 0
+        },
+        "camara": {
+          "nome": "Câmara dos Deputados — API de Dados Abertos v2",
+          "status": "ok",
+          "ultima_tentativa": "2026-10-28T18:02:58-03:00",
+          "ultima_execucao_ok": "2026-10-28T18:02:58-03:00",
+          "itens_consultados": 120,
+          "novidades": 2,
+          "erros": 0,
+          "chamadas_http": 406,
+          "falhas_http": 0,
+          "endpoints": [
+            "https://dadosabertos.camara.leg.br/api/v2"
+          ],
+          "canais_ok": [
+            "camara:deputados/{id}",
+            "camara:eventos",
+            "camara:proposicoes",
+            "camara:proposicoes/{id}",
+            "camara:proposicoes/{id}/autores",
+            "camara:proposicoes/{id}/tramitacoes"
+          ],
+          "canais_falhos": [],
+          "erro_detalhe": null
+        },
+        "cnj": {
+          "nome": "CNJ — Conselho Nacional de Justiça",
+          "status": "ok",
+          "ultima_tentativa": "2026-10-28T18:03:08-03:00",
+          "ultima_execucao_ok": "2026-10-28T18:04:22-03:00",
+          "itens_consultados": 130,
+          "itens_relevantes": 16,
+          "itens_descartados": 112,
+          "itens_duplicados": 2,
+          "revisao_pendente": 10,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 4.0,
+          "endpoints": [
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos normativos recentes",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "atos normativos recentes (página 2)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "atos normativos recentes (página 3)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "notícias oficiais",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 7
+            },
+            {
+              "canal": "notícias oficiais (página 2)",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 7
+            }
+          ],
+          "canais_ok": [
+            "atos normativos recentes",
+            "atos normativos recentes (página 2)",
+            "atos normativos recentes (página 3)",
+            "notícias oficiais",
+            "notícias oficiais (página 2)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 45,
+          "atos_descartados_por_retencao": 0
+        },
+        "dou": {
+          "nome": "DOU — Diário Oficial da União (Imprensa Nacional)",
+          "status": "ok",
+          "ultima_tentativa": "2026-10-28T18:03:31-03:00",
+          "ultima_execucao_ok": "2026-10-28T18:04:22-03:00",
+          "itens_consultados": 147,
+          "itens_relevantes": 94,
+          "itens_descartados": 29,
+          "itens_duplicados": 24,
+          "revisao_pendente": 22,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 12.1,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "busca por tema (7 dias)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 147,
+              "amostra_hierarquia": [
+                "Atos do Poder Executivo",
+                "Banco Central do Brasil/Diretoria Colegiada",
+                "Editais e Avisos/Ministério da Educação"
+              ],
+              "itens_relevantes": 94
+            }
+          ],
+          "canais_ok": [
+            "busca por tema (7 dias)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 681,
+          "atos_descartados_por_retencao": 0
+        },
+        "mcti": {
+          "nome": "MCTI — Ministério da Ciência, Tecnologia e Inovação",
+          "status": "ok",
+          "ultima_tentativa": "2026-10-28T18:04:02-03:00",
+          "ultima_execucao_ok": "2026-10-28T18:04:22-03:00",
+          "itens_consultados": 68,
+          "itens_relevantes": 35,
+          "itens_descartados": 28,
+          "itens_duplicados": 5,
+          "revisao_pendente": 13,
+          "novidades": 0,
+          "erros": 1,
+          "duracao_segundos": 19.3,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias",
+            "https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+            "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do MCTI por tema (DOU)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 23,
+              "amostra_hierarquia": [
+                "Ministério da Ciência, Tecnologia e Inovação/Agência Espacia",
+                "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacion",
+                "Ministério da Ciência, Tecnologia e Inovação/Conselho Nacion"
+              ],
+              "itens_relevantes": 20
+            },
+            {
+              "canal": "notícias institucionais",
+              "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias",
+              "itens_brutos": 25,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 4
+            },
+            {
+              "canal": "planos, programas e políticas",
+              "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti",
+              "itens_brutos": 20,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 11
+            }
+          ],
+          "canais_ok": [
+            "atos do MCTI por tema (DOU)",
+            "notícias institucionais",
+            "planos, programas e políticas"
+          ],
+          "canais_falhos": [
+            "portarias publicadas"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "portarias publicadas"
+          ],
+          "erro_detalhe": "portarias publicadas: listagem sem itens reconhecíveis (172954 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+          "atos_registrados": 70,
+          "atos_descartados_por_retencao": 0
+        },
+        "planalto": {
+          "nome": "Planalto — Presidência da República",
+          "status": "ok",
+          "ultima_tentativa": "2026-10-28T18:03:44-03:00",
+          "ultima_execucao_ok": "2026-10-28T18:04:22-03:00",
+          "itens_consultados": 53,
+          "itens_relevantes": 11,
+          "itens_descartados": 31,
+          "itens_duplicados": 11,
+          "revisao_pendente": 2,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 18.8,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+            "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do Poder Legislativo (leis, vetos)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 14,
+              "amostra_hierarquia": [
+                "Atos do Poder Legislativo"
+              ],
+              "itens_relevantes": 6
+            },
+            {
+              "canal": "atos da Presidência (decretos, MPs)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 2,
+              "amostra_hierarquia": [
+                "Presidência da República"
+              ],
+              "itens_relevantes": 2
+            },
+            {
+              "canal": "notícias do Planalto (RSS oficial)",
+              "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+              "itens_brutos": 33,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 3
+            },
+            {
+              "canal": "notícias do Planalto (página oficial)",
+              "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias",
+              "itens_brutos": 4,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "atos do Poder Legislativo (leis, vetos)",
+            "atos da Presidência (decretos, MPs)",
+            "notícias do Planalto (RSS oficial)",
+            "notícias do Planalto (página oficial)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 12,
+          "atos_descartados_por_retencao": 0
+        },
+        "senado": {
+          "nome": "Senado Federal — API de Dados Abertos v7",
+          "status": "parcial",
+          "ultima_tentativa": "2026-10-28T18:02:58-03:00",
+          "ultima_execucao_ok": "2026-10-28T05:28:59-03:00",
+          "itens_consultados": 24,
+          "novidades": 0,
+          "erros": 0,
+          "chamadas_http": 86,
+          "falhas_http": 1,
+          "endpoints": [
+            "https://legis.senado.leg.br/dadosabertos"
+          ],
+          "canais_ok": [
+            "senado:138790",
+            "senado:139586",
+            "senado:147434",
+            "senado:157233",
+            "senado:158816",
+            "senado:164831"
+          ],
+          "canais_falhos": [
+            "senado:movimentacoes/157233"
+          ],
+          "erro_detalhe": null
+        },
+        "tse": {
+          "nome": "TSE — Tribunal Superior Eleitoral",
+          "status": "ok",
+          "ultima_tentativa": "2026-10-28T18:03:12-03:00",
+          "ultima_execucao_ok": "2026-10-28T18:04:22-03:00",
+          "itens_consultados": 9,
+          "itens_relevantes": 1,
+          "itens_descartados": 7,
+          "itens_duplicados": 1,
+          "revisao_pendente": 0,
+          "novidades": 0,
+          "erros": 3,
+          "duracao_segundos": 19.6,
+          "endpoints": [
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do TSE por tema (DOU)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 9,
+              "amostra_hierarquia": [
+                "Poder Judiciário/Tribunal Superior Eleitoral",
+                "Poder Judiciário/Tribunal Superior Eleitoral/Secretaria do T"
+              ],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "resoluções do TSE (DOU, órgão/subórgão)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 0,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "atos do TSE por tema (DOU)",
+            "resoluções do TSE (DOU, órgão/subórgão)"
+          ],
+          "canais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)"
+          ],
+          "erro_detalhe": "atos normativos (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&path=%2Flegislacao; notícias oficiais (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&portal_type=Noticia; atos e notícias por tema (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=20&sort_on=effective&sort_order=descending",
+          "atos_registrados": 2,
+          "atos_descartados_por_retencao": 0
+        }
+      },
+      "status_global": "PARCIAL",
+      "fontes_falha": [],
+      "fontes_parciais": [
+        "senado"
+      ],
+      "http_fontes": {
+        "chamadas": 82,
+        "falhas": 3,
+        "cache": 0,
+        "tempo_total": 83.35,
+        "por_orgao": {
+          "anpd": {
+            "chamadas": 17,
+            "falhas": 0,
+            "tempo_total": 9.65
+          },
+          "cnj": {
+            "chamadas": 5,
+            "falhas": 0,
+            "tempo_total": 4.01
+          },
+          "tse": {
+            "chamadas": 14,
+            "falhas": 3,
+            "tempo_total": 19.63
+          },
+          "dou": {
+            "chamadas": 10,
+            "falhas": 0,
+            "tempo_total": 12.03
+          },
+          "planalto": {
+            "chamadas": 22,
+            "falhas": 0,
+            "tempo_total": 18.75
+          },
+          "mcti": {
+            "chamadas": 14,
+            "falhas": 0,
+            "tempo_total": 19.28
+          }
+        }
+      },
+      "novidades_multiorgao": {
+        "anpd": 1,
+        "cnj": 0,
+        "tse": 0,
+        "dou": 0,
+        "planalto": 0,
+        "mcti": 0
+      },
+      "mudancas_multiorgao": 6
+    },
     {
       "id": "run_2026_10_28_1301",
       "data_hora": "2026-10-28T13:01:02-03:00",
