@@ -1341,7 +1341,7 @@ def build_parliamentarians(parms, props):
     by_id = {p["id"]: p for p in props}
     cards = ""
     for m in parms:
-        props_links = "".join(
+        props_links = " · ".join(
             f'<a href="{prop_link(by_id[pid])}">{esc(by_id[pid]["tipo"])} {by_id[pid]["numero"]}/{by_id[pid]["ano"]}</a>'
             for pid in m.get("proposicoes_relacionadas", []) if pid in by_id)
         atu = "".join(f"<li>{esc(a)}</li>" for a in m.get("atuacao_ia", []))
@@ -1353,13 +1353,14 @@ def build_parliamentarians(parms, props):
   <p><b>{esc(m["papel"])}</b></p>
   <ul class="plain" style="margin:10px 0 10px 0;color:var(--muted);font-size:13.5px">{atu}</ul>
   <p style="font-size:13px"><b>Matérias:</b> {props_links or "—"}</p>
-  <p style="font-size:12.5px;margin-top:8px;color:var(--muted)">Fontes: {fonts}</p>
+  <div class="source-links" style="font-size:12.5px;margin-top:8px;color:var(--muted)"><b>Fontes:</b><ul class="plain" style="margin:4px 0 0 0">{fonts}</ul></div>
 </div>"""
     body = f"""
 <div class="page-head"><div class="wrap">
   <div class="crumbs"><a href="{SITE_URL}/">Início</a> › Parlamentares</div>
-  <h1>Parlamentares na legislação de IA</h1>
-  <p class="sub">Mapa de autoria, relatoria e condução das matérias de IA no Congresso Nacional. Posições só são registradas quando documentadas — não atribuímos juízo político sem fonte.</p>
+  <h1>Parlamentares da regulação de IA: autores e relatores</h1>
+  <p class="sub">Conheça deputados e senadores que apresentam, relatam ou conduzem projetos de lei sobre inteligência artificial no Congresso Nacional. Os papéis são documentados e não representam avaliação de posições políticas.</p>
+  <p class="sub" style="margin-top:10px">Consulte a <a href="/proposicoes/pl-2338-2023/">tramitação do PL 2338/2023</a>, a <a href="/timeline/">linha do tempo da regulação de IA</a> e a <a href="https://www.camara.leg.br/internet/comissao/composicao/57PL233823.htm" target="_blank" rel="noopener">composição oficial da comissão especial na Câmara</a>.</p>
 </div></div>
 <section class="block"><div class="wrap">
   <div class="grid cols-2">{cards}</div>
@@ -1370,8 +1371,8 @@ def build_parliamentarians(parms, props):
                       "parlamentares/"),
         ld_breadcrumbs([("Início", ""), ("Parlamentares", None)]))
     write("parlamentares/index.html", page(
-        "Parlamentares envolvidos com a legislação de IA no Brasil",
-        "Autores, relatores e presidentes de comissões das principais matérias de inteligência artificial no Congresso Nacional, com atuação documentada.",
+        "Parlamentares da IA: autores e relatores no Congresso",
+        "Deputados e senadores ligados à regulação de IA: autoria, relatoria e comissões do PL 2338/2023 e de outros projetos, com fontes oficiais.",
         "parlamentares/", body, jsonld=jsonld))
 
 
