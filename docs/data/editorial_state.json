@@ -11003,6 +11003,66 @@
       "selection_reason": "ato tipo=Edital órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-10-28T05:33:53-03:00",
       "run_id": null
+    },
+    "chg_4f241867079f194e": {
+      "change_id": "chg_4f241867079f194e",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
+      "editorial_topic_id": "pl-2451-2026-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
+      "selection_reason": "tipo=parecer peso=13 score_prop=37 → continuação de assunto já coberto",
+      "processed_at": "2026-10-28T13:05:00-03:00",
+      "run_id": null
+    },
+    "chg_5784a9de38990681": {
+      "change_id": "chg_5784a9de38990681",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
+      "editorial_topic_id": "pl-2451-2026-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
+      "selection_reason": "tipo=parecer peso=13 score_prop=37 → continuação de assunto já coberto",
+      "processed_at": "2026-10-28T13:05:00-03:00",
+      "run_id": null
+    },
+    "chg_68dda102ab9bc8d6": {
+      "change_id": "chg_68dda102ab9bc8d6",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-portaria-cnj-no-524",
+      "editorial_topic_id": "ato-cnj-portaria-cnj-no-524-887db57f",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-28T13:05:00-03:00",
+      "run_id": null
+    },
+    "chg_34f0a8f5302b928d": {
+      "change_id": "chg_34f0a8f5302b928d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4177-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=atualização cadastral peso=2 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-10-28T13:05:00-03:00",
+      "run_id": null
+    },
+    "chg_2939a7f36f741705": {
+      "change_id": "chg_2939a7f36f741705",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4177-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=atualização cadastral peso=2 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-10-28T13:05:00-03:00",
+      "run_id": null
+    },
+    "chg_a7d55de06dd902b7": {
+      "change_id": "chg_a7d55de06dd902b7",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4177-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-10-28T13:05:00-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -11011,22 +11071,15 @@
       "since": "2026-10-26",
       "editorial_topic_id": "pl-3009-2025-altera-a-lei-no-9-394-de-20-de-dezembro-de-1996-para-estabel",
       "prioridade": 19
+    },
+    "chg_ab9e150ca3413f62": {
+      "reason": "cota_diaria_atingida",
+      "since": "2026-10-28",
+      "editorial_topic_id": "ato-cnj-portaria-cnj-no-524-f0a35ee8",
+      "prioridade": 12
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-10T15:37:57-03:00",
-      "dia": "2026-10-10",
-      "mudancas_novas": 13,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 163,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-10T19:34:21-03:00",
       "dia": "2026-10-10",
@@ -11661,6 +11714,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 193,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-28T13:05:00-03:00",
+      "dia": "2026-10-28",
+      "mudancas_novas": 7,
+      "novos_artigos": 1,
+      "artigos_atualizados": 2,
+      "ignoradas": 3,
+      "adiadas": 1,
+      "stale": 0,
+      "aguardando_curadoria": 195,
       "run_id": null,
       "bootstrap": false
     }
