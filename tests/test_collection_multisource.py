@@ -2,7 +2,7 @@
 import unittest
 from datetime import datetime, timedelta, timezone
 
-from scripts.check_collection import problems
+from scripts.check_collection import problems, warnings
 
 BRT = timezone(timedelta(hours=-3))
 
@@ -35,7 +35,13 @@ class CollectionHealthMultisourceTests(unittest.TestCase):
 
     def test_canais_opcionais_falhos_sao_visiveis(self):
         self.record["fontes_monitoradas"]["cnj"]["canais_falhos"] = ["atos normativos"]
-        self.assertTrue(any("atos normativos" in e for e in problems(self.record, now=self.now)))
+        self.assertTrue(any("atos normativos" in e for e in warnings(self.record)))
+        self.assertEqual(problems(self.record, now=self.now), [])
+
+    def test_fonte_inteira_indisponivel_continua_reprovando(self):
+        self.record["fontes_monitoradas"]["cnj"]["status"] = "falha"
+        self.record["fontes_monitoradas"]["cnj"]["canais_falhos"] = ["atos normativos"]
+        self.assertTrue(any("cnj" in e for e in problems(self.record, now=self.now)))
 
     def test_status_global_incompleto_reprova(self):
         self.record["status_global"] = "parcial"
