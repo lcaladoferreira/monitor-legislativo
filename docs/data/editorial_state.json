@@ -11443,6 +11443,56 @@
       "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → abaixo do limiar de novo artigo",
       "processed_at": "2026-10-29T11:21:16-03:00",
       "run_id": null
+    },
+    "chg_e35491d46228d1ff": {
+      "change_id": "chg_e35491d46228d1ff",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4881-2026-dispoe-sobre-os-deveres-de-governanca-seguranca-transparenci",
+      "selection_reason": "tipo=atualização cadastral peso=2 score_prop=31 → abaixo do limiar de atualização",
+      "processed_at": "2026-10-29T16:46:07-03:00",
+      "run_id": null
+    },
+    "chg_82889dffec0810a7": {
+      "change_id": "chg_82889dffec0810a7",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4881-2026-dispoe-sobre-os-deveres-de-governanca-seguranca-transparenci",
+      "selection_reason": "tipo=atualização cadastral peso=2 score_prop=31 → abaixo do limiar de atualização",
+      "processed_at": "2026-10-29T16:46:07-03:00",
+      "run_id": null
+    },
+    "chg_bf115864c1f0287a": {
+      "change_id": "chg_bf115864c1f0287a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4881-2026-dispoe-sobre-os-deveres-de-governanca-seguranca-transparenci",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=31 → abaixo do limiar de atualização",
+      "processed_at": "2026-10-29T16:46:07-03:00",
+      "run_id": null
+    },
+    "chg_233b24a33994dcd2": {
+      "change_id": "chg_233b24a33994dcd2",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2019-2026-institui-a-politica-nacional-de-transicao-laboral-supervisao",
+      "selection_reason": "tipo=apensação peso=3 score_prop=28 → sem valor editorial independente",
+      "processed_at": "2026-10-29T16:46:07-03:00",
+      "run_id": null
+    },
+    "chg_5f4009e1310d9ea3": {
+      "change_id": "chg_5f4009e1310d9ea3",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2019-2026-institui-a-politica-nacional-de-transicao-laboral-supervisao",
+      "selection_reason": "tipo=apensação peso=3 score_prop=28 → sem valor editorial independente",
+      "processed_at": "2026-10-29T16:46:07-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -11475,22 +11525,27 @@
       "since": "2026-10-29",
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-739-de-27-de-outubro-de-2026-88ad1911",
       "prioridade": 13
+    },
+    "chg_a835a5e2436c1bda": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-10-29",
+      "editorial_topic_id": "pl-3149-2024-altera-o-art-39-da-lei-no-8-078-de-11-de-setembro-de-1990-co",
+      "prioridade": 19
+    },
+    "chg_af9c638a2a975e6a": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-10-29",
+      "editorial_topic_id": "pl-5394-2023-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "prioridade": 18
+    },
+    "chg_e594131672486728": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-10-29",
+      "editorial_topic_id": "pl-5342-2023-tipifica-o-crime-de-porno-fake-e-acrescenta-o-artigo-218-d-a",
+      "prioridade": 18
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-11T17:19:10-03:00",
-      "dia": "2026-10-11",
-      "mudancas_novas": 12,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 163,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-11T20:45:40-03:00",
       "dia": "2026-10-11",
@@ -12123,6 +12178,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 1,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 185,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-29T16:46:07-03:00",
+      "dia": "2026-10-29",
+      "mudancas_novas": 11,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 5,
+      "adiadas": 3,
       "stale": 0,
       "aguardando_curadoria": 185,
       "run_id": null,
