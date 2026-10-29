@@ -802,7 +802,7 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
 <section class="block"><div class="wrap">
   <h2 class="section-title">Estado da regulação de IA no Brasil</h2>
   <p class="section-sub">Síntese editorial — fatos e interpretação separados. Análise completa na <a href="{SITE_URL}/relatorio/">página de relatório</a>.</p>
-  <div class="note"><b>Em uma frase:</b> o Brasil tem hoje leis pontuais vigentes (LGPD, ECA Digital, Lei 15.487/2026, resoluções TSE/CNJ e decretos do Marco Civil) e um marco geral de IA (PL 2338/2023) aprovado no Senado, mas parado há 16 meses na Câmara — com votação oficialmente adiada para depois das eleições de outubro/2026, enquanto o Redata (infraestrutura de data centers) já foi aprovado pelo Congresso e aguarda sanção.</div>
+  <div class="note"><b>Em uma frase:</b> o Brasil tem hoje leis pontuais vigentes (LGPD, ECA Digital, Lei 15.487/2026, resoluções TSE/CNJ e decretos do Marco Civil) e um marco geral de IA (PL 2338/2023) aprovado no Senado, mas parado há 16 meses na Câmara — com votação oficialmente adiada para depois das eleições de outubro/2026, e o Redata (infraestrutura de data centers) foi sancionado na Lei nº 15.504, de 15/09/2026 — <a href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15504-15-setembro-2026-799925-norma-pl.html" target="_blank" rel="noopener">texto legal oficial</a>.</div>
 </div></section>
 
 <section class="block"><div class="wrap">
