@@ -802,7 +802,7 @@ def build_home(props, laws, events, updates, timeline, cats, artigos=None):
 <section class="block"><div class="wrap">
   <h2 class="section-title">Estado da regulação de IA no Brasil</h2>
   <p class="section-sub">Síntese editorial — fatos e interpretação separados. Análise completa na <a href="{SITE_URL}/relatorio/">página de relatório</a>.</p>
-  <div class="note"><b>Em uma frase:</b> o Brasil tem hoje leis pontuais vigentes (LGPD, ECA Digital, Lei 15.487/2026, resoluções TSE/CNJ e decretos do Marco Civil) e um marco geral de IA (PL 2338/2023) aprovado no Senado, mas parado há 16 meses na Câmara — com votação oficialmente adiada para depois das eleições de outubro/2026, enquanto o Redata (infraestrutura de data centers) já foi aprovado pelo Congresso e aguarda sanção.</div>
+  <div class="note"><b>Em uma frase:</b> o Brasil tem hoje leis pontuais vigentes (LGPD, ECA Digital, Lei 15.487/2026, resoluções TSE/CNJ e decretos do Marco Civil) e um marco geral de IA (PL 2338/2023) aprovado no Senado, mas parado há 16 meses na Câmara — com votação oficialmente adiada para depois das eleições de outubro/2026, e o Redata (infraestrutura de data centers) foi sancionado na Lei nº 15.504, de 15/09/2026 — <a href="https://www2.camara.leg.br/legin/fed/lei/2026/lei-15504-15-setembro-2026-799925-norma-pl.html" target="_blank" rel="noopener">texto legal oficial</a>.</div>
 </div></section>
 
 <section class="block"><div class="wrap">
@@ -1429,8 +1429,8 @@ def build_agenda(events):
 def build_report(props, laws, updates, events):
     run = _ultima_execucao(updates.get("execucoes") or [{}]) or {}
     top5 = [
-        ("Redata aprovado pelo Congresso e à sanção presidencial",
-         "O Senado aprovou o PL 278/2026 em 01/09/2026, sem alteração de mérito. É a matéria de infraestrutura de IA mais próxima de virar lei no Brasil, com renúncia estimada em bilhões de reais e contrapartidas de P&D, energia e capacidade para o mercado interno."),
+        ("Redata sancionado — Lei 15.504/2026",
+         "O Senado aprovou o PL 278/2026 em 01/09/2026. O texto foi sancionado como Lei 15.504, de 15/09/2026, instituindo regras do Redata relacionadas à infraestrutura de data centers e obrigações associadas; a aplicação depende do texto legal e de sua regulamentação."),
         ("Primeira lei penal específica de deepfakes em vigor",
          "A Lei 15.487/2026 (ex-PL 3066/2025), sancionada em 06/08/2026, criminaliza simulação sexual de crianças por IA/deepfake e aumenta penas em 1/3 a 2/3 quando o crime usa IA — precedente normativo para todo o cluster de conteúdo sintético."),
         ("Marco Legal da IA (PL 2338/2023) oficialmente adiado para depois das eleições",
@@ -1448,7 +1448,7 @@ def build_report(props, laws, updates, events):
         "O PL 2338/2023 (Marco Legal da IA) foi aprovado pelo Senado em 10/12/2024 e tramita desde 17/03/2025 em Comissão Especial da Câmara, com relatoria de Aguinaldo Ribeiro (PP-PB) e presidência de Luísa Canziani (PSD-PR).",
         "A comissão não protocolou parecer em 16 meses (prazo regimental: 10 sessões do Plenário). Cinco datas de votação foram marcadas e perdidas desde 25/11/2025. Em 24/08/2026, o relator anunciou votação somente após as eleições de outubro.",
         "37 proposições estão apensadas ao PL 2338/2023, incluindo o PL 6237/2025 do Poder Executivo (Sistema Nacional de IA, com a ANPD como autoridade de normas gerais e regulador residual).",
-        "O Redata (PL 278/2026) foi aprovado pela Câmara em 24-25/02/2026 e pelo Senado em 01/09/2026, sem alteração de mérito, e aguarda sanção. Sua antecessora, a MP 1.318/2025, caducou em 25/02/2026.",
+        "O Redata (PL 278/2026) foi aprovado pelo Congresso e sancionado na Lei 15.504/2026 em 15/09/2026. Sua antecessora, a MP 1.318/2025, perdeu eficácia em 25/02/2026. Texto da lei: https://www2.camara.leg.br/legin/fed/lei/2026/lei-15504-15-setembro-2026-799925-norma-pl.html.",
         "Leis vigentes relevantes: LGPD (13.709/2018, art. 20), Governo Digital (14.129/2021, arts. 20-24), PNED (14.533/2023), ECA Digital (15.211/2025) e Lei 15.487/2026 (deepfakes/IA).",
         "Atos regulatórios vigentes: Resolução TSE 23.732/2024 e 23.748/2026 (eleições), Resolução CNJ 615/2025 (Judiciário), Decretos 12.975 e 12.976/2026 (Marco Civil e proteção de mulheres), EBIA (Portaria MCTI 4.617/2021) e PBIA 2024-2028 (R$ 23 bi).",
         "A ANPD elegeu IA como eixo prioritário de fiscalização para 2026-2027 e, desde 21/08/2026, monitora 22 agentes do mercado, incluindo ferramentas de IA generativa.",
