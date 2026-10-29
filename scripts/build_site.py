@@ -71,23 +71,23 @@ def _optimize_monitor_home():
     edits = [
         (
             "<title>Monitor Legislativo e Regulatório de IA | LCF Consulting</title>",
-            "<title>Monitor Legislativo de IA no Brasil | PLs, Leis e Tramitação</title>",
+            "<title>Monitor Legislativo e Regulatório de IA | PLs, Leis e Tramitação</title>",
         ),
         (
             '<meta name="description" content="Inteligência Regulatória da LCF Consulting sobre IA no Brasil: projetos, leis, atos, agenda, Regulatory Data e histórico auditável com fontes oficiais.">',
-            '<meta name="description" content="Acompanhe o PL 2338/2023 e outros projetos de lei sobre IA no Brasil. Consulte tramitação, leis, atos e atualizações com links para fontes oficiais.">',
+            '<meta name="description" content="Monitoramento regulatório de IA no Brasil: acompanhe projetos de lei, normas vigentes, tramitação e mudanças, com fontes oficiais e histórico auditável.">',
         ),
         (
             '<meta property="og:title" content="Monitor Legislativo e Regulatório de IA | LCF Consulting">',
-            '<meta property="og:title" content="Monitor Legislativo de IA no Brasil | PLs, Leis e Tramitação">',
+            '<meta property="og:title" content="Monitor Legislativo e Regulatório de IA | PLs, Leis e Tramitação">',
         ),
         (
             '<meta property="og:description" content="Inteligência Regulatória da LCF Consulting sobre IA no Brasil: projetos, leis, atos, agenda, Regulatory Data e histórico auditável com fontes oficiais.">',
-            '<meta property="og:description" content="Acompanhe o PL 2338/2023 e outros projetos de lei sobre IA no Brasil. Consulte tramitação, leis, atos e atualizações com links para fontes oficiais.">',
+            '<meta property="og:description" content="Monitoramento regulatório de IA no Brasil: acompanhe projetos de lei, normas vigentes, tramitação e mudanças, com fontes oficiais e histórico auditável.">',
         ),
         (
             '<p class="lead">Regulatory Monitoring com dados estruturados sobre projetos, leis e atos federais de IA — incluindo score de impacto, timeline, relações normativas e histórico auditável de mudanças.</p>',
-            '<p class="lead">Acompanhe projetos de lei sobre inteligência artificial no Brasil, incluindo o PL 2338/2023, além de leis e atos regulatórios. Consulte tramitação, mudanças, histórico e fontes oficiais verificáveis.</p>'
+            '<p class="lead">Acompanhe a regulação de inteligência artificial no Brasil: projetos de lei, normas vigentes, tramitação e mudanças. O Monitor organiza fontes oficiais, histórico auditável e score de impacto para facilitar a triagem regulatória.</p>'
             '<p class="hero-links"><a href="/proposicoes/">Projetos de lei e tramitação</a> · '
             '<a href="/atualizacoes/">Atualizações recentes</a> · '
             '<a href="/timeline/">Linha do tempo da regulação de IA</a></p>',
