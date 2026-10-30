@@ -11493,6 +11493,46 @@
       "selection_reason": "tipo=apensação peso=3 score_prop=28 → sem valor editorial independente",
       "processed_at": "2026-10-29T16:46:07-03:00",
       "run_id": null
+    },
+    "chg_95c61d23fcb9be0d": {
+      "change_id": "chg_95c61d23fcb9be0d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4298-2026-dispoe-sobre-a-protecao-do-direito-de-imagem-e-de-dados-biom",
+      "selection_reason": "tipo=atualização cadastral peso=2 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-10-29T21:01:09-03:00",
+      "run_id": null
+    },
+    "chg_466e8d08af6db3bd": {
+      "change_id": "chg_466e8d08af6db3bd",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4298-2026-dispoe-sobre-a-protecao-do-direito-de-imagem-e-de-dados-biom",
+      "selection_reason": "tipo=atualização cadastral peso=2 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-10-29T21:01:09-03:00",
+      "run_id": null
+    },
+    "chg_4e0ac26a3ebbfb09": {
+      "change_id": "chg_4e0ac26a3ebbfb09",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4298-2026-dispoe-sobre-a-protecao-do-direito-de-imagem-e-de-dados-biom",
+      "selection_reason": "tipo=apensação peso=3 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-10-29T21:01:09-03:00",
+      "run_id": null
+    },
+    "chg_e9af0b79d40fe28d": {
+      "change_id": "chg_e9af0b79d40fe28d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2775-2024-altera-a-lei-no-13-709-de-14-de-agosto-de-2018-lei-geral-de",
+      "selection_reason": "tipo=apensação peso=3 score_prop=29 → sem valor editorial independente",
+      "processed_at": "2026-10-29T21:01:09-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -11543,22 +11583,15 @@
       "since": "2026-10-29",
       "editorial_topic_id": "pl-5342-2023-tipifica-o-crime-de-porno-fake-e-acrescenta-o-artigo-218-d-a",
       "prioridade": 18
+    },
+    "chg_b0bd7bc30fc35ce2": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-10-29",
+      "editorial_topic_id": "req-28-2026-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
+      "prioridade": 18
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-11T20:45:40-03:00",
-      "dia": "2026-10-11",
-      "mudancas_novas": 12,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 163,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-12T02:58:54-03:00",
       "dia": "2026-10-12",
@@ -12193,6 +12226,19 @@
       "adiadas": 3,
       "stale": 0,
       "aguardando_curadoria": 185,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-29T21:01:09-03:00",
+      "dia": "2026-10-29",
+      "mudancas_novas": 8,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 4,
+      "adiadas": 1,
+      "stale": 0,
+      "aguardando_curadoria": 183,
       "run_id": null,
       "bootstrap": false
     }
