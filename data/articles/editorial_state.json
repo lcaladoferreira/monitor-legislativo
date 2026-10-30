@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-29"
+    "atualizado_em": "2026-10-30"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -11533,6 +11533,26 @@
       "selection_reason": "tipo=apensação peso=3 score_prop=29 → sem valor editorial independente",
       "processed_at": "2026-10-29T21:01:09-03:00",
       "run_id": null
+    },
+    "chg_b0bd7bc30fc35ce2": {
+      "change_id": "chg_b0bd7bc30fc35ce2",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
+      "editorial_topic_id": "req-28-2026-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-30T02:51:19-03:00",
+      "run_id": null
+    },
+    "chg_68f1ec85455bdbb6": {
+      "change_id": "chg_68f1ec85455bdbb6",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-cics-mgi-no-10-de-28-de-outubro-de-2026-628c4865",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
+      "processed_at": "2026-10-30T02:51:19-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -11583,28 +11603,9 @@
       "since": "2026-10-29",
       "editorial_topic_id": "pl-5342-2023-tipifica-o-crime-de-porno-fake-e-acrescenta-o-artigo-218-d-a",
       "prioridade": 18
-    },
-    "chg_b0bd7bc30fc35ce2": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-10-29",
-      "editorial_topic_id": "req-28-2026-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
-      "prioridade": 18
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-12T02:58:54-03:00",
-      "dia": "2026-10-12",
-      "mudancas_novas": 12,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 163,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-12T12:26:41-03:00",
       "dia": "2026-10-12",
@@ -12239,6 +12240,19 @@
       "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 183,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-30T02:51:18-03:00",
+      "dia": "2026-10-30",
+      "mudancas_novas": 5,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 179,
       "run_id": null,
       "bootstrap": false
     }
