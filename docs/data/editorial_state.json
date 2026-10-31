@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-10-30"
+    "atualizado_em": "2026-10-31"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -11553,6 +11553,16 @@
       "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
       "processed_at": "2026-10-30T02:51:19-03:00",
       "run_id": null
+    },
+    "chg_093f10872cc244cb": {
+      "change_id": "chg_093f10872cc244cb",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-portaria-gabpr-anpd-no-742-de-27-de-outubro-de-2026",
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-742-de-27-de-outubro-de-2026-60e04178",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-10-31T06:43:42-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -11573,12 +11583,6 @@
       "since": "2026-10-28",
       "editorial_topic_id": "pl-6248-2025-dispoe-sobre-a-utilizacao-de-sistemas-de-inteligencia-artifi",
       "prioridade": 16
-    },
-    "chg_093f10872cc244cb": {
-      "reason": "cota_diaria_atingida",
-      "since": "2026-10-29",
-      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-742-de-27-de-outubro-de-2026-60e04178",
-      "prioridade": 13
     },
     "chg_21f0eae6a30a87b9": {
       "reason": "cota_diaria_atingida",
@@ -11606,19 +11610,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-12T12:26:41-03:00",
-      "dia": "2026-10-12",
-      "mudancas_novas": 11,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 163,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-12T20:02:08-03:00",
       "dia": "2026-10-12",
@@ -12250,6 +12241,19 @@
       "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 179,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-10-31T06:43:42-03:00",
+      "dia": "2026-10-31",
+      "mudancas_novas": 3,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 179,
