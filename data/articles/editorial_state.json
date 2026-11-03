@@ -11693,6 +11693,36 @@
       "selection_reason": "ato tipo=Aviso de Chamamento Público órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-11-03T07:55:12-03:00",
       "run_id": null
+    },
+    "chg_362dd07571da14cd": {
+      "change_id": "chg_362dd07571da14cd",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-acrescenta-o-art-88-a-a-lei-no-13-146-de-6-de-julho-de-2015-",
+      "editorial_topic_id": "pl-5726-2026-acrescenta-o-art-88-a-a-lei-no-13-146-de-6-de-julho-de-2015",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-03T15:30:42-03:00",
+      "run_id": null
+    },
+    "chg_806927c180099e41": {
+      "change_id": "chg_806927c180099e41",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-anpd-publica-os-tres-ultimos-relatorios-parciais-de-monitora-412ffa47",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-11-03T15:30:42-03:00",
+      "run_id": null
+    },
+    "chg_5fdbc40f66d7f592": {
+      "change_id": "chg_5fdbc40f66d7f592",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=29 → sem valor editorial independente",
+      "processed_at": "2026-11-03T15:30:42-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -11725,22 +11755,21 @@
       "since": "2026-10-29",
       "editorial_topic_id": "pl-5342-2023-tipifica-o-crime-de-porno-fake-e-acrescenta-o-artigo-218-d-a",
       "prioridade": 18
+    },
+    "chg_18b6fd37a63392c7": {
+      "reason": "cota_diaria_atingida",
+      "since": "2026-11-03",
+      "editorial_topic_id": "pl-5729-2026-institui-a-lei-anticrime-deepfake-estabelece-medidas-penais",
+      "prioridade": 20
+    },
+    "chg_8a210c9befc1b6f1": {
+      "reason": "cota_diaria_atingida",
+      "since": "2026-11-03",
+      "editorial_topic_id": "pl-5725-2026-altera-a-lei-no-9-504-de-30-de-setembro-de-1997-para-discipl",
+      "prioridade": 16
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-13T08:51:11-03:00",
-      "dia": "2026-10-13",
-      "mudancas_novas": 11,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 171,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-13T16:20:03-03:00",
       "dia": "2026-10-13",
@@ -12375,6 +12404,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 180,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-03T15:30:42-03:00",
+      "dia": "2026-11-03",
+      "mudancas_novas": 5,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 2,
+      "stale": 0,
+      "aguardando_curadoria": 179,
       "run_id": null,
       "bootstrap": false
     }
