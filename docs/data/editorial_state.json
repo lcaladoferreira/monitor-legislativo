@@ -12023,6 +12023,66 @@
       "selection_reason": "tipo=pauta peso=7 score_prop=34 → abaixo do limiar de novo artigo",
       "processed_at": "2026-11-04T12:31:56-03:00",
       "run_id": null
+    },
+    "chg_0cd8a65ddfcb7742": {
+      "change_id": "chg_0cd8a65ddfcb7742",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
+      "editorial_topic_id": "req-28-2026-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
+      "selection_reason": "tipo=votação peso=8 score_prop=27 → continuação de assunto já coberto",
+      "processed_at": "2026-11-04T18:57:19-03:00",
+      "run_id": null
+    },
+    "chg_2b9feb74ab032582": {
+      "change_id": "chg_2b9feb74ab032582",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
+      "editorial_topic_id": "req-28-2026-requer-a-realizacao-de-audiencia-publica-sobre-a-violencia-s",
+      "selection_reason": "tipo=votação peso=8 score_prop=27 → continuação de assunto já coberto",
+      "processed_at": "2026-11-04T18:57:19-03:00",
+      "run_id": null
+    },
+    "chg_da346fb63a94c3fe": {
+      "change_id": "chg_da346fb63a94c3fe",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ric-2887-2026-requer-informacoes-ao-ministro-de-estado-de-minas-e-energia",
+      "selection_reason": "tipo=parecer peso=11 score_prop=19 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T18:57:19-03:00",
+      "run_id": null
+    },
+    "chg_1f9a1172754395c1": {
+      "change_id": "chg_1f9a1172754395c1",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ric-2887-2026-requer-informacoes-ao-ministro-de-estado-de-minas-e-energia",
+      "selection_reason": "tipo=parecer peso=11 score_prop=19 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T18:57:19-03:00",
+      "run_id": null
+    },
+    "chg_2c9702907c5b167f": {
+      "change_id": "chg_2c9702907c5b167f",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ric-2886-2026-requer-informacoes-ao-ministro-de-estado-das-relacoes-exteri",
+      "selection_reason": "tipo=parecer peso=11 score_prop=19 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T18:57:19-03:00",
+      "run_id": null
+    },
+    "chg_bba8fbe258add940": {
+      "change_id": "chg_bba8fbe258add940",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ric-2886-2026-requer-informacoes-ao-ministro-de-estado-das-relacoes-exteri",
+      "selection_reason": "tipo=parecer peso=11 score_prop=19 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T18:57:19-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12100,19 +12160,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-14T07:15:07-03:00",
-      "dia": "2026-10-14",
-      "mudancas_novas": 25,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 15,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 175,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-14T12:11:34-03:00",
       "dia": "2026-10-14",
@@ -12747,6 +12794,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 175,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-04T18:57:19-03:00",
+      "dia": "2026-11-04",
+      "mudancas_novas": 13,
+      "novos_artigos": 0,
+      "artigos_atualizados": 2,
+      "ignoradas": 4,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 171,
       "run_id": null,
       "bootstrap": false
     }
