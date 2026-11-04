@@ -456,9 +456,11 @@
       "summary": "O Monitor Legislativo de IA registrou: Nova proposição: REQ 47/2026. Trata-se do REQ 47/2026 — Requer a realização de audiência pública para debater a integridade algorítmica, a publicidade político-eleitoral e os… (Requer a realização de audiência pública para debater a integridade algorítmica, a publicidade político…",
       "assunto": "REQ 47/2026",
       "published_at": "2026-10-29",
-      "modified_at": "2026-10-29",
+      "modified_at": "2026-11-04",
       "source_change_ids": [
-        "chg_34e7f4c6a78f9d64"
+        "chg_34e7f4c6a78f9d64",
+        "chg_fa995e546ba2d57f",
+        "chg_00876d2aacbcfa5f"
       ],
       "source_entity_ids": [
         "camara_req_47_2026"
@@ -494,16 +496,18 @@
       "url": "artigos/requer-a-realizacao-de-audiencia-publica-para-debater-a-integridade-algoritmica/",
       "status": "published",
       "selection_reason": "NEW_ARTICLE_CANDIDATE | gatilho: Nova proposição: REQ 47/2026 | critério: maior relevância editorial do dia",
-      "revision_count": 1,
-      "last_revision_reason": "Criação do artigo a partir de mudança detectada pelo monitor.",
+      "revision_count": 2,
+      "last_revision_reason": "tipo=votação peso=8 score_prop=30 → continuação de assunto já coberto | 2 mudança(s) incorporada(s) no dia",
       "content": {
         "lead": "O Monitor Legislativo de IA registrou: Nova proposição: REQ 47/2026. Trata-se do REQ 47/2026 — Requer a realização de audiência pública para debater a integridade algorítmica, a publicidade político-eleitoral e os… (Requer a realização de audiência pública para debater a integridade algorítmica, a publicidade político-eleitoral e os procedimentos de moderação de conteúdo nas plataformas digitais.). Situação oficial registrada: Pronta para Pauta — Apresentação do REQ n. 47/2026 (Requerimento de Audiência Pública), pelo Deputado Fausto Pinato (UNIÃO/SP), que \"Requer a realização de aud…. Fonte: https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649374.",
         "o_que_mudou": [
+          "<p><b>04/11/2026</b> — REQ 47/2026: Aprovação de Proposição Interna<br>Em 2026-11-04, CCTI: Aprovado o Requerimento. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.<span class=\"article-changemeta\">(ultima_movimentacao: “2026-10-28 — Apresentação do REQ n. 47/2026 (Requerimento de Audiência Pública), pelo Deputado Fausto Pinato (UNIÃO/SP)…” → “2026-11-04 — Aprovado o Requerimento.”)</span><br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649374\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>",
+          "<p><b>04/11/2026</b> — REQ 47/2026: situação atualizada<br>Situação passou de “Pronta para Pauta — Apresentação do REQ n. 47/2026 (Requerimento de Audiência Pública), pelo Deputado Fausto Pinato (UNIÃO/SP), que &quot;Requer a realização de audiência pública para debater a integridade” para “Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.”.<span class=\"article-changemeta\">(situacao: “Pronta para Pauta — Apresentação do REQ n. 47/2026 (Requerimento de Audiência Pública), pelo Deputado Fausto Pinato (UN…” → “Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.”)</span><br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649374\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>",
           "<p><b>28/10/2026</b> — Nova proposição: REQ 47/2026<br>Requer a realização de audiência pública para debater a integridade algorítmica, a publicidade político-eleitoral e os procedimentos de moderação de conteúdo nas plataformas digitais. (Registro automático a partir da API oficial; aguardando curadoria.)<br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649374\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>"
         ],
-        "situacao_atual": "<p><b>Situação oficial:</b> Pronta para Pauta — Apresentação do REQ n. 47/2026 (Requerimento de Audiência Pública), pelo Deputado Fausto Pinato (UNIÃO/SP), que &quot;Requer a realização de audiência pública para debater a integridade algorítmica, a publ</p><p><b>Localização:</b> Câmara dos Deputados</p>",
+        "situacao_atual": "<p><b>Situação oficial:</b> Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.</p><p><b>Localização:</b> Câmara dos Deputados</p>",
         "por_que_importa": "<p>A proposição tem <b>AI Legislative Impact Score 30/100</b> (BAIXA PRIORIDADE) no monitoramento — rúbrica pública que avalia abrangência regulatória, estágio de tramitação, impactos econômico e sobre direitos e proximidade de decisão (critérios na <a href=\"{SITE_URL}/metodologia/\">metodologia</a>).</p><p><b>Temas:</b> Eleições, Plataformas Digitais.</p>",
-        "o_que_acontece_agora": "<p>Enquanto a situação formal não mudar, a matéria segue “Pronta para Pauta — Apresentação do REQ n. 47/2026 (Requerimento de Audiência Pública), pelo Deputado Fausto Pinato (UNIÃO/SP), que &quot;Requer…”. Este artigo é atualizado automaticamente quando o monitor detecta nova movimentação relevante deste assunto.</p>",
+        "o_que_acontece_agora": "<p>Enquanto a situação formal não mudar, a matéria segue “Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.”. Este artigo é atualizado automaticamente quando o monitor detecta nova movimentação relevante deste assunto.</p>",
         "historico": [
           {
             "data": "2026-10-28",
@@ -524,9 +528,24 @@
             "*"
           ],
           "summary": "O Monitor Legislativo de IA registrou: Nova proposição: REQ 47/2026. Trata-se do REQ 47/2026 — Requer a realização de audiência pública para debater a integridade algorítmica, a publicidade político-eleitoral e os… (Requer a realização de…"
+        },
+        {
+          "date": "2026-11-04",
+          "source_change_ids": [
+            "chg_00876d2aacbcfa5f",
+            "chg_fa995e546ba2d57f"
+          ],
+          "reason": "tipo=votação peso=8 score_prop=30 → continuação de assunto já coberto",
+          "fields_changed": [
+            "content.o_que_acontece_agora",
+            "content.o_que_mudou",
+            "content.situacao_atual"
+          ],
+          "summary": "REQ 47/2026: Aprovação de Proposição Interna (+1 movimentação(ões) do mesmo dia)",
+          "change_count": 2
         }
       ],
-      "editorial_hash": "sha1:23d2ffb01a1fa09d"
+      "editorial_hash": "sha1:cb65f4d5f51cea0d"
     },
     {
       "id": "art-portaria-cnj-no-524",

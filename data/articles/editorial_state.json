@@ -11953,6 +11953,76 @@
       "selection_reason": "ato tipo=Ato Declaratório órgão=dou peso=2 → sem valor editorial independente",
       "processed_at": "2026-11-04T03:23:28-03:00",
       "run_id": null
+    },
+    "chg_fa995e546ba2d57f": {
+      "change_id": "chg_fa995e546ba2d57f",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-a-realizacao-de-audiencia-publica-para-debater-a-inte",
+      "editorial_topic_id": "req-47-2026-requer-a-realizacao-de-audiencia-publica-para-debater-a-inte",
+      "selection_reason": "tipo=votação peso=8 score_prop=30 → continuação de assunto já coberto",
+      "processed_at": "2026-11-04T12:31:56-03:00",
+      "run_id": null
+    },
+    "chg_00876d2aacbcfa5f": {
+      "change_id": "chg_00876d2aacbcfa5f",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-a-realizacao-de-audiencia-publica-para-debater-a-inte",
+      "editorial_topic_id": "req-47-2026-requer-a-realizacao-de-audiencia-publica-para-debater-a-inte",
+      "selection_reason": "tipo=votação peso=8 score_prop=30 → continuação de assunto já coberto",
+      "processed_at": "2026-11-04T12:31:56-03:00",
+      "run_id": null
+    },
+    "chg_eba0987c3416dc8a": {
+      "change_id": "chg_eba0987c3416dc8a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-759-2023-regulamenta-os-sistemas-de-inteligencia-artificial-e-da-outr",
+      "selection_reason": "tipo=pauta peso=7 score_prop=30 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T12:31:56-03:00",
+      "run_id": null
+    },
+    "chg_c5001d6b50fe911c": {
+      "change_id": "chg_c5001d6b50fe911c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-759-2023-regulamenta-os-sistemas-de-inteligencia-artificial-e-da-outr",
+      "selection_reason": "tipo=pauta peso=7 score_prop=30 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T12:31:56-03:00",
+      "run_id": null
+    },
+    "chg_f308acfa58ae0931": {
+      "change_id": "chg_f308acfa58ae0931",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2451-2026-dispoe-sobre-medidas-de-prevencao-combate-e-responsabilizaca",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=37 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-04T12:31:56-03:00",
+      "run_id": null
+    },
+    "chg_f85b5e4bfe292f98": {
+      "change_id": "chg_f85b5e4bfe292f98",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-1465-2024-estabelece-principios-garantias-direitos-e-deveres-para-o-de",
+      "selection_reason": "tipo=pauta peso=7 score_prop=34 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T12:31:56-03:00",
+      "run_id": null
+    },
+    "chg_39862cee44b213e0": {
+      "change_id": "chg_39862cee44b213e0",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-1465-2024-estabelece-principios-garantias-direitos-e-deveres-para-o-de",
+      "selection_reason": "tipo=pauta peso=7 score_prop=34 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-04T12:31:56-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12030,19 +12100,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-14T01:56:11-03:00",
-      "dia": "2026-10-14",
-      "mudancas_novas": 26,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 15,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 174,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-14T07:15:07-03:00",
       "dia": "2026-10-14",
@@ -12675,6 +12732,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 15,
       "adiadas": 1,
+      "stale": 0,
+      "aguardando_curadoria": 175,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-04T12:31:56-03:00",
+      "dia": "2026-11-04",
+      "mudancas_novas": 14,
+      "novos_artigos": 0,
+      "artigos_atualizados": 2,
+      "ignoradas": 5,
+      "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 175,
       "run_id": null,
