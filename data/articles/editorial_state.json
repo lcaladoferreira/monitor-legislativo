@@ -12083,6 +12083,16 @@
       "selection_reason": "tipo=parecer peso=11 score_prop=19 → abaixo do limiar de novo artigo",
       "processed_at": "2026-11-04T18:57:19-03:00",
       "run_id": null
+    },
+    "chg_2888515d5548a3d5": {
+      "change_id": "chg_2888515d5548a3d5",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-3695-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=relatoria peso=9 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-11-04T23:33:20-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12157,22 +12167,15 @@
       "since": "2026-11-04",
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-744-de-29-de-outubro-de-2026-84aae773",
       "prioridade": 13
+    },
+    "chg_df2960c57f66ef45": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-04",
+      "editorial_topic_id": "req-51-2026-requer-a-realizacao-de-seminario-sob-o-nome-de-4o-forum-legi",
+      "prioridade": 14
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-14T12:11:34-03:00",
-      "dia": "2026-10-14",
-      "mudancas_novas": 11,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 175,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-14T16:26:28-03:00",
       "dia": "2026-10-14",
@@ -12805,6 +12808,19 @@
       "artigos_atualizados": 2,
       "ignoradas": 4,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 171,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-04T23:33:20-03:00",
+      "dia": "2026-11-04",
+      "mudancas_novas": 9,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 171,
       "run_id": null,
