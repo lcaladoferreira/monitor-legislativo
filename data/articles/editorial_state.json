@@ -12213,6 +12213,46 @@
       "selection_reason": "tipo=parecer peso=12 score_prop=36 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-05T15:48:49-03:00",
       "run_id": null
+    },
+    "chg_163a315d8e26d95c": {
+      "change_id": "chg_163a315d8e26d95c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-cnj-judicializacao-em-saude-novas-ferramentas-dao-acesso-a-infor-d526e0cc",
+      "selection_reason": "ato tipo=post órgão=cnj peso=9 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-05T18:21:50-03:00",
+      "run_id": null
+    },
+    "chg_949611541ae8bee8": {
+      "change_id": "chg_949611541ae8bee8",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-cnj-estao-abertas-as-inscricoes-para-o-1o-ciclo-de-capacitacao-e-e994eeab",
+      "selection_reason": "ato tipo=post órgão=cnj peso=9 → sem valor editorial independente",
+      "processed_at": "2026-11-05T18:21:50-03:00",
+      "run_id": null
+    },
+    "chg_b5a382fdbaf4920a": {
+      "change_id": "chg_b5a382fdbaf4920a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-3982-2026-altera-a-lei-no-9-610-de-19-de-fevereiro-de-1998-lei-de-dire",
+      "selection_reason": "tipo=tramitação peso=2 score_prop=19 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-05T18:21:50-03:00",
+      "run_id": null
+    },
+    "chg_ec38ed5b1dccd1bb": {
+      "change_id": "chg_ec38ed5b1dccd1bb",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-3966-2026-altera-a-medida-provisoria-no-2-228-1-de-6-de-setembro-de-20",
+      "selection_reason": "tipo=publicação peso=4 score_prop=19 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-05T18:21:50-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12308,19 +12348,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-14T22:33:02-03:00",
-      "dia": "2026-10-14",
-      "mudancas_novas": 15,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 5,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 176,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-15T04:28:47-03:00",
       "dia": "2026-10-15",
@@ -12955,6 +12982,19 @@
       "adiadas": 3,
       "stale": 0,
       "aguardando_curadoria": 173,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-05T18:21:50-03:00",
+      "dia": "2026-11-05",
+      "mudancas_novas": 14,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 4,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 172,
       "run_id": null,
       "bootstrap": false
     }
