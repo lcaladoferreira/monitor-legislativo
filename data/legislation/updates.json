@@ -337,6 +337,22 @@
     },
     {
       "data": "2026-11-04",
+      "titulo": "REQ 51/2026: Apresentação de Proposição (alinhamento de texto à ficha oficial)",
+      "descricao": "Redação da movimentação de 2026-11-04 alinhada ao texto oficial: Apresentação do REQ n. 51/2026 (Requerimento para realização ou participação em Seminário, Visita Técnica ou outro Evento), pelo Deputado Julio Cesar Ribeiro (REPUBLIC/DF), que \"Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte na era da inteligência artificial, em conjunto com a Comissão do Esporte da Câmara dos Deputados\".",
+      "tipo": "atualização cadastral",
+      "proposicao": "camara_req_51_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-11-04 — Apresentação da proposição.",
+      "valor_novo": "2026-11-04 — Apresentação do REQ n. 51/2026 (Requerimento para realização ou participação em Seminário, Visita Técnica ou outro Evento), pelo Deputado Julio Cesar Ribeiro (REPUBLIC/DF), que \"Requer a realização de",
+      "data_deteccao": "2026-11-05",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084",
+      "timestamp_execucao": "2026-11-05T07:53:44-03:00",
+      "id_execucao": "run_2026_11_05_0753"
+    },
+    {
+      "data": "2026-11-04",
       "titulo": "REQ 47/2026: situação atualizada",
       "descricao": "Situação passou de “Pronta para Pauta — Apresentação do REQ n. 47/2026 (Requerimento de Audiência Pública), pelo Deputado Fausto Pinato (UNIÃO/SP), que \"Requer a realização de audiência pública para debater a integridade” para “Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.”.",
       "tipo": "votação",
@@ -14842,42 +14858,1100 @@
       "id_execucao": "run_2026_09_25_0447"
     },
     {
-      "data": "2026-09-24",
-      "titulo": "Resolução Nº 12, DE 2 DE setembro DE 2026",
-      "descricao": "Em conformidade com a legislação de proteção de dados pessoais, os dados sobre autodeclaração étnico-racialResolução Nº 12, DE 2 DE setembro DE 2026 Institui a Política de Ações Afirmativas para a reserva de vagas destinadas a pessoas negras (pretas e pardas), indígenas, quilombolas, com... (Resolução — Entidades de Fiscalização do Exercício das Profissões Liberais/Conselho Federal de Psicologia)",
-      "tipo": "nova publicação",
-      "orgao": "dou",
-      "item": "dou_in_gov_br_web_dou_resolucao_n_12_de_2_de_setembro_de_2026_733727302",
-      "fonte": "DOU — Diário Oficial da União (Imprensa Nacional) — busca por tema (7 dias)",
-      "fonte_url": "https://www.in.gov.br/web/dou/-/resolucao-n-12-de-2-de-setembro-de-2026-733727302",
-      "url_oficial": "https://www.in.gov.br/web/dou/-/resolucao-n-12-de-2-de-setembro-de-2026-733727302",
+      "data": "2026-11-05",
+      "titulo": "PL 182/2025: situação atualizada",
+      "descricao": "Situação passou de “Aprovação do Parecer (CCJC): Aprovado o Parecer.” para “Publicação de Proposição (CCP): Parecer recebido para publicação.”.",
+      "tipo": "parecer",
+      "proposicao": "camara_pl_182_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2482618",
+      "campo_alterado": "situacao",
+      "valor_anterior": "Aprovação do Parecer (CCJC): Aprovado o Parecer.",
+      "valor_novo": "Publicação de Proposição (CCP): Parecer recebido para publicação.",
+      "data_deteccao": "2026-11-05",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2482618",
+      "timestamp_execucao": "2026-11-05T15:44:33-03:00",
+      "id_execucao": "run_2026_11_05_1544"
+    },
+    {
+      "data": "2026-11-05",
+      "titulo": "PL 182/2025: Publicação de Proposição (registro incorporado)",
+      "descricao": "Em 2026-11-05, CCP: Parecer recebido para publicação. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.",
+      "tipo": "parecer",
+      "proposicao": "camara_pl_182_2025",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2482618",
+      "campo_alterado": "ultima_movimentacao",
+      "valor_anterior": "2026-11-03 — Aprovado o Parecer.",
+      "valor_novo": "2026-11-05 — Parecer recebido para publicação.",
+      "data_deteccao": "2026-11-05",
+      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2482618",
+      "timestamp_execucao": "2026-11-05T15:44:33-03:00",
+      "id_execucao": "run_2026_11_05_1544"
+    },
+    {
+      "data": "2026-10-30",
+      "titulo": "Nova proposição: PL 5716/2026",
+      "descricao": "Altera o Decreto-Lei nº 2.848, de 7 de dezembro de 1940 (Código Penal), para aumentar a pena do estelionato e dos crimes de falsidade documental praticados com o uso de inteligência artificial ou de conteúdo sintético. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_5716_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649657",
       "campo_alterado": null,
       "valor_anterior": null,
       "valor_novo": null,
-      "relevancia": "forte",
-      "revisao_pendente": false,
-      "data_deteccao": "2026-09-24",
-      "timestamp_execucao": "2026-09-24T01:49:03-03:00",
-      "id_execucao": "run_2026_09_24_0149"
+      "data_deteccao": "2026-11-05",
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649657",
+      "timestamp_execucao": "2026-11-05T15:44:33-03:00",
+      "id_execucao": "run_2026_11_05_1544"
     },
     {
-      "data": "2026-11-04",
-      "titulo": "REQ 51/2026: Apresentação de Proposição (alinhamento de texto à ficha oficial)",
-      "descricao": "Redação da movimentação de 2026-11-04 alinhada ao texto oficial: Apresentação do REQ n. 51/2026 (Requerimento para realização ou participação em Seminário, Visita Técnica ou outro Evento), pelo Deputado Julio Cesar Ribeiro (REPUBLIC/DF), que \"Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte na era da inteligência artificial, em conjunto com a Comissão do Esporte da Câmara dos Deputados\".",
-      "tipo": "atualização cadastral",
-      "proposicao": "camara_req_51_2026",
-      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084",
-      "campo_alterado": "ultima_movimentacao",
-      "valor_anterior": "2026-11-04 — Apresentação da proposição.",
-      "valor_novo": "2026-11-04 — Apresentação do REQ n. 51/2026 (Requerimento para realização ou participação em Seminário, Visita Técnica ou outro Evento), pelo Deputado Julio Cesar Ribeiro (REPUBLIC/DF), que \"Requer a realização de",
+      "data": "2026-10-30",
+      "titulo": "Nova proposição: PL 5715/2026",
+      "descricao": "Altera o Decreto-Lei nº 2.848, de 7 de dezembro de 1940 (Código Penal), para qualificar o crime de fraude em certame de interesse público praticado com uso de dispositivo eletrônico ou de ferramenta de inteligência artificial e aumentar a pena de quem fornece o equipamento ou o serviço, e estabelece medidas de prevenção a serem adotadas pelos organizadores de certames. (Registro automático a partir da API oficial; aguardando curadoria.)",
+      "tipo": "nova proposição",
+      "proposicao": "camara_pl_5715_2026",
+      "fonte_url": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649656",
+      "campo_alterado": null,
+      "valor_anterior": null,
+      "valor_novo": null,
       "data_deteccao": "2026-11-05",
-      "fonte": "Câmara dos Deputados — ficha de tramitação (API)",
-      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084",
-      "timestamp_execucao": "2026-11-05T07:53:44-03:00",
-      "id_execucao": "run_2026_11_05_0753"
+      "fonte": "Câmara dos Deputados — API de Dados Abertos",
+      "url_oficial": "https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2649656",
+      "timestamp_execucao": "2026-11-05T15:44:33-03:00",
+      "id_execucao": "run_2026_11_05_1544"
     }
   ],
   "execucoes": [
+    {
+      "id": "run_2026_11_05_1544",
+      "data_hora": "2026-11-05T15:44:33-03:00",
+      "tipo": "atualizacao",
+      "status": "parcial",
+      "motor": {
+        "orcamento_segundos": 1500,
+        "max_novas": 25,
+        "workers": 5,
+        "http_concorrencia": 4
+      },
+      "proposicoes_monitoradas": 157,
+      "sugestoes_curadoria": [],
+      "resumo": "Verificação automática: 157 fichas consultadas, 1 proposições atualizadas, 2 novas, 4 mudanças detectadas, 3 eventos adicionados.",
+      "proposicoes_verificadas": 157,
+      "proposicoes_atualizadas": 1,
+      "novas_proposicoes": 2,
+      "novas_leis_regulamentos": 0,
+      "mudancas_detectadas": 4,
+      "eventos_adicionados": 3,
+      "fontes_consultadas": [
+        "API de Dados Abertos da Câmara dos Deputados — deputados (relator)",
+        "API de Dados Abertos da Câmara dos Deputados — descoberta (keywords + incremental)",
+        "API de Dados Abertos da Câmara dos Deputados — eventos (agenda)",
+        "API de Dados Abertos da Câmara dos Deputados — proposições (detalhe)",
+        "API de Dados Abertos da Câmara dos Deputados — tramitações",
+        "API de Dados Abertos da Câmara dos Deputados — votações",
+        "API de Dados Abertos do Senado Federal — matérias (detalhe)",
+        "API de Dados Abertos do Senado Federal — movimentações",
+        "API de Dados Abertos do Senado Federal — relatorias"
+      ],
+      "erros": [],
+      "observacao": "Nada foi inventado: todos os registros novos ou alterados citam a URL oficial. Registros automáticos aguardam curadoria editorial. Status global: PARCIAL.",
+      "duracao_segundos": 256,
+      "orcamento_segundos": 1500,
+      "orcamento_restante_segundos": 1243,
+      "fases_segundos": {
+        "agenda_eventos": 1.9,
+        "atualizacao_proposicoes": 110.1,
+        "descoberta_camara": 12.5,
+        "descoberta_senado": 4.6,
+        "fontes_multiorgao": 126.7
+      },
+      "http": {
+        "chamadas": 540,
+        "cache": 49,
+        "falhas": 1,
+        "tempo_total": 360.09,
+        "por_endpoint": {
+          "camara:deputados/{id}": {
+            "chamadas": 36,
+            "falhas": 0,
+            "tempo_total": 18.85
+          },
+          "camara:eventos": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.59
+          },
+          "camara:proposicoes": {
+            "chamadas": 16,
+            "falhas": 0,
+            "tempo_total": 14.93
+          },
+          "camara:proposicoes/{id}": {
+            "chamadas": 139,
+            "falhas": 0,
+            "tempo_total": 80.53
+          },
+          "camara:proposicoes/{id}/autores": {
+            "chamadas": 2,
+            "falhas": 0,
+            "tempo_total": 1.0
+          },
+          "camara:proposicoes/{id}/tramitacoes": {
+            "chamadas": 129,
+            "falhas": 0,
+            "tempo_total": 74.95
+          },
+          "camara:proposicoes/{id}/votacoes": {
+            "chamadas": 127,
+            "falhas": 0,
+            "tempo_total": 77.81
+          },
+          "senado:138790": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:139586": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:147434": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:157233": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.36
+          },
+          "senado:158816": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.96
+          },
+          "senado:164831": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:172683": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:172783": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:172838": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:172856": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.27
+          },
+          "senado:172900": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:172910": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.92
+          },
+          "senado:172996": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:173016": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:173045": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:173133": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:173258": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:173322": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.13
+          },
+          "senado:173474": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:173567": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.06
+          },
+          "senado:173616": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.85
+          },
+          "senado:174154": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:174212": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:174481": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.93
+          },
+          "senado:174521": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:174866": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:174922": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:174923": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.93
+          },
+          "senado:175362": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:176161": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:movimentacoes/138790": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.92
+          },
+          "senado:movimentacoes/139586": {
+            "chamadas": 0,
+            "falhas": 1,
+            "tempo_total": 0.0
+          },
+          "senado:movimentacoes/147434": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.9
+          },
+          "senado:movimentacoes/157233": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 2.15
+          },
+          "senado:movimentacoes/158816": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.9
+          },
+          "senado:movimentacoes/164831": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.99
+          },
+          "senado:movimentacoes/172683": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:movimentacoes/172783": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:movimentacoes/172838": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:movimentacoes/172856": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.92
+          },
+          "senado:movimentacoes/172900": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.97
+          },
+          "senado:movimentacoes/172910": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:movimentacoes/172996": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.89
+          },
+          "senado:movimentacoes/173016": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:movimentacoes/173045": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:movimentacoes/173133": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:movimentacoes/173258": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.83
+          },
+          "senado:movimentacoes/173322": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:movimentacoes/173474": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.04
+          },
+          "senado:movimentacoes/173567": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.97
+          },
+          "senado:movimentacoes/173616": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.83
+          },
+          "senado:movimentacoes/174154": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:movimentacoes/174212": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.83
+          },
+          "senado:movimentacoes/174481": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.24
+          },
+          "senado:movimentacoes/174521": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:movimentacoes/174866": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.83
+          },
+          "senado:movimentacoes/174922": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:movimentacoes/174923": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.97
+          },
+          "senado:movimentacoes/175362": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          },
+          "senado:movimentacoes/176161": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:pesquisa/lista": {
+            "chamadas": 3,
+            "falhas": 0,
+            "tempo_total": 3.7
+          },
+          "senado:relatorias/139586": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:relatorias/147434": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:relatorias/157233": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.93
+          },
+          "senado:relatorias/158816": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:relatorias/164831": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:relatorias/172783": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:relatorias/172838": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:relatorias/172856": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:relatorias/172900": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.82
+          },
+          "senado:relatorias/172910": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.19
+          },
+          "senado:relatorias/173016": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.92
+          },
+          "senado:relatorias/173045": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:relatorias/173133": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.88
+          },
+          "senado:relatorias/173258": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.9
+          },
+          "senado:relatorias/173322": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.77
+          },
+          "senado:relatorias/173474": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:relatorias/173567": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.81
+          },
+          "senado:relatorias/173616": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:relatorias/174154": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:relatorias/174212": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:relatorias/174481": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.08
+          },
+          "senado:relatorias/174521": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:relatorias/174866": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.79
+          },
+          "senado:relatorias/174922": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 1.12
+          },
+          "senado:relatorias/174923": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.8
+          },
+          "senado:relatorias/175362": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.78
+          },
+          "senado:relatorias/176161": {
+            "chamadas": 1,
+            "falhas": 0,
+            "tempo_total": 0.84
+          }
+        }
+      },
+      "fim": "2026-11-05T15:48:49-03:00",
+      "proposicoes_pendentes": 0,
+      "proposicoes_distintas_verificadas": 155,
+      "cobertura_pct": 98.7,
+      "snapshot_dataset": {
+        "proposicoes_total": 157,
+        "por_situacao": {
+          "aprovada_lei": 2,
+          "arquivada": 9,
+          "em_tramitacao": 146
+        },
+        "normas_total": 15,
+        "eventos_total": 14,
+        "mudancas_registradas": 804
+      },
+      "descoberta_candidatos": 2,
+      "descoberta_adiada": 0,
+      "fontes_monitoradas": {
+        "anpd": {
+          "nome": "ANPD — Autoridade Nacional de Proteção de Dados",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-05T15:44:33-03:00",
+          "ultima_execucao_ok": "2026-11-05T15:46:40-03:00",
+          "itens_consultados": 344,
+          "itens_relevantes": 101,
+          "itens_descartados": 134,
+          "itens_duplicados": 109,
+          "revisao_pendente": 28,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 11.3,
+          "endpoints": [
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "notícias recentes",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 38
+            },
+            {
+              "canal": "notícias por tema",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 104,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 28
+            },
+            {
+              "canal": "regulação e normas",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 32,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "consultas públicas",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 47,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 17
+            },
+            {
+              "canal": "tomada de subsídios",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 49,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 18
+            },
+            {
+              "canal": "atos normativos (arquivos)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "fiscalização (pasta oficial)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 12,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "agenda regulatória (pasta oficial)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 0,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "notícias recentes",
+            "notícias por tema",
+            "regulação e normas",
+            "consultas públicas",
+            "tomada de subsídios",
+            "atos normativos (arquivos)",
+            "fiscalização (pasta oficial)",
+            "agenda regulatória (pasta oficial)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 158,
+          "atos_descartados_por_retencao": 0
+        },
+        "camara": {
+          "nome": "Câmara dos Deputados — API de Dados Abertos v2",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-05T15:44:33-03:00",
+          "ultima_execucao_ok": "2026-11-05T15:44:33-03:00",
+          "itens_consultados": 132,
+          "novidades": 2,
+          "erros": 0,
+          "chamadas_http": 450,
+          "falhas_http": 0,
+          "endpoints": [
+            "https://dadosabertos.camara.leg.br/api/v2"
+          ],
+          "canais_ok": [
+            "camara:deputados/{id}",
+            "camara:eventos",
+            "camara:proposicoes",
+            "camara:proposicoes/{id}",
+            "camara:proposicoes/{id}/autores",
+            "camara:proposicoes/{id}/tramitacoes"
+          ],
+          "canais_falhos": [],
+          "erro_detalhe": null
+        },
+        "cnj": {
+          "nome": "CNJ — Conselho Nacional de Justiça",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-05T15:44:45-03:00",
+          "ultima_execucao_ok": "2026-11-05T15:46:40-03:00",
+          "itens_consultados": 130,
+          "itens_relevantes": 14,
+          "itens_descartados": 115,
+          "itens_duplicados": 1,
+          "revisao_pendente": 9,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 3.9,
+          "endpoints": [
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos normativos recentes",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "atos normativos recentes (página 2)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "atos normativos recentes (página 3)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "notícias oficiais",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 6
+            },
+            {
+              "canal": "notícias oficiais (página 2)",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 7
+            }
+          ],
+          "canais_ok": [
+            "atos normativos recentes",
+            "atos normativos recentes (página 2)",
+            "atos normativos recentes (página 3)",
+            "notícias oficiais",
+            "notícias oficiais (página 2)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 47,
+          "atos_descartados_por_retencao": 0
+        },
+        "dou": {
+          "nome": "DOU — Diário Oficial da União (Imprensa Nacional)",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-05T15:45:03-03:00",
+          "ultima_execucao_ok": "2026-11-05T15:46:40-03:00",
+          "itens_consultados": 129,
+          "itens_relevantes": 79,
+          "itens_descartados": 26,
+          "itens_duplicados": 24,
+          "revisao_pendente": 23,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 39.1,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "busca por tema (7 dias)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 129,
+              "amostra_hierarquia": [
+                "Atos do Poder Executivo",
+                "Editais e Avisos/Ministério da Educação",
+                "Editais e Avisos/Ministério dos Povos Indígenas"
+              ],
+              "itens_relevantes": 79
+            }
+          ],
+          "canais_ok": [
+            "busca por tema (7 dias)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 763,
+          "atos_descartados_por_retencao": 0
+        },
+        "mcti": {
+          "nome": "MCTI — Ministério da Ciência, Tecnologia e Inovação",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-05T15:46:08-03:00",
+          "ultima_execucao_ok": "2026-11-05T15:46:40-03:00",
+          "itens_consultados": 38,
+          "itens_relevantes": 27,
+          "itens_descartados": 9,
+          "itens_duplicados": 2,
+          "revisao_pendente": 8,
+          "novidades": 0,
+          "erros": 2,
+          "duracao_segundos": 31.6,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias",
+            "https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+            "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do MCTI por tema (DOU)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 18,
+              "amostra_hierarquia": [
+                "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacion",
+                "Ministério da Ciência, Tecnologia e Inovação/Conselho Nacion",
+                "Ministério da Ciência, Tecnologia e Inovação/Gabinete da Min"
+              ],
+              "itens_relevantes": 16
+            },
+            {
+              "canal": "planos, programas e políticas",
+              "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti",
+              "itens_brutos": 20,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 11
+            }
+          ],
+          "canais_ok": [
+            "atos do MCTI por tema (DOU)",
+            "planos, programas e políticas"
+          ],
+          "canais_falhos": [
+            "notícias institucionais",
+            "portarias publicadas"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "notícias institucionais",
+            "portarias publicadas"
+          ],
+          "erro_detalhe": "notícias institucionais: listagem sem itens reconhecíveis (233430 bytes): https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias; portarias publicadas: listagem sem itens reconhecíveis (172120 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+          "atos_registrados": 73,
+          "atos_descartados_por_retencao": 0
+        },
+        "planalto": {
+          "nome": "Planalto — Presidência da República",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-05T15:45:42-03:00",
+          "ultima_execucao_ok": "2026-11-05T15:46:40-03:00",
+          "itens_consultados": 48,
+          "itens_relevantes": 8,
+          "itens_descartados": 31,
+          "itens_duplicados": 9,
+          "revisao_pendente": 2,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 26.2,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+            "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do Poder Legislativo (leis, vetos)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [
+                "Atos do Poder Legislativo"
+              ],
+              "itens_relevantes": 4
+            },
+            {
+              "canal": "atos da Presidência (decretos, MPs)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 1,
+              "amostra_hierarquia": [
+                "Presidência da República"
+              ],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "notícias do Planalto (RSS oficial)",
+              "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+              "itens_brutos": 33,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 3
+            },
+            {
+              "canal": "notícias do Planalto (página oficial)",
+              "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias",
+              "itens_brutos": 4,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "atos do Poder Legislativo (leis, vetos)",
+            "atos da Presidência (decretos, MPs)",
+            "notícias do Planalto (RSS oficial)",
+            "notícias do Planalto (página oficial)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 12,
+          "atos_descartados_por_retencao": 0
+        },
+        "senado": {
+          "nome": "Senado Federal — API de Dados Abertos v7",
+          "status": "parcial",
+          "ultima_tentativa": "2026-11-05T15:44:33-03:00",
+          "ultima_execucao_ok": "2026-11-04T12:25:00-03:00",
+          "itens_consultados": 25,
+          "novidades": 0,
+          "erros": 0,
+          "chamadas_http": 89,
+          "falhas_http": 1,
+          "endpoints": [
+            "https://legis.senado.leg.br/dadosabertos"
+          ],
+          "canais_ok": [
+            "senado:138790",
+            "senado:139586",
+            "senado:147434",
+            "senado:157233",
+            "senado:158816",
+            "senado:164831"
+          ],
+          "canais_falhos": [
+            "senado:movimentacoes/139586"
+          ],
+          "erro_detalhe": null
+        },
+        "tse": {
+          "nome": "TSE — Tribunal Superior Eleitoral",
+          "status": "parcial",
+          "ultima_tentativa": "2026-11-05T15:44:49-03:00",
+          "ultima_execucao_ok": "2026-11-05T07:53:59-03:00",
+          "itens_consultados": 0,
+          "itens_relevantes": 0,
+          "itens_descartados": 0,
+          "itens_duplicados": 0,
+          "revisao_pendente": 0,
+          "novidades": 0,
+          "erros": 4,
+          "duracao_segundos": 14.0,
+          "endpoints": [
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "resoluções do TSE (DOU, órgão/subórgão)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 0,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "resoluções do TSE (DOU, órgão/subórgão)"
+          ],
+          "canais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)",
+            "atos do TSE por tema (DOU)"
+          ],
+          "canais_falhos_obrigatorios": [
+            "atos do TSE por tema (DOU)"
+          ],
+          "canais_opcionais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)"
+          ],
+          "erro_detalhe": "atos normativos (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&path=%2Flegislacao; notícias oficiais (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&portal_type=Noticia; atos e notícias por tema (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=20&sort_on=effective&sort_order=descending; atos do TSE por tema (DOU): HTML indisponível: https://www.in.gov.br/consulta/-/buscar/dou?q=%22prote%C3%A7%C3%A3o%20de%20dados%22&s=todos&exactDate=personalizado&sortType=0&delta=50&currentPage=1&publishFrom=07-08-2026&publishTo=05-11-2026&orgPrin=Poder%20Judici%C3%A1rio (HTTP 502)",
+          "atos_registrados": 2,
+          "atos_descartados_por_retencao": 0
+        }
+      },
+      "status_global": "PARCIAL",
+      "fontes_falha": [],
+      "fontes_parciais": [
+        "senado",
+        "tse"
+      ],
+      "http_fontes": {
+        "chamadas": 79,
+        "falhas": 9,
+        "cache": 0,
+        "tempo_total": 115.47,
+        "por_orgao": {
+          "anpd": {
+            "chamadas": 17,
+            "falhas": 0,
+            "tempo_total": 11.27
+          },
+          "cnj": {
+            "chamadas": 5,
+            "falhas": 0,
+            "tempo_total": 3.92
+          },
+          "tse": {
+            "chamadas": 10,
+            "falhas": 7,
+            "tempo_total": 7.98
+          },
+          "dou": {
+            "chamadas": 12,
+            "falhas": 2,
+            "tempo_total": 34.55
+          },
+          "planalto": {
+            "chamadas": 22,
+            "falhas": 0,
+            "tempo_total": 26.21
+          },
+          "mcti": {
+            "chamadas": 13,
+            "falhas": 0,
+            "tempo_total": 31.54
+          }
+        }
+      },
+      "novidades_multiorgao": {
+        "anpd": 0,
+        "cnj": 0,
+        "tse": 0,
+        "dou": 0,
+        "planalto": 0,
+        "mcti": 0
+      },
+      "mudancas_multiorgao": 4
+    },
     {
       "id": "run_2026_11_05_0753",
       "data_hora": "2026-11-05T07:53:44-03:00",

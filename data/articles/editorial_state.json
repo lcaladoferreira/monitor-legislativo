@@ -12203,6 +12203,16 @@
       "selection_reason": "tipo=atualização cadastral peso=1 score_prop=19 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-05T08:01:39-03:00",
       "run_id": null
+    },
+    "chg_046aeb49eeca1153": {
+      "change_id": "chg_046aeb49eeca1153",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-182-2025-altera-a-politica-nacional-de-busca-de-pessoas-desaparecidas",
+      "selection_reason": "tipo=parecer peso=12 score_prop=36 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-05T15:48:49-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12277,22 +12287,27 @@
       "since": "2026-11-04",
       "editorial_topic_id": "req-51-2026-requer-a-realizacao-de-seminario-sob-o-nome-de-4o-forum-legi",
       "prioridade": 14
+    },
+    "chg_72186284fa32f9f6": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-05",
+      "editorial_topic_id": "pl-182-2025-altera-a-politica-nacional-de-busca-de-pessoas-desaparecidas",
+      "prioridade": 13
+    },
+    "chg_13d5538b3d742d7a": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-05",
+      "editorial_topic_id": "pl-5716-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "prioridade": 18
+    },
+    "chg_1880ceee9c27d7b6": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-05",
+      "editorial_topic_id": "pl-5715-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "prioridade": 18
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-14T20:17:31-03:00",
-      "dia": "2026-10-14",
-      "mudancas_novas": 11,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 176,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-14T22:33:02-03:00",
       "dia": "2026-10-14",
@@ -12925,6 +12940,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 10,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 173,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-05T15:48:49-03:00",
+      "dia": "2026-11-05",
+      "mudancas_novas": 11,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 3,
       "stale": 0,
       "aguardando_curadoria": 173,
       "run_id": null,
