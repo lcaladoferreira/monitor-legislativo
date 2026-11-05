@@ -445,7 +445,7 @@ def senado_detail(codigo):
 
 
 def senado_movimentacoes(codigo):
-    d = http_get_json(f"{SENADO}/materia/movimentacoes/{codigo}.json")
+    d = http_get_json(f"{SENADO}/materia/movimentacoes/{codigo}.json", retries=2)
     polite_pause()
     try:
         return d["MovimentacaoMateria"]["Materia"]
