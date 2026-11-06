@@ -12453,6 +12453,46 @@
       "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-11-06T12:06:12-03:00",
       "run_id": null
+    },
+    "chg_8fe9fb2bc3d918fb": {
+      "change_id": "chg_8fe9fb2bc3d918fb",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-cnj-estao-abertas-as-inscricoes-para-o-1o-ciclo-de-capacitacao-e-e994eeab",
+      "selection_reason": "ato tipo=post órgão=cnj peso=9 → sem valor editorial independente",
+      "processed_at": "2026-11-06T17:57:33-03:00",
+      "run_id": null
+    },
+    "chg_9f07e4b9e72eca7d": {
+      "change_id": "chg_9f07e4b9e72eca7d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-5342-2023-tipifica-o-crime-de-porno-fake-e-acrescenta-o-artigo-218-d-a",
+      "selection_reason": "tipo=apensação peso=3 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-11-06T17:57:33-03:00",
+      "run_id": null
+    },
+    "chg_9967c44657f02718": {
+      "change_id": "chg_9967c44657f02718",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4022-2026-altera-a-lei-no-12-651-de-25-de-maio-de-2012-codigo-floresta",
+      "selection_reason": "tipo=tramitação peso=2 score_prop=19 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-06T17:57:33-03:00",
+      "run_id": null
+    },
+    "chg_63a1ea4440054012": {
+      "change_id": "chg_63a1ea4440054012",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-3149-2024-altera-o-art-39-da-lei-no-8-078-de-11-de-setembro-de-1990-co",
+      "selection_reason": "tipo=apensação peso=3 score_prop=28 → sem valor editorial independente",
+      "processed_at": "2026-11-06T17:57:33-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12560,19 +12600,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-15T21:31:31-03:00",
-      "dia": "2026-10-15",
-      "mudancas_novas": 10,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 181,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-16T02:54:41-03:00",
       "dia": "2026-10-16",
@@ -13204,6 +13231,19 @@
       "novos_artigos": 0,
       "artigos_atualizados": 0,
       "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 170,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-06T17:57:32-03:00",
+      "dia": "2026-11-06",
+      "mudancas_novas": 16,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 4,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 170,
