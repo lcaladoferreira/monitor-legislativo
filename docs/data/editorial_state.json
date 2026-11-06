@@ -12443,6 +12443,16 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-11-06T03:58:53-03:00",
       "run_id": null
+    },
+    "chg_e4c090d0a4aca9cd": {
+      "change_id": "chg_e4c090d0a4aca9cd",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-brasil-e-reino-unido-avancam-no-dialogo-sobre-arranjos-para-f51688ac",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-11-06T12:06:12-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12550,19 +12560,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-15T15:23:03-03:00",
-      "dia": "2026-10-15",
-      "mudancas_novas": 10,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 180,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-15T21:31:31-03:00",
       "dia": "2026-10-15",
@@ -13195,6 +13192,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 18,
       "adiadas": 3,
+      "stale": 0,
+      "aguardando_curadoria": 170,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-06T12:06:12-03:00",
+      "dia": "2026-11-06",
+      "mudancas_novas": 13,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 170,
       "run_id": null,
