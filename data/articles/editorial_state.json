@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-06"
+    "atualizado_em": "2026-11-07"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -12493,6 +12493,36 @@
       "selection_reason": "tipo=apensação peso=3 score_prop=28 → sem valor editorial independente",
       "processed_at": "2026-11-06T17:57:33-03:00",
       "run_id": null
+    },
+    "chg_1880ceee9c27d7b6": {
+      "change_id": "chg_1880ceee9c27d7b6",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-39f7bf7f",
+      "editorial_topic_id": "pl-5715-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-07T04:12:50-03:00",
+      "run_id": null
+    },
+    "chg_955ed2c5a8e98983": {
+      "change_id": "chg_955ed2c5a8e98983",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-sma-mpo-no-407-de-17-de-setembro-de-2026-e5c17aa8",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-07T04:12:50-03:00",
+      "run_id": null
+    },
+    "chg_d82ab3e6979628ce": {
+      "change_id": "chg_d82ab3e6979628ce",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-no-971-de-5-de-novembro-de-2026-fd332ad3",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-07T04:12:50-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12574,12 +12604,6 @@
       "editorial_topic_id": "pl-182-2025-altera-a-politica-nacional-de-busca-de-pessoas-desaparecidas",
       "prioridade": 13
     },
-    "chg_1880ceee9c27d7b6": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-05",
-      "editorial_topic_id": "pl-5715-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
-      "prioridade": 18
-    },
     "chg_f0abc3e4ee6c06f0": {
       "reason": "cota_diaria_atingida",
       "since": "2026-11-06",
@@ -12600,19 +12624,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-16T02:54:41-03:00",
-      "dia": "2026-10-16",
-      "mudancas_novas": 20,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 10,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 183,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-16T08:26:08-03:00",
       "dia": "2026-10-16",
@@ -13247,6 +13258,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 170,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-07T04:12:49-03:00",
+      "dia": "2026-11-07",
+      "mudancas_novas": 14,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 171,
       "run_id": null,
       "bootstrap": false
     }
