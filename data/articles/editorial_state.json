@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-07"
+    "atualizado_em": "2026-11-08"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -12523,6 +12523,16 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-11-07T04:12:50-03:00",
       "run_id": null
+    },
+    "chg_8a210c9befc1b6f1": {
+      "change_id": "chg_8a210c9befc1b6f1",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-altera-a-lei-no-9-504-de-30-de-setembro-de-1997-para-discipl",
+      "editorial_topic_id": "pl-5725-2026-altera-a-lei-no-9-504-de-30-de-setembro-de-1997-para-discipl",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-08T07:23:18-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12555,12 +12565,6 @@
       "since": "2026-10-29",
       "editorial_topic_id": "pl-5342-2023-tipifica-o-crime-de-porno-fake-e-acrescenta-o-artigo-218-d-a",
       "prioridade": 18
-    },
-    "chg_8a210c9befc1b6f1": {
-      "reason": "cota_diaria_atingida",
-      "since": "2026-11-03",
-      "editorial_topic_id": "pl-5725-2026-altera-a-lei-no-9-504-de-30-de-setembro-de-1997-para-discipl",
-      "prioridade": 16
     },
     "chg_3587f74d7605a9a5": {
       "reason": "sem_cota_no_dia",
@@ -12624,19 +12628,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-16T08:26:08-03:00",
-      "dia": "2026-10-16",
-      "mudancas_novas": 13,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 4,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-16T13:42:15-03:00",
       "dia": "2026-10-16",
@@ -13268,6 +13259,19 @@
       "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 171,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-08T07:23:18-03:00",
+      "dia": "2026-11-08",
+      "mudancas_novas": 11,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 171,
