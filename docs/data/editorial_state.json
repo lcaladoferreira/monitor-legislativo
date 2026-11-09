@@ -12683,6 +12683,16 @@
       "selection_reason": "ruido_administrativo",
       "processed_at": "2026-11-09T05:03:53-03:00",
       "run_id": null
+    },
+    "chg_e27412321e6cab04": {
+      "change_id": "chg_e27412321e6cab04",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "selection_reason": "tipo=parecer peso=12 score_prop=29 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-09T15:51:38-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12769,22 +12779,15 @@
       "since": "2026-11-06",
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-752-de-4-de-novembro-de-2026-66a139a1",
       "prioridade": 13
+    },
+    "chg_48d7f311b50af344": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-09",
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "prioridade": 12
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-16T17:01:30-03:00",
-      "dia": "2026-10-16",
-      "mudancas_novas": 10,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-16T19:54:21-03:00",
       "dia": "2026-10-16",
@@ -13417,6 +13420,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 14,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 171,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-09T15:51:38-03:00",
+      "dia": "2026-11-09",
+      "mudancas_novas": 11,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 171,
       "run_id": null,
