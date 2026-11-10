@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-09"
+    "atualizado_em": "2026-11-10"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -12713,6 +12713,16 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-11-09T23:10:46-03:00",
       "run_id": null
+    },
+    "chg_cc2c1569675ac7ee": {
+      "change_id": "chg_cc2c1569675ac7ee",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-informacoes-ao-ministro-de-estado-das-relacoes-exteri",
+      "editorial_topic_id": "ric-2886-2026-requer-informacoes-ao-ministro-de-estado-das-relacoes-exteri",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-10T06:53:32-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12758,12 +12768,6 @@
       "editorial_topic_id": "pl-182-2025-altera-a-politica-nacional-de-busca-de-pessoas-desaparecidas",
       "prioridade": 13
     },
-    "chg_cc2c1569675ac7ee": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-03",
-      "editorial_topic_id": "ric-2886-2026-requer-informacoes-ao-ministro-de-estado-das-relacoes-exteri",
-      "prioridade": 14
-    },
     "chg_2355dfa4f0d47d8a": {
       "reason": "cota_diaria_atingida",
       "since": "2026-11-04",
@@ -12808,19 +12812,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-16T22:21:42-03:00",
-      "dia": "2026-10-16",
-      "mudancas_novas": 14,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 5,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-17T04:00:13-03:00",
       "dia": "2026-10-17",
@@ -13452,6 +13443,19 @@
       "novos_artigos": 0,
       "artigos_atualizados": 0,
       "ignoradas": 2,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 171,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-10T06:53:32-03:00",
+      "dia": "2026-11-10",
+      "mudancas_novas": 10,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 171,
