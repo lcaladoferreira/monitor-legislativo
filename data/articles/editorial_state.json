@@ -12693,6 +12693,26 @@
       "selection_reason": "tipo=parecer peso=12 score_prop=29 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-09T15:51:38-03:00",
       "run_id": null
+    },
+    "chg_e36c83b26d015433": {
+      "change_id": "chg_e36c83b26d015433",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mpa-no-787-de-4-de-novembro-de-2026-b2dc4f32",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-09T23:10:46-03:00",
+      "run_id": null
+    },
+    "chg_889020d5e84384f7": {
+      "change_id": "chg_889020d5e84384f7",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gm-mdic-no-325-de-6-de-novembro-de-2026-1f3cbc8b",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-09T23:10:46-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -12788,19 +12808,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-16T19:54:21-03:00",
-      "dia": "2026-10-16",
-      "mudancas_novas": 10,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-16T22:21:42-03:00",
       "dia": "2026-10-16",
@@ -13433,6 +13440,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 1,
       "adiadas": 1,
+      "stale": 0,
+      "aguardando_curadoria": 171,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-09T23:10:46-03:00",
+      "dia": "2026-11-09",
+      "mudancas_novas": 12,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 171,
       "run_id": null,
