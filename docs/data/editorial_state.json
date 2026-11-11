@@ -12993,6 +12993,96 @@
       "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
       "processed_at": "2026-11-11T03:20:37-03:00",
       "run_id": null
+    },
+    "chg_5127b4d1bd3606d8": {
+      "change_id": "chg_5127b4d1bd3606d8",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extratos-de-termos-aditivos-dc7d571a",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_f8a89e6ca3172407": {
+      "change_id": "chg_f8a89e6ca3172407",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-rescisao-contratual-4449c509",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_d61936b7ed2f97d4": {
+      "change_id": "chg_d61936b7ed2f97d4",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-convenio-65412577",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_f696234a7028f28b": {
+      "change_id": "chg_f696234a7028f28b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-no-10-2026-uasg-302122-f4d7f54d",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_1948b2b1cefa4e5d": {
+      "change_id": "chg_1948b2b1cefa4e5d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-extrato-de-contrato-no-10-2026-uasg-302122-b8ff8a52",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_4cb5737c74ee27db": {
+      "change_id": "chg_4cb5737c74ee27db",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-licitacao-c0a4f933",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_bc83a9f36f1faab2": {
+      "change_id": "chg_bc83a9f36f1faab2",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-aviso-de-licitacao-bfe2e50d",
+      "selection_reason": "ruido_administrativo",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_8901a4995afc870c": {
+      "change_id": "chg_8901a4995afc870c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ric-2595-2026-requer-informacoes-do-ministerio-da-justica-e-seguranca-publ",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=27 → abaixo do limiar de atualização",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
+    },
+    "chg_ff67fd238614d7d0": {
+      "change_id": "chg_ff67fd238614d7d0",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=29 → sem valor editorial independente",
+      "processed_at": "2026-11-11T11:33:15-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -13082,19 +13172,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-19T03:19:00-03:00",
-      "dia": "2026-10-19",
-      "mudancas_novas": 19,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 12,
-      "adiadas": 0,
-      "stale": 86,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-19T10:27:56-03:00",
       "dia": "2026-10-19",
@@ -13729,6 +13806,19 @@
       "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 174,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-11T11:33:15-03:00",
+      "dia": "2026-11-11",
+      "mudancas_novas": 18,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 9,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 180,
       "run_id": null,
       "bootstrap": false
     }
