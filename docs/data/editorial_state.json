@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-11"
+    "atualizado_em": "2026-11-12"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -13173,6 +13173,46 @@
       "selection_reason": "tipo=atualização cadastral peso=8 score_prop=29 → abaixo do limiar de novo artigo",
       "processed_at": "2026-11-11T19:01:23-03:00",
       "run_id": null
+    },
+    "chg_4a3698fe09e4318c": {
+      "change_id": "chg_4a3698fe09e4318c",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao-",
+      "editorial_topic_id": "ric-2958-2026-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-12T00:01:56-03:00",
+      "run_id": null
+    },
+    "chg_c6f0bea2ac7cd8b6": {
+      "change_id": "chg_c6f0bea2ac7cd8b6",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mtur-no-38-de-10-de-novembro-de-2026-92bc7a64",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-12T00:01:56-03:00",
+      "run_id": null
+    },
+    "chg_58d2449ff9741aa8": {
+      "change_id": "chg_58d2449ff9741aa8",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mf-no-3-274-de-9-de-novembro-de-2026-daf61e2f",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-12T00:01:56-03:00",
+      "run_id": null
+    },
+    "chg_dcebc8ce86927583": {
+      "change_id": "chg_dcebc8ce86927583",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4356-2025-estabelece-normas-gerais-programaticas-de-aplicacao-em-ambit",
+      "selection_reason": "tipo=tramitação peso=4 score_prop=54 → abaixo do limiar de atualização",
+      "processed_at": "2026-11-12T00:01:56-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -13265,28 +13305,9 @@
       "since": "2026-11-11",
       "editorial_topic_id": "pl-5826-2026-altera-a-lei-no-8-078-de-11-de-setembro-de-1990-para-vedar-a",
       "prioridade": 14
-    },
-    "chg_4a3698fe09e4318c": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-11",
-      "editorial_topic_id": "ric-2958-2026-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao",
-      "prioridade": 21
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-20T01:52:38-03:00",
-      "dia": "2026-10-20",
-      "mudancas_novas": 9,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 6,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 192,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-20T07:07:51-03:00",
       "dia": "2026-10-20",
@@ -13921,6 +13942,19 @@
       "adiadas": 2,
       "stale": 0,
       "aguardando_curadoria": 180,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-12T00:01:56-03:00",
+      "dia": "2026-11-12",
+      "mudancas_novas": 14,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 3,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 179,
       "run_id": null,
       "bootstrap": false
     }
