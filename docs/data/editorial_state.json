@@ -13753,6 +13753,46 @@
       "selection_reason": "tipo=apensação peso=4 score_prop=54 → abaixo do limiar de atualização",
       "processed_at": "2026-11-12T15:58:25-03:00",
       "run_id": null
+    },
+    "chg_bac45dae423553ce": {
+      "change_id": "chg_bac45dae423553ce",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-cne-cp-no-1-de-11-de-novembro-de-2026-60eae760",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-12T21:25:51-03:00",
+      "run_id": null
+    },
+    "chg_ddd3c6e38d36d996": {
+      "change_id": "chg_ddd3c6e38d36d996",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-cnj-cnj-e-suprema-corte-da-india-discutem-parceria-em-ia-e-sober-c65faac5",
+      "selection_reason": "ato tipo=post órgão=cnj peso=9 → sem valor editorial independente",
+      "processed_at": "2026-11-12T21:25:51-03:00",
+      "run_id": null
+    },
+    "chg_e69f9cb4c287dc4f": {
+      "change_id": "chg_e69f9cb4c287dc4f",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4274-2026-altera-a-lei-no-13-105-de-16-de-marco-de-2015-para-caracteri",
+      "selection_reason": "tipo=publicação peso=4 score_prop=19 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-12T21:25:51-03:00",
+      "run_id": null
+    },
+    "chg_112d9d82257b9cee": {
+      "change_id": "chg_112d9d82257b9cee",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4272-2026-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=publicação peso=5 score_prop=26 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-12T21:25:51-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -13854,19 +13894,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-21T04:41:42-03:00",
-      "dia": "2026-10-21",
-      "mudancas_novas": 10,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 8,
-      "adiadas": 0,
-      "stale": 2,
-      "aguardando_curadoria": 200,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-21T22:35:03-03:00",
       "dia": "2026-10-21",
@@ -14501,6 +14528,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 183,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-12T21:25:51-03:00",
+      "dia": "2026-11-12",
+      "mudancas_novas": 14,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 4,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 181,
       "run_id": null,
       "bootstrap": false
     }
