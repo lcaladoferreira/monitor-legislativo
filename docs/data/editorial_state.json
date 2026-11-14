@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-13"
+    "atualizado_em": "2026-11-14"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -14453,6 +14453,76 @@
       "selection_reason": "tipo=tramitação peso=3 score_prop=26 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-13T19:40:45-03:00",
       "run_id": null
+    },
+    "chg_de953368994f14f4": {
+      "change_id": "chg_de953368994f14f4",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-altera-a-lei-no-12-965-de-23-de-abril-de-2014-para-dispor-so",
+      "editorial_topic_id": "pl-1421-2026-altera-a-lei-no-12-965-de-23-de-abril-de-2014-para-dispor-so",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-14T00:17:22-03:00",
+      "run_id": null
+    },
+    "chg_2c67e305e6567fa3": {
+      "change_id": "chg_2c67e305e6567fa3",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-no-95-de-4-de-novembro-de-2026-fac27de1",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
+      "processed_at": "2026-11-14T00:17:22-03:00",
+      "run_id": null
+    },
+    "chg_53f29ab71276f27a": {
+      "change_id": "chg_53f29ab71276f27a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gabsec-senappen-mjsp-no-592-de-22-de-outubro-de-202-d5e53c72",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-14T00:17:22-03:00",
+      "run_id": null
+    },
+    "chg_02673567f858fbbd": {
+      "change_id": "chg_02673567f858fbbd",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-rfb-no-744-de-28-de-outubro-de-2026-7fedde6c",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-14T00:17:22-03:00",
+      "run_id": null
+    },
+    "chg_81feb4e3259f7fcf": {
+      "change_id": "chg_81feb4e3259f7fcf",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mgi-seges-mgi-no-9-258-de-11-de-novembro-de-2026-dad6cd59",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-14T00:17:22-03:00",
+      "run_id": null
+    },
+    "chg_41d5cd24442d759c": {
+      "change_id": "chg_41d5cd24442d759c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-ibama-no-214-de-12-de-novembro-de-2026-25325a3d",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-14T00:17:22-03:00",
+      "run_id": null
+    },
+    "chg_8cadd6767ecb75c1": {
+      "change_id": "chg_8cadd6767ecb75c1",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-cotec-no-342-de-12-de-novembro-de-2026-ae367a61",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-14T00:17:22-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -14548,19 +14618,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-22T19:24:47-03:00",
-      "dia": "2026-10-22",
-      "mudancas_novas": 1,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 205,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-23T04:34:34-03:00",
       "dia": "2026-10-23",
@@ -15195,6 +15252,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 181,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-14T00:17:22-03:00",
+      "dia": "2026-11-14",
+      "mudancas_novas": 16,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 6,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 172,
       "run_id": null,
       "bootstrap": false
     }
