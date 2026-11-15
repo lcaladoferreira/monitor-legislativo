@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-14"
+    "atualizado_em": "2026-11-15"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -14523,6 +14523,16 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-11-14T00:17:22-03:00",
       "run_id": null
+    },
+    "chg_177d5625507ce68a": {
+      "change_id": "chg_177d5625507ce68a",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-portaria-gabpr-anpd-n-754-de-5-de-novembro-de-2026",
+      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-754-de-5-de-novembro-de-2026-d686ca17",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-15T06:28:15-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -14586,12 +14596,6 @@
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-758-de-5-de-novembro-de-2026-d8807740",
       "prioridade": 13
     },
-    "chg_177d5625507ce68a": {
-      "reason": "cota_diaria_atingida",
-      "since": "2026-11-06",
-      "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-754-de-5-de-novembro-de-2026-d686ca17",
-      "prioridade": 13
-    },
     "chg_332ee874559da394": {
       "reason": "cota_diaria_atingida",
       "since": "2026-11-06",
@@ -14618,19 +14622,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-23T04:34:34-03:00",
-      "dia": "2026-10-23",
-      "mudancas_novas": 9,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 9,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 208,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-26T10:03:37-03:00",
       "dia": "2026-10-26",
@@ -15262,6 +15253,19 @@
       "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 6,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 172,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-15T06:28:15-03:00",
+      "dia": "2026-11-15",
+      "mudancas_novas": 9,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 172,
