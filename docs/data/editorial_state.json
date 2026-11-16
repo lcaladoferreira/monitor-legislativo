@@ -14643,6 +14643,66 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-11-16T06:44:58-03:00",
       "run_id": null
+    },
+    "chg_6a6ef7d2e37f8a3b": {
+      "change_id": "chg_6a6ef7d2e37f8a3b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-cnj-capacitacao-em-seguranca-cibernetica-reune-700-profissionais-1f702510",
+      "selection_reason": "ato tipo=post órgão=cnj peso=9 → sem valor editorial independente",
+      "processed_at": "2026-11-16T17:32:10-03:00",
+      "run_id": null
+    },
+    "chg_f6736d404d63859f": {
+      "change_id": "chg_f6736d404d63859f",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2338-2023-marco-legal-da-inteligencia-artificial",
+      "selection_reason": "tipo=publicação peso=8 score_prop=95 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-16T17:32:10-03:00",
+      "run_id": null
+    },
+    "chg_4344191fa48ed354": {
+      "change_id": "chg_4344191fa48ed354",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4386-2026-institui-a-politica-nacional-dos-centros-de-inteligencia-art",
+      "selection_reason": "tipo=publicação peso=6 score_prop=46 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-16T17:32:10-03:00",
+      "run_id": null
+    },
+    "chg_bb4d2cd69a4c5fd0": {
+      "change_id": "chg_bb4d2cd69a4c5fd0",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2338-2023-marco-legal-da-inteligencia-artificial",
+      "selection_reason": "tipo=publicação peso=8 score_prop=95 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-16T17:32:10-03:00",
+      "run_id": null
+    },
+    "chg_27677dd0b5d251f9": {
+      "change_id": "chg_27677dd0b5d251f9",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4298-2026-dispoe-sobre-a-protecao-do-direito-de-imagem-e-de-dados-biom",
+      "selection_reason": "tipo=apensação peso=3 score_prop=26 → sem valor editorial independente",
+      "processed_at": "2026-11-16T17:32:10-03:00",
+      "run_id": null
+    },
+    "chg_2a50aa7d66970810": {
+      "change_id": "chg_2a50aa7d66970810",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2688-2025-institui-o-marco-regulatorio-do-desenvolvimento-e-uso-da-int",
+      "selection_reason": "tipo=relatoria peso=10 score_prop=50 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-16T17:32:10-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -14723,22 +14783,45 @@
       "since": "2026-11-12",
       "editorial_topic_id": "pl-750-2026-institui-no-ambito-do-programa-antes-que-aconteca-o-programa",
       "prioridade": 24
+    },
+    "chg_2a8a735f06ab9a1f": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-16",
+      "editorial_topic_id": "pl-5864-2026-veda-a-criacao-e-o-uso-comercial-de-replicas-de-voz-ou-de-im",
+      "prioridade": 16
+    },
+    "chg_dfacfeb11229481e": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-16",
+      "editorial_topic_id": "pl-5792-2025-institui-a-lei-nacional-de-observatorios-de-transparencia-em",
+      "prioridade": 24
+    },
+    "chg_95f439f2d4c00099": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-16",
+      "editorial_topic_id": "pl-3003-2025-dispoe-sobre-a-vedacao-da-substituicao-de-docentes-por-siste",
+      "prioridade": 21
+    },
+    "chg_f0b76da30786517c": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-16",
+      "editorial_topic_id": "pl-1310-2025-altera-a-lei-no-13-756-de-12-de-dezembro-de-2018-que-dispoe",
+      "prioridade": 19
+    },
+    "chg_5ed48d032d1df889": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-16",
+      "editorial_topic_id": "pl-4589-2024-institui-o-sistema-de-assistencia-automatica-por-inteligenci",
+      "prioridade": 16
+    },
+    "chg_b775e46845a612f0": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-16",
+      "editorial_topic_id": "pl-7174-2025-institui-o-selo-nacional-de-etica-algoritmica-para-produtos",
+      "prioridade": 21
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-26T16:21:54-03:00",
-      "dia": "2026-10-26",
-      "mudancas_novas": 25,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 25,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 211,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-26T20:56:10-03:00",
       "dia": "2026-10-26",
@@ -15371,6 +15454,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 10,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 173,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-16T17:32:10-03:00",
+      "dia": "2026-11-16",
+      "mudancas_novas": 19,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 6,
+      "adiadas": 6,
       "stale": 0,
       "aguardando_curadoria": 173,
       "run_id": null,
