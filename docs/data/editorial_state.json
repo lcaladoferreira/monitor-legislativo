@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-16"
+    "atualizado_em": "2026-11-17"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -14703,6 +14703,76 @@
       "selection_reason": "tipo=relatoria peso=10 score_prop=50 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-16T17:32:10-03:00",
       "run_id": null
+    },
+    "chg_2a8a735f06ab9a1f": {
+      "change_id": "chg_2a8a735f06ab9a1f",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-veda-a-criacao-e-o-uso-comercial-de-replicas-de-voz-ou-de-im",
+      "editorial_topic_id": "pl-5864-2026-veda-a-criacao-e-o-uso-comercial-de-replicas-de-voz-ou-de-im",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-17T00:58:49-03:00",
+      "run_id": null
+    },
+    "chg_589bb336c659fa8a": {
+      "change_id": "chg_589bb336c659fa8a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-resolucao-cnsp-no-498-de-13-de-novembro-de-2026-7ac69925",
+      "selection_reason": "ato tipo=Resolução órgão=dou peso=8 → sem valor editorial independente",
+      "processed_at": "2026-11-17T00:58:49-03:00",
+      "run_id": null
+    },
+    "chg_cf4d16d473dedc3d": {
+      "change_id": "chg_cf4d16d473dedc3d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-rfb-no-745-de-28-de-outubro-de-2026-c85c010c",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-17T00:58:49-03:00",
+      "run_id": null
+    },
+    "chg_e09eccfb96eca96a": {
+      "change_id": "chg_e09eccfb96eca96a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-normativa-cgu-no-297-de-16-de-novembro-de-2026-d0e02d5d",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-17T00:58:49-03:00",
+      "run_id": null
+    },
+    "chg_cc76558b2e934cc5": {
+      "change_id": "chg_cc76558b2e934cc5",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-midr-no-3-989-de-13-de-novembro-de-2026-6f0a43ef",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-17T00:58:49-03:00",
+      "run_id": null
+    },
+    "chg_e54a5c40b8e92d83": {
+      "change_id": "chg_e54a5c40b8e92d83",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-anpd-seleciona-cebraspe-para-organizar-1o-concurso-publico-d-ad5b6af7",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-11-17T00:58:49-03:00",
+      "run_id": null
+    },
+    "chg_dce8f79d09ae630c": {
+      "change_id": "chg_dce8f79d09ae630c",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-anpd-assina-memorando-de-entendimento-com-autoridade-de-prot-7bd05a4d",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-11-17T00:58:49-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -14784,12 +14854,6 @@
       "editorial_topic_id": "pl-750-2026-institui-no-ambito-do-programa-antes-que-aconteca-o-programa",
       "prioridade": 24
     },
-    "chg_2a8a735f06ab9a1f": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-16",
-      "editorial_topic_id": "pl-5864-2026-veda-a-criacao-e-o-uso-comercial-de-replicas-de-voz-ou-de-im",
-      "prioridade": 16
-    },
     "chg_dfacfeb11229481e": {
       "reason": "sem_cota_no_dia",
       "since": "2026-11-16",
@@ -14822,19 +14886,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-26T20:56:10-03:00",
-      "dia": "2026-10-26",
-      "mudancas_novas": 24,
-      "novos_artigos": 1,
-      "artigos_atualizados": 1,
-      "ignoradas": 18,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 206,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-27T02:06:59-03:00",
       "dia": "2026-10-27",
@@ -15469,6 +15520,19 @@
       "adiadas": 6,
       "stale": 0,
       "aguardando_curadoria": 173,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-17T00:58:49-03:00",
+      "dia": "2026-11-17",
+      "mudancas_novas": 14,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 6,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 170,
       "run_id": null,
       "bootstrap": false
     }
