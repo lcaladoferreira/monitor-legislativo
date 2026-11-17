@@ -14773,6 +14773,26 @@
       "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
       "processed_at": "2026-11-17T00:58:49-03:00",
       "run_id": null
+    },
+    "chg_d8279f4e19c7e02a": {
+      "change_id": "chg_d8279f4e19c7e02a",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-estabelece-normas-gerais-programaticas-de-aplicacao-em-ambit",
+      "editorial_topic_id": "pl-4356-2025-estabelece-normas-gerais-programaticas-de-aplicacao-em-ambit",
+      "selection_reason": "tipo=apensação peso=9 score_prop=54 → continuação de assunto já coberto",
+      "processed_at": "2026-11-17T10:32:30-03:00",
+      "run_id": null
+    },
+    "chg_a5ac61e1d0e5b179": {
+      "change_id": "chg_a5ac61e1d0e5b179",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-sandbox-regulatorio-de-ia-da-anpd-conquista-premio-internaci-ab9aeeeb",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-11-17T10:32:30-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -14883,22 +14903,27 @@
       "since": "2026-11-16",
       "editorial_topic_id": "pl-7174-2025-institui-o-selo-nacional-de-etica-algoritmica-para-produtos",
       "prioridade": 21
+    },
+    "chg_6a3310210532c10f": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-17",
+      "editorial_topic_id": "pl-19-2026-estabelece-condicoes-deveres-e-restricoes-ao-uso-de-oculos-i",
+      "prioridade": 13
+    },
+    "chg_838dcf785d137ee7": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-17",
+      "editorial_topic_id": "pl-19-2026-estabelece-condicoes-deveres-e-restricoes-ao-uso-de-oculos-i",
+      "prioridade": 12
+    },
+    "chg_6c9fe1608c1b0d2f": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-17",
+      "editorial_topic_id": "req-49-2026-requer-nos-termos-do-art-58-2o-ii-da-constituicao-federal-e",
+      "prioridade": 19
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-27T02:06:59-03:00",
-      "dia": "2026-10-27",
-      "mudancas_novas": 14,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 14,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 192,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-27T07:37:54-03:00",
       "dia": "2026-10-27",
@@ -15531,6 +15556,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 6,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 170,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-17T10:32:30-03:00",
+      "dia": "2026-11-17",
+      "mudancas_novas": 12,
+      "novos_artigos": 0,
+      "artigos_atualizados": 1,
+      "ignoradas": 1,
+      "adiadas": 3,
       "stale": 0,
       "aguardando_curadoria": 170,
       "run_id": null,

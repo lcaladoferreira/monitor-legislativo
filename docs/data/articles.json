@@ -4646,9 +4646,10 @@
       "summary": "O Monitor Legislativo de IA registrou: Nova proposição: PL 4356/2025. Trata-se do PL 4356/2025 — Estabelece normas gerais programáticas, de aplicação em âmbito nacional, para a utilização de tecnologias baseadas em i… (Estabelece normas gerais programáticas, de aplicação em âmbito nacional, para a utilização de tecnol…",
       "assunto": "PL 4356/2025",
       "published_at": "2026-09-09",
-      "modified_at": "2026-09-09",
+      "modified_at": "2026-11-17",
       "source_change_ids": [
-        "chg_0ffb1cee4144f636"
+        "chg_0ffb1cee4144f636",
+        "chg_d8279f4e19c7e02a"
       ],
       "source_entity_ids": [
         "camara_pl_4356_2025"
@@ -4684,11 +4685,12 @@
       "url": "artigos/estabelece-normas-gerais-programaticas-de-aplicacao-em-ambito-nacional-para-a-ut/",
       "status": "published",
       "selection_reason": "NEW_ARTICLE_CANDIDATE | gatilho: Nova proposição: PL 4356/2025 | critério: maior relevância editorial do dia",
-      "revision_count": 1,
-      "last_revision_reason": "Criação do artigo a partir de mudança detectada pelo monitor.",
+      "revision_count": 2,
+      "last_revision_reason": "tipo=apensação peso=9 score_prop=54 → continuação de assunto já coberto | gatilho: PL 4356/2025: Parecer do(a) Relator(a)",
       "content": {
         "lead": "O Monitor Legislativo de IA registrou: Nova proposição: PL 4356/2025. Trata-se do PL 4356/2025 — Estabelece normas gerais programáticas, de aplicação em âmbito nacional, para a utilização de tecnologias baseadas em i… (Estabelece normas gerais programáticas, de aplicação em âmbito nacional, para a utilização de tecnologias baseadas em inteligência artificial no âmbito do Sistema Único de Segurança Pública – SUSP, v…). Situação oficial registrada: Aguardando Designação de Relator(a) — Encaminhada à publicação. Parecer da Comissão de Ciência, Tecnologia e Inovação Publicado em avulso e no DCD de 05/09/202…. Fonte: https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2555654.",
         "o_que_mudou": [
+          "<p><b>16/11/2026</b> — PL 4356/2025: Parecer do(a) Relator(a)<br>Em 2026-11-16, CSPCCO: Parecer do Relator, Dep. Coronel Meira (PL-PE), pela aprovação do PL 4356/25 e do PL 6248/25, apensado, na forma do Substitutivo da Comissão de Ciência, Tecnologia e Inovação. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.<span class=\"article-changemeta\">(ultima_movimentacao: “2026-11-11 — Encerrado o prazo de 5 sessões para apresentação de emendas ao projeto (de 29/10/2026 a 11/11/2026). Não f…” → “2026-11-16 — Parecer do Relator, Dep. Coronel Meira (PL-PE), pela aprovação do PL 4356/25 e do PL 6248/25, apensado, na…”)</span><br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2555654\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>",
           "<p><b>02/09/2025</b> — Nova proposição: PL 4356/2025<br>Estabelece normas gerais programáticas, de aplicação em âmbito nacional, para a utilização de tecnologias baseadas em inteligência artificial no âmbito do Sistema Único de Segurança Pública – SUSP, visando à prevenção e à repressão de infrações penais, à proteção de pessoas e bens e à preservação da ordem pública, pot…<br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2555654\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>"
         ],
         "situacao_atual": "<p><b>Situação oficial:</b> Aguardando Designação de Relator(a) — Encaminhada à publicação. Parecer da Comissão de Ciência, Tecnologia e Inovação Publicado em avulso e no DCD de 05/09/2026, Letra A.</p><p><b>Localização:</b> Câmara dos Deputados</p>",
@@ -4714,9 +4716,21 @@
             "*"
           ],
           "summary": "O Monitor Legislativo de IA registrou: Nova proposição: PL 4356/2025. Trata-se do PL 4356/2025 — Estabelece normas gerais programáticas, de aplicação em âmbito nacional, para a utilização de tecnologias baseadas em i… (Estabelece normas ge…"
+        },
+        {
+          "date": "2026-11-17",
+          "source_change_ids": [
+            "chg_d8279f4e19c7e02a"
+          ],
+          "reason": "tipo=apensação peso=9 score_prop=54 → continuação de assunto já coberto",
+          "fields_changed": [
+            "content.o_que_mudou"
+          ],
+          "summary": "PL 4356/2025: Parecer do(a) Relator(a)",
+          "change_count": 1
         }
       ],
-      "editorial_hash": "sha1:3cf9bc26137c2b04"
+      "editorial_hash": "sha1:154647aef04d080f"
     },
     {
       "id": "art-redata-regime-especial-de-tributacao-para-servicos-de-datace",
