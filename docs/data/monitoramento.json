@@ -2,12 +2,1034 @@
   "gerado_em": "2026-11-17",
   "execucoes": [
     {
+      "id": "run_2026_11_17_1921",
+      "data_hora": "2026-11-17T19:21:51-03:00",
+      "fim": "2026-11-17T19:25:46-03:00",
+      "ts": "2026-11-17T22:21:51+00:00",
+      "ts_fim": "2026-11-17T22:25:46+00:00",
+      "idade_horas": 0.0,
+      "tipo": "atualizacao",
+      "status": "parcial",
+      "duracao_segundos": 235,
+      "orcamento_segundos": 1500,
+      "verificadas": 170,
+      "monitoradas": 169,
+      "pendentes": 0,
+      "atualizadas": 8,
+      "novas": 1,
+      "mudancas": 10,
+      "eventos": 1,
+      "cobertura_pct": 99.4,
+      "erros": 0,
+      "chamadas_http": 582,
+      "cache_http": 57,
+      "falhas_http": 1,
+      "tempo_rede_s": 391.85,
+      "por_endpoint": {
+        "camara:deputados/{id}": {
+          "chamadas": 39,
+          "falhas": 0,
+          "tempo_total": 20.66
+        },
+        "camara:eventos": {
+          "chamadas": 2,
+          "falhas": 0,
+          "tempo_total": 4.51
+        },
+        "camara:proposicoes": {
+          "chamadas": 17,
+          "falhas": 0,
+          "tempo_total": 19.16
+        },
+        "camara:proposicoes/{id}": {
+          "chamadas": 150,
+          "falhas": 0,
+          "tempo_total": 84.54
+        },
+        "camara:proposicoes/{id}/autores": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.46
+        },
+        "camara:proposicoes/{id}/tramitacoes": {
+          "chamadas": 140,
+          "falhas": 0,
+          "tempo_total": 76.95
+        },
+        "camara:proposicoes/{id}/votacoes": {
+          "chamadas": 139,
+          "falhas": 0,
+          "tempo_total": 82.99
+        },
+        "senado:138790": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:139586": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:147434": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.78
+        },
+        "senado:157233": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 3.19
+        },
+        "senado:158816": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:164831": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.78
+        },
+        "senado:172683": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:172783": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:172838": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:172856": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.86
+        },
+        "senado:172900": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:172910": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.23
+        },
+        "senado:172996": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.72
+        },
+        "senado:173016": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:173045": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.98
+        },
+        "senado:173133": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.75
+        },
+        "senado:173258": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.84
+        },
+        "senado:173322": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.88
+        },
+        "senado:173474": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:173567": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:173616": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.8
+        },
+        "senado:174154": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.72
+        },
+        "senado:174212": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:174481": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 2.15
+        },
+        "senado:174521": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.69
+        },
+        "senado:174866": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.94
+        },
+        "senado:174922": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:174923": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:175362": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:176161": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.31
+        },
+        "senado:176384": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:movimentacoes/138790": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.8
+        },
+        "senado:movimentacoes/139586": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.8
+        },
+        "senado:movimentacoes/147434": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.98
+        },
+        "senado:movimentacoes/157233": {
+          "chamadas": 1,
+          "falhas": 1,
+          "tempo_total": 1.89
+        },
+        "senado:movimentacoes/158816": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 2.21
+        },
+        "senado:movimentacoes/164831": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.93
+        },
+        "senado:movimentacoes/172683": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.73
+        },
+        "senado:movimentacoes/172783": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.77
+        },
+        "senado:movimentacoes/172838": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.03
+        },
+        "senado:movimentacoes/172856": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.41
+        },
+        "senado:movimentacoes/172900": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.79
+        },
+        "senado:movimentacoes/172910": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.78
+        },
+        "senado:movimentacoes/172996": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.25
+        },
+        "senado:movimentacoes/173016": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.73
+        },
+        "senado:movimentacoes/173045": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.85
+        },
+        "senado:movimentacoes/173133": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.44
+        },
+        "senado:movimentacoes/173258": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.02
+        },
+        "senado:movimentacoes/173322": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.73
+        },
+        "senado:movimentacoes/173474": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.83
+        },
+        "senado:movimentacoes/173567": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.49
+        },
+        "senado:movimentacoes/173616": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.04
+        },
+        "senado:movimentacoes/174154": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.75
+        },
+        "senado:movimentacoes/174212": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.45
+        },
+        "senado:movimentacoes/174481": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 5.0
+        },
+        "senado:movimentacoes/174521": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.73
+        },
+        "senado:movimentacoes/174866": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.75
+        },
+        "senado:movimentacoes/174922": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.34
+        },
+        "senado:movimentacoes/174923": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.43
+        },
+        "senado:movimentacoes/175362": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.74
+        },
+        "senado:movimentacoes/176161": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.0
+        },
+        "senado:movimentacoes/176384": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.73
+        },
+        "senado:pesquisa/lista": {
+          "chamadas": 3,
+          "falhas": 0,
+          "tempo_total": 2.35
+        },
+        "senado:relatorias/139586": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:relatorias/147434": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.78
+        },
+        "senado:relatorias/157233": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.28
+        },
+        "senado:relatorias/158816": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.69
+        },
+        "senado:relatorias/164831": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:relatorias/172783": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.83
+        },
+        "senado:relatorias/172838": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.69
+        },
+        "senado:relatorias/172856": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.24
+        },
+        "senado:relatorias/172900": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.71
+        },
+        "senado:relatorias/172910": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.95
+        },
+        "senado:relatorias/173016": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.87
+        },
+        "senado:relatorias/173045": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.57
+        },
+        "senado:relatorias/173133": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.07
+        },
+        "senado:relatorias/173258": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.72
+        },
+        "senado:relatorias/173322": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.84
+        },
+        "senado:relatorias/173474": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.02
+        },
+        "senado:relatorias/173567": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.07
+        },
+        "senado:relatorias/173616": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:relatorias/174154": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.77
+        },
+        "senado:relatorias/174212": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:relatorias/174481": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:relatorias/174521": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:relatorias/174866": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        },
+        "senado:relatorias/174922": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.73
+        },
+        "senado:relatorias/174923": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.23
+        },
+        "senado:relatorias/175362": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.69
+        },
+        "senado:relatorias/176161": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 1.25
+        },
+        "senado:relatorias/176384": {
+          "chamadas": 1,
+          "falhas": 0,
+          "tempo_total": 0.7
+        }
+      },
+      "fases_segundos": {
+        "agenda_eventos": 5.1,
+        "atualizacao_proposicoes": 114.9,
+        "descoberta_camara": 13.0,
+        "descoberta_senado": 3.3,
+        "fontes_multiorgao": 98.5
+      },
+      "snapshot": {
+        "proposicoes_total": 169,
+        "por_situacao": {
+          "aprovada_lei": 2,
+          "arquivada": 9,
+          "em_tramitacao": 158
+        },
+        "normas_total": 15,
+        "eventos_total": 17,
+        "mudancas_registradas": 810
+      },
+      "fontes": 9,
+      "engine": {
+        "orcamento_segundos": 1500,
+        "max_novas": 25,
+        "workers": 5,
+        "http_concorrencia": 4
+      },
+      "status_global": "PARCIAL",
+      "fontes_monitoradas": {
+        "anpd": {
+          "nome": "ANPD — Autoridade Nacional de Proteção de Dados",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-17T19:21:51-03:00",
+          "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+          "itens_consultados": 346,
+          "itens_relevantes": 101,
+          "itens_descartados": 135,
+          "itens_duplicados": 110,
+          "revisao_pendente": 27,
+          "novidades": 0,
+          "erros": 0,
+          "duracao_segundos": 10.4,
+          "endpoints": [
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search",
+            "https://www.gov.br/anpd/++api++/@search"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "notícias recentes",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 37
+            },
+            {
+              "canal": "notícias por tema",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 104,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 28
+            },
+            {
+              "canal": "regulação e normas",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 33,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "consultas públicas",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 47,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 17
+            },
+            {
+              "canal": "tomada de subsídios",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 19
+            },
+            {
+              "canal": "atos normativos (arquivos)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "fiscalização (pasta oficial)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 12,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "agenda regulatória (pasta oficial)",
+              "url": "https://www.gov.br/anpd/++api++/@search",
+              "itens_brutos": 0,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "notícias recentes",
+            "notícias por tema",
+            "regulação e normas",
+            "consultas públicas",
+            "tomada de subsídios",
+            "atos normativos (arquivos)",
+            "fiscalização (pasta oficial)",
+            "agenda regulatória (pasta oficial)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 164,
+          "atos_descartados_por_retencao": 0
+        },
+        "camara": {
+          "nome": "Câmara dos Deputados — API de Dados Abertos v2",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-17T19:21:51-03:00",
+          "ultima_execucao_ok": "2026-11-17T19:21:51-03:00",
+          "itens_consultados": 144,
+          "novidades": 1,
+          "erros": 0,
+          "chamadas_http": 488,
+          "falhas_http": 0,
+          "endpoints": [
+            "https://dadosabertos.camara.leg.br/api/v2"
+          ],
+          "canais_ok": [
+            "camara:deputados/{id}",
+            "camara:eventos",
+            "camara:proposicoes",
+            "camara:proposicoes/{id}",
+            "camara:proposicoes/{id}/autores",
+            "camara:proposicoes/{id}/tramitacoes"
+          ],
+          "canais_falhos": [],
+          "erro_detalhe": null
+        },
+        "cnj": {
+          "nome": "CNJ — Conselho Nacional de Justiça",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-17T19:22:02-03:00",
+          "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+          "itens_consultados": 130,
+          "itens_relevantes": 17,
+          "itens_descartados": 113,
+          "itens_duplicados": 0,
+          "revisao_pendente": 13,
+          "novidades": 2,
+          "erros": 0,
+          "duracao_segundos": 4.2,
+          "endpoints": [
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://atos.cnj.jus.br/api/atos",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+            "https://www.cnj.jus.br/wp-json/wp/v2/posts"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos normativos recentes",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            },
+            {
+              "canal": "atos normativos recentes (página 2)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "atos normativos recentes (página 3)",
+              "url": "https://atos.cnj.jus.br/api/atos",
+              "itens_brutos": 10,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "notícias oficiais",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 7
+            },
+            {
+              "canal": "notícias oficiais (página 2)",
+              "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
+              "itens_brutos": 50,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 8
+            }
+          ],
+          "canais_ok": [
+            "atos normativos recentes",
+            "atos normativos recentes (página 2)",
+            "atos normativos recentes (página 3)",
+            "notícias oficiais",
+            "notícias oficiais (página 2)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 63,
+          "atos_descartados_por_retencao": 0
+        },
+        "dou": {
+          "nome": "DOU — Diário Oficial da União (Imprensa Nacional)",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-17T19:22:25-03:00",
+          "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+          "itens_consultados": 164,
+          "itens_relevantes": 100,
+          "itens_descartados": 29,
+          "itens_duplicados": 35,
+          "revisao_pendente": 35,
+          "novidades": 8,
+          "erros": 0,
+          "duracao_segundos": 18.9,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "busca por tema (7 dias)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 164,
+              "amostra_hierarquia": [
+                "Banco Central do Brasil/Área de Organização do Sistema Finan",
+                "Controladoria-Geral da União/Gabinete do Ministro",
+                "Editais e Avisos/Ministério da Educação"
+              ],
+              "itens_relevantes": 100
+            }
+          ],
+          "canais_ok": [
+            "busca por tema (7 dias)"
+          ],
+          "canais_falhos": [],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [],
+          "erro_detalhe": null,
+          "atos_registrados": 923,
+          "atos_descartados_por_retencao": 0
+        },
+        "mcti": {
+          "nome": "MCTI — Ministério da Ciência, Tecnologia e Inovação",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-17T19:23:13-03:00",
+          "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+          "itens_consultados": 35,
+          "itens_relevantes": 26,
+          "itens_descartados": 9,
+          "itens_duplicados": 0,
+          "revisao_pendente": 11,
+          "novidades": 2,
+          "erros": 2,
+          "duracao_segundos": 16.6,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias",
+            "https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+            "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do MCTI por tema (DOU)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 15,
+              "amostra_hierarquia": [
+                "Ministério da Ciência, Tecnologia e Inovação/Centro de Tecno",
+                "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacion",
+                "Ministério da Ciência, Tecnologia e Inovação/Conselho Nacion"
+              ],
+              "itens_relevantes": 15
+            },
+            {
+              "canal": "planos, programas e políticas",
+              "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti",
+              "itens_brutos": 20,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 11
+            }
+          ],
+          "canais_ok": [
+            "atos do MCTI por tema (DOU)",
+            "planos, programas e políticas"
+          ],
+          "canais_falhos": [
+            "notícias institucionais",
+            "portarias publicadas"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "notícias institucionais",
+            "portarias publicadas"
+          ],
+          "erro_detalhe": "notícias institucionais: listagem sem itens reconhecíveis (241035 bytes): https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias; portarias publicadas: listagem sem itens reconhecíveis (173858 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+          "atos_registrados": 82,
+          "atos_descartados_por_retencao": 0
+        },
+        "planalto": {
+          "nome": "Planalto — Presidência da República",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-17T19:22:44-03:00",
+          "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+          "itens_consultados": 38,
+          "itens_relevantes": 6,
+          "itens_descartados": 29,
+          "itens_duplicados": 3,
+          "revisao_pendente": 1,
+          "novidades": 0,
+          "erros": 1,
+          "duracao_segundos": 28.9,
+          "endpoints": [
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+            "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do Poder Legislativo (leis, vetos)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 7,
+              "amostra_hierarquia": [
+                "Atos do Poder Legislativo"
+              ],
+              "itens_relevantes": 3
+            },
+            {
+              "canal": "atos da Presidência (decretos, MPs)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 1,
+              "amostra_hierarquia": [
+                "Presidência da República"
+              ],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "notícias do Planalto (RSS oficial)",
+              "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+              "itens_brutos": 30,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 2
+            }
+          ],
+          "canais_ok": [
+            "atos do Poder Legislativo (leis, vetos)",
+            "atos da Presidência (decretos, MPs)",
+            "notícias do Planalto (RSS oficial)"
+          ],
+          "canais_falhos": [
+            "notícias do Planalto (página oficial)"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "notícias do Planalto (página oficial)"
+          ],
+          "erro_detalhe": "notícias do Planalto (página oficial): listagem sem itens reconhecíveis (250965 bytes): https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias",
+          "atos_registrados": 12,
+          "atos_descartados_por_retencao": 0
+        },
+        "senado": {
+          "nome": "Senado Federal — API de Dados Abertos v7",
+          "status": "parcial",
+          "ultima_tentativa": "2026-11-17T19:21:51-03:00",
+          "ultima_execucao_ok": "2026-11-17T10:23:50-03:00",
+          "itens_consultados": 26,
+          "novidades": 0,
+          "erros": 0,
+          "chamadas_http": 93,
+          "falhas_http": 1,
+          "endpoints": [
+            "https://legis.senado.leg.br/dadosabertos"
+          ],
+          "canais_ok": [
+            "senado:138790",
+            "senado:139586",
+            "senado:147434",
+            "senado:157233",
+            "senado:158816",
+            "senado:164831"
+          ],
+          "canais_falhos": [
+            "senado:movimentacoes/157233"
+          ],
+          "erro_detalhe": null
+        },
+        "tse": {
+          "nome": "TSE — Tribunal Superior Eleitoral",
+          "status": "ok",
+          "ultima_tentativa": "2026-11-17T19:22:06-03:00",
+          "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+          "itens_consultados": 9,
+          "itens_relevantes": 1,
+          "itens_descartados": 7,
+          "itens_duplicados": 1,
+          "revisao_pendente": 0,
+          "novidades": 0,
+          "erros": 3,
+          "duracao_segundos": 18.8,
+          "endpoints": [
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.tse.jus.br/++api++/@search",
+            "https://www.in.gov.br/consulta/-/buscar/dou",
+            "https://www.in.gov.br/consulta/-/buscar/dou"
+          ],
+          "canais_detalhe": [
+            {
+              "canal": "atos do TSE por tema (DOU)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 9,
+              "amostra_hierarquia": [
+                "Poder Judiciário/Tribunal Superior Eleitoral",
+                "Poder Judiciário/Tribunal Superior Eleitoral/Secretaria do T"
+              ],
+              "itens_relevantes": 1
+            },
+            {
+              "canal": "resoluções do TSE (DOU, órgão/subórgão)",
+              "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+              "itens_brutos": 0,
+              "amostra_hierarquia": [],
+              "itens_relevantes": 0
+            }
+          ],
+          "canais_ok": [
+            "atos do TSE por tema (DOU)",
+            "resoluções do TSE (DOU, órgão/subórgão)"
+          ],
+          "canais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)"
+          ],
+          "canais_falhos_obrigatorios": [],
+          "canais_opcionais_falhos": [
+            "atos normativos (portal oficial)",
+            "notícias oficiais (portal oficial)",
+            "atos e notícias por tema (portal oficial)"
+          ],
+          "erro_detalhe": "atos normativos (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&path=%2Flegislacao; notícias oficiais (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&portal_type=Noticia; atos e notícias por tema (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=20&sort_on=effective&sort_order=descending",
+          "atos_registrados": 2,
+          "atos_descartados_por_retencao": 0
+        }
+      },
+      "fontes_falha": [],
+      "fontes_parciais": [
+        "senado"
+      ],
+      "http_fontes": {
+        "chamadas": 81,
+        "falhas": 3,
+        "cache": 0,
+        "tempo_total": 97.75,
+        "por_orgao": {
+          "anpd": {
+            "chamadas": 17,
+            "falhas": 0,
+            "tempo_total": 10.4
+          },
+          "cnj": {
+            "chamadas": 5,
+            "falhas": 0,
+            "tempo_total": 4.15
+          },
+          "tse": {
+            "chamadas": 14,
+            "falhas": 3,
+            "tempo_total": 18.8
+          },
+          "dou": {
+            "chamadas": 10,
+            "falhas": 0,
+            "tempo_total": 18.91
+          },
+          "planalto": {
+            "chamadas": 22,
+            "falhas": 0,
+            "tempo_total": 28.92
+          },
+          "mcti": {
+            "chamadas": 13,
+            "falhas": 0,
+            "tempo_total": 16.57
+          }
+        }
+      },
+      "mudancas_multiorgao": 16
+    },
+    {
       "id": "run_2026_11_17_1023",
       "data_hora": "2026-11-17T10:23:50-03:00",
       "fim": "2026-11-17T10:32:30-03:00",
       "ts": "2026-11-17T13:23:50+00:00",
       "ts_fim": "2026-11-17T13:32:30+00:00",
-      "idade_horas": 0.0,
+      "idade_horas": 8.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 520,
@@ -947,7 +1969,7 @@
       "fim": "2026-11-17T00:58:48-03:00",
       "ts": "2026-11-17T03:52:05+00:00",
       "ts_fim": "2026-11-17T03:58:48+00:00",
-      "idade_horas": 9.6,
+      "idade_horas": 18.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 403,
@@ -1930,7 +2952,7 @@
       "fim": "2026-11-16T17:32:09-03:00",
       "ts": "2026-11-16T20:27:51+00:00",
       "ts_fim": "2026-11-16T20:32:09+00:00",
-      "idade_horas": 17.0,
+      "idade_horas": 25.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 258,
@@ -2937,7 +3959,7 @@
       "fim": "2026-11-16T06:44:57-03:00",
       "ts": "2026-11-16T09:40:37+00:00",
       "ts_fim": "2026-11-16T09:44:57+00:00",
-      "idade_horas": 27.8,
+      "idade_horas": 36.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 259,
@@ -3935,7 +4957,7 @@
       "fim": "2026-11-15T23:08:41-03:00",
       "ts": "2026-11-16T02:05:19+00:00",
       "ts_fim": "2026-11-16T02:08:41+00:00",
-      "idade_horas": 35.4,
+      "idade_horas": 44.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 202,
@@ -4933,7 +5955,7 @@
       "fim": "2026-11-15T18:52:02-03:00",
       "ts": "2026-11-15T21:48:14+00:00",
       "ts_fim": "2026-11-15T21:52:02+00:00",
-      "idade_horas": 39.7,
+      "idade_horas": 48.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 227,
@@ -5931,7 +6953,7 @@
       "fim": "2026-11-15T14:12:39-03:00",
       "ts": "2026-11-15T17:08:49+00:00",
       "ts_fim": "2026-11-15T17:12:39+00:00",
-      "idade_horas": 44.3,
+      "idade_horas": 53.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 229,
@@ -6929,7 +7951,7 @@
       "fim": "2026-11-15T06:28:14-03:00",
       "ts": "2026-11-15T09:23:54+00:00",
       "ts_fim": "2026-11-15T09:28:14+00:00",
-      "idade_horas": 52.1,
+      "idade_horas": 61.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 259,
@@ -7930,7 +8952,7 @@
       "fim": "2026-11-14T22:58:36-03:00",
       "ts": "2026-11-15T01:54:35+00:00",
       "ts_fim": "2026-11-15T01:58:36+00:00",
-      "idade_horas": 59.6,
+      "idade_horas": 68.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 241,
@@ -8931,7 +9953,7 @@
       "fim": "2026-11-14T18:32:53-03:00",
       "ts": "2026-11-14T21:28:36+00:00",
       "ts_fim": "2026-11-14T21:32:53+00:00",
-      "idade_horas": 64.0,
+      "idade_horas": 72.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 256,
@@ -9929,7 +10951,7 @@
       "fim": "2026-11-14T14:10:10-03:00",
       "ts": "2026-11-14T17:05:53+00:00",
       "ts_fim": "2026-11-14T17:10:10+00:00",
-      "idade_horas": 68.4,
+      "idade_horas": 77.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 256,
@@ -10914,7 +11936,7 @@
       "fim": "2026-11-14T07:30:38-03:00",
       "ts": "2026-11-14T10:26:43+00:00",
       "ts_fim": "2026-11-14T10:30:38+00:00",
-      "idade_horas": 75.0,
+      "idade_horas": 83.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 235,
@@ -11915,7 +12937,7 @@
       "fim": "2026-11-14T00:17:22-03:00",
       "ts": "2026-11-14T03:13:26+00:00",
       "ts_fim": "2026-11-14T03:17:22+00:00",
-      "idade_horas": 82.3,
+      "idade_horas": 91.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 235,
@@ -12922,7 +13944,7 @@
       "fim": "2026-11-13T19:40:44-03:00",
       "ts": "2026-11-13T22:36:34+00:00",
       "ts_fim": "2026-11-13T22:40:44+00:00",
-      "idade_horas": 86.9,
+      "idade_horas": 95.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 250,
@@ -13917,7 +14939,7 @@
       "fim": "2026-11-13T13:25:45-03:00",
       "ts": "2026-11-13T16:21:14+00:00",
       "ts_fim": "2026-11-13T16:25:45+00:00",
-      "idade_horas": 93.1,
+      "idade_horas": 102.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 271,
@@ -14918,7 +15940,7 @@
       "fim": "2026-11-13T04:59:56-03:00",
       "ts": "2026-11-13T07:56:19+00:00",
       "ts_fim": "2026-11-13T07:59:56+00:00",
-      "idade_horas": 101.5,
+      "idade_horas": 110.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 217,
@@ -15922,7 +16944,7 @@
       "fim": "2026-11-12T21:25:50-03:00",
       "ts": "2026-11-13T00:21:29+00:00",
       "ts_fim": "2026-11-13T00:25:50+00:00",
-      "idade_horas": 109.1,
+      "idade_horas": 118.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 261,
@@ -16927,7 +17949,7 @@
       "fim": "2026-11-12T15:58:24-03:00",
       "ts": "2026-11-12T18:54:28+00:00",
       "ts_fim": "2026-11-12T18:58:24+00:00",
-      "idade_horas": 114.6,
+      "idade_horas": 123.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 236,
@@ -17925,7 +18947,7 @@
       "fim": "2026-11-12T08:09:35-03:00",
       "ts": "2026-11-12T11:05:27+00:00",
       "ts_fim": "2026-11-12T11:09:35+00:00",
-      "idade_horas": 122.4,
+      "idade_horas": 131.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 247,
@@ -18932,7 +19954,7 @@
       "fim": "2026-11-12T00:01:56-03:00",
       "ts": "2026-11-12T02:57:50+00:00",
       "ts_fim": "2026-11-12T03:01:56+00:00",
-      "idade_horas": 130.5,
+      "idade_horas": 139.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 245,
@@ -19937,7 +20959,7 @@
       "fim": "2026-11-11T19:01:23-03:00",
       "ts": "2026-11-11T21:56:35+00:00",
       "ts_fim": "2026-11-11T22:01:23+00:00",
-      "idade_horas": 135.5,
+      "idade_horas": 144.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 288,
@@ -20951,7 +21973,7 @@
       "fim": "2026-11-11T11:33:14-03:00",
       "ts": "2026-11-11T14:28:50+00:00",
       "ts_fim": "2026-11-11T14:33:14+00:00",
-      "idade_horas": 143.0,
+      "idade_horas": 151.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 264,
@@ -21956,7 +22978,7 @@
       "fim": "2026-11-11T03:20:37-03:00",
       "ts": "2026-11-11T06:16:03+00:00",
       "ts_fim": "2026-11-11T06:20:37+00:00",
-      "idade_horas": 151.2,
+      "idade_horas": 160.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 273,
@@ -22961,7 +23983,7 @@
       "fim": "2026-11-10T20:23:18-03:00",
       "ts": "2026-11-10T23:19:04+00:00",
       "ts_fim": "2026-11-10T23:23:18+00:00",
-      "idade_horas": 158.2,
+      "idade_horas": 167.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 253,
@@ -23960,7 +24982,7 @@
       "fim": "2026-11-10T14:51:04-03:00",
       "ts": "2026-11-10T17:48:55+00:00",
       "ts_fim": "2026-11-10T17:51:04+00:00",
-      "idade_horas": 163.7,
+      "idade_horas": 172.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 128,
@@ -24904,7 +25926,7 @@
       "fim": "2026-11-10T06:53:32-03:00",
       "ts": "2026-11-10T09:47:50+00:00",
       "ts_fim": "2026-11-10T09:53:32+00:00",
-      "idade_horas": 171.6,
+      "idade_horas": 180.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 341,
@@ -25875,7 +26897,7 @@
       "fim": "2026-11-09T23:10:46-03:00",
       "ts": "2026-11-10T02:07:04+00:00",
       "ts_fim": "2026-11-10T02:10:46+00:00",
-      "idade_horas": 179.4,
+      "idade_horas": 188.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 221,
@@ -26880,7 +27902,7 @@
       "fim": "2026-11-09T15:51:37-03:00",
       "ts": "2026-11-09T18:46:58+00:00",
       "ts_fim": "2026-11-09T18:51:37+00:00",
-      "idade_horas": 186.7,
+      "idade_horas": 195.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 279,
@@ -27879,7 +28901,7 @@
       "fim": "2026-11-09T05:03:52-03:00",
       "ts": "2026-11-09T07:57:44+00:00",
       "ts_fim": "2026-11-09T08:03:52+00:00",
-      "idade_horas": 197.5,
+      "idade_horas": 206.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 368,
@@ -28884,7 +29906,7 @@
       "fim": "2026-11-08T21:58:11-03:00",
       "ts": "2026-11-09T00:53:40+00:00",
       "ts_fim": "2026-11-09T00:58:11+00:00",
-      "idade_horas": 204.6,
+      "idade_horas": 213.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 270,
@@ -29886,7 +30908,7 @@
       "fim": "2026-11-08T18:14:40-03:00",
       "ts": "2026-11-08T21:09:48+00:00",
       "ts_fim": "2026-11-08T21:14:40+00:00",
-      "idade_horas": 208.3,
+      "idade_horas": 217.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 292,
@@ -30891,7 +31913,7 @@
       "fim": "2026-11-08T14:06:18-03:00",
       "ts": "2026-11-08T17:03:04+00:00",
       "ts_fim": "2026-11-08T17:06:18+00:00",
-      "idade_horas": 212.4,
+      "idade_horas": 221.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 193,
@@ -31474,7 +32496,7 @@
       "fim": "2026-11-08T07:23:18-03:00",
       "ts": "2026-11-08T10:19:50+00:00",
       "ts_fim": "2026-11-08T10:23:18+00:00",
-      "idade_horas": 219.2,
+      "idade_horas": 228.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 208,
@@ -32476,7 +33498,7 @@
       "fim": "2026-11-07T23:33:03-03:00",
       "ts": "2026-11-08T02:29:21+00:00",
       "ts_fim": "2026-11-08T02:33:03+00:00",
-      "idade_horas": 227.0,
+      "idade_horas": 235.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 222,
@@ -33478,7 +34500,7 @@
       "fim": "2026-11-07T19:49:50-03:00",
       "ts": "2026-11-07T22:44:48+00:00",
       "ts_fim": "2026-11-07T22:49:50+00:00",
-      "idade_horas": 230.7,
+      "idade_horas": 239.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 302,
@@ -34480,7 +35502,7 @@
       "fim": "2026-11-07T15:51:20-03:00",
       "ts": "2026-11-07T18:46:59+00:00",
       "ts_fim": "2026-11-07T18:51:20+00:00",
-      "idade_horas": 234.7,
+      "idade_horas": 243.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 260,
@@ -35467,7 +36489,7 @@
       "fim": "2026-11-07T11:04:37-03:00",
       "ts": "2026-11-07T14:00:59+00:00",
       "ts_fim": "2026-11-07T14:04:37+00:00",
-      "idade_horas": 239.5,
+      "idade_horas": 248.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 218,
@@ -36473,7 +37495,7 @@
       "fim": "2026-11-07T04:12:49-03:00",
       "ts": "2026-11-07T07:09:17+00:00",
       "ts_fim": "2026-11-07T07:12:49+00:00",
-      "idade_horas": 246.3,
+      "idade_horas": 255.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 211,
@@ -37475,7 +38497,7 @@
       "fim": "2026-11-06T22:00:18-03:00",
       "ts": "2026-11-07T00:55:52+00:00",
       "ts_fim": "2026-11-07T01:00:18+00:00",
-      "idade_horas": 252.5,
+      "idade_horas": 261.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 265,
@@ -38477,7 +39499,7 @@
       "fim": "2026-11-06T17:57:32-03:00",
       "ts": "2026-11-06T20:53:37+00:00",
       "ts_fim": "2026-11-06T20:57:32+00:00",
-      "idade_horas": 256.6,
+      "idade_horas": 265.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 235,
@@ -39479,7 +40501,7 @@
       "fim": "2026-11-06T12:06:12-03:00",
       "ts": "2026-11-06T15:01:54+00:00",
       "ts_fim": "2026-11-06T15:06:12+00:00",
-      "idade_horas": 262.4,
+      "idade_horas": 271.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 258,
@@ -40481,7 +41503,7 @@
       "fim": "2026-11-06T03:58:52-03:00",
       "ts": "2026-11-06T06:54:14+00:00",
       "ts_fim": "2026-11-06T06:58:52+00:00",
-      "idade_horas": 270.6,
+      "idade_horas": 279.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 277,
@@ -41483,7 +42505,7 @@
       "fim": "2026-11-05T21:21:35-03:00",
       "ts": "2026-11-06T00:15:53+00:00",
       "ts_fim": "2026-11-06T00:21:35+00:00",
-      "idade_horas": 277.2,
+      "idade_horas": 286.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 342,
@@ -42475,7 +43497,7 @@
       "fim": "2026-11-05T18:21:49-03:00",
       "ts": "2026-11-05T21:14:38+00:00",
       "ts_fim": "2026-11-05T21:21:49+00:00",
-      "idade_horas": 280.2,
+      "idade_horas": 289.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 430,
@@ -43444,7 +44466,7 @@
       "fim": "2026-11-05T15:48:49-03:00",
       "ts": "2026-11-05T18:44:33+00:00",
       "ts_fim": "2026-11-05T18:48:49+00:00",
-      "idade_horas": 282.7,
+      "idade_horas": 291.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 256,
@@ -44448,7 +45470,7 @@
       "fim": "2026-11-05T08:01:38-03:00",
       "ts": "2026-11-05T10:53:44+00:00",
       "ts_fim": "2026-11-05T11:01:38+00:00",
-      "idade_horas": 290.5,
+      "idade_horas": 299.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 474,
@@ -45453,7 +46475,7 @@
       "fim": "2026-11-04T23:33:19-03:00",
       "ts": "2026-11-05T02:27:14+00:00",
       "ts_fim": "2026-11-05T02:33:19+00:00",
-      "idade_horas": 299.0,
+      "idade_horas": 307.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 365,
@@ -46434,7 +47456,7 @@
       "fim": "2026-11-04T18:57:18-03:00",
       "ts": "2026-11-04T21:52:03+00:00",
       "ts_fim": "2026-11-04T21:57:18+00:00",
-      "idade_horas": 303.6,
+      "idade_horas": 312.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 315,
@@ -47436,7 +48458,7 @@
       "fim": "2026-11-04T12:31:56-03:00",
       "ts": "2026-11-04T15:25:00+00:00",
       "ts_fim": "2026-11-04T15:31:56+00:00",
-      "idade_horas": 310.0,
+      "idade_horas": 318.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 416,
@@ -48441,7 +49463,7 @@
       "fim": "2026-11-04T03:23:28-03:00",
       "ts": "2026-11-04T06:19:31+00:00",
       "ts_fim": "2026-11-04T06:23:28+00:00",
-      "idade_horas": 319.2,
+      "idade_horas": 328.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 237,
@@ -49449,7 +50471,7 @@
       "fim": "2026-11-03T21:02:08-03:00",
       "ts": "2026-11-03T23:58:35+00:00",
       "ts_fim": "2026-11-04T00:02:08+00:00",
-      "idade_horas": 325.5,
+      "idade_horas": 334.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 213,
@@ -50462,7 +51484,7 @@
       "fim": "2026-11-03T15:30:41-03:00",
       "ts": "2026-11-03T18:26:09+00:00",
       "ts_fim": "2026-11-03T18:30:41+00:00",
-      "idade_horas": 331.0,
+      "idade_horas": 339.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 272,
@@ -51470,7 +52492,7 @@
       "fim": "2026-11-03T07:55:12-03:00",
       "ts": "2026-11-03T10:51:02+00:00",
       "ts_fim": "2026-11-03T10:55:12+00:00",
-      "idade_horas": 338.6,
+      "idade_horas": 347.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 249,
@@ -52463,7 +53485,7 @@
       "fim": "2026-11-02T23:58:55-03:00",
       "ts": "2026-11-03T02:54:38+00:00",
       "ts_fim": "2026-11-03T02:58:55+00:00",
-      "idade_horas": 346.6,
+      "idade_horas": 355.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 257,
@@ -53446,7 +54468,7 @@
       "fim": "2026-11-02T17:49:30-03:00",
       "ts": "2026-11-02T20:46:07+00:00",
       "ts_fim": "2026-11-02T20:49:30+00:00",
-      "idade_horas": 352.7,
+      "idade_horas": 361.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 202,
@@ -54439,7 +55461,7 @@
       "fim": "2026-11-02T08:05:40-03:00",
       "ts": "2026-11-02T11:02:24+00:00",
       "ts_fim": "2026-11-02T11:05:40+00:00",
-      "idade_horas": 362.4,
+      "idade_horas": 371.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 195,
@@ -55432,7 +56454,7 @@
       "fim": "2026-11-01T23:33:30-03:00",
       "ts": "2026-11-02T02:29:41+00:00",
       "ts_fim": "2026-11-02T02:33:30+00:00",
-      "idade_horas": 371.0,
+      "idade_horas": 379.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 229,
@@ -56425,7 +57447,7 @@
       "fim": "2026-11-01T19:52:44-03:00",
       "ts": "2026-11-01T22:48:36+00:00",
       "ts_fim": "2026-11-01T22:52:44+00:00",
-      "idade_horas": 374.7,
+      "idade_horas": 383.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 248,
@@ -57421,7 +58443,7 @@
       "fim": "2026-11-01T15:59:58-03:00",
       "ts": "2026-11-01T18:55:32+00:00",
       "ts_fim": "2026-11-01T18:59:58+00:00",
-      "idade_horas": 378.5,
+      "idade_horas": 387.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 266,
@@ -58417,7 +59439,7 @@
       "fim": "2026-11-01T13:04:51-03:00",
       "ts": "2026-11-01T15:59:01+00:00",
       "ts_fim": "2026-11-01T16:04:51+00:00",
-      "idade_horas": 381.5,
+      "idade_horas": 390.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 349,
@@ -59413,7 +60435,7 @@
       "fim": "2026-11-01T10:26:01-03:00",
       "ts": "2026-11-01T13:21:30+00:00",
       "ts_fim": "2026-11-01T13:26:01+00:00",
-      "idade_horas": 384.1,
+      "idade_horas": 393.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 270,
@@ -60409,7 +61431,7 @@
       "fim": "2026-11-01T03:09:36-03:00",
       "ts": "2026-11-01T06:01:27+00:00",
       "ts_fim": "2026-11-01T06:09:36+00:00",
-      "idade_horas": 391.4,
+      "idade_horas": 400.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 488,
@@ -61405,7 +62427,7 @@
       "fim": "2026-10-31T20:28:36-03:00",
       "ts": "2026-10-31T23:23:22+00:00",
       "ts_fim": "2026-10-31T23:28:36+00:00",
-      "idade_horas": 398.1,
+      "idade_horas": 407.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 314,
@@ -62401,7 +63423,7 @@
       "fim": "2026-10-31T17:03:20-03:00",
       "ts": "2026-10-31T19:58:15+00:00",
       "ts_fim": "2026-10-31T20:03:20+00:00",
-      "idade_horas": 401.5,
+      "idade_horas": 410.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 304,
@@ -63397,7 +64419,7 @@
       "fim": "2026-10-31T12:48:10-03:00",
       "ts": "2026-10-31T15:43:49+00:00",
       "ts_fim": "2026-10-31T15:48:10+00:00",
-      "idade_horas": 405.7,
+      "idade_horas": 414.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 261,
@@ -64390,7 +65412,7 @@
       "fim": "2026-10-31T06:43:42-03:00",
       "ts": "2026-10-31T09:37:34+00:00",
       "ts_fim": "2026-10-31T09:43:42+00:00",
-      "idade_horas": 411.8,
+      "idade_horas": 420.7,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 368,
@@ -65386,7 +66408,7 @@
       "fim": "2026-10-30T23:26:39-03:00",
       "ts": "2026-10-31T02:21:51+00:00",
       "ts_fim": "2026-10-31T02:26:39+00:00",
-      "idade_horas": 419.1,
+      "idade_horas": 428.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 288,
@@ -66382,7 +67404,7 @@
       "fim": "2026-10-30T20:03:39-03:00",
       "ts": "2026-10-30T22:57:49+00:00",
       "ts_fim": "2026-10-30T23:03:39+00:00",
-      "idade_horas": 422.5,
+      "idade_horas": 431.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 349,
@@ -67378,7 +68400,7 @@
       "fim": "2026-10-30T15:40:31-03:00",
       "ts": "2026-10-30T18:37:00+00:00",
       "ts_fim": "2026-10-30T18:40:31+00:00",
-      "idade_horas": 426.9,
+      "idade_horas": 435.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 210,
@@ -68371,7 +69393,7 @@
       "fim": "2026-10-30T09:58:32-03:00",
       "ts": "2026-10-30T12:53:42+00:00",
       "ts_fim": "2026-10-30T12:58:32+00:00",
-      "idade_horas": 432.6,
+      "idade_horas": 441.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 289,
@@ -69367,7 +70389,7 @@
       "fim": "2026-10-30T02:51:18-03:00",
       "ts": "2026-10-30T05:46:49+00:00",
       "ts_fim": "2026-10-30T05:51:18+00:00",
-      "idade_horas": 439.7,
+      "idade_horas": 448.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 269,
@@ -70363,7 +71385,7 @@
       "fim": "2026-10-29T21:01:09-03:00",
       "ts": "2026-10-29T23:56:29+00:00",
       "ts_fim": "2026-10-30T00:01:09+00:00",
-      "idade_horas": 445.5,
+      "idade_horas": 454.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 279,
@@ -71361,7 +72383,7 @@
       "fim": "2026-10-29T16:46:07-03:00",
       "ts": "2026-10-29T19:41:54+00:00",
       "ts_fim": "2026-10-29T19:46:07+00:00",
-      "idade_horas": 449.8,
+      "idade_horas": 458.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 252,
@@ -72359,7 +73381,7 @@
       "fim": "2026-10-29T11:21:16-03:00",
       "ts": "2026-10-29T14:17:06+00:00",
       "ts_fim": "2026-10-29T14:21:16+00:00",
-      "idade_horas": 455.2,
+      "idade_horas": 464.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 249,
@@ -73352,7 +74374,7 @@
       "fim": "2026-10-29T08:38:48-03:00",
       "ts": "2026-10-29T11:35:09+00:00",
       "ts_fim": "2026-10-29T11:38:48+00:00",
-      "idade_horas": 457.9,
+      "idade_horas": 466.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 219,
@@ -74345,7 +75367,7 @@
       "fim": "2026-10-29T04:07:32-03:00",
       "ts": "2026-10-29T07:03:34+00:00",
       "ts_fim": "2026-10-29T07:07:32+00:00",
-      "idade_horas": 462.4,
+      "idade_horas": 471.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 238,
@@ -75338,7 +76360,7 @@
       "fim": "2026-10-28T21:58:31-03:00",
       "ts": "2026-10-29T00:54:56+00:00",
       "ts_fim": "2026-10-29T00:58:31+00:00",
-      "idade_horas": 468.6,
+      "idade_horas": 477.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 214,
@@ -76331,7 +77353,7 @@
       "fim": "2026-10-28T18:06:28-03:00",
       "ts": "2026-10-28T21:02:58+00:00",
       "ts_fim": "2026-10-28T21:06:28+00:00",
-      "idade_horas": 472.4,
+      "idade_horas": 481.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 210,
@@ -77333,7 +78355,7 @@
       "fim": "2026-10-28T13:05:00-03:00",
       "ts": "2026-10-28T16:01:02+00:00",
       "ts_fim": "2026-10-28T16:05:00+00:00",
-      "idade_horas": 477.5,
+      "idade_horas": 486.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 237,
@@ -78340,7 +79362,7 @@
       "fim": "2026-10-28T05:33:53-03:00",
       "ts": "2026-10-28T08:28:59+00:00",
       "ts_fim": "2026-10-28T08:33:53+00:00",
-      "idade_horas": 485.0,
+      "idade_horas": 493.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 293,
@@ -79323,7 +80345,7 @@
       "fim": "2026-10-27T22:24:22-03:00",
       "ts": "2026-10-28T01:20:23+00:00",
       "ts_fim": "2026-10-28T01:24:22+00:00",
-      "idade_horas": 492.1,
+      "idade_horas": 501.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 239,
@@ -80316,7 +81338,7 @@
       "fim": "2026-10-27T18:22:20-03:00",
       "ts": "2026-10-27T21:18:09+00:00",
       "ts_fim": "2026-10-27T21:22:20+00:00",
-      "idade_horas": 496.2,
+      "idade_horas": 505.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 251,
@@ -81321,7 +82343,7 @@
       "fim": "2026-10-27T13:40:44-03:00",
       "ts": "2026-10-27T16:37:08+00:00",
       "ts_fim": "2026-10-27T16:40:44+00:00",
-      "idade_horas": 500.9,
+      "idade_horas": 509.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 215,
@@ -82314,7 +83336,7 @@
       "fim": "2026-10-27T08:44:53-03:00",
       "ts": "2026-10-27T11:38:11+00:00",
       "ts_fim": "2026-10-27T11:44:53+00:00",
-      "idade_horas": 505.8,
+      "idade_horas": 514.7,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 402,
@@ -83289,7 +84311,7 @@
       "fim": "2026-10-27T07:37:54-03:00",
       "ts": "2026-10-27T10:32:30+00:00",
       "ts_fim": "2026-10-27T10:37:54+00:00",
-      "idade_horas": 506.9,
+      "idade_horas": 515.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 323,
@@ -83860,7 +84882,7 @@
       "fim": "2026-10-27T02:06:58-03:00",
       "ts": "2026-10-27T05:02:43+00:00",
       "ts_fim": "2026-10-27T05:06:58+00:00",
-      "idade_horas": 512.4,
+      "idade_horas": 521.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 255,
@@ -84863,7 +85885,7 @@
       "fim": "2026-10-26T20:56:10-03:00",
       "ts": "2026-10-26T23:52:11+00:00",
       "ts_fim": "2026-10-26T23:56:10+00:00",
-      "idade_horas": 517.6,
+      "idade_horas": 526.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 238,
@@ -85857,7 +86879,7 @@
       "fim": "2026-10-26T16:21:54-03:00",
       "ts": "2026-10-26T19:18:07+00:00",
       "ts_fim": "2026-10-26T19:21:54+00:00",
-      "idade_horas": 522.2,
+      "idade_horas": 531.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 227,
@@ -86846,7 +87868,7 @@
       "fim": "2026-10-26T10:03:37-03:00",
       "ts": "2026-10-26T13:00:06+00:00",
       "ts_fim": "2026-10-26T13:03:37+00:00",
-      "idade_horas": 528.5,
+      "idade_horas": 537.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 211,
@@ -87835,7 +88857,7 @@
       "fim": "2026-10-26T03:17:54-03:00",
       "ts": "2026-10-26T06:11:57+00:00",
       "ts_fim": "2026-10-26T06:17:54+00:00",
-      "idade_horas": 535.2,
+      "idade_horas": 544.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 357,
@@ -88780,7 +89802,7 @@
       "fim": "2026-10-25T21:29:35-03:00",
       "ts": "2026-10-26T00:22:24+00:00",
       "ts_fim": "2026-10-26T00:29:35+00:00",
-      "idade_horas": 541.0,
+      "idade_horas": 549.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 431,
@@ -89730,7 +90752,7 @@
       "fim": "2026-10-25T18:54:21-03:00",
       "ts": "2026-10-25T21:47:00+00:00",
       "ts_fim": "2026-10-25T21:54:21+00:00",
-      "idade_horas": 543.6,
+      "idade_horas": 552.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 441,
@@ -90647,7 +91669,7 @@
       "fim": "2026-10-25T16:10:38-03:00",
       "ts": "2026-10-25T19:05:50+00:00",
       "ts_fim": "2026-10-25T19:10:38+00:00",
-      "idade_horas": 546.4,
+      "idade_horas": 555.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 287,
@@ -91590,7 +92612,7 @@
       "fim": "2026-10-25T13:21:12-03:00",
       "ts": "2026-10-25T16:16:47+00:00",
       "ts_fim": "2026-10-25T16:21:12+00:00",
-      "idade_horas": 549.2,
+      "idade_horas": 558.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 264,
@@ -92540,7 +93562,7 @@
       "fim": "2026-10-25T03:13:10-03:00",
       "ts": "2026-10-25T06:06:45+00:00",
       "ts_fim": "2026-10-25T06:13:10+00:00",
-      "idade_horas": 559.3,
+      "idade_horas": 568.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 385,
@@ -93492,7 +94514,7 @@
       "fim": "2026-10-24T22:18:16-03:00",
       "ts": "2026-10-25T01:09:57+00:00",
       "ts_fim": "2026-10-25T01:18:16+00:00",
-      "idade_horas": 564.2,
+      "idade_horas": 573.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 498,
@@ -94415,7 +95437,7 @@
       "fim": "2026-10-24T20:18:38-03:00",
       "ts": "2026-10-24T23:12:39+00:00",
       "ts_fim": "2026-10-24T23:18:38+00:00",
-      "idade_horas": 566.2,
+      "idade_horas": 575.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 359,
@@ -95349,7 +96371,7 @@
       "fim": "2026-10-24T17:56:08-03:00",
       "ts": "2026-10-24T20:47:58+00:00",
       "ts_fim": "2026-10-24T20:56:08+00:00",
-      "idade_horas": 568.6,
+      "idade_horas": 577.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 490,
@@ -96272,7 +97294,7 @@
       "fim": "2026-10-24T15:14:58-03:00",
       "ts": "2026-10-24T18:08:17+00:00",
       "ts_fim": "2026-10-24T18:14:58+00:00",
-      "idade_horas": 571.3,
+      "idade_horas": 580.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 401,
@@ -97207,7 +98229,7 @@
       "fim": "2026-10-24T11:34:19-03:00",
       "ts": "2026-10-24T14:31:34+00:00",
       "ts_fim": "2026-10-24T14:34:19+00:00",
-      "idade_horas": 575.0,
+      "idade_horas": 583.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 165,
@@ -98200,7 +99222,7 @@
       "fim": "2026-10-24T08:02:06-03:00",
       "ts": "2026-10-24T10:58:04+00:00",
       "ts_fim": "2026-10-24T11:02:06+00:00",
-      "idade_horas": 578.5,
+      "idade_horas": 587.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 242,
@@ -99193,7 +100215,7 @@
       "fim": "2026-10-24T02:55:00-03:00",
       "ts": "2026-10-24T05:51:48+00:00",
       "ts_fim": "2026-10-24T05:55:00+00:00",
-      "idade_horas": 583.6,
+      "idade_horas": 592.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 192,
@@ -100186,7 +101208,7 @@
       "fim": "2026-10-23T21:44:55-03:00",
       "ts": "2026-10-24T00:40:49+00:00",
       "ts_fim": "2026-10-24T00:44:55+00:00",
-      "idade_horas": 588.8,
+      "idade_horas": 597.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 246,
@@ -101179,7 +102201,7 @@
       "fim": "2026-10-23T19:13:23-03:00",
       "ts": "2026-10-23T22:09:46+00:00",
       "ts_fim": "2026-10-23T22:13:23+00:00",
-      "idade_horas": 591.3,
+      "idade_horas": 600.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 217,
@@ -102172,7 +103194,7 @@
       "fim": "2026-10-23T15:23:08-03:00",
       "ts": "2026-10-23T18:20:12+00:00",
       "ts_fim": "2026-10-23T18:23:08+00:00",
-      "idade_horas": 595.2,
+      "idade_horas": 604.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 175,
@@ -103169,7 +104191,7 @@
       "fim": "2026-10-23T10:29:04-03:00",
       "ts": "2026-10-23T13:25:19+00:00",
       "ts_fim": "2026-10-23T13:29:04+00:00",
-      "idade_horas": 600.1,
+      "idade_horas": 608.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 225,
@@ -104174,7 +105196,7 @@
       "fim": "2026-10-23T04:34:34-03:00",
       "ts": "2026-10-23T07:30:47+00:00",
       "ts_fim": "2026-10-23T07:34:34+00:00",
-      "idade_horas": 606.0,
+      "idade_horas": 614.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 226,
@@ -105167,7 +106189,7 @@
       "fim": "2026-10-22T22:34:24-03:00",
       "ts": "2026-10-23T01:30:07+00:00",
       "ts_fim": "2026-10-23T01:34:24+00:00",
-      "idade_horas": 612.0,
+      "idade_horas": 620.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 257,
@@ -106156,7 +107178,7 @@
       "fim": "2026-10-22T19:24:47-03:00",
       "ts": "2026-10-22T22:19:59+00:00",
       "ts_fim": "2026-10-22T22:24:47+00:00",
-      "idade_horas": 615.1,
+      "idade_horas": 624.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 288,
@@ -107153,7 +108175,7 @@
       "fim": "2026-10-22T15:36:08-03:00",
       "ts": "2026-10-22T18:32:03+00:00",
       "ts_fim": "2026-10-22T18:36:08+00:00",
-      "idade_horas": 618.9,
+      "idade_horas": 627.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 245,
@@ -107860,7 +108882,7 @@
       "fim": "2026-10-22T10:51:59-03:00",
       "ts": "2026-10-22T13:47:02+00:00",
       "ts_fim": "2026-10-22T13:51:59+00:00",
-      "idade_horas": 623.7,
+      "idade_horas": 632.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 296,
@@ -108859,7 +109881,7 @@
       "fim": "2026-10-22T04:37:36-03:00",
       "ts": "2026-10-22T07:34:04+00:00",
       "ts_fim": "2026-10-22T07:37:36+00:00",
-      "idade_horas": 629.9,
+      "idade_horas": 638.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 212,
@@ -109857,7 +110879,7 @@
       "fim": "2026-10-21T22:35:03-03:00",
       "ts": "2026-10-22T01:31:06+00:00",
       "ts_fim": "2026-10-22T01:35:03+00:00",
-      "idade_horas": 636.0,
+      "idade_horas": 644.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 236,
@@ -110789,7 +111811,7 @@
       "fim": "2026-10-21T19:23:32-03:00",
       "ts": "2026-10-21T22:20:13+00:00",
       "ts_fim": "2026-10-21T22:23:32+00:00",
-      "idade_horas": 639.1,
+      "idade_horas": 648.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 199,
@@ -111389,7 +112411,7 @@
       "fim": "2026-10-21T15:41:35-03:00",
       "ts": "2026-10-21T18:38:06+00:00",
       "ts_fim": "2026-10-21T18:41:35+00:00",
-      "idade_horas": 642.8,
+      "idade_horas": 651.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 208,
@@ -112382,7 +113404,7 @@
       "fim": "2026-10-21T10:50:30-03:00",
       "ts": "2026-10-21T13:47:18+00:00",
       "ts_fim": "2026-10-21T13:50:30+00:00",
-      "idade_horas": 647.7,
+      "idade_horas": 656.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 192,
@@ -113375,7 +114397,7 @@
       "fim": "2026-10-21T04:41:41-03:00",
       "ts": "2026-10-21T07:38:20+00:00",
       "ts_fim": "2026-10-21T07:41:41+00:00",
-      "idade_horas": 653.8,
+      "idade_horas": 662.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 201,
@@ -114368,7 +115390,7 @@
       "fim": "2026-10-20T22:38:46-03:00",
       "ts": "2026-10-21T01:34:58+00:00",
       "ts_fim": "2026-10-21T01:38:46+00:00",
-      "idade_horas": 659.9,
+      "idade_horas": 668.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 228,
@@ -115365,7 +116387,7 @@
       "fim": "2026-10-20T19:23:24-03:00",
       "ts": "2026-10-20T22:19:45+00:00",
       "ts_fim": "2026-10-20T22:23:24+00:00",
-      "idade_horas": 663.2,
+      "idade_horas": 672.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 218,
@@ -116358,7 +117380,7 @@
       "fim": "2026-10-20T16:18:37-03:00",
       "ts": "2026-10-20T19:15:31+00:00",
       "ts_fim": "2026-10-20T19:18:37+00:00",
-      "idade_horas": 666.2,
+      "idade_horas": 675.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 186,
@@ -117351,7 +118373,7 @@
       "fim": "2026-10-20T12:08:58-03:00",
       "ts": "2026-10-20T15:05:03+00:00",
       "ts_fim": "2026-10-20T15:08:58+00:00",
-      "idade_horas": 670.4,
+      "idade_horas": 679.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 235,
@@ -118348,7 +119370,7 @@
       "fim": "2026-10-20T07:07:51-03:00",
       "ts": "2026-10-20T10:03:22+00:00",
       "ts_fim": "2026-10-20T10:07:51+00:00",
-      "idade_horas": 675.4,
+      "idade_horas": 684.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 269,
@@ -119347,7 +120369,7 @@
       "fim": "2026-10-20T01:52:38-03:00",
       "ts": "2026-10-20T04:49:07+00:00",
       "ts_fim": "2026-10-20T04:52:38+00:00",
-      "idade_horas": 680.7,
+      "idade_horas": 689.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 211,
@@ -120340,7 +121362,7 @@
       "fim": "2026-10-19T20:44:11-03:00",
       "ts": "2026-10-19T23:40:07+00:00",
       "ts_fim": "2026-10-19T23:44:11+00:00",
-      "idade_horas": 685.8,
+      "idade_horas": 694.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 244,
@@ -121333,7 +122355,7 @@
       "fim": "2026-10-19T16:58:54-03:00",
       "ts": "2026-10-19T19:55:36+00:00",
       "ts_fim": "2026-10-19T19:58:54+00:00",
-      "idade_horas": 689.6,
+      "idade_horas": 698.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 198,
@@ -122326,7 +123348,7 @@
       "fim": "2026-10-19T10:27:55-03:00",
       "ts": "2026-10-19T13:24:49+00:00",
       "ts_fim": "2026-10-19T13:27:55+00:00",
-      "idade_horas": 696.1,
+      "idade_horas": 705.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 186,
@@ -123323,7 +124345,7 @@
       "fim": "2026-10-19T03:19:00-03:00",
       "ts": "2026-10-19T06:15:39+00:00",
       "ts_fim": "2026-10-19T06:19:00+00:00",
-      "idade_horas": 703.2,
+      "idade_horas": 712.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 201,
@@ -124323,7 +125345,7 @@
       "fim": "2026-10-18T22:19:07-03:00",
       "ts": "2026-10-19T01:15:45+00:00",
       "ts_fim": "2026-10-19T01:19:07+00:00",
-      "idade_horas": 708.2,
+      "idade_horas": 717.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 201,
@@ -125324,7 +126346,7 @@
       "fim": "2026-10-18T20:14:05-03:00",
       "ts": "2026-10-18T23:11:13+00:00",
       "ts_fim": "2026-10-18T23:14:05+00:00",
-      "idade_horas": 710.3,
+      "idade_horas": 719.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 172,
@@ -126207,7 +127229,7 @@
       "fim": "2026-10-18T17:46:49-03:00",
       "ts": "2026-10-18T20:41:19+00:00",
       "ts_fim": "2026-10-18T20:46:49+00:00",
-      "idade_horas": 712.8,
+      "idade_horas": 721.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 330,
@@ -127152,7 +128174,7 @@
       "fim": "2026-10-18T14:25:29-03:00",
       "ts": "2026-10-18T17:22:19+00:00",
       "ts_fim": "2026-10-18T17:25:29+00:00",
-      "idade_horas": 716.1,
+      "idade_horas": 725.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 190,
@@ -128149,7 +129171,7 @@
       "fim": "2026-10-18T11:04:50-03:00",
       "ts": "2026-10-18T14:01:05+00:00",
       "ts_fim": "2026-10-18T14:04:50+00:00",
-      "idade_horas": 719.5,
+      "idade_horas": 728.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 224,
@@ -129142,7 +130164,7 @@
       "fim": "2026-10-18T06:40:22-03:00",
       "ts": "2026-10-18T09:37:00+00:00",
       "ts_fim": "2026-10-18T09:40:22+00:00",
-      "idade_horas": 723.9,
+      "idade_horas": 732.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 202,
@@ -130141,7 +131163,7 @@
       "fim": "2026-10-18T01:34:42-03:00",
       "ts": "2026-10-18T04:31:31+00:00",
       "ts_fim": "2026-10-18T04:34:42+00:00",
-      "idade_horas": 729.0,
+      "idade_horas": 737.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 191,
@@ -131134,7 +132156,7 @@
       "fim": "2026-10-17T21:05:48-03:00",
       "ts": "2026-10-18T00:02:23+00:00",
       "ts_fim": "2026-10-18T00:05:48+00:00",
-      "idade_horas": 733.4,
+      "idade_horas": 742.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 204,
@@ -132132,7 +133154,7 @@
       "fim": "2026-10-17T18:31:31-03:00",
       "ts": "2026-10-17T21:27:40+00:00",
       "ts_fim": "2026-10-17T21:31:31+00:00",
-      "idade_horas": 736.0,
+      "idade_horas": 744.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 230,
@@ -133129,7 +134151,7 @@
       "fim": "2026-10-17T15:34:17-03:00",
       "ts": "2026-10-17T18:30:15+00:00",
       "ts_fim": "2026-10-17T18:34:17+00:00",
-      "idade_horas": 739.0,
+      "idade_horas": 747.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 241,
@@ -134128,7 +135150,7 @@
       "fim": "2026-10-17T12:36:47-03:00",
       "ts": "2026-10-17T15:33:17+00:00",
       "ts_fim": "2026-10-17T15:36:47+00:00",
-      "idade_horas": 741.9,
+      "idade_horas": 750.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 209,
@@ -134740,7 +135762,7 @@
       "fim": "2026-10-17T08:40:08-03:00",
       "ts": "2026-10-17T11:36:51+00:00",
       "ts_fim": "2026-10-17T11:40:08+00:00",
-      "idade_horas": 745.9,
+      "idade_horas": 754.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 196,
@@ -135677,7 +136699,7 @@
       "fim": "2026-10-17T04:00:13-03:00",
       "ts": "2026-10-17T06:56:29+00:00",
       "ts_fim": "2026-10-17T07:00:13+00:00",
-      "idade_horas": 750.5,
+      "idade_horas": 759.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 223,
@@ -136647,7 +137669,7 @@
       "fim": "2026-10-16T22:21:42-03:00",
       "ts": "2026-10-17T01:18:41+00:00",
       "ts_fim": "2026-10-17T01:21:42+00:00",
-      "idade_horas": 756.2,
+      "idade_horas": 765.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 180,
@@ -137640,7 +138662,7 @@
       "fim": "2026-10-16T19:54:21-03:00",
       "ts": "2026-10-16T22:50:44+00:00",
       "ts_fim": "2026-10-16T22:54:21+00:00",
-      "idade_horas": 758.6,
+      "idade_horas": 767.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 217,
@@ -138633,7 +139655,7 @@
       "fim": "2026-10-16T17:01:30-03:00",
       "ts": "2026-10-16T19:57:37+00:00",
       "ts_fim": "2026-10-16T20:01:30+00:00",
-      "idade_horas": 761.5,
+      "idade_horas": 770.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 233,
@@ -139626,7 +140648,7 @@
       "fim": "2026-10-16T13:42:15-03:00",
       "ts": "2026-10-16T16:38:27+00:00",
       "ts_fim": "2026-10-16T16:42:15+00:00",
-      "idade_horas": 764.8,
+      "idade_horas": 773.7,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 227,
@@ -140623,7 +141645,7 @@
       "fim": "2026-10-16T08:26:08-03:00",
       "ts": "2026-10-16T11:22:39+00:00",
       "ts_fim": "2026-10-16T11:26:08+00:00",
-      "idade_horas": 770.1,
+      "idade_horas": 779.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 208,
@@ -141616,7 +142638,7 @@
       "fim": "2026-10-16T02:54:40-03:00",
       "ts": "2026-10-16T05:51:27+00:00",
       "ts_fim": "2026-10-16T05:54:40+00:00",
-      "idade_horas": 775.6,
+      "idade_horas": 784.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 193,
@@ -142609,7 +143631,7 @@
       "fim": "2026-10-15T21:31:31-03:00",
       "ts": "2026-10-16T00:27:18+00:00",
       "ts_fim": "2026-10-16T00:31:31+00:00",
-      "idade_horas": 781.0,
+      "idade_horas": 789.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 252,
@@ -143606,7 +144628,7 @@
       "fim": "2026-10-15T19:19:57-03:00",
       "ts": "2026-10-15T22:16:36+00:00",
       "ts_fim": "2026-10-15T22:19:57+00:00",
-      "idade_horas": 783.2,
+      "idade_horas": 792.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 201,
@@ -144599,7 +145621,7 @@
       "fim": "2026-10-15T15:23:03-03:00",
       "ts": "2026-10-15T18:17:30+00:00",
       "ts_fim": "2026-10-15T18:23:03+00:00",
-      "idade_horas": 787.2,
+      "idade_horas": 796.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 333,
@@ -145172,7 +146194,7 @@
       "fim": "2026-10-15T04:28:47-03:00",
       "ts": "2026-10-15T07:25:30+00:00",
       "ts_fim": "2026-10-15T07:28:47+00:00",
-      "idade_horas": 798.1,
+      "idade_horas": 807.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 197,
@@ -146165,7 +147187,7 @@
       "fim": "2026-10-14T22:33:02-03:00",
       "ts": "2026-10-15T01:29:23+00:00",
       "ts_fim": "2026-10-15T01:33:02+00:00",
-      "idade_horas": 804.0,
+      "idade_horas": 812.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 218,
@@ -146795,7 +147817,7 @@
       "fim": "2026-10-14T20:17:30-03:00",
       "ts": "2026-10-14T23:13:22+00:00",
       "ts_fim": "2026-10-14T23:17:30+00:00",
-      "idade_horas": 806.3,
+      "idade_horas": 815.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 248,
@@ -147788,7 +148810,7 @@
       "fim": "2026-10-14T16:26:28-03:00",
       "ts": "2026-10-14T19:22:39+00:00",
       "ts_fim": "2026-10-14T19:26:28+00:00",
-      "idade_horas": 810.1,
+      "idade_horas": 819.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 228,
@@ -148781,7 +149803,7 @@
       "fim": "2026-10-14T12:11:34-03:00",
       "ts": "2026-10-14T15:08:23+00:00",
       "ts_fim": "2026-10-14T15:11:34+00:00",
-      "idade_horas": 814.3,
+      "idade_horas": 823.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 191,
@@ -149731,7 +150753,7 @@
       "fim": "2026-10-14T07:15:07-03:00",
       "ts": "2026-10-14T10:11:39+00:00",
       "ts_fim": "2026-10-14T10:15:07+00:00",
-      "idade_horas": 819.3,
+      "idade_horas": 828.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 208,
@@ -150724,7 +151746,7 @@
       "fim": "2026-10-14T01:56:10-03:00",
       "ts": "2026-10-14T04:52:01+00:00",
       "ts_fim": "2026-10-14T04:56:10+00:00",
-      "idade_horas": 824.6,
+      "idade_horas": 833.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 248,
@@ -151716,7 +152738,7 @@
       "fim": "2026-10-13T20:21:58-03:00",
       "ts": "2026-10-13T23:18:08+00:00",
       "ts_fim": "2026-10-13T23:21:58+00:00",
-      "idade_horas": 830.2,
+      "idade_horas": 839.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 230,
@@ -152709,7 +153731,7 @@
       "fim": "2026-10-13T16:20:02-03:00",
       "ts": "2026-10-13T19:16:20+00:00",
       "ts_fim": "2026-10-13T19:20:02+00:00",
-      "idade_horas": 834.2,
+      "idade_horas": 843.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 222,
@@ -153702,7 +154724,7 @@
       "fim": "2026-10-13T08:51:11-03:00",
       "ts": "2026-10-13T11:46:47+00:00",
       "ts_fim": "2026-10-13T11:51:11+00:00",
-      "idade_horas": 841.7,
+      "idade_horas": 850.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 263,
@@ -154695,7 +155717,7 @@
       "fim": "2026-10-13T08:38:00-03:00",
       "ts": "2026-10-13T11:34:31+00:00",
       "ts_fim": "2026-10-13T11:38:00+00:00",
-      "idade_horas": 841.9,
+      "idade_horas": 850.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 208,
@@ -155688,7 +156710,7 @@
       "fim": "2026-10-13T00:37:38-03:00",
       "ts": "2026-10-13T03:33:25+00:00",
       "ts_fim": "2026-10-13T03:37:38+00:00",
-      "idade_horas": 849.9,
+      "idade_horas": 858.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 253,
@@ -156681,7 +157703,7 @@
       "fim": "2026-10-12T20:02:07-03:00",
       "ts": "2026-10-12T22:58:31+00:00",
       "ts_fim": "2026-10-12T23:02:07+00:00",
-      "idade_horas": 854.5,
+      "idade_horas": 863.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 216,
@@ -157674,7 +158696,7 @@
       "fim": "2026-10-12T12:26:40-03:00",
       "ts": "2026-10-12T15:22:44+00:00",
       "ts_fim": "2026-10-12T15:26:40+00:00",
-      "idade_horas": 862.1,
+      "idade_horas": 871.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 236,
@@ -158671,7 +159693,7 @@
       "fim": "2026-10-12T02:58:54-03:00",
       "ts": "2026-10-12T05:55:59+00:00",
       "ts_fim": "2026-10-12T05:58:54+00:00",
-      "idade_horas": 871.6,
+      "idade_horas": 880.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 174,
@@ -159664,7 +160686,7 @@
       "fim": "2026-10-11T20:45:40-03:00",
       "ts": "2026-10-11T23:42:28+00:00",
       "ts_fim": "2026-10-11T23:45:40+00:00",
-      "idade_horas": 877.8,
+      "idade_horas": 886.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 192,
@@ -160657,7 +161679,7 @@
       "fim": "2026-10-11T17:19:10-03:00",
       "ts": "2026-10-11T20:15:59+00:00",
       "ts_fim": "2026-10-11T20:19:10+00:00",
-      "idade_horas": 881.2,
+      "idade_horas": 890.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 191,
@@ -161650,7 +162672,7 @@
       "fim": "2026-10-11T12:42:58-03:00",
       "ts": "2026-10-11T15:39:51+00:00",
       "ts_fim": "2026-10-11T15:42:58+00:00",
-      "idade_horas": 885.8,
+      "idade_horas": 894.7,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 187,
@@ -162637,7 +163659,7 @@
       "fim": "2026-10-11T05:52:49-03:00",
       "ts": "2026-10-11T08:49:11+00:00",
       "ts_fim": "2026-10-11T08:52:49+00:00",
-      "idade_horas": 892.7,
+      "idade_horas": 901.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 218,
@@ -163630,7 +164652,7 @@
       "fim": "2026-10-10T22:56:14-03:00",
       "ts": "2026-10-11T01:52:40+00:00",
       "ts_fim": "2026-10-11T01:56:14+00:00",
-      "idade_horas": 899.6,
+      "idade_horas": 908.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 213,
@@ -164623,7 +165645,7 @@
       "fim": "2026-10-10T19:34:21-03:00",
       "ts": "2026-10-10T22:30:37+00:00",
       "ts_fim": "2026-10-10T22:34:21+00:00",
-      "idade_horas": 903.0,
+      "idade_horas": 911.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 223,
@@ -165616,7 +166638,7 @@
       "fim": "2026-10-10T15:37:57-03:00",
       "ts": "2026-10-10T18:34:52+00:00",
       "ts_fim": "2026-10-10T18:37:57+00:00",
-      "idade_horas": 906.9,
+      "idade_horas": 915.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 184,
@@ -166609,7 +167631,7 @@
       "fim": "2026-10-10T10:43:20-03:00",
       "ts": "2026-10-10T13:40:18+00:00",
       "ts_fim": "2026-10-10T13:43:20+00:00",
-      "idade_horas": 911.8,
+      "idade_horas": 920.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 181,
@@ -167602,7 +168624,7 @@
       "fim": "2026-10-10T04:09:39-03:00",
       "ts": "2026-10-10T07:05:58+00:00",
       "ts_fim": "2026-10-10T07:09:39+00:00",
-      "idade_horas": 918.4,
+      "idade_horas": 927.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 221,
@@ -168595,7 +169617,7 @@
       "fim": "2026-10-09T21:52:44-03:00",
       "ts": "2026-10-10T00:49:42+00:00",
       "ts_fim": "2026-10-10T00:52:44+00:00",
-      "idade_horas": 924.7,
+      "idade_horas": 933.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 182,
@@ -169588,7 +170610,7 @@
       "fim": "2026-10-09T17:57:26-03:00",
       "ts": "2026-10-09T20:53:31+00:00",
       "ts_fim": "2026-10-09T20:57:26+00:00",
-      "idade_horas": 928.6,
+      "idade_horas": 937.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 235,
@@ -170581,7 +171603,7 @@
       "fim": "2026-10-09T13:15:58-03:00",
       "ts": "2026-10-09T16:11:40+00:00",
       "ts_fim": "2026-10-09T16:15:58+00:00",
-      "idade_horas": 933.3,
+      "idade_horas": 942.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 257,
@@ -171574,7 +172596,7 @@
       "fim": "2026-10-09T08:31:46-03:00",
       "ts": "2026-10-09T11:27:40+00:00",
       "ts_fim": "2026-10-09T11:31:46+00:00",
-      "idade_horas": 938.0,
+      "idade_horas": 946.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 245,
@@ -172572,7 +173594,7 @@
       "fim": "2026-10-09T06:06:50-03:00",
       "ts": "2026-10-09T09:02:35+00:00",
       "ts_fim": "2026-10-09T09:06:50+00:00",
-      "idade_horas": 940.4,
+      "idade_horas": 949.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 254,
@@ -173576,7 +174598,7 @@
       "fim": "2026-10-08T23:12:30-03:00",
       "ts": "2026-10-09T02:08:54+00:00",
       "ts_fim": "2026-10-09T02:12:30+00:00",
-      "idade_horas": 947.3,
+      "idade_horas": 956.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 215,
@@ -174573,7 +175595,7 @@
       "fim": "2026-10-08T18:22:48-03:00",
       "ts": "2026-10-08T21:19:21+00:00",
       "ts_fim": "2026-10-08T21:22:48+00:00",
-      "idade_horas": 952.2,
+      "idade_horas": 961.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 207,
@@ -175578,7 +176600,7 @@
       "fim": "2026-10-08T12:39:45-03:00",
       "ts": "2026-10-08T15:35:59+00:00",
       "ts_fim": "2026-10-08T15:39:45+00:00",
-      "idade_horas": 957.9,
+      "idade_horas": 966.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 226,
@@ -176571,7 +177593,7 @@
       "fim": "2026-10-08T04:27:22-03:00",
       "ts": "2026-10-08T07:23:48+00:00",
       "ts_fim": "2026-10-08T07:27:22+00:00",
-      "idade_horas": 966.1,
+      "idade_horas": 975.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 214,
@@ -177564,7 +178586,7 @@
       "fim": "2026-10-07T22:03:16-03:00",
       "ts": "2026-10-08T00:59:41+00:00",
       "ts_fim": "2026-10-08T01:03:16+00:00",
-      "idade_horas": 972.5,
+      "idade_horas": 981.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 215,
@@ -178557,7 +179579,7 @@
       "fim": "2026-10-07T17:40:06-03:00",
       "ts": "2026-10-07T20:37:06+00:00",
       "ts_fim": "2026-10-07T20:40:06+00:00",
-      "idade_horas": 976.9,
+      "idade_horas": 985.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 179,
@@ -179550,7 +180572,7 @@
       "fim": "2026-10-07T11:35:12-03:00",
       "ts": "2026-10-07T14:31:31+00:00",
       "ts_fim": "2026-10-07T14:35:12+00:00",
-      "idade_horas": 983.0,
+      "idade_horas": 991.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 220,
@@ -180543,7 +181565,7 @@
       "fim": "2026-10-07T04:16:47-03:00",
       "ts": "2026-10-07T07:13:47+00:00",
       "ts_fim": "2026-10-07T07:16:47+00:00",
-      "idade_horas": 990.3,
+      "idade_horas": 999.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 179,
@@ -181536,7 +182558,7 @@
       "fim": "2026-10-06T21:45:09-03:00",
       "ts": "2026-10-07T00:41:50+00:00",
       "ts_fim": "2026-10-07T00:45:09+00:00",
-      "idade_horas": 996.8,
+      "idade_horas": 1005.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 198,
@@ -182529,7 +183551,7 @@
       "fim": "2026-10-06T17:23:22-03:00",
       "ts": "2026-10-06T20:19:00+00:00",
       "ts_fim": "2026-10-06T20:23:22+00:00",
-      "idade_horas": 1001.2,
+      "idade_horas": 1010.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 262,
@@ -183522,7 +184544,7 @@
       "fim": "2026-10-06T12:15:07-03:00",
       "ts": "2026-10-06T15:11:13+00:00",
       "ts_fim": "2026-10-06T15:15:07+00:00",
-      "idade_horas": 1006.3,
+      "idade_horas": 1015.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 234,
@@ -184515,7 +185537,7 @@
       "fim": "2026-10-06T04:36:58-03:00",
       "ts": "2026-10-06T07:33:58+00:00",
       "ts_fim": "2026-10-06T07:36:58+00:00",
-      "idade_horas": 1013.9,
+      "idade_horas": 1022.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 180,
@@ -185508,7 +186530,7 @@
       "fim": "2026-10-05T21:52:08-03:00",
       "ts": "2026-10-06T00:48:34+00:00",
       "ts_fim": "2026-10-06T00:52:08+00:00",
-      "idade_horas": 1020.7,
+      "idade_horas": 1029.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 213,
@@ -186501,7 +187523,7 @@
       "fim": "2026-10-05T15:30:51-03:00",
       "ts": "2026-10-05T18:26:50+00:00",
       "ts_fim": "2026-10-05T18:30:51+00:00",
-      "idade_horas": 1027.0,
+      "idade_horas": 1035.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 240,
@@ -187494,7 +188516,7 @@
       "fim": "2026-10-05T06:05:54-03:00",
       "ts": "2026-10-05T09:02:45+00:00",
       "ts_fim": "2026-10-05T09:05:54+00:00",
-      "idade_horas": 1036.4,
+      "idade_horas": 1045.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 188,
@@ -188487,7 +189509,7 @@
       "fim": "2026-10-04T23:02:28-03:00",
       "ts": "2026-10-05T02:00:05+00:00",
       "ts_fim": "2026-10-05T02:02:28+00:00",
-      "idade_horas": 1043.5,
+      "idade_horas": 1052.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 142,
@@ -189458,7 +190480,7 @@
       "fim": "2026-10-04T20:14:34-03:00",
       "ts": "2026-10-04T23:08:46+00:00",
       "ts_fim": "2026-10-04T23:14:34+00:00",
-      "idade_horas": 1046.3,
+      "idade_horas": 1055.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 347,
@@ -190454,7 +191476,7 @@
       "fim": "2026-10-04T16:39:50-03:00",
       "ts": "2026-10-04T19:36:23+00:00",
       "ts_fim": "2026-10-04T19:39:50+00:00",
-      "idade_horas": 1049.9,
+      "idade_horas": 1058.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 206,
@@ -191447,7 +192469,7 @@
       "fim": "2026-10-04T12:25:06-03:00",
       "ts": "2026-10-04T15:21:53+00:00",
       "ts_fim": "2026-10-04T15:25:06+00:00",
-      "idade_horas": 1054.1,
+      "idade_horas": 1063.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 192,
@@ -192440,7 +193462,7 @@
       "fim": "2026-10-04T06:49:12-03:00",
       "ts": "2026-10-04T09:46:19+00:00",
       "ts_fim": "2026-10-04T09:49:12+00:00",
-      "idade_horas": 1059.7,
+      "idade_horas": 1068.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 173,
@@ -193433,7 +194455,7 @@
       "fim": "2026-10-03T23:41:59-03:00",
       "ts": "2026-10-04T02:38:19+00:00",
       "ts_fim": "2026-10-04T02:41:59+00:00",
-      "idade_horas": 1066.8,
+      "idade_horas": 1075.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 220,
@@ -194426,7 +195448,7 @@
       "fim": "2026-10-03T20:06:37-03:00",
       "ts": "2026-10-03T23:03:11+00:00",
       "ts_fim": "2026-10-03T23:06:37+00:00",
-      "idade_horas": 1070.4,
+      "idade_horas": 1079.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 206,
@@ -195419,7 +196441,7 @@
       "fim": "2026-10-03T17:00:23-03:00",
       "ts": "2026-10-03T19:57:26+00:00",
       "ts_fim": "2026-10-03T20:00:23+00:00",
-      "idade_horas": 1073.5,
+      "idade_horas": 1082.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 176,
@@ -196412,7 +197434,7 @@
       "fim": "2026-10-03T14:18:51-03:00",
       "ts": "2026-10-03T17:15:55+00:00",
       "ts_fim": "2026-10-03T17:18:51+00:00",
-      "idade_horas": 1076.2,
+      "idade_horas": 1085.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 175,
@@ -197405,7 +198427,7 @@
       "fim": "2026-10-03T09:37:50-03:00",
       "ts": "2026-10-03T12:33:15+00:00",
       "ts_fim": "2026-10-03T12:37:50+00:00",
-      "idade_horas": 1080.9,
+      "idade_horas": 1089.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 274,
@@ -198405,7 +199427,7 @@
       "fim": "2026-10-03T03:35:53-03:00",
       "ts": "2026-10-03T06:32:07+00:00",
       "ts_fim": "2026-10-03T06:35:53+00:00",
-      "idade_horas": 1086.9,
+      "idade_horas": 1095.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 226,
@@ -199398,7 +200420,7 @@
       "fim": "2026-10-02T21:33:17-03:00",
       "ts": "2026-10-03T00:29:51+00:00",
       "ts_fim": "2026-10-03T00:33:17+00:00",
-      "idade_horas": 1093.0,
+      "idade_horas": 1101.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 206,
@@ -200391,7 +201413,7 @@
       "fim": "2026-10-02T17:47:19-03:00",
       "ts": "2026-10-02T20:44:04+00:00",
       "ts_fim": "2026-10-02T20:47:19+00:00",
-      "idade_horas": 1096.8,
+      "idade_horas": 1105.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 195,
@@ -201384,7 +202406,7 @@
       "fim": "2026-10-02T12:51:47-03:00",
       "ts": "2026-10-02T15:48:18+00:00",
       "ts_fim": "2026-10-02T15:51:47+00:00",
-      "idade_horas": 1101.7,
+      "idade_horas": 1110.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 209,
@@ -202377,7 +203399,7 @@
       "fim": "2026-10-02T11:56:07-03:00",
       "ts": "2026-10-02T14:52:28+00:00",
       "ts_fim": "2026-10-02T14:56:07+00:00",
-      "idade_horas": 1102.6,
+      "idade_horas": 1111.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 219,
@@ -203384,7 +204406,7 @@
       "fim": "2026-10-02T05:37:45-03:00",
       "ts": "2026-10-02T08:34:48+00:00",
       "ts_fim": "2026-10-02T08:37:45+00:00",
-      "idade_horas": 1108.9,
+      "idade_horas": 1117.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 177,
@@ -204377,7 +205399,7 @@
       "fim": "2026-10-01T23:18:02-03:00",
       "ts": "2026-10-02T02:15:02+00:00",
       "ts_fim": "2026-10-02T02:18:02+00:00",
-      "idade_horas": 1115.2,
+      "idade_horas": 1124.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 180,
@@ -205370,7 +206392,7 @@
       "fim": "2026-10-01T20:15:20-03:00",
       "ts": "2026-10-01T23:11:54+00:00",
       "ts_fim": "2026-10-01T23:15:20+00:00",
-      "idade_horas": 1118.3,
+      "idade_horas": 1127.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 206,
@@ -206363,7 +207385,7 @@
       "fim": "2026-10-01T15:56:27-03:00",
       "ts": "2026-10-01T18:53:14+00:00",
       "ts_fim": "2026-10-01T18:56:27+00:00",
-      "idade_horas": 1122.6,
+      "idade_horas": 1131.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 192,
@@ -207356,7 +208378,7 @@
       "fim": "2026-10-01T12:33:25-03:00",
       "ts": "2026-10-01T15:30:31+00:00",
       "ts_fim": "2026-10-01T15:33:25+00:00",
-      "idade_horas": 1126.0,
+      "idade_horas": 1134.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 174,
@@ -208349,7 +209371,7 @@
       "fim": "2026-10-01T12:27:04-03:00",
       "ts": "2026-10-01T15:23:53+00:00",
       "ts_fim": "2026-10-01T15:27:04+00:00",
-      "idade_horas": 1126.1,
+      "idade_horas": 1135.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 191,
@@ -209342,7 +210364,7 @@
       "fim": "2026-09-30T20:51:23-03:00",
       "ts": "2026-09-30T23:48:24+00:00",
       "ts_fim": "2026-09-30T23:51:23+00:00",
-      "idade_horas": 1141.7,
+      "idade_horas": 1150.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 179,
@@ -210335,7 +211357,7 @@
       "fim": "2026-09-30T16:25:05-03:00",
       "ts": "2026-09-30T19:18:54+00:00",
       "ts_fim": "2026-09-30T19:25:05+00:00",
-      "idade_horas": 1146.1,
+      "idade_horas": 1155.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 371,
@@ -211330,7 +212352,7 @@
       "fim": "2026-09-30T13:15:04-03:00",
       "ts": "2026-09-30T16:10:57+00:00",
       "ts_fim": "2026-09-30T16:15:04+00:00",
-      "idade_horas": 1149.3,
+      "idade_horas": 1158.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 246,
@@ -212329,7 +213351,7 @@
       "fim": "2026-09-29T12:54:10-03:00",
       "ts": "2026-09-29T15:50:53+00:00",
       "ts_fim": "2026-09-29T15:54:10+00:00",
-      "idade_horas": 1173.6,
+      "idade_horas": 1182.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 196,
@@ -213322,7 +214344,7 @@
       "fim": "2026-09-29T05:31:41-03:00",
       "ts": "2026-09-29T08:29:13+00:00",
       "ts_fim": "2026-09-29T08:31:41+00:00",
-      "idade_horas": 1181.0,
+      "idade_horas": 1189.9,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 148,
@@ -213917,7 +214939,7 @@
       "fim": "2026-09-28T22:59:20-03:00",
       "ts": "2026-09-29T01:56:32+00:00",
       "ts_fim": "2026-09-29T01:59:20+00:00",
-      "idade_horas": 1187.6,
+      "idade_horas": 1196.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 167,
@@ -214517,7 +215539,7 @@
       "fim": "2026-09-28T19:04:22-03:00",
       "ts": "2026-09-28T21:59:52+00:00",
       "ts_fim": "2026-09-28T22:04:22+00:00",
-      "idade_horas": 1191.5,
+      "idade_horas": 1200.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 269,
@@ -215434,7 +216456,7 @@
       "fim": "2026-09-28T12:30:22-03:00",
       "ts": "2026-09-28T15:26:54+00:00",
       "ts_fim": "2026-09-28T15:30:22+00:00",
-      "idade_horas": 1198.0,
+      "idade_horas": 1206.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 207,
@@ -216428,7 +217450,7 @@
       "fim": "2026-09-28T03:55:52-03:00",
       "ts": "2026-09-28T06:52:51+00:00",
       "ts_fim": "2026-09-28T06:55:52+00:00",
-      "idade_horas": 1206.6,
+      "idade_horas": 1215.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 181,
@@ -217422,7 +218444,7 @@
       "fim": "2026-09-27T21:49:20-03:00",
       "ts": "2026-09-28T00:45:13+00:00",
       "ts_fim": "2026-09-28T00:49:20+00:00",
-      "idade_horas": 1212.7,
+      "idade_horas": 1221.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 246,
@@ -218416,7 +219438,7 @@
       "fim": "2026-09-27T19:13:10-03:00",
       "ts": "2026-09-27T22:09:48+00:00",
       "ts_fim": "2026-09-27T22:13:10+00:00",
-      "idade_horas": 1215.3,
+      "idade_horas": 1224.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 202,
@@ -219410,7 +220432,7 @@
       "fim": "2026-09-27T15:26:01-03:00",
       "ts": "2026-09-27T18:23:16+00:00",
       "ts_fim": "2026-09-27T18:26:01+00:00",
-      "idade_horas": 1219.1,
+      "idade_horas": 1228.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 164,
@@ -220404,7 +221426,7 @@
       "fim": "2026-09-27T11:01:26-03:00",
       "ts": "2026-09-27T13:57:47+00:00",
       "ts_fim": "2026-09-27T14:01:26+00:00",
-      "idade_horas": 1223.5,
+      "idade_horas": 1232.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 219,
@@ -221398,7 +222420,7 @@
       "fim": "2026-09-27T05:11:09-03:00",
       "ts": "2026-09-27T08:08:54+00:00",
       "ts_fim": "2026-09-27T08:11:09+00:00",
-      "idade_horas": 1229.4,
+      "idade_horas": 1238.2,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 134,
@@ -222370,7 +223392,7 @@
       "fim": "2026-09-26T22:29:38-03:00",
       "ts": "2026-09-27T01:26:24+00:00",
       "ts_fim": "2026-09-27T01:29:38+00:00",
-      "idade_horas": 1236.0,
+      "idade_horas": 1244.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 193,
@@ -223364,7 +224386,7 @@
       "fim": "2026-09-26T19:52:15-03:00",
       "ts": "2026-09-26T22:49:15+00:00",
       "ts_fim": "2026-09-26T22:52:15+00:00",
-      "idade_horas": 1238.7,
+      "idade_horas": 1247.6,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 180,
@@ -224321,7 +225343,7 @@
       "fim": "2026-09-26T16:54:47-03:00",
       "ts": "2026-09-26T19:51:20+00:00",
       "ts_fim": "2026-09-26T19:54:47+00:00",
-      "idade_horas": 1241.6,
+      "idade_horas": 1250.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 206,
@@ -225315,7 +226337,7 @@
       "fim": "2026-09-26T14:13:01-03:00",
       "ts": "2026-09-26T17:09:49+00:00",
       "ts_fim": "2026-09-26T17:13:01+00:00",
-      "idade_horas": 1244.3,
+      "idade_horas": 1253.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 191,
@@ -226309,7 +227331,7 @@
       "fim": "2026-09-26T10:08:15-03:00",
       "ts": "2026-09-26T13:04:44+00:00",
       "ts_fim": "2026-09-26T13:08:15+00:00",
-      "idade_horas": 1248.4,
+      "idade_horas": 1257.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 211,
@@ -227303,7 +228325,7 @@
       "fim": "2026-09-26T04:43:25-03:00",
       "ts": "2026-09-26T07:40:12+00:00",
       "ts_fim": "2026-09-26T07:43:25+00:00",
-      "idade_horas": 1253.8,
+      "idade_horas": 1262.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 192,
@@ -228297,7 +229319,7 @@
       "fim": "2026-09-25T22:35:40-03:00",
       "ts": "2026-09-26T01:32:49+00:00",
       "ts_fim": "2026-09-26T01:35:40+00:00",
-      "idade_horas": 1259.9,
+      "idade_horas": 1268.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 170,
@@ -229291,7 +230313,7 @@
       "fim": "2026-09-25T19:21:39-03:00",
       "ts": "2026-09-25T22:19:25+00:00",
       "ts_fim": "2026-09-25T22:21:39+00:00",
-      "idade_horas": 1263.2,
+      "idade_horas": 1272.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 134,
@@ -230263,7 +231285,7 @@
       "fim": "2026-09-25T15:38:25-03:00",
       "ts": "2026-09-25T18:36:00+00:00",
       "ts_fim": "2026-09-25T18:38:25+00:00",
-      "idade_horas": 1266.9,
+      "idade_horas": 1275.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 144,
@@ -231235,7 +232257,7 @@
       "fim": "2026-09-25T10:50:13-03:00",
       "ts": "2026-09-25T13:46:34+00:00",
       "ts_fim": "2026-09-25T13:50:13+00:00",
-      "idade_horas": 1271.7,
+      "idade_horas": 1280.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 218,
@@ -232229,7 +233251,7 @@
       "fim": "2026-09-25T04:50:29-03:00",
       "ts": "2026-09-25T07:47:27+00:00",
       "ts_fim": "2026-09-25T07:50:29+00:00",
-      "idade_horas": 1277.7,
+      "idade_horas": 1286.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 182,
@@ -233223,7 +234245,7 @@
       "fim": "2026-09-24T22:33:24-03:00",
       "ts": "2026-09-25T01:29:37+00:00",
       "ts_fim": "2026-09-25T01:33:24+00:00",
-      "idade_horas": 1284.0,
+      "idade_horas": 1292.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 227,
@@ -234217,7 +235239,7 @@
       "fim": "2026-09-24T19:26:05-03:00",
       "ts": "2026-09-24T22:23:34+00:00",
       "ts_fim": "2026-09-24T22:26:05+00:00",
-      "idade_horas": 1287.1,
+      "idade_horas": 1296.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 150,
@@ -235189,7 +236211,7 @@
       "fim": "2026-09-24T16:12:32-03:00",
       "ts": "2026-09-24T19:09:21+00:00",
       "ts_fim": "2026-09-24T19:12:32+00:00",
-      "idade_horas": 1290.3,
+      "idade_horas": 1299.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 190,
@@ -236183,7 +237205,7 @@
       "fim": "2026-09-24T12:08:52-03:00",
       "ts": "2026-09-24T15:05:28+00:00",
       "ts_fim": "2026-09-24T15:08:52+00:00",
-      "idade_horas": 1294.4,
+      "idade_horas": 1303.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 203,
@@ -237177,7 +238199,7 @@
       "fim": "2026-09-24T07:03:34-03:00",
       "ts": "2026-09-24T10:00:39+00:00",
       "ts_fim": "2026-09-24T10:03:34+00:00",
-      "idade_horas": 1299.5,
+      "idade_horas": 1308.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 174,
@@ -238171,7 +239193,7 @@
       "fim": "2026-09-24T01:52:03-03:00",
       "ts": "2026-09-24T04:49:03+00:00",
       "ts_fim": "2026-09-24T04:52:03+00:00",
-      "idade_horas": 1304.7,
+      "idade_horas": 1313.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 180,
@@ -239165,7 +240187,7 @@
       "fim": "2026-09-23T20:44:44-03:00",
       "ts": "2026-09-23T23:41:28+00:00",
       "ts_fim": "2026-09-23T23:44:44+00:00",
-      "idade_horas": 1309.8,
+      "idade_horas": 1318.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 195,
@@ -240159,7 +241181,7 @@
       "fim": "2026-09-23T17:24:54-03:00",
       "ts": "2026-09-23T20:21:24+00:00",
       "ts_fim": "2026-09-23T20:24:54+00:00",
-      "idade_horas": 1313.1,
+      "idade_horas": 1322.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 209,
@@ -241153,7 +242175,7 @@
       "fim": "2026-09-23T14:01:37-03:00",
       "ts": "2026-09-23T16:57:14+00:00",
       "ts_fim": "2026-09-23T17:01:37+00:00",
-      "idade_horas": 1316.5,
+      "idade_horas": 1325.4,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 263,
@@ -242151,7 +243173,7 @@
       "fim": "2026-09-23T08:39:02-03:00",
       "ts": "2026-09-23T11:34:47+00:00",
       "ts_fim": "2026-09-23T11:39:02+00:00",
-      "idade_horas": 1321.9,
+      "idade_horas": 1330.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 254,
@@ -243108,7 +244130,7 @@
       "fim": "2026-09-23T03:01:01-03:00",
       "ts": "2026-09-23T05:57:50+00:00",
       "ts_fim": "2026-09-23T06:01:01+00:00",
-      "idade_horas": 1327.5,
+      "idade_horas": 1336.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 191,
@@ -244102,7 +245124,7 @@
       "fim": "2026-09-22T21:35:16-03:00",
       "ts": "2026-09-23T00:32:26+00:00",
       "ts_fim": "2026-09-23T00:35:16+00:00",
-      "idade_horas": 1333.0,
+      "idade_horas": 1341.8,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 169,
@@ -245053,7 +246075,7 @@
       "fim": "2026-09-22T18:24:24-03:00",
       "ts": "2026-09-22T21:17:59+00:00",
       "ts_fim": "2026-09-22T21:24:24+00:00",
-      "idade_horas": 1336.1,
+      "idade_horas": 1345.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 385,
@@ -245985,7 +247007,7 @@
       "fim": "2026-09-22T15:07:05-03:00",
       "ts": "2026-09-22T18:04:45+00:00",
       "ts_fim": "2026-09-22T18:07:05+00:00",
-      "idade_horas": 1339.4,
+      "idade_horas": 1348.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 140,
@@ -246957,7 +247979,7 @@
       "fim": "2026-09-22T10:27:22-03:00",
       "ts": "2026-09-22T13:24:28+00:00",
       "ts_fim": "2026-09-22T13:27:22+00:00",
-      "idade_horas": 1344.1,
+      "idade_horas": 1353.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 174,
@@ -247951,7 +248973,7 @@
       "fim": "2026-09-22T04:45:04-03:00",
       "ts": "2026-09-22T07:42:05+00:00",
       "ts_fim": "2026-09-22T07:45:04+00:00",
-      "idade_horas": 1349.8,
+      "idade_horas": 1358.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 178,
@@ -248945,7 +249967,7 @@
       "fim": "2026-09-21T22:41:25-03:00",
       "ts": "2026-09-22T01:38:27+00:00",
       "ts_fim": "2026-09-22T01:41:25+00:00",
-      "idade_horas": 1355.9,
+      "idade_horas": 1364.7,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 178,
@@ -249939,7 +250961,7 @@
       "fim": "2026-09-21T20:18:51-03:00",
       "ts": "2026-09-21T23:16:35+00:00",
       "ts_fim": "2026-09-21T23:18:51+00:00",
-      "idade_horas": 1358.2,
+      "idade_horas": 1367.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 135,
@@ -250911,7 +251933,7 @@
       "fim": "2026-09-21T16:30:08-03:00",
       "ts": "2026-09-21T19:27:10+00:00",
       "ts_fim": "2026-09-21T19:30:08+00:00",
-      "idade_horas": 1362.0,
+      "idade_horas": 1370.9,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 178,
@@ -251905,7 +252927,7 @@
       "fim": "2026-09-21T11:11:34-03:00",
       "ts": "2026-09-21T14:07:59+00:00",
       "ts_fim": "2026-09-21T14:11:34+00:00",
-      "idade_horas": 1367.3,
+      "idade_horas": 1376.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 215,
@@ -252899,7 +253921,7 @@
       "fim": "2026-09-21T03:22:21-03:00",
       "ts": "2026-09-21T06:19:58+00:00",
       "ts_fim": "2026-09-21T06:22:21+00:00",
-      "idade_horas": 1375.2,
+      "idade_horas": 1384.1,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 143,
@@ -253871,7 +254893,7 @@
       "fim": "2026-09-20T22:12:52-03:00",
       "ts": "2026-09-21T01:08:56+00:00",
       "ts_fim": "2026-09-21T01:12:52+00:00",
-      "idade_horas": 1380.3,
+      "idade_horas": 1389.2,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 236,
@@ -254865,7 +255887,7 @@
       "fim": "2026-09-20T20:19:32-03:00",
       "ts": "2026-09-20T23:15:05+00:00",
       "ts_fim": "2026-09-20T23:19:32+00:00",
-      "idade_horas": 1382.2,
+      "idade_horas": 1391.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 266,
@@ -255859,7 +256881,7 @@
       "fim": "2026-09-20T17:51:33-03:00",
       "ts": "2026-09-20T20:48:33+00:00",
       "ts_fim": "2026-09-20T20:51:33+00:00",
-      "idade_horas": 1384.7,
+      "idade_horas": 1393.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 179,
@@ -256853,7 +257875,7 @@
       "fim": "2026-09-20T15:53:12-03:00",
       "ts": "2026-09-20T18:50:59+00:00",
       "ts_fim": "2026-09-20T18:53:12+00:00",
-      "idade_horas": 1386.7,
+      "idade_horas": 1395.5,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 132,
@@ -257825,7 +258847,7 @@
       "fim": "2026-09-20T15:44:29-03:00",
       "ts": "2026-09-20T18:37:29+00:00",
       "ts_fim": "2026-09-20T18:44:29+00:00",
-      "idade_horas": 1386.8,
+      "idade_horas": 1395.7,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 419,
@@ -258356,7 +259378,7 @@
       "fim": "2026-09-20T15:24:08-03:00",
       "ts": "2026-09-20T18:00:37+00:00",
       "ts_fim": "2026-09-20T18:24:08+00:00",
-      "idade_horas": 1387.1,
+      "idade_horas": 1396.0,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 1411,
@@ -258984,7 +260006,7 @@
       "fim": "2026-09-20T14:02:36-03:00",
       "ts": "2026-09-20T16:59:09+00:00",
       "ts_fim": "2026-09-20T17:02:36+00:00",
-      "idade_horas": 1388.5,
+      "idade_horas": 1397.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 207,
@@ -259963,7 +260985,7 @@
       "fim": "2026-09-20T11:17:22-03:00",
       "ts": "2026-09-20T14:14:11+00:00",
       "ts_fim": "2026-09-20T14:17:22+00:00",
-      "idade_horas": 1391.3,
+      "idade_horas": 1400.1,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 190,
@@ -260942,7 +261964,7 @@
       "fim": "2026-09-18T11:35:09-03:00",
       "ts": "2026-09-18T14:31:05+00:00",
       "ts_fim": "2026-09-18T14:35:09+00:00",
-      "idade_horas": 1439.0,
+      "idade_horas": 1447.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 243,
@@ -261921,7 +262943,7 @@
       "fim": "2026-09-17T20:45:35-03:00",
       "ts": "2026-09-17T23:41:49+00:00",
       "ts_fim": "2026-09-17T23:45:35+00:00",
-      "idade_horas": 1453.8,
+      "idade_horas": 1462.7,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 226,
@@ -262873,7 +263895,7 @@
       "fim": "2026-09-17T15:08:40-03:00",
       "ts": "2026-09-17T17:45:10+00:00",
       "ts_fim": "2026-09-17T18:08:40+00:00",
-      "idade_horas": 1459.4,
+      "idade_horas": 1468.3,
       "tipo": "atualizacao",
       "status": "parcial",
       "duracao_segundos": 1410,
@@ -263359,7 +264381,7 @@
       "fim": "2026-09-17T12:02:34-03:00",
       "ts": "2026-09-17T14:59:28+00:00",
       "ts_fim": "2026-09-17T15:02:34+00:00",
-      "idade_horas": 1462.5,
+      "idade_horas": 1471.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 185,
@@ -263857,7 +264879,7 @@
       "fim": "2026-09-16T20:53:36-03:00",
       "ts": "2026-09-16T23:51:13+00:00",
       "ts_fim": "2026-09-16T23:53:36+00:00",
-      "idade_horas": 1477.6,
+      "idade_horas": 1486.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 143,
@@ -264355,7 +265377,7 @@
       "fim": "2026-09-16T14:47:13-03:00",
       "ts": "2026-09-16T17:45:02+00:00",
       "ts_fim": "2026-09-16T17:47:13+00:00",
-      "idade_horas": 1483.8,
+      "idade_horas": 1492.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 130,
@@ -264853,7 +265875,7 @@
       "fim": "2026-09-16T12:00:58-03:00",
       "ts": "2026-09-16T14:58:03+00:00",
       "ts_fim": "2026-09-16T15:00:58+00:00",
-      "idade_horas": 1486.5,
+      "idade_horas": 1495.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 175,
@@ -265351,7 +266373,7 @@
       "fim": "2026-09-15T21:05:38-03:00",
       "ts": "2026-09-15T23:42:41+00:00",
       "ts_fim": "2026-09-16T00:05:38+00:00",
-      "idade_horas": 1501.4,
+      "idade_horas": 1510.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 1376,
@@ -265822,7 +266844,7 @@
       "fim": "2026-09-15T14:48:41-03:00",
       "ts": "2026-09-15T17:46:17+00:00",
       "ts_fim": "2026-09-15T17:48:41+00:00",
-      "idade_horas": 1507.7,
+      "idade_horas": 1516.6,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 144,
@@ -266320,7 +267342,7 @@
       "fim": "2026-09-15T12:02:20-03:00",
       "ts": "2026-09-15T14:59:55+00:00",
       "ts_fim": "2026-09-15T15:02:20+00:00",
-      "idade_horas": 1510.5,
+      "idade_horas": 1519.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 144,
@@ -266818,7 +267840,7 @@
       "fim": "2026-09-14T21:02:08-03:00",
       "ts": "2026-09-14T23:59:06+00:00",
       "ts_fim": "2026-09-15T00:02:08+00:00",
-      "idade_horas": 1525.5,
+      "idade_horas": 1534.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 181,
@@ -267316,7 +268338,7 @@
       "fim": "2026-09-14T18:05:38-03:00",
       "ts": "2026-09-14T21:03:20+00:00",
       "ts_fim": "2026-09-14T21:05:38+00:00",
-      "idade_horas": 1528.4,
+      "idade_horas": 1537.3,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 138,
@@ -267819,7 +268841,7 @@
       "fim": "2026-09-14T13:24:35-03:00",
       "ts": "2026-09-14T16:22:06+00:00",
       "ts_fim": "2026-09-14T16:24:35+00:00",
-      "idade_horas": 1533.1,
+      "idade_horas": 1542.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 149,
@@ -268317,7 +269339,7 @@
       "fim": "2026-09-13T11:25:21-03:00",
       "ts": "2026-09-13T14:22:35+00:00",
       "ts_fim": "2026-09-13T14:25:21+00:00",
-      "idade_horas": 1559.1,
+      "idade_horas": 1568.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 165,
@@ -268815,7 +269837,7 @@
       "fim": "2026-09-12T10:59:39-03:00",
       "ts": "2026-09-12T13:36:15+00:00",
       "ts_fim": "2026-09-12T13:59:39+00:00",
-      "idade_horas": 1583.5,
+      "idade_horas": 1592.4,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 1403,
@@ -269286,7 +270308,7 @@
       "fim": "2026-09-11T11:28:31-03:00",
       "ts": "2026-09-11T14:25:39+00:00",
       "ts_fim": "2026-09-11T14:28:31+00:00",
-      "idade_horas": 1607.1,
+      "idade_horas": 1616.0,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 172,
@@ -269784,7 +270806,7 @@
       "fim": "2026-09-10T13:39:49-03:00",
       "ts": "2026-09-10T16:35:09+00:00",
       "ts_fim": "2026-09-10T16:39:49+00:00",
-      "idade_horas": 1628.9,
+      "idade_horas": 1637.8,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": 280,
@@ -270287,7 +271309,7 @@
       "fim": null,
       "ts": "2026-09-10T02:58:22+00:00",
       "ts_fim": null,
-      "idade_horas": 1642.6,
+      "idade_horas": 1651.5,
       "tipo": "atualizacao",
       "status": "concluida",
       "duracao_segundos": null,
@@ -270323,7 +271345,7 @@
       "fim": null,
       "ts": "2026-09-08T03:00:00+00:00",
       "ts_fim": null,
-      "idade_horas": 1690.5,
+      "idade_horas": 1699.4,
       "tipo": "bootstrap",
       "status": "concluida",
       "duracao_segundos": null,
@@ -270355,528 +271377,538 @@
     }
   ],
   "ultima": {
-    "id": "run_2026_11_17_1023",
-    "data_hora": "2026-11-17T10:23:50-03:00",
-    "fim": "2026-11-17T10:32:30-03:00",
-    "ts": "2026-11-17T13:23:50+00:00",
-    "ts_fim": "2026-11-17T13:32:30+00:00",
+    "id": "run_2026_11_17_1921",
+    "data_hora": "2026-11-17T19:21:51-03:00",
+    "fim": "2026-11-17T19:25:46-03:00",
+    "ts": "2026-11-17T22:21:51+00:00",
+    "ts_fim": "2026-11-17T22:25:46+00:00",
     "idade_horas": 0.0,
     "tipo": "atualizacao",
     "status": "parcial",
-    "duracao_segundos": 520,
+    "duracao_segundos": 235,
     "orcamento_segundos": 1500,
-    "verificadas": 169,
-    "monitoradas": 168,
+    "verificadas": 170,
+    "monitoradas": 169,
     "pendentes": 0,
-    "atualizadas": 2,
+    "atualizadas": 8,
     "novas": 1,
-    "mudancas": 4,
-    "eventos": 0,
+    "mudancas": 10,
+    "eventos": 1,
     "cobertura_pct": 99.4,
     "erros": 0,
-    "chamadas_http": 578,
-    "cache_http": 54,
-    "falhas_http": 0,
-    "tempo_rede_s": 455.25,
+    "chamadas_http": 582,
+    "cache_http": 57,
+    "falhas_http": 1,
+    "tempo_rede_s": 391.85,
     "por_endpoint": {
       "camara:deputados/{id}": {
         "chamadas": 39,
         "falhas": 0,
-        "tempo_total": 22.7
+        "tempo_total": 20.66
       },
       "camara:eventos": {
         "chamadas": 2,
         "falhas": 0,
-        "tempo_total": 2.38
+        "tempo_total": 4.51
       },
       "camara:proposicoes": {
-        "chamadas": 16,
+        "chamadas": 17,
         "falhas": 0,
-        "tempo_total": 23.02
+        "tempo_total": 19.16
       },
       "camara:proposicoes/{id}": {
-        "chamadas": 151,
+        "chamadas": 150,
         "falhas": 0,
-        "tempo_total": 99.92
+        "tempo_total": 84.54
+      },
+      "camara:proposicoes/{id}/autores": {
+        "chamadas": 1,
+        "falhas": 0,
+        "tempo_total": 0.46
       },
       "camara:proposicoes/{id}/tramitacoes": {
-        "chamadas": 139,
+        "chamadas": 140,
         "falhas": 0,
-        "tempo_total": 95.02
+        "tempo_total": 76.95
       },
       "camara:proposicoes/{id}/votacoes": {
         "chamadas": 139,
         "falhas": 0,
-        "tempo_total": 113.8
+        "tempo_total": 82.99
       },
       "senado:138790": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.93
+        "tempo_total": 0.7
       },
       "senado:139586": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.71
       },
       "senado:147434": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 0.78
       },
       "senado:157233": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.68
+        "tempo_total": 3.19
       },
       "senado:158816": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 0.71
       },
       "senado:164831": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.95
+        "tempo_total": 0.78
       },
       "senado:172683": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.88
+        "tempo_total": 0.7
       },
       "senado:172783": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.84
+        "tempo_total": 0.7
       },
       "senado:172838": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 0.71
       },
       "senado:172856": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.73
+        "tempo_total": 0.86
       },
       "senado:172900": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.16
+        "tempo_total": 0.7
       },
       "senado:172910": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 1.23
       },
       "senado:172996": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 0.72
       },
       "senado:173016": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.71
       },
       "senado:173045": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.98
       },
       "senado:173133": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 0.75
       },
       "senado:173258": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.31
+        "tempo_total": 0.84
       },
       "senado:173322": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.43
+        "tempo_total": 0.88
       },
       "senado:173474": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.71
       },
       "senado:173567": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.62
+        "tempo_total": 0.71
       },
       "senado:173616": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.98
+        "tempo_total": 0.8
       },
       "senado:174154": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.82
+        "tempo_total": 0.72
       },
       "senado:174212": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 0.7
       },
       "senado:174481": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.0
+        "tempo_total": 2.15
       },
       "senado:174521": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.49
+        "tempo_total": 0.69
       },
       "senado:174866": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.97
+        "tempo_total": 0.94
       },
       "senado:174922": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.86
+        "tempo_total": 0.71
       },
       "senado:174923": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.7
       },
       "senado:175362": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.71
       },
       "senado:176161": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 1.31
       },
       "senado:176384": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.82
+        "tempo_total": 0.7
       },
       "senado:movimentacoes/138790": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 2.1
+        "tempo_total": 1.8
       },
       "senado:movimentacoes/139586": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 2.2
+        "tempo_total": 1.8
       },
       "senado:movimentacoes/147434": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 2.24
+        "tempo_total": 1.98
       },
       "senado:movimentacoes/157233": {
         "chamadas": 1,
-        "falhas": 0,
-        "tempo_total": 2.11
+        "falhas": 1,
+        "tempo_total": 1.89
       },
       "senado:movimentacoes/158816": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 2.24
+        "tempo_total": 2.21
       },
       "senado:movimentacoes/164831": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.03
+        "tempo_total": 0.93
       },
       "senado:movimentacoes/172683": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.87
+        "tempo_total": 0.73
       },
       "senado:movimentacoes/172783": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.87
+        "tempo_total": 0.77
       },
       "senado:movimentacoes/172838": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 1.03
       },
       "senado:movimentacoes/172856": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.26
+        "tempo_total": 1.41
       },
       "senado:movimentacoes/172900": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.12
+        "tempo_total": 0.79
       },
       "senado:movimentacoes/172910": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.86
+        "tempo_total": 0.78
       },
       "senado:movimentacoes/172996": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.09
+        "tempo_total": 1.25
       },
       "senado:movimentacoes/173016": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.87
+        "tempo_total": 0.73
       },
       "senado:movimentacoes/173045": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.44
+        "tempo_total": 0.85
       },
       "senado:movimentacoes/173133": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.15
+        "tempo_total": 1.44
       },
       "senado:movimentacoes/173258": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.47
+        "tempo_total": 1.02
       },
       "senado:movimentacoes/173322": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.84
+        "tempo_total": 0.73
       },
       "senado:movimentacoes/173474": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.89
+        "tempo_total": 0.83
       },
       "senado:movimentacoes/173567": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.84
+        "tempo_total": 1.49
       },
       "senado:movimentacoes/173616": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 1.04
       },
       "senado:movimentacoes/174154": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 0.75
       },
       "senado:movimentacoes/174212": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 1.45
       },
       "senado:movimentacoes/174481": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.75
+        "tempo_total": 5.0
       },
       "senado:movimentacoes/174521": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.91
+        "tempo_total": 0.73
       },
       "senado:movimentacoes/174866": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.88
+        "tempo_total": 0.75
       },
       "senado:movimentacoes/174922": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.89
+        "tempo_total": 1.34
       },
       "senado:movimentacoes/174923": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.96
+        "tempo_total": 1.43
       },
       "senado:movimentacoes/175362": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.99
+        "tempo_total": 0.74
       },
       "senado:movimentacoes/176161": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 1.0
       },
       "senado:movimentacoes/176384": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 0.73
       },
       "senado:pesquisa/lista": {
         "chamadas": 3,
         "falhas": 0,
-        "tempo_total": 2.64
+        "tempo_total": 2.35
       },
       "senado:relatorias/139586": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.82
+        "tempo_total": 0.7
       },
       "senado:relatorias/147434": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 0.78
       },
       "senado:relatorias/157233": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.13
+        "tempo_total": 1.28
       },
       "senado:relatorias/158816": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.82
+        "tempo_total": 0.69
       },
       "senado:relatorias/164831": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.7
       },
       "senado:relatorias/172783": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.85
+        "tempo_total": 0.83
       },
       "senado:relatorias/172838": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.69
       },
       "senado:relatorias/172856": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.14
+        "tempo_total": 1.24
       },
       "senado:relatorias/172900": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.98
+        "tempo_total": 0.71
       },
       "senado:relatorias/172910": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.51
+        "tempo_total": 0.95
       },
       "senado:relatorias/173016": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.84
+        "tempo_total": 0.87
       },
       "senado:relatorias/173045": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.43
+        "tempo_total": 1.57
       },
       "senado:relatorias/173133": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 2.27
+        "tempo_total": 1.07
       },
       "senado:relatorias/173258": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.8
+        "tempo_total": 0.72
       },
       "senado:relatorias/173322": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.36
+        "tempo_total": 0.84
       },
       "senado:relatorias/173474": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.31
+        "tempo_total": 1.02
       },
       "senado:relatorias/173567": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.84
+        "tempo_total": 1.07
       },
       "senado:relatorias/173616": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.1
+        "tempo_total": 0.7
       },
       "senado:relatorias/174154": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.81
+        "tempo_total": 0.77
       },
       "senado:relatorias/174212": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.06
+        "tempo_total": 0.7
       },
       "senado:relatorias/174481": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 0.7
       },
       "senado:relatorias/174521": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.8
+        "tempo_total": 0.7
       },
       "senado:relatorias/174866": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.87
+        "tempo_total": 0.7
       },
       "senado:relatorias/174922": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.8
+        "tempo_total": 0.73
       },
       "senado:relatorias/174923": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.0
+        "tempo_total": 1.23
       },
       "senado:relatorias/175362": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 1.18
+        "tempo_total": 0.69
       },
       "senado:relatorias/176161": {
         "chamadas": 1,
         "falhas": 0,
-        "tempo_total": 0.83
+        "tempo_total": 1.25
+      },
+      "senado:relatorias/176384": {
+        "chamadas": 1,
+        "falhas": 0,
+        "tempo_total": 0.7
       }
     },
     "fases_segundos": {
-      "agenda_eventos": 3.0,
-      "atualizacao_proposicoes": 127.8,
-      "descoberta_camara": 10.0,
-      "descoberta_senado": 5.8,
-      "fontes_multiorgao": 373.3
+      "agenda_eventos": 5.1,
+      "atualizacao_proposicoes": 114.9,
+      "descoberta_camara": 13.0,
+      "descoberta_senado": 3.3,
+      "fontes_multiorgao": 98.5
     },
     "snapshot": {
-      "proposicoes_total": 168,
+      "proposicoes_total": 169,
       "por_situacao": {
         "aprovada_lei": 2,
         "arquivada": 9,
-        "em_tramitacao": 157
+        "em_tramitacao": 158
       },
       "normas_total": 15,
-      "eventos_total": 16,
-      "mudancas_registradas": 804
+      "eventos_total": 17,
+      "mudancas_registradas": 810
     },
     "fontes": 9,
     "engine": {
@@ -270890,16 +271922,16 @@
       "anpd": {
         "nome": "ANPD — Autoridade Nacional de Proteção de Dados",
         "status": "ok",
-        "ultima_tentativa": "2026-11-17T10:23:50-03:00",
-        "ultima_execucao_ok": "2026-11-17T10:30:03-03:00",
+        "ultima_tentativa": "2026-11-17T19:21:51-03:00",
+        "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
         "itens_consultados": 346,
         "itens_relevantes": 101,
         "itens_descartados": 135,
         "itens_duplicados": 110,
         "revisao_pendente": 27,
-        "novidades": 2,
+        "novidades": 0,
         "erros": 0,
-        "duracao_segundos": 11.4,
+        "duracao_segundos": 10.4,
         "endpoints": [
           "https://www.gov.br/anpd/++api++/@search",
           "https://www.gov.br/anpd/++api++/@search",
@@ -270988,12 +272020,12 @@
       "camara": {
         "nome": "Câmara dos Deputados — API de Dados Abertos v2",
         "status": "ok",
-        "ultima_tentativa": "2026-11-17T10:23:50-03:00",
-        "ultima_execucao_ok": "2026-11-17T10:23:50-03:00",
+        "ultima_tentativa": "2026-11-17T19:21:51-03:00",
+        "ultima_execucao_ok": "2026-11-17T19:21:51-03:00",
         "itens_consultados": 144,
-        "novidades": 0,
+        "novidades": 1,
         "erros": 0,
-        "chamadas_http": 486,
+        "chamadas_http": 488,
         "falhas_http": 0,
         "endpoints": [
           "https://dadosabertos.camara.leg.br/api/v2"
@@ -271003,8 +272035,8 @@
           "camara:eventos",
           "camara:proposicoes",
           "camara:proposicoes/{id}",
-          "camara:proposicoes/{id}/tramitacoes",
-          "camara:proposicoes/{id}/votacoes"
+          "camara:proposicoes/{id}/autores",
+          "camara:proposicoes/{id}/tramitacoes"
         ],
         "canais_falhos": [],
         "erro_detalhe": null
@@ -271012,16 +272044,16 @@
       "cnj": {
         "nome": "CNJ — Conselho Nacional de Justiça",
         "status": "ok",
-        "ultima_tentativa": "2026-11-17T10:24:02-03:00",
-        "ultima_execucao_ok": "2026-11-17T10:30:03-03:00",
+        "ultima_tentativa": "2026-11-17T19:22:02-03:00",
+        "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
         "itens_consultados": 130,
         "itens_relevantes": 17,
-        "itens_descartados": 111,
-        "itens_duplicados": 2,
-        "revisao_pendente": 12,
-        "novidades": 0,
+        "itens_descartados": 113,
+        "itens_duplicados": 0,
+        "revisao_pendente": 13,
+        "novidades": 2,
         "erros": 0,
-        "duracao_segundos": 4.4,
+        "duracao_segundos": 4.2,
         "endpoints": [
           "https://atos.cnj.jus.br/api/atos",
           "https://atos.cnj.jus.br/api/atos",
@@ -271035,14 +272067,14 @@
             "url": "https://atos.cnj.jus.br/api/atos",
             "itens_brutos": 10,
             "amostra_hierarquia": [],
-            "itens_relevantes": 2
+            "itens_relevantes": 0
           },
           {
             "canal": "atos normativos recentes (página 2)",
             "url": "https://atos.cnj.jus.br/api/atos",
             "itens_brutos": 10,
             "amostra_hierarquia": [],
-            "itens_relevantes": 0
+            "itens_relevantes": 1
           },
           {
             "canal": "atos normativos recentes (página 3)",
@@ -271056,14 +272088,14 @@
             "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
             "itens_brutos": 50,
             "amostra_hierarquia": [],
-            "itens_relevantes": 5
+            "itens_relevantes": 7
           },
           {
             "canal": "notícias oficiais (página 2)",
             "url": "https://www.cnj.jus.br/wp-json/wp/v2/posts",
             "itens_brutos": 50,
             "amostra_hierarquia": [],
-            "itens_relevantes": 9
+            "itens_relevantes": 8
           }
         ],
         "canais_ok": [
@@ -271077,120 +272109,176 @@
         "canais_falhos_obrigatorios": [],
         "canais_opcionais_falhos": [],
         "erro_detalhe": null,
-        "atos_registrados": 61,
+        "atos_registrados": 63,
         "atos_descartados_por_retencao": 0
       },
       "dou": {
         "nome": "DOU — Diário Oficial da União (Imprensa Nacional)",
-        "status": "falha",
-        "ultima_tentativa": "2026-11-17T10:25:27-03:00",
-        "ultima_execucao_ok": "2026-11-17T00:54:30-03:00",
-        "itens_consultados": 0,
-        "itens_relevantes": 0,
-        "itens_descartados": 0,
-        "itens_duplicados": 0,
-        "revisao_pendente": 0,
-        "novidades": 0,
-        "erros": 2,
-        "duracao_segundos": 93.9,
+        "status": "ok",
+        "ultima_tentativa": "2026-11-17T19:22:25-03:00",
+        "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+        "itens_consultados": 164,
+        "itens_relevantes": 100,
+        "itens_descartados": 29,
+        "itens_duplicados": 35,
+        "revisao_pendente": 35,
+        "novidades": 8,
+        "erros": 0,
+        "duracao_segundos": 18.9,
         "endpoints": [
           "https://www.in.gov.br/consulta/-/buscar/dou"
         ],
-        "canais_detalhe": [],
-        "canais_ok": [],
-        "canais_falhos": [
+        "canais_detalhe": [
+          {
+            "canal": "busca por tema (7 dias)",
+            "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+            "itens_brutos": 164,
+            "amostra_hierarquia": [
+              "Banco Central do Brasil/Área de Organização do Sistema Finan",
+              "Controladoria-Geral da União/Gabinete do Ministro",
+              "Editais e Avisos/Ministério da Educação"
+            ],
+            "itens_relevantes": 100
+          }
+        ],
+        "canais_ok": [
           "busca por tema (7 dias)"
         ],
-        "canais_falhos_obrigatorios": [
-          "busca por tema (7 dias)"
-        ],
+        "canais_falhos": [],
+        "canais_falhos_obrigatorios": [],
         "canais_opcionais_falhos": [],
-        "erro_detalhe": "busca por tema (7 dias): HTML indisponível: https://www.in.gov.br/consulta/-/buscar/dou?q=%22algoritmo%22&s=todos&exactDate=personalizado&sortType=0&delta=50&currentPage=1&publishFrom=10-11-2026&publishTo=17-11-2026 (TimeoutError: The read operation timed out); nenhum canal respondeu — busca por tema (7 dias): HTML indisponível: https://www.in.gov.br/consulta/-/buscar/dou?q=%22algoritmo%22&s=todos&exactDate=personalizado&sortType=0&delta=50&currentPage=1&publishFrom=10-11-2026&publishTo=17-11-2026 (TimeoutError: The read operation timed out)",
-        "atos_registrados": 915,
+        "erro_detalhe": null,
+        "atos_registrados": 923,
         "atos_descartados_por_retencao": 0
       },
       "mcti": {
         "nome": "MCTI — Ministério da Ciência, Tecnologia e Inovação",
-        "status": "falha",
-        "ultima_tentativa": "2026-11-17T10:28:36-03:00",
-        "ultima_execucao_ok": "2026-11-17T00:55:52-03:00",
-        "itens_consultados": 0,
-        "itens_relevantes": 0,
-        "itens_descartados": 0,
+        "status": "ok",
+        "ultima_tentativa": "2026-11-17T19:23:13-03:00",
+        "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+        "itens_consultados": 35,
+        "itens_relevantes": 26,
+        "itens_descartados": 9,
         "itens_duplicados": 0,
-        "revisao_pendente": 0,
-        "novidades": 0,
-        "erros": 5,
-        "duracao_segundos": 86.6,
+        "revisao_pendente": 11,
+        "novidades": 2,
+        "erros": 2,
+        "duracao_segundos": 16.6,
         "endpoints": [
-          "https://www.in.gov.br/consulta/-/buscar/dou"
+          "https://www.in.gov.br/consulta/-/buscar/dou",
+          "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias",
+          "https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+          "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti"
         ],
-        "canais_detalhe": [],
-        "canais_ok": [],
-        "canais_falhos": [
+        "canais_detalhe": [
+          {
+            "canal": "atos do MCTI por tema (DOU)",
+            "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+            "itens_brutos": 15,
+            "amostra_hierarquia": [
+              "Ministério da Ciência, Tecnologia e Inovação/Centro de Tecno",
+              "Ministério da Ciência, Tecnologia e Inovação/Comissão Nacion",
+              "Ministério da Ciência, Tecnologia e Inovação/Conselho Nacion"
+            ],
+            "itens_relevantes": 15
+          },
+          {
+            "canal": "planos, programas e políticas",
+            "url": "https://www.gov.br/mcti/pt-br/acompanhe-o-mcti",
+            "itens_brutos": 20,
+            "amostra_hierarquia": [],
+            "itens_relevantes": 11
+          }
+        ],
+        "canais_ok": [
           "atos do MCTI por tema (DOU)",
-          "notícias institucionais",
-          "portarias publicadas",
           "planos, programas e políticas"
         ],
-        "canais_falhos_obrigatorios": [
-          "atos do MCTI por tema (DOU)"
+        "canais_falhos": [
+          "notícias institucionais",
+          "portarias publicadas"
         ],
+        "canais_falhos_obrigatorios": [],
         "canais_opcionais_falhos": [
           "notícias institucionais",
-          "portarias publicadas",
-          "planos, programas e políticas"
+          "portarias publicadas"
         ],
-        "erro_detalhe": "atos do MCTI por tema (DOU): tempo da fonte 'mcti' esgotado (75s); tempo esgotado antes do canal 'notícias institucionais'; tempo esgotado antes do canal 'portarias publicadas'; tempo esgotado antes do canal 'planos, programas e políticas'",
-        "atos_registrados": 80,
+        "erro_detalhe": "notícias institucionais: listagem sem itens reconhecíveis (241035 bytes): https://www.gov.br/mcti/pt-br/acompanhe-o-mcti/noticias; portarias publicadas: listagem sem itens reconhecíveis (173858 bytes): https://www.gov.br/mcti/pt-br/acesso-a-informacao/legislacao/portarias",
+        "atos_registrados": 82,
         "atos_descartados_por_retencao": 0
       },
       "planalto": {
         "nome": "Planalto — Presidência da República",
-        "status": "falha",
-        "ultima_tentativa": "2026-11-17T10:27:01-03:00",
-        "ultima_execucao_ok": "2026-11-17T00:55:28-03:00",
-        "itens_consultados": 0,
-        "itens_relevantes": 0,
-        "itens_descartados": 0,
-        "itens_duplicados": 0,
-        "revisao_pendente": 0,
+        "status": "ok",
+        "ultima_tentativa": "2026-11-17T19:22:44-03:00",
+        "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+        "itens_consultados": 38,
+        "itens_relevantes": 6,
+        "itens_descartados": 29,
+        "itens_duplicados": 3,
+        "revisao_pendente": 1,
         "novidades": 0,
-        "erros": 5,
-        "duracao_segundos": 95.1,
+        "erros": 1,
+        "duracao_segundos": 28.9,
         "endpoints": [
-          "https://www.in.gov.br/consulta/-/buscar/dou"
+          "https://www.in.gov.br/consulta/-/buscar/dou",
+          "https://www.in.gov.br/consulta/-/buscar/dou",
+          "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+          "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias"
         ],
-        "canais_detalhe": [],
-        "canais_ok": [],
-        "canais_falhos": [
+        "canais_detalhe": [
+          {
+            "canal": "atos do Poder Legislativo (leis, vetos)",
+            "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+            "itens_brutos": 7,
+            "amostra_hierarquia": [
+              "Atos do Poder Legislativo"
+            ],
+            "itens_relevantes": 3
+          },
+          {
+            "canal": "atos da Presidência (decretos, MPs)",
+            "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+            "itens_brutos": 1,
+            "amostra_hierarquia": [
+              "Presidência da República"
+            ],
+            "itens_relevantes": 1
+          },
+          {
+            "canal": "notícias do Planalto (RSS oficial)",
+            "url": "https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias/RSS",
+            "itens_brutos": 30,
+            "amostra_hierarquia": [],
+            "itens_relevantes": 2
+          }
+        ],
+        "canais_ok": [
           "atos do Poder Legislativo (leis, vetos)",
           "atos da Presidência (decretos, MPs)",
-          "notícias do Planalto (RSS oficial)",
+          "notícias do Planalto (RSS oficial)"
+        ],
+        "canais_falhos": [
           "notícias do Planalto (página oficial)"
         ],
-        "canais_falhos_obrigatorios": [
-          "atos do Poder Legislativo (leis, vetos)",
-          "atos da Presidência (decretos, MPs)"
-        ],
+        "canais_falhos_obrigatorios": [],
         "canais_opcionais_falhos": [
-          "notícias do Planalto (RSS oficial)",
           "notícias do Planalto (página oficial)"
         ],
-        "erro_detalhe": "atos do Poder Legislativo (leis, vetos): tempo da fonte 'planalto' esgotado (75s); tempo esgotado antes do canal 'atos da Presidência (decretos, MPs)'; tempo esgotado antes do canal 'notícias do Planalto (RSS oficial)'; tempo esgotado antes do canal 'notícias do Planalto (página oficial)'",
+        "erro_detalhe": "notícias do Planalto (página oficial): listagem sem itens reconhecíveis (250965 bytes): https://www.gov.br/planalto/pt-br/acompanhe-o-planalto/noticias",
         "atos_registrados": 12,
         "atos_descartados_por_retencao": 0
       },
       "senado": {
         "nome": "Senado Federal — API de Dados Abertos v7",
-        "status": "ok",
-        "ultima_tentativa": "2026-11-17T10:23:50-03:00",
+        "status": "parcial",
+        "ultima_tentativa": "2026-11-17T19:21:51-03:00",
         "ultima_execucao_ok": "2026-11-17T10:23:50-03:00",
-        "itens_consultados": 25,
-        "novidades": 1,
+        "itens_consultados": 26,
+        "novidades": 0,
         "erros": 0,
-        "chamadas_http": 92,
-        "falhas_http": 0,
+        "chamadas_http": 93,
+        "falhas_http": 1,
         "endpoints": [
           "https://legis.senado.leg.br/dadosabertos"
         ],
@@ -271202,97 +272290,113 @@
           "senado:158816",
           "senado:164831"
         ],
-        "canais_falhos": [],
+        "canais_falhos": [
+          "senado:movimentacoes/157233"
+        ],
         "erro_detalhe": null
       },
       "tse": {
         "nome": "TSE — Tribunal Superior Eleitoral",
-        "status": "falha",
-        "ultima_tentativa": "2026-11-17T10:24:06-03:00",
-        "ultima_execucao_ok": "2026-11-16T17:28:09-03:00",
-        "itens_consultados": 0,
-        "itens_relevantes": 0,
-        "itens_descartados": 0,
-        "itens_duplicados": 0,
+        "status": "ok",
+        "ultima_tentativa": "2026-11-17T19:22:06-03:00",
+        "ultima_execucao_ok": "2026-11-17T19:23:30-03:00",
+        "itens_consultados": 9,
+        "itens_relevantes": 1,
+        "itens_descartados": 7,
+        "itens_duplicados": 1,
         "revisao_pendente": 0,
         "novidades": 0,
-        "erros": 6,
-        "duracao_segundos": 81.0,
+        "erros": 3,
+        "duracao_segundos": 18.8,
         "endpoints": [
           "https://www.tse.jus.br/++api++/@search",
           "https://www.tse.jus.br/++api++/@search",
           "https://www.tse.jus.br/++api++/@search",
+          "https://www.in.gov.br/consulta/-/buscar/dou",
           "https://www.in.gov.br/consulta/-/buscar/dou"
         ],
-        "canais_detalhe": [],
-        "canais_ok": [],
+        "canais_detalhe": [
+          {
+            "canal": "atos do TSE por tema (DOU)",
+            "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+            "itens_brutos": 9,
+            "amostra_hierarquia": [
+              "Poder Judiciário/Tribunal Superior Eleitoral",
+              "Poder Judiciário/Tribunal Superior Eleitoral/Secretaria do T"
+            ],
+            "itens_relevantes": 1
+          },
+          {
+            "canal": "resoluções do TSE (DOU, órgão/subórgão)",
+            "url": "https://www.in.gov.br/consulta/-/buscar/dou",
+            "itens_brutos": 0,
+            "amostra_hierarquia": [],
+            "itens_relevantes": 0
+          }
+        ],
+        "canais_ok": [
+          "atos do TSE por tema (DOU)",
+          "resoluções do TSE (DOU, órgão/subórgão)"
+        ],
         "canais_falhos": [
           "atos normativos (portal oficial)",
           "notícias oficiais (portal oficial)",
-          "atos e notícias por tema (portal oficial)",
-          "atos do TSE por tema (DOU)",
-          "resoluções do TSE (DOU, órgão/subórgão)"
+          "atos e notícias por tema (portal oficial)"
         ],
-        "canais_falhos_obrigatorios": [
-          "atos do TSE por tema (DOU)",
-          "resoluções do TSE (DOU, órgão/subórgão)"
-        ],
+        "canais_falhos_obrigatorios": [],
         "canais_opcionais_falhos": [
           "atos normativos (portal oficial)",
           "notícias oficiais (portal oficial)",
           "atos e notícias por tema (portal oficial)"
         ],
-        "erro_detalhe": "atos normativos (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&path=%2Flegislacao; notícias oficiais (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&portal_type=Noticia; atos e notícias por tema (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=20&sort_on=effective&sort_order=descending; atos do TSE por tema (DOU): HTML indisponível: https://www.in.gov.br/consulta/-/buscar/dou?q=%22intelig%C3%AAncia%20artificial%22&s=todos&exactDate=personalizado&sortType=0&delta=50&currentPage=1&publishFrom=19-08-2026&publishTo=17-11-2026&orgPrin=Poder%20Judici%C3%A1rio (TimeoutError: The read operation timed out)",
+        "erro_detalhe": "atos normativos (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&path=%2Flegislacao; notícias oficiais (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?b_size=50&sort_on=effective&sort_order=descending&portal_type=Noticia; atos e notícias por tema (portal oficial): JSON indisponível: https://www.tse.jus.br/++api++/@search?SearchableText=intelig%C3%AAncia%20artificial&b_size=20&sort_on=effective&sort_order=descending",
         "atos_registrados": 2,
         "atos_descartados_por_retencao": 0
       }
     },
-    "fontes_falha": [
-      "dou",
-      "mcti",
-      "planalto",
-      "tse"
+    "fontes_falha": [],
+    "fontes_parciais": [
+      "senado"
     ],
-    "fontes_parciais": [],
     "http_fontes": {
-      "chamadas": 46,
-      "falhas": 15,
+      "chamadas": 81,
+      "falhas": 3,
       "cache": 0,
-      "tempo_total": 352.82,
+      "tempo_total": 97.75,
       "por_orgao": {
         "anpd": {
           "chamadas": 17,
           "falhas": 0,
-          "tempo_total": 11.38
+          "tempo_total": 10.4
         },
         "cnj": {
           "chamadas": 5,
           "falhas": 0,
-          "tempo_total": 4.4
+          "tempo_total": 4.15
         },
         "tse": {
-          "chamadas": 6,
-          "falhas": 6,
-          "tempo_total": 76.55
+          "chamadas": 14,
+          "falhas": 3,
+          "tempo_total": 18.8
         },
         "dou": {
-          "chamadas": 4,
-          "falhas": 3,
-          "tempo_total": 89.35
+          "chamadas": 10,
+          "falhas": 0,
+          "tempo_total": 18.91
         },
         "planalto": {
-          "chamadas": 6,
-          "falhas": 3,
-          "tempo_total": 89.08
+          "chamadas": 22,
+          "falhas": 0,
+          "tempo_total": 28.92
         },
         "mcti": {
-          "chamadas": 8,
-          "falhas": 3,
-          "tempo_total": 82.06
+          "chamadas": 13,
+          "falhas": 0,
+          "tempo_total": 16.57
         }
       }
     },
-    "mudancas_multiorgao": 6
+    "mudancas_multiorgao": 16
   },
   "frescor": {
     "horas": 0.0,
@@ -271304,22 +272408,22 @@
     "descricao": "a cada hora, no minuto 17 (UTC e BRT)"
   },
   "kpis": {
-    "execucoes_registradas": 287,
-    "execucoes_com_metricas": 285,
-    "execucoes_ok": 287,
+    "execucoes_registradas": 288,
+    "execucoes_com_metricas": 286,
+    "execucoes_ok": 288,
     "cobertura_media": 94.3,
-    "mudancas_total": 804,
+    "mudancas_total": 810,
     "mudancas_30d": 655,
     "latencia_media_dias": 0.5,
     "incorporacoes_historicas": 0,
     "fontes_monitoradas": 8,
-    "fontes_falha": 4,
-    "fontes_parciais": 0,
+    "fontes_falha": 0,
+    "fontes_parciais": 1,
     "status_global": "PARCIAL",
-    "proposicoes": 168,
-    "curadoria_pendente": 136,
+    "proposicoes": 169,
+    "curadoria_pendente": 137,
     "normas": 15,
-    "eventos_futuros": 14
+    "eventos_futuros": 15
   },
   "series": {
     "rotulos": [
@@ -271606,6 +272710,7 @@
       "11/15",
       "11/16",
       "11/16",
+      "11/17",
       "11/17",
       "11/17"
     ],
@@ -271894,6 +272999,7 @@
       100.0,
       96.4,
       100.0,
+      99.4,
       99.4
     ],
     "mudancas": [
@@ -272182,7 +273288,8 @@
       0,
       11,
       0,
-      4
+      4,
+      10
     ],
     "novas": [
       55,
@@ -272471,6 +273578,7 @@
       0,
       6,
       0,
+      1,
       1
     ],
     "chamadas_http": [
@@ -272758,7 +273866,8 @@
       546,
       577,
       573,
-      578
+      578,
+      582
     ],
     "cache_http": [
       38,
@@ -273045,7 +274154,8 @@
       56,
       54,
       56,
-      54
+      54,
+      57
     ],
     "duracao_s": [
       280,
@@ -273332,7 +274442,8 @@
       259,
       258,
       403,
-      520
+      520,
+      235
     ],
     "monitoradas": [
       133,
@@ -273619,23 +274730,24 @@
       161,
       167,
       167,
-      168
+      168,
+      169
     ]
   },
   "dataset": {
     "por_status": {
-      "em_tramitacao": 160,
+      "em_tramitacao": 161,
       "aprovada_lei": 1,
       "arquivada": 7
     },
     "por_casa": {
-      "Câmara": 142,
+      "Câmara": 143,
       "Senado": 26
     },
     "por_ano": {
       "2023": 11,
       "2025": 37,
-      "2026": 99,
+      "2026": 100,
       "2022": 1,
       "2020": 1,
       "2019": 2,
@@ -273647,7 +274759,7 @@
       "75–89": 3,
       "60–74": 12,
       "40–59": 25,
-      "0–39": 127
+      "0–39": 128
     },
     "por_categoria": {
       "Regulação Geral de IA": 16,
@@ -273667,7 +274779,7 @@
       "Consumidor": 10,
       "Auditoria de IA": 8,
       "IA Autônoma e Agentes": 2,
-      "Plataformas Digitais": 7,
+      "Plataformas Digitais": 8,
       "Saúde": 9,
       "Trabalho e Emprego": 12,
       "Educação": 14,
@@ -273679,26 +274791,26 @@
       "Serviços Financeiros": 4,
       "Eleições": 2
     },
-    "revisao_pendente": 136
+    "revisao_pendente": 137
   },
   "mudancas": {
-    "total": 804,
+    "total": 810,
     "por_tipo": {
-      "nova notícia oficial": 63,
-      "nova publicação": 432,
-      "regulamentação": 21,
-      "nova portaria": 17,
-      "publicação": 11,
-      "apensação": 43,
+      "nova notícia oficial": 65,
+      "nova publicação": 423,
+      "regulamentação": 22,
+      "parecer": 18,
+      "nova proposição": 16,
+      "nova portaria": 19,
+      "publicação": 15,
+      "apensação": 45,
       "relatoria": 2,
-      "nova proposição": 15,
       "nova consulta pública": 6,
       "atualização cadastral": 81,
-      "tramitação": 25,
+      "tramitação": 26,
       "alteração normativa": 15,
       "alteração de texto": 27,
       "nova decisão": 16,
-      "parecer": 16,
       "novo ato normativo": 2,
       "revogação": 1,
       "votação": 4,
@@ -273707,11 +274819,11 @@
       "novo programa": 1
     },
     "por_mes": {
-      "2026-11": 351,
-      "2026-10": 453
+      "2026-11": 373,
+      "2026-10": 437
     },
     "por_dia": {
-      "2026-11-17": 5,
+      "2026-11-17": 27,
       "2026-11-16": 29,
       "2026-11-13": 46,
       "2026-11-12": 40,
@@ -273737,7 +274849,7 @@
       "2026-10-15": 18,
       "2026-10-14": 32,
       "2026-10-13": 38,
-      "2026-10-09": 29
+      "2026-10-09": 13
     },
     "latencia_media_dias": 0.5,
     "incorporacoes_historicas": 0
@@ -273746,482 +274858,492 @@
     "camara:deputados/{id}": {
       "chamadas": 39,
       "falhas": 0,
-      "tempo_total": 22.7
+      "tempo_total": 20.66
     },
     "camara:eventos": {
       "chamadas": 2,
       "falhas": 0,
-      "tempo_total": 2.38
+      "tempo_total": 4.51
     },
     "camara:proposicoes": {
-      "chamadas": 16,
+      "chamadas": 17,
       "falhas": 0,
-      "tempo_total": 23.02
+      "tempo_total": 19.16
     },
     "camara:proposicoes/{id}": {
-      "chamadas": 151,
+      "chamadas": 150,
       "falhas": 0,
-      "tempo_total": 99.92
+      "tempo_total": 84.54
+    },
+    "camara:proposicoes/{id}/autores": {
+      "chamadas": 1,
+      "falhas": 0,
+      "tempo_total": 0.46
     },
     "camara:proposicoes/{id}/tramitacoes": {
-      "chamadas": 139,
+      "chamadas": 140,
       "falhas": 0,
-      "tempo_total": 95.02
+      "tempo_total": 76.95
     },
     "camara:proposicoes/{id}/votacoes": {
       "chamadas": 139,
       "falhas": 0,
-      "tempo_total": 113.8
+      "tempo_total": 82.99
     },
     "senado:138790": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.93
+      "tempo_total": 0.7
     },
     "senado:139586": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.71
     },
     "senado:147434": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 0.78
     },
     "senado:157233": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.68
+      "tempo_total": 3.19
     },
     "senado:158816": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 0.71
     },
     "senado:164831": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.95
+      "tempo_total": 0.78
     },
     "senado:172683": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.88
+      "tempo_total": 0.7
     },
     "senado:172783": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.84
+      "tempo_total": 0.7
     },
     "senado:172838": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 0.71
     },
     "senado:172856": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.73
+      "tempo_total": 0.86
     },
     "senado:172900": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.16
+      "tempo_total": 0.7
     },
     "senado:172910": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 1.23
     },
     "senado:172996": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 0.72
     },
     "senado:173016": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.71
     },
     "senado:173045": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.98
     },
     "senado:173133": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 0.75
     },
     "senado:173258": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.31
+      "tempo_total": 0.84
     },
     "senado:173322": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.43
+      "tempo_total": 0.88
     },
     "senado:173474": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.71
     },
     "senado:173567": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.62
+      "tempo_total": 0.71
     },
     "senado:173616": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.98
+      "tempo_total": 0.8
     },
     "senado:174154": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.82
+      "tempo_total": 0.72
     },
     "senado:174212": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 0.7
     },
     "senado:174481": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.0
+      "tempo_total": 2.15
     },
     "senado:174521": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.49
+      "tempo_total": 0.69
     },
     "senado:174866": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.97
+      "tempo_total": 0.94
     },
     "senado:174922": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.86
+      "tempo_total": 0.71
     },
     "senado:174923": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.7
     },
     "senado:175362": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.71
     },
     "senado:176161": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 1.31
     },
     "senado:176384": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.82
+      "tempo_total": 0.7
     },
     "senado:movimentacoes/138790": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 2.1
+      "tempo_total": 1.8
     },
     "senado:movimentacoes/139586": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 2.2
+      "tempo_total": 1.8
     },
     "senado:movimentacoes/147434": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 2.24
+      "tempo_total": 1.98
     },
     "senado:movimentacoes/157233": {
       "chamadas": 1,
-      "falhas": 0,
-      "tempo_total": 2.11
+      "falhas": 1,
+      "tempo_total": 1.89
     },
     "senado:movimentacoes/158816": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 2.24
+      "tempo_total": 2.21
     },
     "senado:movimentacoes/164831": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.03
+      "tempo_total": 0.93
     },
     "senado:movimentacoes/172683": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.87
+      "tempo_total": 0.73
     },
     "senado:movimentacoes/172783": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.87
+      "tempo_total": 0.77
     },
     "senado:movimentacoes/172838": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 1.03
     },
     "senado:movimentacoes/172856": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.26
+      "tempo_total": 1.41
     },
     "senado:movimentacoes/172900": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.12
+      "tempo_total": 0.79
     },
     "senado:movimentacoes/172910": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.86
+      "tempo_total": 0.78
     },
     "senado:movimentacoes/172996": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.09
+      "tempo_total": 1.25
     },
     "senado:movimentacoes/173016": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.87
+      "tempo_total": 0.73
     },
     "senado:movimentacoes/173045": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.44
+      "tempo_total": 0.85
     },
     "senado:movimentacoes/173133": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.15
+      "tempo_total": 1.44
     },
     "senado:movimentacoes/173258": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.47
+      "tempo_total": 1.02
     },
     "senado:movimentacoes/173322": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.84
+      "tempo_total": 0.73
     },
     "senado:movimentacoes/173474": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.89
+      "tempo_total": 0.83
     },
     "senado:movimentacoes/173567": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.84
+      "tempo_total": 1.49
     },
     "senado:movimentacoes/173616": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 1.04
     },
     "senado:movimentacoes/174154": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 0.75
     },
     "senado:movimentacoes/174212": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 1.45
     },
     "senado:movimentacoes/174481": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.75
+      "tempo_total": 5.0
     },
     "senado:movimentacoes/174521": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.91
+      "tempo_total": 0.73
     },
     "senado:movimentacoes/174866": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.88
+      "tempo_total": 0.75
     },
     "senado:movimentacoes/174922": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.89
+      "tempo_total": 1.34
     },
     "senado:movimentacoes/174923": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.96
+      "tempo_total": 1.43
     },
     "senado:movimentacoes/175362": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.99
+      "tempo_total": 0.74
     },
     "senado:movimentacoes/176161": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 1.0
     },
     "senado:movimentacoes/176384": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 0.73
     },
     "senado:pesquisa/lista": {
       "chamadas": 3,
       "falhas": 0,
-      "tempo_total": 2.64
+      "tempo_total": 2.35
     },
     "senado:relatorias/139586": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.82
+      "tempo_total": 0.7
     },
     "senado:relatorias/147434": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 0.78
     },
     "senado:relatorias/157233": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.13
+      "tempo_total": 1.28
     },
     "senado:relatorias/158816": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.82
+      "tempo_total": 0.69
     },
     "senado:relatorias/164831": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.7
     },
     "senado:relatorias/172783": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.85
+      "tempo_total": 0.83
     },
     "senado:relatorias/172838": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.69
     },
     "senado:relatorias/172856": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.14
+      "tempo_total": 1.24
     },
     "senado:relatorias/172900": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.98
+      "tempo_total": 0.71
     },
     "senado:relatorias/172910": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.51
+      "tempo_total": 0.95
     },
     "senado:relatorias/173016": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.84
+      "tempo_total": 0.87
     },
     "senado:relatorias/173045": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.43
+      "tempo_total": 1.57
     },
     "senado:relatorias/173133": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 2.27
+      "tempo_total": 1.07
     },
     "senado:relatorias/173258": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.8
+      "tempo_total": 0.72
     },
     "senado:relatorias/173322": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.36
+      "tempo_total": 0.84
     },
     "senado:relatorias/173474": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.31
+      "tempo_total": 1.02
     },
     "senado:relatorias/173567": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.84
+      "tempo_total": 1.07
     },
     "senado:relatorias/173616": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.1
+      "tempo_total": 0.7
     },
     "senado:relatorias/174154": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.81
+      "tempo_total": 0.77
     },
     "senado:relatorias/174212": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.06
+      "tempo_total": 0.7
     },
     "senado:relatorias/174481": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 0.7
     },
     "senado:relatorias/174521": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.8
+      "tempo_total": 0.7
     },
     "senado:relatorias/174866": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.87
+      "tempo_total": 0.7
     },
     "senado:relatorias/174922": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.8
+      "tempo_total": 0.73
     },
     "senado:relatorias/174923": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.0
+      "tempo_total": 1.23
     },
     "senado:relatorias/175362": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 1.18
+      "tempo_total": 0.69
     },
     "senado:relatorias/176161": {
       "chamadas": 1,
       "falhas": 0,
-      "tempo_total": 0.83
+      "tempo_total": 1.25
+    },
+    "senado:relatorias/176384": {
+      "chamadas": 1,
+      "falhas": 0,
+      "tempo_total": 0.7
     }
   },
   "alertas": [
@@ -274238,11 +275360,11 @@
     {
       "nivel": "atencao",
       "titulo": "Monitoramento parcial — fonte não consultada",
-      "detalhe": "Fontes com falha nesta execução: dou (DOU — Diário Oficial da União (Imprensa Nacional)), mcti (MCTI — Ministério da Ciência, Tecnologia e Inovação), planalto (Planalto — Presidência da República), tse (TSE — Tribunal Superior Eleitoral)"
+      "detalhe": "Fontes fora do esperado nesta execução: senado"
     },
     {
       "nivel": "atencao",
-      "titulo": "136 proposições aguardam curadoria",
+      "titulo": "137 proposições aguardam curadoria",
       "detalhe": "Registros automáticos têm score preliminar e categorias incompletas."
     }
   ]
