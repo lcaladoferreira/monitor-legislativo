@@ -548,9 +548,11 @@
       "summary": "O Monitor Legislativo de IA registrou: Nova proposição: REQ 51/2026. Trata-se do REQ 51/2026 — Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte na era da inteli… (Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte…",
       "assunto": "REQ 51/2026",
       "published_at": "2026-11-11",
-      "modified_at": "2026-11-11",
+      "modified_at": "2026-11-18",
       "source_change_ids": [
-        "chg_df2960c57f66ef45"
+        "chg_df2960c57f66ef45",
+        "chg_d5ee5173d4b8e46b",
+        "chg_9d91e48b1ea11e85"
       ],
       "source_entity_ids": [
         "camara_req_51_2026"
@@ -581,16 +583,18 @@
       "url": "artigos/requer-a-realizacao-de-seminario-sob-o-nome-de-4o-forum-legislativo-do-esporte-p/",
       "status": "published",
       "selection_reason": "NEW_ARTICLE_CANDIDATE | gatilho: Nova proposição: REQ 51/2026 | critério: maior relevância editorial do dia",
-      "revision_count": 1,
-      "last_revision_reason": "Criação do artigo a partir de mudança detectada pelo monitor.",
+      "revision_count": 2,
+      "last_revision_reason": "tipo=votação peso=7 score_prop=19 → continuação de assunto já coberto | 2 mudança(s) incorporada(s) no dia",
       "content": {
         "lead": "O Monitor Legislativo de IA registrou: Nova proposição: REQ 51/2026. Trata-se do REQ 51/2026 — Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte na era da inteli… (Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte na era da inteligência artificial, em conjunto com a Comissão do Esporte da Câmara dos Deputados.). Situação oficial registrada: Situação não confirmada nesta execução — ver ficha oficial. Fonte: https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084.",
         "o_que_mudou": [
+          "<p><b>18/11/2026</b> — REQ 51/2026: Aprovação de Proposição Interna<br>Em 2026-11-18, CCTI: Aprovado o Requerimento. Movimentação já constava na ficha oficial antes desta execução e foi incorporada ao dataset agora.<span class=\"article-changemeta\">(ultima_movimentacao: “2026-11-04 — Apresentação do REQ n. 51/2026 (Requerimento para realização ou participação em Seminário, Visita Técnica…” → “2026-11-18 — Aprovado o Requerimento.”)</span><br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>",
+          "<p><b>18/11/2026</b> — REQ 51/2026: situação atualizada<br>Situação passou de “Situação não confirmada nesta execução — ver ficha oficial” para “Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.”.<span class=\"article-changemeta\">(situacao: “Situação não confirmada nesta execução — ver ficha oficial” → “Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.”)</span><br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>",
           "<p><b>04/11/2026</b> — Nova proposição: REQ 51/2026<br>Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte na era da inteligência artificial, em conjunto com a Comissão do Esporte da Câmara dos Deputados. (Registro automático a partir da API oficial; aguardando curadoria.)<br><a href=\"https://www.camara.leg.br/proposicoesWeb/fichadetramitacao?idProposicao=2651084\" target=\"_blank\" rel=\"noopener\">Fonte oficial ↗</a></p>"
         ],
-        "situacao_atual": "<p><b>Situação oficial:</b> Situação não confirmada nesta execução — ver ficha oficial</p><p><b>Localização:</b> Câmara dos Deputados</p>",
+        "situacao_atual": "<p><b>Situação oficial:</b> Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.</p><p><b>Localização:</b> Câmara dos Deputados</p>",
         "por_que_importa": "<p>A proposição tem <b>AI Legislative Impact Score 19/100</b> (BAIXA PRIORIDADE) no monitoramento — rúbrica pública que avalia abrangência regulatória, estágio de tramitação, impactos econômico e sobre direitos e proximidade de decisão (critérios na <a href=\"{SITE_URL}/metodologia/\">metodologia</a>).</p>",
-        "o_que_acontece_agora": "<p>Enquanto a situação formal não mudar, a matéria segue “Situação não confirmada nesta execução — ver ficha oficial”. Este artigo é atualizado automaticamente quando o monitor detecta nova movimentação relevante deste assunto.</p>",
+        "o_que_acontece_agora": "<p>Enquanto a situação formal não mudar, a matéria segue “Aprovação de Proposição Interna (CCTI): Aprovado o Requerimento.”. Este artigo é atualizado automaticamente quando o monitor detecta nova movimentação relevante deste assunto.</p>",
         "historico": [
           {
             "data": "2026-11-04",
@@ -611,9 +615,24 @@
             "*"
           ],
           "summary": "O Monitor Legislativo de IA registrou: Nova proposição: REQ 51/2026. Trata-se do REQ 51/2026 — Requer a realização de seminário sob o nome de 4º Fórum Legislativo do Esporte, para debater o esporte na era da inteli… (Requer a realização de…"
+        },
+        {
+          "date": "2026-11-18",
+          "source_change_ids": [
+            "chg_9d91e48b1ea11e85",
+            "chg_d5ee5173d4b8e46b"
+          ],
+          "reason": "tipo=votação peso=7 score_prop=19 → continuação de assunto já coberto",
+          "fields_changed": [
+            "content.o_que_acontece_agora",
+            "content.o_que_mudou",
+            "content.situacao_atual"
+          ],
+          "summary": "REQ 51/2026: Aprovação de Proposição Interna (+1 movimentação(ões) do mesmo dia)",
+          "change_count": 2
         }
       ],
-      "editorial_hash": "sha1:239747fb5532b3be"
+      "editorial_hash": "sha1:6489cf6e0073be07"
     },
     {
       "id": "art-requer-informacoes-ao-ministro-de-estado-das-relacoes-exteri",
