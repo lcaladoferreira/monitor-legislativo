@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-17"
+    "atualizado_em": "2026-11-18"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -14923,6 +14923,16 @@
       "selection_reason": "tipo=parecer peso=12 score_prop=29 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-17T19:25:47-03:00",
       "run_id": null
+    },
+    "chg_6c9fe1608c1b0d2f": {
+      "change_id": "chg_6c9fe1608c1b0d2f",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-nos-termos-do-art-58-2o-ii-da-constituicao-federal-e-",
+      "editorial_topic_id": "req-49-2026-requer-nos-termos-do-art-58-2o-ii-da-constituicao-federal-e",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-18T01:23:40-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15046,12 +15056,6 @@
       "editorial_topic_id": "pl-19-2026-estabelece-condicoes-deveres-e-restricoes-ao-uso-de-oculos-i",
       "prioridade": 12
     },
-    "chg_6c9fe1608c1b0d2f": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-17",
-      "editorial_topic_id": "req-49-2026-requer-nos-termos-do-art-58-2o-ii-da-constituicao-federal-e",
-      "prioridade": 19
-    },
     "chg_2a7ccb8512fbbb6e": {
       "reason": "sem_cota_no_dia",
       "since": "2026-11-17",
@@ -15072,19 +15076,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-27T13:40:45-03:00",
-      "dia": "2026-10-27",
-      "mudancas_novas": 1,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 198,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-27T18:22:20-03:00",
       "dia": "2026-10-27",
@@ -15719,6 +15710,19 @@
       "adiadas": 3,
       "stale": 0,
       "aguardando_curadoria": 171,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-18T01:23:40-03:00",
+      "dia": "2026-11-18",
+      "mudancas_novas": 13,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 168,
       "run_id": null,
       "bootstrap": false
     }
