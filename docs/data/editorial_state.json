@@ -15473,6 +15473,66 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-11-19T10:08:19-03:00",
       "run_id": null
+    },
+    "chg_a81c376e3ca9e0e5": {
+      "change_id": "chg_a81c376e3ca9e0e5",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao-",
+      "editorial_topic_id": "ric-2958-2026-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao",
+      "selection_reason": "tipo=atualização cadastral peso=7 score_prop=22 → continuação de assunto já coberto",
+      "processed_at": "2026-11-19T18:35:40-03:00",
+      "run_id": null
+    },
+    "chg_66240263afef8402": {
+      "change_id": "chg_66240263afef8402",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao-",
+      "editorial_topic_id": "ric-2958-2026-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao",
+      "selection_reason": "tipo=atualização cadastral peso=7 score_prop=22 → continuação de assunto já coberto",
+      "processed_at": "2026-11-19T18:35:40-03:00",
+      "run_id": null
+    },
+    "chg_13810aa3a27f6108": {
+      "change_id": "chg_13810aa3a27f6108",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-7174-2025-institui-o-selo-nacional-de-etica-algoritmica-para-produtos",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=33 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-19T18:35:40-03:00",
+      "run_id": null
+    },
+    "chg_e8ed4b1424f3de72": {
+      "change_id": "chg_e8ed4b1424f3de72",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-5792-2025-institui-a-lei-nacional-de-observatorios-de-transparencia-em",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=39 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-19T18:35:40-03:00",
+      "run_id": null
+    },
+    "chg_877144b442b0511d": {
+      "change_id": "chg_877144b442b0511d",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2687-2025-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=publicação peso=5 score_prop=32 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-19T18:35:40-03:00",
+      "run_id": null
+    },
+    "chg_10dfdcb71b7efff9": {
+      "change_id": "chg_10dfdcb71b7efff9",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4548-2026-institui-a-politica-nacional-de-transparencia-algoritmica-em",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=28 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-19T18:35:40-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15655,22 +15715,15 @@
       "since": "2026-11-19",
       "editorial_topic_id": "ato-planalto-lei-no-15-543-de-18-de-novembro-de-2026-55dfb239",
       "prioridade": 17
+    },
+    "chg_b6bab9099d4ae2e9": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-19",
+      "editorial_topic_id": "req-95-2026-requer-a-realizacao-de-audiencia-publica-para-debater-a-regu",
+      "prioridade": 22
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-28T21:58:31-03:00",
-      "dia": "2026-10-28",
-      "mudancas_novas": 5,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 3,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 187,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-29T04:07:32-03:00",
       "dia": "2026-10-29",
@@ -16302,6 +16355,19 @@
       "novos_artigos": 0,
       "artigos_atualizados": 0,
       "ignoradas": 15,
+      "adiadas": 1,
+      "stale": 0,
+      "aguardando_curadoria": 168,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-19T18:35:39-03:00",
+      "dia": "2026-11-19",
+      "mudancas_novas": 25,
+      "novos_artigos": 0,
+      "artigos_atualizados": 2,
+      "ignoradas": 4,
       "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 168,
