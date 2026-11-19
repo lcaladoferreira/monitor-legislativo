@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-18"
+    "atualizado_em": "2026-11-19"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -15233,6 +15233,96 @@
       "selection_reason": "tipo=parecer peso=12 score_prop=29 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-18T18:59:45-03:00",
       "run_id": null
+    },
+    "chg_6aeb814a9f06aae3": {
+      "change_id": "chg_6aeb814a9f06aae3",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-institui-o-direito-a-autonomia-algoritmica-assegura-ao-usuar",
+      "editorial_topic_id": "pl-5882-2026-institui-o-direito-a-autonomia-algoritmica-assegura-ao-usuar",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_f97e5d49f0bbbb55": {
+      "change_id": "chg_f97e5d49f0bbbb55",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-anpd-rede-ibero-americana-de-protecao-de-dados-presidida-pela-anp-d82eaa3f",
+      "selection_reason": "ato tipo=News Item órgão=anpd peso=10 → sem valor editorial independente",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_ecf95f0def248bd4": {
+      "change_id": "chg_ecf95f0def248bd4",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-previc-no-578-de-29-de-julho-de-2026-bb34b829",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_21252b80a6f8ad8b": {
+      "change_id": "chg_21252b80a6f8ad8b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gm-mpi-no-311-de-5-de-novembro-de-2026-a834470b",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_5a79084dced68a3f": {
+      "change_id": "chg_5a79084dced68a3f",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-gab-mir-no-651-de-17-de-novembro-de-2026-e19cbf09",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_5a8dd90cf851b49e": {
+      "change_id": "chg_5a8dd90cf851b49e",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-cnpq-no-3-004-de-16-de-novembro-de-2026-e315d6f6",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=13 → sem valor editorial independente",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_ad0f4c33198190ec": {
+      "change_id": "chg_ad0f4c33198190ec",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-mcti-portaria-cnpq-no-3-004-de-16-de-novembro-de-2026-09c2a04c",
+      "selection_reason": "ato tipo=Portaria órgão=mcti peso=10 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_cb8d00401e0f360b": {
+      "change_id": "chg_cb8d00401e0f360b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-cade-no-501-de-4-de-novembro-de-2026-7026073b",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
+    },
+    "chg_ccff7af0ff2b1aa4": {
+      "change_id": "chg_ccff7af0ff2b1aa4",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-1225-2026-dispoe-sobre-o-uso-de-sistemas-de-reconhecimento-facial-e-ou",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=38 → sem valor editorial independente",
+      "processed_at": "2026-11-19T00:29:03-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15368,12 +15458,6 @@
       "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
       "prioridade": 13
     },
-    "chg_6aeb814a9f06aae3": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-17",
-      "editorial_topic_id": "pl-5882-2026-institui-o-direito-a-autonomia-algoritmica-assegura-ao-usuar",
-      "prioridade": 14
-    },
     "chg_d17901880e3f0cf7": {
       "reason": "sem_cota_no_dia",
       "since": "2026-11-18",
@@ -15418,19 +15502,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-28T13:05:00-03:00",
-      "dia": "2026-10-28",
-      "mudancas_novas": 7,
-      "novos_artigos": 1,
-      "artigos_atualizados": 2,
-      "ignoradas": 3,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 195,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-28T18:06:28-03:00",
       "dia": "2026-10-28",
@@ -16065,6 +16136,19 @@
       "adiadas": 6,
       "stale": 0,
       "aguardando_curadoria": 165,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-19T00:29:03-03:00",
+      "dia": "2026-11-19",
+      "mudancas_novas": 26,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 8,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 162,
       "run_id": null,
       "bootstrap": false
     }
