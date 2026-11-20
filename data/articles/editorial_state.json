@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-19"
+    "atualizado_em": "2026-11-20"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -15533,6 +15533,66 @@
       "selection_reason": "tipo=tramitação peso=3 score_prop=28 → registro de protocolo sem valor editorial",
       "processed_at": "2026-11-19T18:35:40-03:00",
       "run_id": null
+    },
+    "chg_b6bab9099d4ae2e9": {
+      "change_id": "chg_b6bab9099d4ae2e9",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-a-realizacao-de-audiencia-publica-para-debater-a-regu",
+      "editorial_topic_id": "req-95-2026-requer-a-realizacao-de-audiencia-publica-para-debater-a-regu",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-20T00:17:36-03:00",
+      "run_id": null
+    },
+    "chg_0ba0e5bbf74c7b6a": {
+      "change_id": "chg_0ba0e5bbf74c7b6a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mre-no-707-de-18-de-novembro-de-2026-fa305e46",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-20T00:17:36-03:00",
+      "run_id": null
+    },
+    "chg_889ec28e5edd5294": {
+      "change_id": "chg_889ec28e5edd5294",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-mps-no-1-538-de-18-de-novembro-de-2026-281a583a",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-20T00:17:36-03:00",
+      "run_id": null
+    },
+    "chg_735b011ed61a0f3b": {
+      "change_id": "chg_735b011ed61a0f3b",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-portaria-conjunta-capes-no-1-de-18-de-novembro-de-2026-97f91791",
+      "selection_reason": "ato tipo=Portaria Conjunta órgão=dou peso=5 → sem valor editorial independente",
+      "processed_at": "2026-11-20T00:17:36-03:00",
+      "run_id": null
+    },
+    "chg_282f470af7c5d275": {
+      "change_id": "chg_282f470af7c5d275",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-consulta-publica-no-26-de-17-de-novembro-de-2026-9fac696a",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-20T00:17:36-03:00",
+      "run_id": null
+    },
+    "chg_f92a6ee89ca6477a": {
+      "change_id": "chg_f92a6ee89ca6477a",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-dou-consulta-publica-no-25-de-17-de-novembro-de-2026-6486412b",
+      "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-20T00:17:36-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15715,28 +15775,9 @@
       "since": "2026-11-19",
       "editorial_topic_id": "ato-planalto-lei-no-15-543-de-18-de-novembro-de-2026-55dfb239",
       "prioridade": 17
-    },
-    "chg_b6bab9099d4ae2e9": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-19",
-      "editorial_topic_id": "req-95-2026-requer-a-realizacao-de-audiencia-publica-para-debater-a-regu",
-      "prioridade": 22
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-29T04:07:32-03:00",
-      "dia": "2026-10-29",
-      "mudancas_novas": 23,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 19,
-      "adiadas": 2,
-      "stale": 0,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-29T11:21:16-03:00",
       "dia": "2026-10-29",
@@ -16371,6 +16412,19 @@
       "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 168,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-20T00:17:36-03:00",
+      "dia": "2026-11-20",
+      "mudancas_novas": 24,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 5,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 164,
       "run_id": null,
       "bootstrap": false
     }
