@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-20"
+    "atualizado_em": "2026-11-21"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -15593,6 +15593,16 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → abaixo do limiar de novo artigo",
       "processed_at": "2026-11-20T00:17:36-03:00",
       "run_id": null
+    },
+    "chg_d3e216d7c1f4572f": {
+      "change_id": "chg_d3e216d7c1f4572f",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-lei-no-15-543-de-18-de-novembro-de-2026",
+      "editorial_topic_id": "ato-planalto-lei-no-15-543-de-18-de-novembro-de-2026-55dfb239",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-21T06:56:47-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15769,28 +15779,9 @@
       "since": "2026-11-18",
       "editorial_topic_id": "pl-5005-2025-altera-a-lei-no-9-610-de-19-de-fevereiro-de-1998-para-dispor",
       "prioridade": 20
-    },
-    "chg_d3e216d7c1f4572f": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-19",
-      "editorial_topic_id": "ato-planalto-lei-no-15-543-de-18-de-novembro-de-2026-55dfb239",
-      "prioridade": 17
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-29T11:21:16-03:00",
-      "dia": "2026-10-29",
-      "mudancas_novas": 4,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-29T16:46:07-03:00",
       "dia": "2026-10-29",
@@ -16422,6 +16413,19 @@
       "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 5,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 164,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-21T06:56:47-03:00",
+      "dia": "2026-11-21",
+      "mudancas_novas": 18,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 164,
