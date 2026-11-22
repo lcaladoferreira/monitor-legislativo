@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-21"
+    "atualizado_em": "2026-11-22"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -15603,6 +15603,16 @@
       "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
       "processed_at": "2026-11-21T06:56:47-03:00",
       "run_id": null
+    },
+    "chg_d17901880e3f0cf7": {
+      "change_id": "chg_d17901880e3f0cf7",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-requer-nos-termos-do-art-58-2o-ii-da-constituicao-380111a1",
+      "editorial_topic_id": "req-102-2026-requer-nos-termos-do-art-58-2o-ii-da-constituicao-federal-e",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-22T00:19:24-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15738,12 +15748,6 @@
       "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
       "prioridade": 13
     },
-    "chg_d17901880e3f0cf7": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-18",
-      "editorial_topic_id": "req-102-2026-requer-nos-termos-do-art-58-2o-ii-da-constituicao-federal-e",
-      "prioridade": 14
-    },
     "chg_f6ca4b1ba53bf1b6": {
       "reason": "sem_cota_no_dia",
       "since": "2026-11-18",
@@ -15782,19 +15786,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-29T16:46:07-03:00",
-      "dia": "2026-10-29",
-      "mudancas_novas": 11,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 5,
-      "adiadas": 3,
-      "stale": 0,
-      "aguardando_curadoria": 185,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-29T21:01:09-03:00",
       "dia": "2026-10-29",
@@ -16423,6 +16414,19 @@
       "executado_em": "2026-11-21T06:56:47-03:00",
       "dia": "2026-11-21",
       "mudancas_novas": 18,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 164,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-22T00:19:24-03:00",
+      "dia": "2026-11-22",
+      "mudancas_novas": 17,
       "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 0,
