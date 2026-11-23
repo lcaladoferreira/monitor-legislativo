@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-22"
+    "atualizado_em": "2026-11-23"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -15613,6 +15613,36 @@
       "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
       "processed_at": "2026-11-22T00:19:24-03:00",
       "run_id": null
+    },
+    "chg_13889cff512f7972": {
+      "change_id": "chg_13889cff512f7972",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-23T06:15:34-03:00",
+      "run_id": null
+    },
+    "chg_b7ac49c3385adde0": {
+      "change_id": "chg_b7ac49c3385adde0",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "selection_reason": "incorporado na criação do artigo",
+      "processed_at": "2026-11-23T06:15:34-03:00",
+      "run_id": null
+    },
+    "chg_48d7f311b50af344": {
+      "change_id": "chg_48d7f311b50af344",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "selection_reason": "incorporado na criação do artigo",
+      "processed_at": "2026-11-23T06:15:34-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15676,12 +15706,6 @@
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-n-752-de-4-de-novembro-de-2026-66a139a1",
       "prioridade": 13
     },
-    "chg_48d7f311b50af344": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-09",
-      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
-      "prioridade": 12
-    },
     "chg_58efd1fdeefc1cd3": {
       "reason": "cota_diaria_atingida",
       "since": "2026-11-11",
@@ -15742,12 +15766,6 @@
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-768-de-11-de-novembro-de-2026-6dd441d5",
       "prioridade": 13
     },
-    "chg_13889cff512f7972": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-17",
-      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
-      "prioridade": 13
-    },
     "chg_f6ca4b1ba53bf1b6": {
       "reason": "sem_cota_no_dia",
       "since": "2026-11-18",
@@ -15772,12 +15790,6 @@
       "editorial_topic_id": "pl-5792-2025-institui-a-lei-nacional-de-observatorios-de-transparencia-em",
       "prioridade": 13
     },
-    "chg_b7ac49c3385adde0": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-18",
-      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
-      "prioridade": 12
-    },
     "chg_a206a0df1229748c": {
       "reason": "sem_cota_no_dia",
       "since": "2026-11-18",
@@ -15786,19 +15798,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-29T21:01:09-03:00",
-      "dia": "2026-10-29",
-      "mudancas_novas": 8,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 4,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 183,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-30T02:51:18-03:00",
       "dia": "2026-10-30",
@@ -16427,6 +16426,19 @@
       "executado_em": "2026-11-22T00:19:24-03:00",
       "dia": "2026-11-22",
       "mudancas_novas": 17,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 164,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-23T06:15:34-03:00",
+      "dia": "2026-11-23",
+      "mudancas_novas": 16,
       "novos_artigos": 1,
       "artigos_atualizados": 0,
       "ignoradas": 0,
