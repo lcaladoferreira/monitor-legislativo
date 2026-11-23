@@ -15643,6 +15643,76 @@
       "selection_reason": "incorporado na criação do artigo",
       "processed_at": "2026-11-23T06:15:34-03:00",
       "run_id": null
+    },
+    "chg_d44ff0e928bcfba4": {
+      "change_id": "chg_d44ff0e928bcfba4",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao-",
+      "editorial_topic_id": "ric-2958-2026-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao",
+      "selection_reason": "tipo=atualização cadastral peso=7 score_prop=22 → continuação de assunto já coberto",
+      "processed_at": "2026-11-23T18:29:26-03:00",
+      "run_id": null
+    },
+    "chg_fe952a1a845a7a25": {
+      "change_id": "chg_fe952a1a845a7a25",
+      "processed": true,
+      "editorial_action": "article_update",
+      "article_id": "art-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao-",
+      "editorial_topic_id": "ric-2958-2026-requer-informacoes-ao-senhor-ministro-de-estado-da-educacao",
+      "selection_reason": "tipo=atualização cadastral peso=7 score_prop=22 → continuação de assunto já coberto",
+      "processed_at": "2026-11-23T18:29:26-03:00",
+      "run_id": null
+    },
+    "chg_af5e2e6f33d6efed": {
+      "change_id": "chg_af5e2e6f33d6efed",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2687-2025-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=apensação peso=3 score_prop=32 → abaixo do limiar de atualização",
+      "processed_at": "2026-11-23T18:29:26-03:00",
+      "run_id": null
+    },
+    "chg_89ffbe6789df927f": {
+      "change_id": "chg_89ffbe6789df927f",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4589-2024-institui-o-sistema-de-assistencia-automatica-por-inteligenci",
+      "selection_reason": "tipo=parecer peso=12 score_prop=22 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-23T18:29:26-03:00",
+      "run_id": null
+    },
+    "chg_30468f6f36fd49f7": {
+      "change_id": "chg_30468f6f36fd49f7",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4025-2023-esta-lei-altera-a-lei-no-10-406-de-10-de-janeiro-de-2002-cod",
+      "selection_reason": "tipo=parecer peso=12 score_prop=22 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-23T18:29:26-03:00",
+      "run_id": null
+    },
+    "chg_091e5442ee596e74": {
+      "change_id": "chg_091e5442ee596e74",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-2687-2025-altera-o-decreto-lei-no-2-848-de-7-de-dezembro-de-1940-codig",
+      "selection_reason": "tipo=apensação peso=3 score_prop=32 → abaixo do limiar de atualização",
+      "processed_at": "2026-11-23T18:29:26-03:00",
+      "run_id": null
+    },
+    "chg_b9835e04d7c1317e": {
+      "change_id": "chg_b9835e04d7c1317e",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-177-2024-institui-a-campanha-de-conscientizacao-e-prevencao-contra-cr",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=29 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-23T18:29:26-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -15795,22 +15865,39 @@
       "since": "2026-11-18",
       "editorial_topic_id": "pl-5005-2025-altera-a-lei-no-9-610-de-19-de-fevereiro-de-1998-para-dispor",
       "prioridade": 20
+    },
+    "chg_11925f5fcfa080e2": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-23",
+      "editorial_topic_id": "pl-4589-2024-institui-o-sistema-de-assistencia-automatica-por-inteligenci",
+      "prioridade": 12
+    },
+    "chg_c026e54ce7c9e331": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-23",
+      "editorial_topic_id": "pl-4025-2023-esta-lei-altera-a-lei-no-10-406-de-10-de-janeiro-de-2002-cod",
+      "prioridade": 12
+    },
+    "chg_46e758826110fb5f": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-23",
+      "editorial_topic_id": "pl-5928-2026-institui-normas-de-protecao-do-trabalhador-frente-a-decisoes",
+      "prioridade": 24
+    },
+    "chg_97781159c8e36fc9": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-23",
+      "editorial_topic_id": "pl-212-2026-criminaliza-a-producao-e-a-disseminacao-de-conteudo-audiovis",
+      "prioridade": 24
+    },
+    "chg_134a49edbb102b1e": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-23",
+      "editorial_topic_id": "pl-5931-2026-altera-a-lei-no-8-069-de-13-de-julho-de-1990-e-a-lei-no-6-01",
+      "prioridade": 14
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-10-30T02:51:18-03:00",
-      "dia": "2026-10-30",
-      "mudancas_novas": 5,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 179,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-10-31T06:43:42-03:00",
       "dia": "2026-10-31",
@@ -16445,6 +16532,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 164,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-23T18:29:25-03:00",
+      "dia": "2026-11-23",
+      "mudancas_novas": 25,
+      "novos_artigos": 0,
+      "artigos_atualizados": 2,
+      "ignoradas": 5,
+      "adiadas": 5,
+      "stale": 0,
+      "aguardando_curadoria": 165,
       "run_id": null,
       "bootstrap": false
     }
