@@ -15993,6 +15993,26 @@
       "selection_reason": "tipo=atualização cadastral peso=7 score_prop=22 → abaixo do limiar de novo artigo",
       "processed_at": "2026-11-24T03:08:07-03:00",
       "run_id": null
+    },
+    "chg_3efe249f50f2b728": {
+      "change_id": "chg_3efe249f50f2b728",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4025-2023-esta-lei-altera-a-lei-no-10-406-de-10-de-janeiro-de-2002-cod",
+      "selection_reason": "tipo=atualização cadastral peso=7 score_prop=22 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-24T14:49:53-03:00",
+      "run_id": null
+    },
+    "chg_bd412e351e791362": {
+      "change_id": "chg_bd412e351e791362",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4025-2023-esta-lei-altera-a-lei-no-10-406-de-10-de-janeiro-de-2002-cod",
+      "selection_reason": "tipo=atualização cadastral peso=7 score_prop=22 → abaixo do limiar de novo artigo",
+      "processed_at": "2026-11-24T14:49:53-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -16199,22 +16219,15 @@
       "since": "2026-11-24",
       "editorial_topic_id": "ato-dou-portaria-gabpr-anpd-no-773-de-17-de-novembro-de-2026-661c44b9",
       "prioridade": 13
+    },
+    "chg_688b0893bb0eb9be": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-24",
+      "editorial_topic_id": "ato-cnj-resolucao-cnj-no-706-fb369bf3",
+      "prioridade": 15
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-11-01T03:09:36-03:00",
-      "dia": "2026-11-01",
-      "mudancas_novas": 2,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 0,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 179,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-11-02T08:05:40-03:00",
       "dia": "2026-11-02",
@@ -16849,6 +16862,19 @@
       "adiadas": 4,
       "stale": 0,
       "aguardando_curadoria": 162,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-24T14:49:53-03:00",
+      "dia": "2026-11-24",
+      "mudancas_novas": 24,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 1,
+      "stale": 0,
+      "aguardando_curadoria": 161,
       "run_id": null,
       "bootstrap": false
     }
