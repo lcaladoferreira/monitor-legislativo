@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-24"
+    "atualizado_em": "2026-11-25"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -16203,6 +16203,36 @@
       "selection_reason": "ato tipo=Portaria órgão=dou peso=5 → sem valor editorial independente",
       "processed_at": "2026-11-24T23:29:32-03:00",
       "run_id": null
+    },
+    "chg_46e758826110fb5f": {
+      "change_id": "chg_46e758826110fb5f",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-institui-normas-de-protecao-do-trabalhador-frente-a-decisoes",
+      "editorial_topic_id": "pl-5928-2026-institui-normas-de-protecao-do-trabalhador-frente-a-decisoes",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-25T10:00:46-03:00",
+      "run_id": null
+    },
+    "chg_257ee1fd24150c61": {
+      "change_id": "chg_257ee1fd24150c61",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-7174-2025-institui-o-selo-nacional-de-etica-algoritmica-para-produtos",
+      "selection_reason": "tipo=parecer peso=12 score_prop=33 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-25T10:00:46-03:00",
+      "run_id": null
+    },
+    "chg_9d51bc20d5e72a4e": {
+      "change_id": "chg_9d51bc20d5e72a4e",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-4881-2026-dispoe-sobre-os-deveres-de-governanca-seguranca-transparenci",
+      "selection_reason": "tipo=tramitação peso=3 score_prop=31 → registro de protocolo sem valor editorial",
+      "processed_at": "2026-11-25T10:00:46-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -16368,12 +16398,6 @@
       "editorial_topic_id": "pl-4025-2023-esta-lei-altera-a-lei-no-10-406-de-10-de-janeiro-de-2002-cod",
       "prioridade": 12
     },
-    "chg_46e758826110fb5f": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-23",
-      "editorial_topic_id": "pl-5928-2026-institui-normas-de-protecao-do-trabalhador-frente-a-decisoes",
-      "prioridade": 24
-    },
     "chg_97781159c8e36fc9": {
       "reason": "sem_cota_no_dia",
       "since": "2026-11-23",
@@ -16415,22 +16439,15 @@
       "since": "2026-11-24",
       "editorial_topic_id": "ato-cnj-resolucao-cnj-no-706-fb369bf3",
       "prioridade": 15
+    },
+    "chg_0fcd4153939b5608": {
+      "reason": "cota_diaria_atingida",
+      "since": "2026-11-25",
+      "editorial_topic_id": "pl-7174-2025-institui-o-selo-nacional-de-etica-algoritmica-para-produtos",
+      "prioridade": 13
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-11-03T07:55:12-03:00",
-      "dia": "2026-11-03",
-      "mudancas_novas": 11,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 11,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 180,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-11-03T15:30:42-03:00",
       "dia": "2026-11-03",
@@ -17063,6 +17080,19 @@
       "artigos_atualizados": 0,
       "ignoradas": 19,
       "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 153,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-25T10:00:45-03:00",
+      "dia": "2026-11-25",
+      "mudancas_novas": 25,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 2,
+      "adiadas": 1,
       "stale": 0,
       "aguardando_curadoria": 153,
       "run_id": null,
