@@ -3,16 +3,16 @@
     "descricao": "Atos, publicações e consultas dos órgãos monitorados (ANPD, CNJ, TSE, DOU, Planalto e MCTI), coletados automaticamente de fontes oficiais.",
     "chave_primaria": "id estável derivado da URL oficial",
     "nota": "Todo item traz URL oficial, órgão, fonte e as datas de detecção. Registros com relevância 'revisar' aguardam curadoria editorial. Nada é estimado.",
-    "total": 1395,
+    "total": 1396,
     "por_orgao": {
       "anpd": 169,
-      "cnj": 69,
+      "cnj": 70,
       "dou": 1053,
       "mcti": 88,
       "planalto": 14,
       "tse": 2
     },
-    "indice_total": 1395,
+    "indice_total": 1396,
     "execucao": "2026-11-26"
   },
   "atos": [
@@ -34,8 +34,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:f082fb58b96d5d7e",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-25T19:30:59-03:00",
       "id_execucao_primeira": "run_2026_11_25_1930",
       "historico": []
@@ -58,8 +58,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:151652adc0d2c11b",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-25T19:30:59-03:00",
       "id_execucao_primeira": "run_2026_11_25_1930",
       "historico": []
@@ -1978,8 +1978,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:9fba29e3bd490e9f",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-23T18:21:43-03:00",
       "id_execucao_primeira": "run_2026_11_23_1821",
       "historico": []
@@ -2154,8 +2154,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:632301cca51e6f63",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-19T10:03:26-03:00",
       "id_execucao_primeira": "run_2026_11_19_1003",
       "historico": []
@@ -2718,6 +2718,30 @@
       "ultima_execucao": "run_2026_11_25_1930",
       "primeira_deteccao": "2026-11-19T10:03:26-03:00",
       "id_execucao_primeira": "run_2026_11_19_1003",
+      "historico": []
+    },
+    {
+      "id": "cnj_atos_cnj_jus_br_atos_detalhar_7207",
+      "orgao": "cnj",
+      "tipo": "ato_normativo",
+      "titulo": "Portaria CNJ nº 563",
+      "descricao": "Altera a Portaria Presidência nº 270/2025, que designa os integrantes do Comitê Nacional de Inteligência Artificial do Judiciário, instituído pela Resolução CNJ nº 615/2025. Situação: Vigente. SEI n. 14013/2025",
+      "data": "2026-11-18",
+      "url_oficial": "https://atos.cnj.jus.br/atos/detalhar/7207",
+      "fonte": "CNJ — Conselho Nacional de Justiça — atos normativos recentes",
+      "canais": [
+        "atos normativos recentes"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": "Vigente",
+      "tipo_ato": "Portaria",
+      "hierarquia": null,
+      "texto_hash": "sha1:723e85e59c09e491",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
+      "primeira_deteccao": "2026-11-26T12:13:27-03:00",
+      "id_execucao_primeira": "run_2026_11_26_1213",
       "historico": []
     },
     {
@@ -3515,8 +3539,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:6753e6f17f9473c4",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-18T10:56:47-03:00",
       "id_execucao_primeira": "run_2026_11_18_1056",
       "historico": []
@@ -3564,8 +3588,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:cc936df65ae04007",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-17T19:21:51-03:00",
       "id_execucao_primeira": "run_2026_11_17_1921",
       "historico": []
@@ -3589,8 +3613,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:4ba59c19e0412c2b",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-17T19:21:51-03:00",
       "id_execucao_primeira": "run_2026_11_17_1921",
       "historico": []
@@ -3891,9 +3915,10 @@
       "descricao": "Altera a Resolução CNJ nº 396, de 7 de junho de 2021, que institui a Estratégia Nacional de Segurança Cibernética do Poder Judiciário (ENSEC-PJ). Situação: Vigente. SEI n. 24347/2026",
       "data": "2026-11-16",
       "url_oficial": "https://atos.cnj.jus.br/atos/detalhar/7200",
-      "fonte": "CNJ — Conselho Nacional de Justiça — atos normativos recentes",
+      "fonte": "CNJ — Conselho Nacional de Justiça — atos normativos recentes (página 2)",
       "canais": [
-        "atos normativos recentes"
+        "atos normativos recentes",
+        "atos normativos recentes (página 2)"
       ],
       "relevancia": "forte",
       "revisao_pendente": false,
@@ -3901,8 +3926,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": null,
       "texto_hash": "sha1:afab3b9f4ed9ef61",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-24T14:42:05-03:00",
       "id_execucao_primeira": "run_2026_11_24_1442",
       "historico": []
@@ -4070,8 +4095,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:344cbb14696202f5",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-16T17:27:51-03:00",
       "id_execucao_primeira": "run_2026_11_16_1727",
       "historico": []
@@ -4623,8 +4648,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:6fa328ac4cc4fd5d",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-13T19:36:34-03:00",
       "id_execucao_primeira": "run_2026_11_13_1936",
       "historico": []
@@ -5056,8 +5081,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:eac868ac0176f1ad",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-12T21:21:29-03:00",
       "id_execucao_primeira": "run_2026_11_12_2121",
       "historico": []
@@ -6941,8 +6966,8 @@
       "tipo_ato": "Informativo de Jurisprudência",
       "hierarquia": null,
       "texto_hash": "sha1:869f25e0a1e24671",
-      "ultima_verificacao": "2026-11-26T02:01:35-03:00",
-      "ultima_execucao": "run_2026_11_26_0201",
+      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
+      "ultima_execucao": "run_2026_11_26_1213",
       "primeira_deteccao": "2026-11-09T23:07:04-03:00",
       "id_execucao_primeira": "run_2026_11_09_2307",
       "historico": []
@@ -35715,6 +35740,12 @@
         "h": "sha1:151652adc0d2c11b",
         "s": null,
         "d": "2026-11-25T19:30:59-03:00",
+        "v": "2026-11-26"
+      },
+      "cnj_atos_cnj_jus_br_atos_detalhar_7207": {
+        "h": "sha1:723e85e59c09e491",
+        "s": "Vigente",
+        "d": "2026-11-26T12:13:27-03:00",
         "v": "2026-11-26"
       }
     },

@@ -16673,6 +16673,16 @@
       "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
       "processed_at": "2026-11-26T02:09:27-03:00",
       "run_id": null
+    },
+    "chg_c71b105b4cacdeb2": {
+      "change_id": "chg_c71b105b4cacdeb2",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "req-51-2026-requer-a-realizacao-de-seminario-sob-o-nome-de-4o-forum-legi",
+      "selection_reason": "tipo=arquivamento peso=2 score_prop=19 → abaixo do limiar de atualização",
+      "processed_at": "2026-11-26T12:21:24-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -16903,22 +16913,21 @@
       "since": "2026-11-25",
       "editorial_topic_id": "pl-212-2026-criminaliza-a-producao-e-a-disseminacao-de-conteudo-audiovis",
       "prioridade": 13
+    },
+    "chg_1ad9834f63b9a85f": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-26",
+      "editorial_topic_id": "ato-cnj-portaria-cnj-no-563-afbdc1dd",
+      "prioridade": 12
+    },
+    "chg_c420e627d98b2381": {
+      "reason": "sem_cota_no_dia",
+      "since": "2026-11-26",
+      "editorial_topic_id": "pl-5988-2026-altera-a-lei-no-12-965-de-23-de-abril-de-2014-marco-civil-da",
+      "prioridade": 14
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-11-04T03:23:28-03:00",
-      "dia": "2026-11-04",
-      "mudancas_novas": 23,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 15,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 175,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-11-04T12:31:56-03:00",
       "dia": "2026-11-04",
@@ -17553,6 +17562,19 @@
       "adiadas": 0,
       "stale": 1,
       "aguardando_curadoria": 146,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-26T12:21:24-03:00",
+      "dia": "2026-11-26",
+      "mudancas_novas": 29,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 2,
+      "stale": 0,
+      "aguardando_curadoria": 145,
       "run_id": null,
       "bootstrap": false
     }
