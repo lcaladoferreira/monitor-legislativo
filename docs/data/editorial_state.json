@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-25"
+    "atualizado_em": "2026-11-26"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -16653,15 +16653,29 @@
       "selection_reason": "tipo=apensação peso=4 score_prop=54 → abaixo do limiar de atualização",
       "processed_at": "2026-11-25T19:37:35-03:00",
       "run_id": null
+    },
+    "chg_8393139f143a76d0": {
+      "change_id": "chg_8393139f143a76d0",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-3009-2025-altera-a-lei-no-9-394-de-20-de-dezembro-de-1996-para-estabel",
+      "selection_reason": "stale: candidato adiado há mais de 30 dias sem artigo",
+      "processed_at": "2026-11-26T02:09:27-03:00",
+      "run_id": null
+    },
+    "chg_8626411cc3bcb3fe": {
+      "change_id": "chg_8626411cc3bcb3fe",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-altera-a-lei-no-9-503-de-23-de-setembro-de-1997-codigo-de-tr",
+      "editorial_topic_id": "pl-1175-2026-altera-a-lei-no-9-503-de-23-de-setembro-de-1997-codigo-de-tr",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-26T02:09:27-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
-    "chg_8393139f143a76d0": {
-      "reason": "cota_diaria_atingida",
-      "since": "2026-10-26",
-      "editorial_topic_id": "pl-3009-2025-altera-a-lei-no-9-394-de-20-de-dezembro-de-1996-para-estabel",
-      "prioridade": 19
-    },
     "chg_ff2184c3c3fc48b4": {
       "reason": "sem_cota_no_dia",
       "since": "2026-10-28",
@@ -16892,19 +16906,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-11-03T21:02:08-03:00",
-      "dia": "2026-11-03",
-      "mudancas_novas": 14,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 7,
-      "adiadas": 5,
-      "stale": 0,
-      "aguardando_curadoria": 180,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-11-04T03:23:28-03:00",
       "dia": "2026-11-04",
@@ -17538,6 +17539,19 @@
       "ignoradas": 39,
       "adiadas": 4,
       "stale": 0,
+      "aguardando_curadoria": 146,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-26T02:09:27-03:00",
+      "dia": "2026-11-26",
+      "mudancas_novas": 27,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
+      "adiadas": 0,
+      "stale": 1,
       "aguardando_curadoria": 146,
       "run_id": null,
       "bootstrap": false
