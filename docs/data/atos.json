@@ -3,19 +3,43 @@
     "descricao": "Atos, publicações e consultas dos órgãos monitorados (ANPD, CNJ, TSE, DOU, Planalto e MCTI), coletados automaticamente de fontes oficiais.",
     "chave_primaria": "id estável derivado da URL oficial",
     "nota": "Todo item traz URL oficial, órgão, fonte e as datas de detecção. Registros com relevância 'revisar' aguardam curadoria editorial. Nada é estimado.",
-    "total": 1396,
+    "total": 1397,
     "por_orgao": {
       "anpd": 169,
-      "cnj": 70,
+      "cnj": 71,
       "dou": 1053,
       "mcti": 88,
       "planalto": 14,
       "tse": 2
     },
-    "indice_total": 1396,
+    "indice_total": 1397,
     "execucao": "2026-11-26"
   },
   "atos": [
+    {
+      "id": "cnj_cnj_jus_br_inovacao_em_comunicacao_publica_iniciativas_do_cnj_e_do_pnud_sao_destaque_em_atlas_global",
+      "orgao": "cnj",
+      "tipo": "noticia",
+      "titulo": "Inovação em comunicação pública: iniciativas do CNJ e do PNUD são destaque em atlas global",
+      "descricao": "Experiências inovadoras na área de comunicação voltadas à transparência, à participação social e à inclusão foram reunidas em uma nova ferramenta do PNUD global. Lançado em novembro, o Atlas da Inovação em Comunicação Pública, reúne 173 experiências inovadoras de comunicação pública de 50 países. O Brasil lidera a seleção, com 63 iniciativas mapeadas. Entre elas […]",
+      "data": "2026-11-26",
+      "url_oficial": "https://www.cnj.jus.br/inovacao-em-comunicacao-publica-iniciativas-do-cnj-e-do-pnud-sao-destaque-em-atlas-global/",
+      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
+      "canais": [
+        "notícias oficiais"
+      ],
+      "relevancia": "revisar",
+      "revisao_pendente": true,
+      "situacao": null,
+      "tipo_ato": "post",
+      "hierarquia": null,
+      "texto_hash": "sha1:ce950ed29651b25e",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
+      "primeira_deteccao": "2026-11-26T20:51:23-03:00",
+      "id_execucao_primeira": "run_2026_11_26_2051",
+      "historico": []
+    },
     {
       "id": "cnj_cnj_jus_br_corregedoria_do_tjrj_autoriza_a_coleta_de_biometria_em_recem_nascidos",
       "orgao": "cnj",
@@ -34,8 +58,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:f082fb58b96d5d7e",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-25T19:30:59-03:00",
       "id_execucao_primeira": "run_2026_11_25_1930",
       "historico": []
@@ -58,8 +82,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:151652adc0d2c11b",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-25T19:30:59-03:00",
       "id_execucao_primeira": "run_2026_11_25_1930",
       "historico": []
@@ -1978,8 +2002,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:9fba29e3bd490e9f",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-23T18:21:43-03:00",
       "id_execucao_primeira": "run_2026_11_23_1821",
       "historico": []
@@ -2144,9 +2168,10 @@
       "descricao": "Integrar a Gestão de Processos e a Gestão de Riscos em um único modelo, com apoio da inteligência artificial, para aprimorar o planejamento, prevenir falhas e tornar mais seguras as decisões administrativas. Essa é a proposta do ProRisk, desenvolvido pelo Tribunal Regional do Trabalho da 18ª Região (TRT-18), em Goiás. A prática faz parte das […]",
       "data": "2026-11-19",
       "url_oficial": "https://www.cnj.jus.br/boas-praticas-sistema-com-inteligencia-artificial-aprimora-gestao-de-riscos-no-judiciario/",
-      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
+      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais (página 2)",
       "canais": [
-        "notícias oficiais"
+        "notícias oficiais",
+        "notícias oficiais (página 2)"
       ],
       "relevancia": "forte",
       "revisao_pendente": false,
@@ -2154,8 +2179,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:632301cca51e6f63",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-19T10:03:26-03:00",
       "id_execucao_primeira": "run_2026_11_19_1003",
       "historico": []
@@ -2738,8 +2763,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": null,
       "texto_hash": "sha1:723e85e59c09e491",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-26T12:13:27-03:00",
       "id_execucao_primeira": "run_2026_11_26_1213",
       "historico": []
@@ -3539,8 +3564,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:6753e6f17f9473c4",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-18T10:56:47-03:00",
       "id_execucao_primeira": "run_2026_11_18_1056",
       "historico": []
@@ -3588,8 +3613,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:cc936df65ae04007",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-17T19:21:51-03:00",
       "id_execucao_primeira": "run_2026_11_17_1921",
       "historico": []
@@ -3613,8 +3638,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:4ba59c19e0412c2b",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-17T19:21:51-03:00",
       "id_execucao_primeira": "run_2026_11_17_1921",
       "historico": []
@@ -3926,8 +3951,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": null,
       "texto_hash": "sha1:afab3b9f4ed9ef61",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-24T14:42:05-03:00",
       "id_execucao_primeira": "run_2026_11_24_1442",
       "historico": []
@@ -4095,8 +4120,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:344cbb14696202f5",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-16T17:27:51-03:00",
       "id_execucao_primeira": "run_2026_11_16_1727",
       "historico": []
@@ -4648,8 +4673,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:6fa328ac4cc4fd5d",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-13T19:36:34-03:00",
       "id_execucao_primeira": "run_2026_11_13_1936",
       "historico": []
@@ -6966,8 +6991,8 @@
       "tipo_ato": "Informativo de Jurisprudência",
       "hierarquia": null,
       "texto_hash": "sha1:869f25e0a1e24671",
-      "ultima_verificacao": "2026-11-26T12:13:27-03:00",
-      "ultima_execucao": "run_2026_11_26_1213",
+      "ultima_verificacao": "2026-11-26T20:51:23-03:00",
+      "ultima_execucao": "run_2026_11_26_2051",
       "primeira_deteccao": "2026-11-09T23:07:04-03:00",
       "id_execucao_primeira": "run_2026_11_09_2307",
       "historico": []
@@ -35746,6 +35771,12 @@
         "h": "sha1:723e85e59c09e491",
         "s": "Vigente",
         "d": "2026-11-26T12:13:27-03:00",
+        "v": "2026-11-26"
+      },
+      "cnj_cnj_jus_br_inovacao_em_comunicacao_publica_iniciativas_do_cnj_e_do_pnud_sao_destaque_em_atlas_global": {
+        "h": "sha1:ce950ed29651b25e",
+        "s": null,
+        "d": "2026-11-26T20:51:23-03:00",
         "v": "2026-11-26"
       }
     },
