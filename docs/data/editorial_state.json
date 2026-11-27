@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-26"
+    "atualizado_em": "2026-11-27"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -16803,6 +16803,26 @@
       "selection_reason": "tipo=apensação peso=4 score_prop=40 → sem valor editorial independente",
       "processed_at": "2026-11-26T20:59:25-03:00",
       "run_id": null
+    },
+    "chg_48c89b99720a8ef0": {
+      "change_id": "chg_48c89b99720a8ef0",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-criminaliza-a-manipulacao-ou-adulteracao-de-fotos-videos-ou-",
+      "editorial_topic_id": "pl-5694-2023-criminaliza-a-manipulacao-ou-adulteracao-de-fotos-videos-ou",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-27T05:36:50-03:00",
+      "run_id": null
+    },
+    "chg_6decdbd64fdfb56f": {
+      "change_id": "chg_6decdbd64fdfb56f",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-criminaliza-a-manipulacao-ou-adulteracao-de-fotos-videos-ou-",
+      "editorial_topic_id": "pl-5694-2023-criminaliza-a-manipulacao-ou-adulteracao-de-fotos-videos-ou",
+      "selection_reason": "incorporado na criação do artigo",
+      "processed_at": "2026-11-27T05:36:50-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -17045,34 +17065,9 @@
       "since": "2026-11-26",
       "editorial_topic_id": "pl-5988-2026-altera-a-lei-no-12-965-de-23-de-abril-de-2014-marco-civil-da",
       "prioridade": 14
-    },
-    "chg_48c89b99720a8ef0": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-26",
-      "editorial_topic_id": "pl-4272-2024-altera-o-estatuto-da-crianca-e-do-adolescente-e-a-lei-de-cri",
-      "prioridade": 27
-    },
-    "chg_6decdbd64fdfb56f": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-11-26",
-      "editorial_topic_id": "pl-5694-2023-criminaliza-a-manipulacao-ou-adulteracao-de-fotos-videos-ou",
-      "prioridade": 19
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-11-04T18:57:19-03:00",
-      "dia": "2026-11-04",
-      "mudancas_novas": 13,
-      "novos_artigos": 0,
-      "artigos_atualizados": 2,
-      "ignoradas": 4,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 171,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-11-04T23:33:20-03:00",
       "dia": "2026-11-04",
@@ -17705,6 +17700,19 @@
       "artigos_atualizados": 6,
       "ignoradas": 6,
       "adiadas": 2,
+      "stale": 0,
+      "aguardando_curadoria": 146,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-27T05:36:50-03:00",
+      "dia": "2026-11-27",
+      "mudancas_novas": 30,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
+      "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 146,
       "run_id": null,
