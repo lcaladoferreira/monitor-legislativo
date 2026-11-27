@@ -3,25 +3,73 @@
     "descricao": "Atos, publicações e consultas dos órgãos monitorados (ANPD, CNJ, TSE, DOU, Planalto e MCTI), coletados automaticamente de fontes oficiais.",
     "chave_primaria": "id estável derivado da URL oficial",
     "nota": "Todo item traz URL oficial, órgão, fonte e as datas de detecção. Registros com relevância 'revisar' aguardam curadoria editorial. Nada é estimado.",
-    "total": 1397,
+    "total": 1399,
     "por_orgao": {
       "anpd": 169,
-      "cnj": 71,
+      "cnj": 73,
       "dou": 1053,
       "mcti": 88,
       "planalto": 14,
       "tse": 2
     },
-    "indice_total": 1397,
+    "indice_total": 1399,
     "execucao": "2026-11-27"
   },
   "atos": [
     {
+      "id": "cnj_cnj_jus_br_novembro_alerta_novas_publicacoes_ajudam_a_justica_a_se_proteger_de_golpes_digitais",
+      "orgao": "cnj",
+      "tipo": "noticia",
+      "titulo": "Novembro Alerta: novas publicações ajudam a Justiça a se proteger de golpes digitais",
+      "descricao": "Uma série de publicações de orientação sobre segurança cibernética estão disponíveis para profissionais de toda a Justiça brasileira. Cartilhas, guias práticos, glossário e boletim informativo integraram as ações da campanha Novembro Alerta, iniciativa do programa Justiça [+Segura] para conscientizar magistrados e servidores sobre formas de prevenir incidentes digitais e proteger dados, sistemas e serviços do […]",
+      "data": "2026-11-27",
+      "url_oficial": "https://www.cnj.jus.br/novembro-alerta-novas-publicacoes-ajudam-a-justica-a-se-proteger-de-golpes-digitais/",
+      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
+      "canais": [
+        "notícias oficiais"
+      ],
+      "relevancia": "forte",
+      "revisao_pendente": false,
+      "situacao": null,
+      "tipo_ato": "post",
+      "hierarquia": null,
+      "texto_hash": "sha1:63e5d31a6f62f05d",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
+      "primeira_deteccao": "2026-11-27T15:57:33-03:00",
+      "id_execucao_primeira": "run_2026_11_27_1557",
+      "historico": []
+    },
+    {
+      "id": "cnj_cnj_jus_br_monitor_da_violencia_contra_a_mulher_de_mato_grosso_do_sul_passa_a_integrar_as_boas_praticas_do_pod",
+      "orgao": "cnj",
+      "tipo": "noticia",
+      "titulo": "Monitor da Violência Contra a Mulher de Mato Grosso do Sul passa a integrar as boas práticas do Poder Judiciário",
+      "descricao": "Reunindo dez anos de dados sobre feminicídios, estupros, violência doméstica e medidas protetivas de urgência nos 79 municípios de Mato Grosso do Sul, o Monitor da Violência Contra a Mulher, plataforma digital do Tribunal de Justiça de Mato Grosso do Sul (TJMS), passou a integrar o Portal CNJ de Boas Práticas do Poder Judiciário. Com […]",
+      "data": "2026-11-27",
+      "url_oficial": "https://www.cnj.jus.br/monitor-da-violencia-contra-a-mulher-de-mato-grosso-do-sul-passa-a-integrar-as-boas-praticas-do-poder-judiciario/",
+      "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
+      "canais": [
+        "notícias oficiais"
+      ],
+      "relevancia": "revisar",
+      "revisao_pendente": true,
+      "situacao": null,
+      "tipo_ato": "post",
+      "hierarquia": null,
+      "texto_hash": "sha1:0e512be68f05f274",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
+      "primeira_deteccao": "2026-11-27T15:57:33-03:00",
+      "id_execucao_primeira": "run_2026_11_27_1557",
+      "historico": []
+    },
+    {
       "id": "cnj_cnj_jus_br_inovacao_em_comunicacao_publica_iniciativas_do_cnj_e_do_pnud_sao_destaque_em_atlas_global",
       "orgao": "cnj",
       "tipo": "noticia",
-      "titulo": "Inovação em comunicação pública: iniciativas do CNJ e do PNUD são destaque em atlas global",
-      "descricao": "Experiências inovadoras na área de comunicação voltadas à transparência, à participação social e à inclusão foram reunidas em uma nova ferramenta do PNUD global. Lançado em novembro, o Atlas da Inovação em Comunicação Pública, reúne 173 experiências inovadoras de comunicação pública de 50 países. O Brasil lidera a seleção, com 63 iniciativas mapeadas. Entre elas […]",
+      "titulo": "Inovação em comunicação pública: iniciativas do CNJ e do Pnud são destaque em atlas global",
+      "descricao": "Experiências inovadoras na área de comunicação voltadas à transparência, à participação social e à inclusão foram reunidas em uma nova ferramenta do Pnud global. Lançado em novembro, o Atlas da Inovação em Comunicação Pública reúne 173 experiências inovadoras de comunicação pública de 50 países. O Brasil lidera a seleção, com 63 iniciativas mapeadas. Entre elas, estão […]",
       "data": "2026-11-26",
       "url_oficial": "https://www.cnj.jus.br/inovacao-em-comunicacao-publica-iniciativas-do-cnj-e-do-pnud-sao-destaque-em-atlas-global/",
       "fonte": "CNJ — Conselho Nacional de Justiça — notícias oficiais",
@@ -33,12 +81,20 @@
       "situacao": null,
       "tipo_ato": "post",
       "hierarquia": null,
-      "texto_hash": "sha1:ce950ed29651b25e",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "texto_hash": "sha1:116c4ff369fc8975",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-26T20:51:23-03:00",
       "id_execucao_primeira": "run_2026_11_26_2051",
-      "historico": []
+      "historico": [
+        {
+          "data_deteccao": "2026-11-27T15:57:33-03:00",
+          "id_execucao": "run_2026_11_27_1557",
+          "campo": "texto",
+          "anterior": "sha1:ce950ed29651b25e",
+          "novo": "sha1:116c4ff369fc8975"
+        }
+      ]
     },
     {
       "id": "cnj_cnj_jus_br_corregedoria_do_tjrj_autoriza_a_coleta_de_biometria_em_recem_nascidos",
@@ -58,8 +114,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:f082fb58b96d5d7e",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-25T19:30:59-03:00",
       "id_execucao_primeira": "run_2026_11_25_1930",
       "historico": []
@@ -82,8 +138,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:151652adc0d2c11b",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-25T19:30:59-03:00",
       "id_execucao_primeira": "run_2026_11_25_1930",
       "historico": []
@@ -2002,8 +2058,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:9fba29e3bd490e9f",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-23T18:21:43-03:00",
       "id_execucao_primeira": "run_2026_11_23_1821",
       "historico": []
@@ -2179,8 +2235,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:632301cca51e6f63",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-19T10:03:26-03:00",
       "id_execucao_primeira": "run_2026_11_19_1003",
       "historico": []
@@ -2763,8 +2819,8 @@
       "tipo_ato": "Portaria",
       "hierarquia": null,
       "texto_hash": "sha1:723e85e59c09e491",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-26T12:13:27-03:00",
       "id_execucao_primeira": "run_2026_11_26_1213",
       "historico": []
@@ -3564,8 +3620,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:6753e6f17f9473c4",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-18T10:56:47-03:00",
       "id_execucao_primeira": "run_2026_11_18_1056",
       "historico": []
@@ -3613,8 +3669,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:cc936df65ae04007",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-17T19:21:51-03:00",
       "id_execucao_primeira": "run_2026_11_17_1921",
       "historico": []
@@ -3638,8 +3694,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:4ba59c19e0412c2b",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-17T19:21:51-03:00",
       "id_execucao_primeira": "run_2026_11_17_1921",
       "historico": []
@@ -3951,8 +4007,8 @@
       "tipo_ato": "Resolução",
       "hierarquia": null,
       "texto_hash": "sha1:afab3b9f4ed9ef61",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-24T14:42:05-03:00",
       "id_execucao_primeira": "run_2026_11_24_1442",
       "historico": []
@@ -4120,8 +4176,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:344cbb14696202f5",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-16T17:27:51-03:00",
       "id_execucao_primeira": "run_2026_11_16_1727",
       "historico": []
@@ -4673,8 +4729,8 @@
       "tipo_ato": "post",
       "hierarquia": null,
       "texto_hash": "sha1:6fa328ac4cc4fd5d",
-      "ultima_verificacao": "2026-11-27T05:28:48-03:00",
-      "ultima_execucao": "run_2026_11_27_0528",
+      "ultima_verificacao": "2026-11-27T15:57:33-03:00",
+      "ultima_execucao": "run_2026_11_27_1557",
       "primeira_deteccao": "2026-11-13T19:36:34-03:00",
       "id_execucao_primeira": "run_2026_11_13_1936",
       "historico": []
@@ -35774,9 +35830,21 @@
         "v": "2026-11-27"
       },
       "cnj_cnj_jus_br_inovacao_em_comunicacao_publica_iniciativas_do_cnj_e_do_pnud_sao_destaque_em_atlas_global": {
-        "h": "sha1:ce950ed29651b25e",
+        "h": "sha1:116c4ff369fc8975",
         "s": null,
         "d": "2026-11-26T20:51:23-03:00",
+        "v": "2026-11-27"
+      },
+      "cnj_cnj_jus_br_novembro_alerta_novas_publicacoes_ajudam_a_justica_a_se_proteger_de_golpes_digitais": {
+        "h": "sha1:63e5d31a6f62f05d",
+        "s": null,
+        "d": "2026-11-27T15:57:33-03:00",
+        "v": "2026-11-27"
+      },
+      "cnj_cnj_jus_br_monitor_da_violencia_contra_a_mulher_de_mato_grosso_do_sul_passa_a_integrar_as_boas_praticas_do_pod": {
+        "h": "sha1:0e512be68f05f274",
+        "s": null,
+        "d": "2026-11-27T15:57:33-03:00",
         "v": "2026-11-27"
       }
     },

@@ -16823,6 +16823,16 @@
       "selection_reason": "incorporado na criação do artigo",
       "processed_at": "2026-11-27T05:36:50-03:00",
       "run_id": null
+    },
+    "chg_47f10dc8b4629921": {
+      "change_id": "chg_47f10dc8b4629921",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "ato-cnj-novembro-alerta-novas-publicacoes-ajudam-a-justica-a-se-prot-b712bdd6",
+      "selection_reason": "ato tipo=post órgão=cnj peso=9 → sem valor editorial independente",
+      "processed_at": "2026-11-27T16:06:59-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
@@ -17068,19 +17078,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-11-04T23:33:20-03:00",
-      "dia": "2026-11-04",
-      "mudancas_novas": 9,
-      "novos_artigos": 0,
-      "artigos_atualizados": 0,
-      "ignoradas": 1,
-      "adiadas": 1,
-      "stale": 0,
-      "aguardando_curadoria": 171,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-11-05T08:01:38-03:00",
       "dia": "2026-11-05",
@@ -17715,6 +17712,19 @@
       "adiadas": 0,
       "stale": 0,
       "aguardando_curadoria": 146,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-27T16:06:59-03:00",
+      "dia": "2026-11-27",
+      "mudancas_novas": 29,
+      "novos_artigos": 0,
+      "artigos_atualizados": 0,
+      "ignoradas": 1,
+      "adiadas": 0,
+      "stale": 0,
+      "aguardando_curadoria": 143,
       "run_id": null,
       "bootstrap": false
     }
