@@ -1,7 +1,7 @@
 {
   "meta": {
     "descricao": "Estado editorial: cada mudança do monitor e a ação editorial tomada (auditoria)",
-    "atualizado_em": "2026-11-27"
+    "atualizado_em": "2026-11-28"
   },
   "processadas": {
     "chg_6177a29f4d30a928": {
@@ -16833,15 +16833,29 @@
       "selection_reason": "ato tipo=post órgão=cnj peso=9 → sem valor editorial independente",
       "processed_at": "2026-11-27T16:06:59-03:00",
       "run_id": null
+    },
+    "chg_ff2184c3c3fc48b4": {
+      "change_id": "chg_ff2184c3c3fc48b4",
+      "processed": true,
+      "editorial_action": "ignored",
+      "article_id": null,
+      "editorial_topic_id": "pl-6248-2025-dispoe-sobre-a-utilizacao-de-sistemas-de-inteligencia-artifi",
+      "selection_reason": "stale: candidato adiado há mais de 30 dias sem artigo",
+      "processed_at": "2026-11-28T07:31:10-03:00",
+      "run_id": null
+    },
+    "chg_3c2c895ba95fc73a": {
+      "change_id": "chg_3c2c895ba95fc73a",
+      "processed": true,
+      "editorial_action": "new_article",
+      "article_id": "art-republicacao",
+      "editorial_topic_id": "ato-planalto-republicacao-7394259e",
+      "selection_reason": "maior relevância editorial do dia | seleção: maior relevância editorial do dia",
+      "processed_at": "2026-11-28T07:31:10-03:00",
+      "run_id": null
     }
   },
   "pendentes": {
-    "chg_ff2184c3c3fc48b4": {
-      "reason": "sem_cota_no_dia",
-      "since": "2026-10-28",
-      "editorial_topic_id": "pl-6248-2025-dispoe-sobre-a-utilizacao-de-sistemas-de-inteligencia-artifi",
-      "prioridade": 16
-    },
     "chg_a835a5e2436c1bda": {
       "reason": "sem_cota_no_dia",
       "since": "2026-10-29",
@@ -17004,12 +17018,6 @@
       "editorial_topic_id": "pl-5931-2026-altera-a-lei-no-8-069-de-13-de-julho-de-1990-e-a-lei-no-6-01",
       "prioridade": 14
     },
-    "chg_3c2c895ba95fc73a": {
-      "reason": "cota_diaria_atingida",
-      "since": "2026-11-24",
-      "editorial_topic_id": "ato-planalto-republicacao-7394259e",
-      "prioridade": 17
-    },
     "chg_9f06f4392eeaab50": {
       "reason": "cota_diaria_atingida",
       "since": "2026-11-24",
@@ -17078,19 +17086,6 @@
     }
   },
   "execucoes": [
-    {
-      "executado_em": "2026-11-05T08:01:38-03:00",
-      "dia": "2026-11-05",
-      "mudancas_novas": 18,
-      "novos_artigos": 1,
-      "artigos_atualizados": 0,
-      "ignoradas": 10,
-      "adiadas": 0,
-      "stale": 0,
-      "aguardando_curadoria": 173,
-      "run_id": null,
-      "bootstrap": false
-    },
     {
       "executado_em": "2026-11-05T15:48:49-03:00",
       "dia": "2026-11-05",
@@ -17724,6 +17719,19 @@
       "ignoradas": 1,
       "adiadas": 0,
       "stale": 0,
+      "aguardando_curadoria": 143,
+      "run_id": null,
+      "bootstrap": false
+    },
+    {
+      "executado_em": "2026-11-28T07:31:10-03:00",
+      "dia": "2026-11-28",
+      "mudancas_novas": 28,
+      "novos_artigos": 1,
+      "artigos_atualizados": 0,
+      "ignoradas": 0,
+      "adiadas": 0,
+      "stale": 1,
       "aguardando_curadoria": 143,
       "run_id": null,
       "bootstrap": false
